@@ -41,7 +41,7 @@ a{color:inherit}
 .cta:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
 .page{display:none;position:relative;z-index:1}
 .page.active{display:block}
-#page-parcours.active,#page-planning.active,#page-generer.active{display:flex;flex-direction:column;height:calc(100vh - 79px);overflow:hidden}
+#page-parcours.active,#page-planning.active,#page-generer.active,#page-entrainement.active{display:flex;flex-direction:column;height:calc(100vh - 79px);overflow:hidden}
 .btn{font-family:var(--grot);font-size:14px;font-weight:700;border:2.5px solid var(--ink);border-radius:999px;cursor:pointer;padding:13px 26px;text-transform:lowercase;display:inline-flex;align-items:center;gap:8px;box-shadow:4px 4px 0 var(--ink);transition:transform .12s,box-shadow .12s;text-decoration:none}
 .btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
 .btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
@@ -51,12 +51,11 @@ a{color:inherit}
 .btn-ghost{background:transparent;color:var(--ink);box-shadow:none}
 .btn-ghost:hover{background:var(--ink);color:var(--paper);transform:none;box-shadow:none}
 .btn-ghost:active{transform:translate(2px,2px);box-shadow:none}
-.hero{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:end;max-width:1180px;padding:64px 40px 56px;margin:0 auto}
+.hero{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;max-width:1180px;padding:56px 40px 56px;margin:0 auto}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--lcd);color:var(--green-deep);border:2.5px solid var(--ink);border-radius:999px;padding:7px 14px;box-shadow:3px 3px 0 var(--ink);transform:rotate(-2deg);align-self:flex-start}
 .hero-title{font-family:var(--anton);font-size:clamp(44px,6.4vw,84px);line-height:.96;text-transform:uppercase;margin:22px 0 0;letter-spacing:.005em;color:var(--ink)}
 .hero-title .l2{color:var(--cobalt)}
 .hero-lead{font-size:17px;line-height:1.6;color:var(--ink);max-width:42ch;margin-top:24px;font-weight:500}
-.hero-right{margin-bottom:32px}
 .hero-ctas{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap}
 .hero-fine{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:16px;letter-spacing:.02em}
 .cd-wrap{display:flex;flex-direction:column;gap:14px}
@@ -73,6 +72,22 @@ a{color:inherit}
 .sec-h2 .accent{color:var(--cobalt)}
 .sec-lead{font-size:17px;line-height:1.6;color:var(--ink);max-width:64ch;margin-top:18px;font-weight:500}
 .demo-stage{margin-top:40px}
+.train-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:32px}
+.train-card{background:var(--paper-2);border:3px solid var(--ink);border-radius:18px;box-shadow:5px 5px 0 var(--ink);padding:22px 20px;display:flex;flex-direction:column;gap:10px}
+.train-card-tag{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green-deep);background:var(--lcd);border:2px solid var(--ink);border-radius:999px;padding:3px 10px;align-self:flex-start}
+.train-card-name{font-family:var(--anton);font-size:24px;text-transform:uppercase;line-height:.95}
+.train-card-meta{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.train-card-btn{margin-top:6px;font-family:var(--grot);font-size:13px;font-weight:700;background:var(--cobalt);color:#fff;border:2.5px solid var(--ink);border-radius:999px;padding:10px;cursor:pointer;text-transform:lowercase;box-shadow:3px 3px 0 var(--ink);transition:transform .1s,box-shadow .1s}
+.train-card-btn:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--ink)}
+.train-card-btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.hero-stickers{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:16px 20px;margin-bottom:30px}
+.hero-stickers .stk svg{height:76px;width:auto;display:block}
+.stk{filter:drop-shadow(3px 4px 0 rgba(27,42,30,.22))}
+.stk-word{font-family:var(--anton);text-transform:uppercase;line-height:.82;display:flex;flex-direction:column;color:var(--green);text-shadow:3px 3px 0 var(--ink);font-size:34px;transform:rotate(-4deg);letter-spacing:.01em}
+.stk-mouth{transform:rotate(-7deg)}
+.stk-heart{transform:rotate(6deg)}
+.stk-pencil{transform:rotate(2deg)}
+.stk-slogan{background:var(--amber);border:2.5px solid var(--ink);border-radius:12px;box-shadow:4px 4px 0 var(--ink);padding:9px 13px;font-family:var(--anton);text-transform:uppercase;color:var(--ink);line-height:.9;transform:rotate(4deg);text-align:center;font-size:16px}
 .exo-demo{background:var(--paper-2);border:3px solid var(--ink);border-radius:18px;overflow:hidden;max-width:860px;margin:0 auto;box-shadow:5px 5px 0 var(--ink)}
 .exo-demo-body{padding:22px 26px 26px;display:flex;flex-direction:column;gap:16px}
 .exo-demo-tabs{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
@@ -105,8 +120,8 @@ a{color:inherit}
 @keyframes ball-loop{from{transform:rotate(0)}to{transform:rotate(-360deg)}}
 .wheel-spin.once{animation:wheel-once 3.4s cubic-bezier(.2,.65,.25,1) forwards}
 @keyframes wheel-once{0%{transform:rotate(0)}75%{transform:rotate(calc(var(--we,1200deg) - 20deg))}90%{transform:rotate(calc(var(--we,1200deg) + 8deg))}100%{transform:rotate(var(--we,1200deg))}}
-.exo-demo-reveal{max-height:0;overflow:hidden;transition:max-height .45s ease,margin-top .45s ease;background:var(--lcd);border:2.5px solid var(--ink);border-radius:12px}
-.exo-demo-reveal.open{max-height:240px;margin-top:4px}
+.exo-demo-reveal{max-height:0;overflow:hidden;transition:max-height .45s ease,margin-top .45s ease,border-color .3s ease,background-color .3s ease;background:transparent;border:2.5px solid transparent;border-radius:12px}
+.exo-demo-reveal.open{max-height:240px;margin-top:4px;border-color:var(--ink);background:var(--lcd)}
 .exo-demo-reveal-head{display:flex;justify-content:space-between;align-items:center;padding:12px 16px 6px}
 .exo-demo-reveal-badge{font-family:var(--mono);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--green-deep)}
 .exo-demo-reveal-pts{font-family:var(--anton);font-size:14px;color:var(--clay)}
@@ -155,28 +170,28 @@ a{color:inherit}
 .footer-bar-copy{font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.8);letter-spacing:.04em}
 .footer-bar-slogan{font-family:var(--anton);font-size:16px;color:#fff;text-transform:uppercase;letter-spacing:.03em}
 .footer-bar-slogan span{color:var(--amber)}
-.gen-layout{display:grid;grid-template-columns:1fr 1fr;flex:1 1 0;min-height:0;overflow:hidden}
-.gen-left{padding:28px 36px;border-right:3px solid var(--ink);display:flex;flex-direction:column;gap:22px;overflow-y:auto}
-.gen-right{padding:28px 36px;display:flex;flex-direction:column;gap:20px;overflow:hidden}
+.gen-layout{flex:1 1 0;min-height:0;overflow-y:auto;display:flex;justify-content:center}
+.gen-col{width:100%;max-width:600px;padding:32px 30px 44px;display:flex;flex-direction:column;gap:24px}
 .gen-title{font-family:var(--anton);font-size:clamp(30px,3.4vw,46px);text-transform:uppercase;line-height:.95}
 .gen-title span{color:var(--cobalt)}
 .gen-label{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
-.duree-list{display:flex;flex-direction:column;gap:7px}
-.duree-chip{font-family:var(--grot);font-size:14px;font-weight:600;padding:10px 14px;border:2.5px solid var(--ink);border-radius:12px;background:var(--paper-2);cursor:pointer;display:flex;justify-content:space-between;align-items:center;box-shadow:3px 3px 0 var(--ink);transition:transform .1s,box-shadow .1s}
-.duree-chip:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--ink)}
+.duree-list{display:flex;flex-wrap:wrap;gap:8px}
+.duree-chip{flex:1 1 auto;justify-content:center;min-width:84px}
+.duree-chip{font-family:var(--grot);font-size:14px;font-weight:600;padding:10px 14px;border:2.5px solid var(--ink);border-radius:12px;background:var(--paper-2);cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background .12s}
+.duree-chip:hover{background:var(--lcd)}
 .duree-chip.sel{background:var(--cobalt);color:#fff}
 .duree-sub{font-family:var(--mono);font-size:9px;font-weight:400;opacity:.7;text-transform:uppercase;letter-spacing:.05em}
 .notions-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
-.notion-chip{font-family:var(--grot);font-size:11px;font-weight:600;padding:9px 11px;border:2.5px solid var(--ink);border-radius:10px;background:var(--paper-2);cursor:pointer;display:flex;align-items:center;gap:8px;box-shadow:3px 3px 0 var(--ink);transition:transform .1s,box-shadow .1s;text-align:left}
-.notion-chip:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--ink)}
+.notion-chip{font-family:var(--grot);font-size:11px;font-weight:600;padding:9px 11px;border:2.5px solid var(--ink);border-radius:10px;background:var(--paper-2);cursor:pointer;display:flex;align-items:center;gap:8px;transition:background .12s;text-align:left}
+.notion-chip:hover{background:var(--lcd)}
 .notion-chip.sel{background:var(--lcd)}
 .notion-chip.all-chip{grid-column:1/-1;font-family:var(--mono);font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:11px}
 .notion-chip.all-chip.sel{background:var(--ink);color:var(--paper)}
 .ncheck{width:16px;height:16px;border:2px solid var(--ink);border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;background:#fff}
 .notion-chip.sel .ncheck{background:var(--green);border-color:var(--ink);color:#fff}
 .notion-chip.all-chip.sel .ncheck{background:#fff;color:var(--ink)}
-.corr-chip{width:100%;display:flex;justify-content:space-between;align-items:center;padding:11px 14px;border:2.5px solid var(--ink);border-radius:12px;background:var(--paper-2);cursor:pointer;box-shadow:3px 3px 0 var(--ink);margin-bottom:8px;text-align:left;transition:transform .1s,box-shadow .1s}
-.corr-chip:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--ink)}
+.corr-chip{width:100%;display:flex;justify-content:space-between;align-items:center;padding:11px 14px;border:2.5px solid var(--ink);border-radius:12px;background:var(--paper-2);cursor:pointer;margin-bottom:8px;text-align:left;transition:background .12s}
+.corr-chip:hover{background:var(--lcd)}
 .corr-chip.sel{background:var(--lcd)}
 .corr-title{font-weight:700;font-size:13px}
 .corr-sub{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:2px}
@@ -189,8 +204,9 @@ a{color:inherit}
 .recap-tags{display:flex;flex-wrap:wrap;gap:6px}
 .recap-tag{font-family:var(--mono);font-size:10px;font-weight:700;padding:4px 11px;border-radius:999px;background:rgba(255,255,255,.18);color:#fff;border:2px solid rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.03em}
 .recap-tag.all{background:var(--amber);color:var(--ink);border-color:var(--ink)}
-.gen-cta{display:flex;flex-direction:column;gap:9px;margin-top:auto}
-.gen-btn{font-family:var(--grot);font-size:13px;font-weight:700;padding:13px;border:2.5px solid var(--ink);border-radius:999px;cursor:pointer;text-transform:lowercase;box-shadow:4px 4px 0 var(--ink);transition:transform .1s,box-shadow .1s}
+.gen-cta{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+.gen-go{justify-content:center;width:100%;font-size:15px;padding:15px}
+.gen-back{justify-content:center;width:100%}
 .gen-btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
 .gen-btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
 .gen-btn-amber{background:var(--amber);color:var(--ink)}
@@ -314,6 +330,7 @@ a{color:inherit}
   <div class="nav-r">
     <ul class="nav-links">
       <li data-page="accueil" onclick="goTo('accueil')">accueil</li>
+      <li data-page="entrainement" onclick="goTo('entrainement')">entraînement</li>
       <li data-page="parcours" onclick="goTo('parcours')">parcours</li>
       <li data-page="planning" onclick="goTo('planning')">planning</li>
       <li data-page="checkout" class="on-orange" onclick="goTo('checkout')">s'inscrire ✦</li>
@@ -335,6 +352,43 @@ a{color:inherit}
       <p class="hero-fine">1ᵉʳ sujet offert · puis 19,90 €/mois · sans engagement</p>
     </div>
     <div class="hero-right">
+      <div class="hero-stickers">
+        <div class="stk-word"><span>RUDE</span><span>MATHS</span></div>
+        <div class="stk stk-mouth">
+          <svg viewBox="0 0 172 132" width="150" xmlns="http://www.w3.org/2000/svg" aria-label="bouche">
+            <ellipse cx="86" cy="66" rx="78" ry="56" fill="#D4593C" stroke="#1B2A1E" stroke-width="3"/>
+            <path d="M24 64 Q86 22 148 64 Q86 116 24 64 Z" fill="#3A241F"/>
+            <path d="M30 60 Q86 40 142 60 Q86 50 30 60 Z" fill="#fff" stroke="#1B2A1E" stroke-width="1.6"/>
+            <path d="M34 72 Q86 92 138 72 Q86 82 34 72 Z" fill="#fff" stroke="#1B2A1E" stroke-width="1.6"/>
+            <line x1="64" y1="48" x2="64" y2="56" stroke="#1B2A1E" stroke-width="1.4"/>
+            <line x1="86" y1="46" x2="86" y2="55" stroke="#1B2A1E" stroke-width="1.4"/>
+            <line x1="108" y1="48" x2="108" y2="56" stroke="#1B2A1E" stroke-width="1.4"/>
+            <circle cx="86" cy="68" r="16" fill="#4F8A3D" stroke="#1B2A1E" stroke-width="2.5"/>
+            <text x="86" y="74" text-anchor="middle" font-size="17" font-family="'Space Mono',monospace" font-weight="700" fill="#EEF0E6">√</text>
+          </svg>
+        </div>
+        <div class="stk stk-heart">
+          <svg viewBox="0 0 140 132" width="118" xmlns="http://www.w3.org/2000/svg" aria-label="cœur">
+            <path d="M70 122 C 8 80, 12 30, 42 26 C 60 23, 70 38, 70 50 C 70 38, 80 23, 98 26 C 128 30, 132 80, 70 122 Z" fill="#D4593C" stroke="#1B2A1E" stroke-width="3"/>
+            <ellipse cx="52" cy="56" rx="11" ry="13" fill="#fff" stroke="#1B2A1E" stroke-width="2"/>
+            <ellipse cx="88" cy="56" rx="11" ry="13" fill="#fff" stroke="#1B2A1E" stroke-width="2"/>
+            <circle cx="55" cy="58" r="4.6" fill="#1B2A1E"/>
+            <circle cx="85" cy="58" r="4.6" fill="#1B2A1E"/>
+          </svg>
+        </div>
+        <div class="stk stk-pencil">
+          <svg viewBox="0 0 180 60" width="158" xmlns="http://www.w3.org/2000/svg" aria-label="crayon">
+            <g transform="rotate(-8 90 30)">
+              <rect x="44" y="18" width="98" height="24" fill="#F2B324" stroke="#1B2A1E" stroke-width="2.5"/>
+              <path d="M44 18 L18 30 L44 42 Z" fill="#EAD7AE" stroke="#1B2A1E" stroke-width="2.5"/>
+              <path d="M27 23 L18 30 L27 37 Z" fill="#1B2A1E"/>
+              <rect x="142" y="18" width="9" height="24" fill="#6E7268" stroke="#1B2A1E" stroke-width="2.5"/>
+              <rect x="151" y="18" width="16" height="24" rx="5" fill="#D4593C" stroke="#1B2A1E" stroke-width="2.5"/>
+            </g>
+          </svg>
+        </div>
+        <div class="stk-slogan">don't ask<br>· just solve ·</div>
+      </div>
       <div class="cd-wrap">
         <span class="cd-label">temps restant avant l'examen</span>
         <div class="cd-row">
@@ -350,6 +404,7 @@ a{color:inherit}
     </div>
   </section>
 
+
   <section class="sec" id="demo">
     <span class="eyebrow">démo</span>
     <h2 class="sec-h2">une question qui peut <span class="accent">tomber le jour j.</span></h2>
@@ -358,11 +413,7 @@ a{color:inherit}
       <div class="exo-demo">
         <div class="exo-demo-body">
           <div class="exo-demo-tabs">
-            <div class="exo-demo-tab done">ex.1 ✓</div>
-            <div class="exo-demo-tab active">ex.2</div>
-            <div class="exo-demo-tab">ex.3</div>
-            <div class="exo-demo-tab">ex.4</div>
-            <div class="exo-demo-tag">probabilités</div>
+            <div class="exo-demo-tag" style="margin-left:0">probabilités</div>
           </div>
           <div class="exo-demo-cols">
             <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
@@ -371,10 +422,9 @@ a{color:inherit}
               <div class="exo-demo-answer">
                 <label class="exo-demo-answer-lbl">ta réponse</label>
                 <div class="exo-demo-answer-row">
-                  <input type="text" id="demo-answer-input" class="exo-demo-answer-input" placeholder="ex. 1/2" autocomplete="off" onkeydown="if(event.key==='Enter')demoValidate()">
+                  <input type="text" id="demo-answer-input" class="exo-demo-answer-input" placeholder="" autocomplete="off" onkeydown="if(event.key==='Enter')demoValidate()">
                   <button class="exo-demo-answer-btn" onclick="demoValidate()">valider →</button>
                 </div>
-                <div class="exo-demo-answer-hint">fraction (9/18) ou décimal (0,5)</div>
               </div>
               <div class="exo-demo-reveal" id="demo-reveal">
                 <div class="exo-demo-reveal-head"><span class="exo-demo-reveal-badge" id="demo-reveal-badge">✓ bonne réponse</span><span class="exo-demo-reveal-pts">+5 pts</span></div>
@@ -449,19 +499,19 @@ a{color:inherit}
 
 <div class="page" id="page-generer">
   <div class="gen-layout">
-    <div class="gen-left">
+    <div class="gen-col">
       <div>
         <span class="eyebrow" style="margin-bottom:12px">brevet 2026 · maths</span>
-        <h1 class="gen-title" style="margin-top:10px">génère ton<br><span>brevet.</span></h1>
+        <h1 class="gen-title" style="margin-top:10px">génère ton <span>brevet.</span></h1>
       </div>
       <div>
         <div class="gen-label">durée de l'épreuve</div>
         <div class="duree-list">
-          <button class="duree-chip sel" onclick="selectDuree(this)" data-mins="120"><span>2h</span><span class="duree-sub">le vrai brevet</span></button>
-          <button class="duree-chip" onclick="selectDuree(this)" data-mins="90"><span>1h30</span><span class="duree-sub">intensif</span></button>
-          <button class="duree-chip" onclick="selectDuree(this)" data-mins="60"><span>1h</span><span class="duree-sub">standard</span></button>
-          <button class="duree-chip" onclick="selectDuree(this)" data-mins="30"><span>30 min</span><span class="duree-sub">rapide</span></button>
-          <button class="duree-chip" onclick="selectDuree(this)" data-mins="10"><span>10 min</span><span class="duree-sub">1 qcm</span></button>
+          <button class="duree-chip sel" onclick="selectDuree(this)" data-mins="120"><span>2h</span></button>
+          <button class="duree-chip" onclick="selectDuree(this)" data-mins="90"><span>1h30</span></button>
+          <button class="duree-chip" onclick="selectDuree(this)" data-mins="60"><span>1h</span></button>
+          <button class="duree-chip" onclick="selectDuree(this)" data-mins="30"><span>30 min</span></button>
+          <button class="duree-chip" onclick="selectDuree(this)" data-mins="10"><span>10 min</span></button>
         </div>
       </div>
       <div>
@@ -475,22 +525,14 @@ a{color:inherit}
           <button class="notion-chip" data-notion="Algèbre" onclick="toggleNotion(this)"><span class="ncheck"></span>algèbre</button>
         </div>
       </div>
-    </div>
-    <div class="gen-right">
       <div>
         <div class="gen-label">mode de correction</div>
         <button class="corr-chip sel" onclick="selectCorr(this)" data-mode="question"><div><div class="corr-title">question par question</div><div class="corr-sub">la correction après chaque réponse</div></div><div class="ccheck">✓</div></button>
         <button class="corr-chip" onclick="selectCorr(this)" data-mode="fin"><div><div class="corr-title">à la fin de l'examen</div><div class="corr-sub">tout révélé en une fois</div></div><div class="ccheck"></div></button>
       </div>
-      <div class="gen-recap">
-        <div class="recap-t">ton brevet</div>
-        <div><div class="recap-sublbl">durée</div><div class="recap-big" id="recap-duree">2h</div></div>
-        <div><div class="recap-sublbl">notions</div><div class="recap-tags" id="recap-notions"><span class="recap-tag all">toutes les notions</span></div></div>
-        <div><div class="recap-sublbl">correction</div><div id="recap-corr" style="font-family:var(--mono);font-size:13px;font-weight:700">question par question</div></div>
-        <div class="gen-cta">
-          <button class="gen-btn gen-btn-amber" onclick="lancerBrevet()">générer mon brevet →</button>
-          <button class="gen-btn gen-btn-ghost" onclick="goTo('accueil')">← retour</button>
-        </div>
+      <div class="gen-cta">
+        <button class="btn btn-amber gen-go" onclick="lancerBrevet()">générer mon brevet →</button>
+        <button class="btn btn-ghost gen-back" onclick="goTo('accueil')">← retour</button>
       </div>
     </div>
   </div>
@@ -513,6 +555,15 @@ a{color:inherit}
       </div>
       <div class="content" id="examArea"></div>
     </div>
+  </div>
+</div>
+
+<div class="page" id="page-entrainement">
+  <div class="simple-page">
+    <span class="eyebrow">sans chrono · feedback immédiat</span>
+    <h1 class="simple-h1" style="margin-top:12px">mode <span>entraînement.</span></h1>
+    <p class="simple-lead">choisis une notion et travaille un exercice à la fois, avec la correction après chaque réponse. pas de stress, juste de l'entraînement.</p>
+    <div class="train-grid" id="trainList"></div>
   </div>
 </div>
 
@@ -622,7 +673,7 @@ function goTo(page){
   var t=document.getElementById('page-'+page);
   if(!t){showToast('page « '+page+' » indispo');page='accueil';t=document.getElementById('page-accueil');}
   t.classList.add('active');
-  if(page==='parcours'||page==='planning'||page==='generer'){t.style.display='flex';t.style.flexDirection='column';t.style.height='calc(100vh - 79px)';t.style.overflow='hidden';}
+  if(page==='parcours'||page==='planning'||page==='generer'||page==='entrainement'){t.style.display='flex';t.style.flexDirection='column';t.style.height='calc(100vh - 79px)';t.style.overflow='hidden';}
   else if(page==='brevet'){t.style.display='block';t.style.height='100vh';t.style.overflow='hidden';}
   else{t.style.display='block';}
   document.body.style.overflow=(page==='accueil'||page==='checkout')?'auto':'hidden';
@@ -845,6 +896,30 @@ function showEnd(){
 function tick(){totalSecs--;if(totalSecs<=0){clearInterval(playerTimerInt);showToast('⏱ temps écoulé !');setTimeout(showEnd,1000);return;}var tv=document.getElementById("timerVal");if(tv)tv.textContent=fmtTimer(totalSecs);}
 function startTimer(){clearInterval(playerTimerInt);playerTimerInt=setInterval(tick,1000);}
 
+// ── ENTRAÎNEMENT ──
+function buildEntrainement(){
+  var el=document.getElementById('trainList');if(!el||typeof exercises==='undefined')return;
+  el.innerHTML=exercises.map(function(ex){
+    var nq=ex.questions.length;
+    return '<div class="train-card"><span class="train-card-tag">'+ex.notion+'</span>'
+      +'<div class="train-card-name">'+ex.name+'</div>'
+      +'<div class="train-card-meta">'+ex.pts+' pts · '+nq+' question'+(nq>1?'s':'')+'</div>'
+      +'<button class="train-card-btn" onclick="lancerEntrainement('+ex.id+')">s&#39;entraîner →</button></div>';
+  }).join('');
+}
+function lancerEntrainement(exId){
+  if(typeof exercises==='undefined'){showToast('aucun exercice');return;}
+  var ex=exercises.find(function(e){return e.id===exId;});if(!ex){showToast('exercice introuvable');return;}
+  playerExercises=[ex];playerAnswers={};playerVerdicts={};doneSet.clear();
+  curEx=ex.id;curQ=0;totalSecs=900;
+  var tv=document.getElementById('timerVal');if(tv)tv.textContent=fmtTimer(totalSecs);
+  var sl=document.getElementById('sujetLabel');if(sl)sl.textContent='entraînement · '+ex.name;
+  corrMode='question';showingCorrection=false;
+  goTo('brevet');
+  setTimeout(function(){buildSidebar();buildQuestion();updatePts();startTimer();},50);
+}
+
+buildEntrainement();
 document.querySelectorAll('.page').forEach(p=>p.style.display='none');
 goTo('accueil');
 </script>
