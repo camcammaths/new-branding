@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>B.RÉVISE — Générateur de brevet de maths 2026 (3ᵉ)</title>
+<title>BRÉVISE — Générateur de brevet de maths 2026 (3ᵉ)</title>
 <meta name="description" content="Génère des brevets blancs de maths inédits, en conditions réelles, avec correction détaillée. DON'T STRESS JUST RÉVISE.">
 <meta name="theme-color" content="#2E54E8">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%232E54E8'/><text y='25' x='5' font-size='24' font-family='Arial' font-weight='900' fill='white'>B</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --paper:#EEF0E6;--paper-2:#FFFFFF;--ink:#1B2A1E;--muted:#6E7268;
@@ -26,8 +26,8 @@ a{color:inherit}
 .eyebrow{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--green);display:inline-flex;align-items:center;gap:10px}
 .eyebrow::before{content:"";width:34px;height:3px;background:var(--cobalt);border-radius:2px;display:inline-block;flex-shrink:0}
 .nav{position:relative;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:20px 40px;border-bottom:3px solid var(--ink);background:var(--paper)}
-.logo{cursor:pointer;display:flex;flex-direction:column;line-height:1;text-decoration:none}
-.logo-top{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--green)}
+.logo{cursor:pointer;display:flex;flex-direction:row;align-items:center;gap:10px;line-height:1;text-decoration:none}
+.logo-top{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--green);border:2px solid var(--ink);border-radius:12px;padding:4px 9px;line-height:1.25;text-align:left}
 .logo-bot{font-family:var(--anton);font-size:32px;letter-spacing:.01em;text-transform:uppercase;color:var(--ink)}
 .logo-bot span{color:var(--cobalt)}
 .nav-r{display:flex;align-items:center;gap:26px}
@@ -53,12 +53,12 @@ a{color:inherit}
 .btn-ghost:active{transform:translate(2px,2px);box-shadow:none}
 .hero{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;max-width:1180px;padding:56px 40px 56px;margin:0 auto}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--lcd);color:var(--green-deep);border:2.5px solid var(--ink);border-radius:999px;padding:7px 14px;box-shadow:3px 3px 0 var(--ink);transform:rotate(-2deg);align-self:flex-start}
-.hero-title{font-family:var(--anton);font-size:clamp(44px,6.4vw,84px);line-height:.96;text-transform:uppercase;margin:22px 0 0;letter-spacing:.005em;color:var(--ink)}
+.hero-title{font-family:'Archivo Black',Impact,sans-serif;font-size:clamp(34px,4.7vw,60px);line-height:.94;text-transform:uppercase;margin:22px 0 0;letter-spacing:-.005em;color:var(--ink)}
 .hero-title .l2{color:var(--cobalt)}
 .hero-lead{font-size:17px;line-height:1.6;color:var(--ink);max-width:42ch;margin-top:24px;font-weight:500}
 .hero-ctas{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap}
 .hero-fine{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:16px;letter-spacing:.02em}
-.cd-wrap{display:flex;flex-direction:column;gap:14px}
+.cd-wrap{display:flex;flex-direction:column;align-items:center;gap:14px}
 .cd-label{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .cd-row{display:flex;gap:10px;align-items:center}
 .cd-card{background:var(--paper-2);border:2.5px solid var(--ink);border-radius:12px;box-shadow:4px 4px 0 var(--ink);min-width:64px;padding:10px 8px;text-align:center}
@@ -80,14 +80,117 @@ a{color:inherit}
 .train-card-btn{margin-top:6px;font-family:var(--grot);font-size:13px;font-weight:700;background:var(--cobalt);color:#fff;border:2.5px solid var(--ink);border-radius:999px;padding:10px;cursor:pointer;text-transform:lowercase;box-shadow:3px 3px 0 var(--ink);transition:transform .1s,box-shadow .1s}
 .train-card-btn:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--ink)}
 .train-card-btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
-.hero-stickers{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:16px 20px;margin-bottom:30px}
-.hero-stickers .stk svg{height:76px;width:auto;display:block}
+/* ── MON PARCOURS ── */
+.parcours-wrap{flex:1 1 0;min-height:0;overflow-y:auto;padding:22px}
+.parcours-grid{display:grid;grid-template-columns:250px 1fr 296px;gap:16px;max-width:1340px;margin:0 auto;align-items:start}
+.pc-col{display:flex;flex-direction:column;gap:16px;min-width:0}
+.pc-card{background:var(--paper-2);border:2.5px solid var(--ink);border-radius:16px;padding:18px;box-shadow:4px 4px 0 var(--ink)}
+.pc-kicker{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+.pc-kicker-r{color:var(--muted);letter-spacing:.06em}
+.pc-level{background:var(--cobalt);border-color:var(--ink);color:#fff}
+.pc-level .pc-kicker{color:rgba(255,255,255,.7)}
+.pc-bignum{font-family:'Archivo Black',Impact,sans-serif;font-size:54px;line-height:.9;margin-top:8px}
+.pc-bignum span{font-family:var(--grot);font-size:.34em;font-weight:700;opacity:.6;margin-left:2px}
+.pc-bignum-ink{color:var(--ink)}
+.pc-sub{font-size:13px;opacity:.85;margin-top:4px}
+.pc-tag{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:999px;border:2px solid var(--ink);margin-top:12px}
+.pc-tag-warn{background:var(--amber);color:var(--ink)}
+.pc-tag-good{background:var(--lcd);color:var(--green-deep)}
+.pc-tag-mid{background:#E6ECFB;color:var(--cobalt)}
+.pc-tag-neutral{background:var(--paper);color:var(--muted)}
+.pc-tag-bad{background:#FBEAE4;color:var(--clay)}
+.pc-level .pc-tag-warn{background:var(--amber);color:var(--ink);border-color:var(--ink)}
+.pc-track{position:relative;height:8px;background:var(--line);border:2px solid var(--ink);border-radius:999px;margin-top:18px}
+.pc-track-fill{position:absolute;left:0;top:0;bottom:0;background:var(--green);border-radius:999px}
+.pc-track-dot{position:absolute;top:50%;width:16px;height:16px;background:var(--cobalt);border:2.5px solid var(--ink);border-radius:50%;transform:translate(-50%,-50%)}
+.pc-spark{margin-top:10px;width:100%;height:auto}
+.pc-trophies{display:flex;flex-direction:column;gap:9px;margin-top:12px}
+.pc-trophy{display:flex;align-items:center;gap:11px}
+.pc-trophy-ic{width:34px;height:34px;border-radius:10px;border:2.5px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:15px;background:var(--lcd);flex-shrink:0;color:var(--green-deep)}
+.pc-trophy-name{font-weight:700;font-size:13px}
+.pc-trophy-desc{font-family:var(--mono);font-size:10px;color:var(--muted)}
+.pc-trophy.locked{opacity:.4}
+.pc-trophy.locked .pc-trophy-ic{background:var(--paper);color:var(--muted)}
+.pc-head{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.pc-title{font-family:var(--anton);font-size:34px;text-transform:lowercase;line-height:1}
+.pc-title span{color:var(--cobalt)}
+.pc-stats{display:flex;gap:10px}
+.pc-stat{text-align:center;border:2.5px solid var(--ink);border-radius:12px;padding:10px 16px;background:var(--paper)}
+.pc-stat-num{font-family:'Archivo Black',Impact,sans-serif;font-size:22px;color:var(--cobalt);line-height:1}
+.pc-stat-lbl{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+.pc-section-head{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:16px}
+.pc-section-title{font-family:var(--anton);font-size:21px;text-transform:lowercase;margin-top:2px}
+.pc-filters{display:flex;gap:6px;flex-wrap:wrap}
+.pc-pill{font-family:var(--mono);font-size:11px;font-weight:700;padding:6px 12px;border:2px solid var(--ink);border-radius:999px;background:var(--paper-2);cursor:pointer;transition:background .12s}
+.pc-pill:hover{background:var(--lcd)}
+.pc-pill.active{background:var(--cobalt);color:#fff}
+.pc-pill-add{background:var(--ink);color:#fff}
+.pc-history{display:flex;flex-direction:column;gap:10px}
+.pc-hrow{display:flex;align-items:center;justify-content:space-between;gap:14px;border:2.5px solid var(--ink);border-radius:12px;padding:14px 16px;background:var(--paper);transition:transform .1s}
+.pc-hrow:hover{transform:translateX(2px);background:var(--paper-2)}
+.pc-hmeta{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.pc-hname{font-weight:700;font-size:15px;margin-top:3px}
+.pc-hright{text-align:right;flex-shrink:0}
+.pc-hnote{font-family:'Archivo Black',Impact,sans-serif;font-size:24px;color:var(--ink);line-height:1}
+.pc-hnote span{font-family:var(--grot);font-size:.42em;font-weight:700;color:var(--muted)}
+.pc-htag{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:999px;border:1.5px solid var(--ink);display:inline-block;margin-top:5px}
+.pc-radar{display:block;margin:6px auto 0;width:100%;max-width:230px;height:auto}
+.pc-bars{display:flex;flex-direction:column;gap:9px;margin-top:14px}
+.pc-bar-row{display:grid;grid-template-columns:74px 1fr 34px;align-items:center;gap:8px}
+.pc-bar-lbl{font-size:11px;font-weight:600}
+.pc-bar-track{height:9px;background:var(--line);border:1.5px solid var(--ink);border-radius:999px;overflow:hidden}
+.pc-bar-fill{height:100%;background:var(--clay)}
+.pc-bar-pct{font-family:var(--mono);font-size:10px;font-weight:700;color:var(--muted);text-align:right}
+.pc-locked{display:flex;flex-direction:column;gap:8px;margin-top:14px;align-items:center;text-align:center}
+.pc-skel{width:100%;height:9px;border-radius:999px;background:var(--line)}
+.pc-locked-txt{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:6px;line-height:1.6}
+.pc-analyser{font-family:var(--mono);font-size:11px;font-weight:700;background:#E6ECFB;color:var(--cobalt);border:2px solid var(--ink);border-radius:999px;padding:5px 12px;cursor:pointer}
+/* ── PLANNING ── */
+.plan-wrap{flex:1 1 0;min-height:0;overflow-y:auto;padding:22px 26px}
+.plan-head{margin-bottom:16px}
+.plan-title{font-family:var(--anton);font-size:34px;text-transform:lowercase;line-height:1;margin-top:6px}
+.plan-title span{color:var(--cobalt)}
+.plan-toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:12px}
+.plan-toggle{background:var(--paper);border:2.5px solid var(--ink);border-radius:999px;padding:3px;display:inline-flex;gap:3px}
+.pt-seg{border-radius:999px;padding:6px 16px;font-family:var(--mono);font-size:12px;font-weight:700;border:none;background:transparent;color:var(--muted);cursor:pointer}
+.pt-seg.active{background:#fff;color:var(--ink);box-shadow:0 0 0 2px var(--ink)}
+.plan-nav{display:flex;align-items:center;gap:10px}
+.pn-arrow{width:32px;height:32px;border:2px solid var(--ink);border-radius:50%;background:var(--paper-2);cursor:pointer;font-size:16px;font-weight:700;display:flex;align-items:center;justify-content:center;line-height:1}
+.pn-arrow:hover{background:var(--lcd)}
+.plan-month{font-family:var(--grot);font-weight:700;font-size:16px;min-width:130px;text-align:center;text-transform:lowercase}
+.pn-today{font-family:var(--mono);font-size:11px;font-weight:700;border:2px solid var(--ink);border-radius:999px;padding:6px 14px;background:var(--paper);cursor:pointer}
+.pn-today:hover{background:var(--lcd)}
+.plan-stats{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.plan-stat{text-align:center;border:2px solid var(--ink);border-radius:10px;padding:6px 13px;background:var(--paper-2)}
+.ps-num{font-family:'Archivo Black',Impact,sans-serif;font-size:17px;color:var(--cobalt);line-height:1}
+.ps-lbl{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+.plan-ia{font-family:var(--mono);font-size:11px;font-weight:700;border:2px solid var(--ink);border-radius:999px;padding:8px 14px;background:var(--lcd);cursor:pointer}
+.plan-claude{display:flex;align-items:center;justify-content:flex-end;gap:10px;margin-bottom:14px}
+.plan-claude-badge{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.12em;background:var(--ink);color:#fff;padding:5px 11px;border-radius:999px}
+.plan-propose{font-family:var(--grot);font-size:13px;font-weight:700;background:var(--cobalt);color:#fff;border:2.5px solid var(--ink);border-radius:999px;padding:9px 16px;cursor:pointer;box-shadow:3px 3px 0 var(--ink);transition:transform .1s,box-shadow .1s}
+.plan-propose:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--ink)}
+.plan-grid-head{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-bottom:8px}
+.plan-grid-head div{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-left:4px}
+.plan-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.plan-cell{min-height:94px;border:2px solid var(--ink);border-radius:12px;background:var(--paper-2);padding:8px;display:flex;flex-direction:column;gap:8px}
+.plan-cell.empty{border-style:dashed;border-color:var(--line);background:transparent}
+.plan-cell.today{background:#EEF2FE;border-color:var(--cobalt)}
+.pc-daynum{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--ink)}
+.pc-daynum.now{background:var(--cobalt);color:#fff;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.pc-add{margin-top:auto;border:1.5px dashed var(--muted);border-radius:8px;background:transparent;color:var(--muted);font-size:14px;padding:5px;cursor:pointer;transition:background .12s,color .12s,border-color .12s}
+.pc-add:hover{background:var(--lcd);border-color:var(--ink);color:var(--ink)}
+.hero-stickers{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 18px;margin-bottom:30px;max-width:420px}
+.hero-stickers .stk svg{height:78px;width:auto;display:block}
+.hero-stickers .stk-seal svg{height:104px}
+.hero-stickers .stk-pi svg{height:76px}
+.hero-stickers .stk-heart svg{height:70px}
 .stk{filter:drop-shadow(3px 4px 0 rgba(27,42,30,.22))}
-.stk-word{font-family:var(--anton);text-transform:uppercase;line-height:.82;display:flex;flex-direction:column;color:var(--green);text-shadow:3px 3px 0 var(--ink);font-size:34px;transform:rotate(-4deg);letter-spacing:.01em}
-.stk-mouth{transform:rotate(-7deg)}
+.stk-seal{transform:rotate(-5deg)}
+.stk-pi{transform:rotate(7deg)}
 .stk-heart{transform:rotate(6deg)}
-.stk-pencil{transform:rotate(2deg)}
 .stk-slogan{background:var(--amber);border:2.5px solid var(--ink);border-radius:12px;box-shadow:4px 4px 0 var(--ink);padding:9px 13px;font-family:var(--anton);text-transform:uppercase;color:var(--ink);line-height:.9;transform:rotate(4deg);text-align:center;font-size:16px}
+.stk-pyth{background:var(--cobalt);color:#fff;border:2.5px solid var(--ink);border-radius:10px;box-shadow:4px 4px 0 var(--ink);padding:9px 13px;font-family:var(--mono);font-weight:700;font-size:14px;transform:rotate(-3deg);white-space:nowrap}
+.stk-op{width:38px;height:38px;border-radius:50%;border:2.5px solid var(--ink);box-shadow:3px 3px 0 var(--ink);display:flex;align-items:center;justify-content:center;font-family:var(--anton);font-size:20px;line-height:1;color:var(--ink)}
 .exo-demo{background:var(--paper-2);border:3px solid var(--ink);border-radius:18px;overflow:hidden;max-width:860px;margin:0 auto;box-shadow:5px 5px 0 var(--ink)}
 .exo-demo-body{padding:22px 26px 26px;display:flex;flex-direction:column;gap:16px}
 .exo-demo-tabs{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
@@ -170,48 +273,37 @@ a{color:inherit}
 .footer-bar-copy{font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.8);letter-spacing:.04em}
 .footer-bar-slogan{font-family:var(--anton);font-size:16px;color:#fff;text-transform:uppercase;letter-spacing:.03em}
 .footer-bar-slogan span{color:var(--amber)}
-.gen-layout{flex:1 1 0;min-height:0;overflow-y:auto;display:flex;justify-content:center}
-.gen-col{width:100%;max-width:600px;padding:32px 30px 44px;display:flex;flex-direction:column;gap:24px}
-.gen-title{font-family:var(--anton);font-size:clamp(30px,3.4vw,46px);text-transform:uppercase;line-height:.95}
+.gen-layout{flex:1 1 0;min-height:0;overflow-y:auto;display:flex;align-items:flex-start;justify-content:center}
+.gen-col{width:100%;max-width:600px;padding:18px 30px 22px;display:flex;flex-direction:column;gap:13px}
+.gen-title{font-family:var(--anton);font-size:clamp(24px,2.6vw,34px);text-transform:uppercase;line-height:.95}
 .gen-title span{color:var(--cobalt)}
-.gen-label{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.gen-label{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
 .duree-list{display:flex;flex-wrap:wrap;gap:8px}
-.duree-chip{flex:1 1 auto;justify-content:center;min-width:84px}
-.duree-chip{font-family:var(--grot);font-size:14px;font-weight:600;padding:10px 14px;border:2.5px solid var(--ink);border-radius:12px;background:var(--paper-2);cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background .12s}
+.duree-chip{flex:1 1 auto;min-width:80px;font-family:var(--grot);font-size:14px;font-weight:600;padding:9px 12px;border:2.5px solid var(--ink);border-radius:12px;background:var(--paper-2);cursor:pointer;display:flex;justify-content:center;align-items:center;transition:background .12s}
 .duree-chip:hover{background:var(--lcd)}
 .duree-chip.sel{background:var(--cobalt);color:#fff}
-.duree-sub{font-family:var(--mono);font-size:9px;font-weight:400;opacity:.7;text-transform:uppercase;letter-spacing:.05em}
-.notions-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
-.notion-chip{font-family:var(--grot);font-size:11px;font-weight:600;padding:9px 11px;border:2.5px solid var(--ink);border-radius:10px;background:var(--paper-2);cursor:pointer;display:flex;align-items:center;gap:8px;transition:background .12s;text-align:left}
+.notions-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
+.notion-chip{font-family:var(--grot);font-size:11px;font-weight:600;padding:8px 9px;border:2.5px solid var(--ink);border-radius:10px;background:var(--paper-2);cursor:pointer;display:flex;align-items:center;gap:7px;transition:background .12s;text-align:left}
 .notion-chip:hover{background:var(--lcd)}
 .notion-chip.sel{background:var(--lcd)}
 .notion-chip.all-chip{grid-column:1/-1;font-family:var(--mono);font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:11px}
 .notion-chip.all-chip.sel{background:var(--ink);color:var(--paper)}
-.ncheck{width:16px;height:16px;border:2px solid var(--ink);border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;background:#fff}
+.ncheck{width:15px;height:15px;border:2px solid var(--ink);border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;background:#fff}
 .notion-chip.sel .ncheck{background:var(--green);border-color:var(--ink);color:#fff}
 .notion-chip.all-chip.sel .ncheck{background:#fff;color:var(--ink)}
-.corr-chip{width:100%;display:flex;justify-content:space-between;align-items:center;padding:11px 14px;border:2.5px solid var(--ink);border-radius:12px;background:var(--paper-2);cursor:pointer;margin-bottom:8px;text-align:left;transition:background .12s}
+.corr-chip{width:100%;display:flex;justify-content:space-between;align-items:center;padding:9px 13px;border:2.5px solid var(--ink);border-radius:12px;background:var(--paper-2);cursor:pointer;margin-bottom:6px;text-align:left;transition:background .12s}
 .corr-chip:hover{background:var(--lcd)}
 .corr-chip.sel{background:var(--lcd)}
 .corr-title{font-weight:700;font-size:13px}
 .corr-sub{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:2px}
 .ccheck{width:18px;height:18px;border:2px solid var(--ink);border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;background:#fff}
 .corr-chip.sel .ccheck{background:var(--green);color:#fff}
-.gen-recap{background:var(--cobalt);border:3px solid var(--ink);border-radius:18px;box-shadow:6px 6px 0 var(--ink);padding:22px 24px;display:flex;flex-direction:column;gap:14px;flex:1;min-height:0;color:#fff}
-.recap-t{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6)}
-.recap-big{font-family:var(--anton);font-size:46px;text-transform:uppercase;line-height:.9}
-.recap-sublbl{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:6px}
-.recap-tags{display:flex;flex-wrap:wrap;gap:6px}
-.recap-tag{font-family:var(--mono);font-size:10px;font-weight:700;padding:4px 11px;border-radius:999px;background:rgba(255,255,255,.18);color:#fff;border:2px solid rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.03em}
-.recap-tag.all{background:var(--amber);color:var(--ink);border-color:var(--ink)}
-.gen-cta{display:flex;flex-direction:column;gap:10px;margin-top:6px}
-.gen-go{justify-content:center;width:100%;font-size:15px;padding:15px}
-.gen-back{justify-content:center;width:100%}
-.gen-btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
-.gen-btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
-.gen-btn-amber{background:var(--amber);color:var(--ink)}
-.gen-btn-ghost{background:var(--cobalt);color:rgba(255,255,255,.85);box-shadow:none;border-color:rgba(255,255,255,.4)}
-.gen-btn-ghost:hover{transform:none;box-shadow:none}
+.gen-cta{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+.gen-go{justify-content:center;width:100%;font-size:17px;font-weight:700;padding:16px;box-shadow:5px 5px 0 var(--ink)}
+.gen-go:hover{box-shadow:8px 8px 0 var(--ink)}
+.gen-note{text-align:center;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.gen-back{justify-content:center;width:100%;padding:9px}
+.gen-lead{font-size:14px;line-height:1.5;color:var(--muted);margin-top:8px;font-weight:500;max-width:46ch}
 #page-brevet.active{display:block;height:100vh;overflow:hidden;position:relative}
 .bp-top{position:absolute;top:0;left:0;right:0;z-index:20;background:var(--paper);border-bottom:3px solid var(--ink);display:flex;justify-content:space-between;align-items:center;padding:9px 22px}
 .bp-quit{font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);background:none;border:none;cursor:pointer}
@@ -311,9 +403,9 @@ a{color:inherit}
   .footer-top{grid-template-columns:1fr 1fr;padding:36px 22px}
   .final{margin:0 22px 64px;padding:48px 26px}
   #page-generer.active{height:auto;overflow:visible}
-  .gen-layout{grid-template-columns:1fr;overflow:visible}
-  .gen-left{border-right:none;border-bottom:3px solid var(--ink)}
+  .gen-layout{overflow:visible;align-items:flex-start}
   .exo-demo-cols{grid-template-columns:1fr}
+  .parcours-grid{grid-template-columns:1fr}
   .content{flex-direction:column;overflow-y:auto}
   .main{grid-template-columns:1fr}
   .sidebar{display:none}
@@ -324,8 +416,8 @@ a{color:inherit}
 
 <nav class="nav">
   <div class="logo" onclick="goTo('accueil')">
-    <span class="logo-top">générateur de brevet</span>
-    <span class="logo-bot">B<span>.</span>RÉVISE</span>
+    <span class="logo-bot">BRÉVISE</span>
+    <span class="logo-top">mon générateur<br>de brevet</span>
   </div>
   <div class="nav-r">
     <ul class="nav-links">
@@ -343,7 +435,7 @@ a{color:inherit}
   <section class="hero">
     <div class="hero-left">
       <span class="hero-badge">✦ conforme au programme officiel 2026</span>
-      <h1 class="hero-title">prêt·e pour le <span class="l2">brevet</span> de maths&nbsp;?</h1>
+      <h1 class="hero-title">prêt·e pour le <span class="l2">brevet</span><br>de maths&nbsp;?</h1>
       <p class="hero-lead">génère un brevet blanc pour te situer. puis un autre. puis un autre — autant qu'il faut pour arriver serein·e le jour j.</p>
       <div class="hero-ctas">
         <button class="btn btn-cobalt" onclick="goTo('generer')">c'est parti →</button>
@@ -353,18 +445,19 @@ a{color:inherit}
     </div>
     <div class="hero-right">
       <div class="hero-stickers">
-        <div class="stk-word"><span>RUDE</span><span>MATHS</span></div>
-        <div class="stk stk-mouth">
-          <svg viewBox="0 0 172 132" width="150" xmlns="http://www.w3.org/2000/svg" aria-label="bouche">
-            <ellipse cx="86" cy="66" rx="78" ry="56" fill="#D4593C" stroke="#1B2A1E" stroke-width="3"/>
-            <path d="M24 64 Q86 22 148 64 Q86 116 24 64 Z" fill="#3A241F"/>
-            <path d="M30 60 Q86 40 142 60 Q86 50 30 60 Z" fill="#fff" stroke="#1B2A1E" stroke-width="1.6"/>
-            <path d="M34 72 Q86 92 138 72 Q86 82 34 72 Z" fill="#fff" stroke="#1B2A1E" stroke-width="1.6"/>
-            <line x1="64" y1="48" x2="64" y2="56" stroke="#1B2A1E" stroke-width="1.4"/>
-            <line x1="86" y1="46" x2="86" y2="55" stroke="#1B2A1E" stroke-width="1.4"/>
-            <line x1="108" y1="48" x2="108" y2="56" stroke="#1B2A1E" stroke-width="1.4"/>
-            <circle cx="86" cy="68" r="16" fill="#4F8A3D" stroke="#1B2A1E" stroke-width="2.5"/>
-            <text x="86" y="74" text-anchor="middle" font-size="17" font-family="'Space Mono',monospace" font-weight="700" fill="#EEF0E6">√</text>
+        <div class="stk stk-seal">
+          <svg viewBox="0 0 150 150" width="130" xmlns="http://www.w3.org/2000/svg" aria-label="badge brevet maths">
+            <circle cx="75" cy="75" r="70" fill="#4F8A3D" stroke="#1B2A1E" stroke-width="3"/>
+            <circle cx="75" cy="75" r="60" fill="none" stroke="#fff" stroke-width="1.5" stroke-dasharray="2 5" opacity="0.85"/>
+            <text x="75" y="67" text-anchor="middle" font-family="'Anton',sans-serif" font-size="26" fill="#fff" letter-spacing="0.5">BREVET</text>
+            <text x="75" y="97" text-anchor="middle" font-family="'Anton',sans-serif" font-size="26" fill="#fff" letter-spacing="0.5">MATHS</text>
+            <text x="75" y="121" text-anchor="middle" font-family="'Space Mono',monospace" font-size="11" font-weight="700" fill="#fff" letter-spacing="3">π √ =</text>
+          </svg>
+        </div>
+        <div class="stk stk-pi">
+          <svg viewBox="0 0 110 110" width="92" xmlns="http://www.w3.org/2000/svg" aria-label="pi">
+            <circle cx="55" cy="55" r="50" fill="#F2B324" stroke="#1B2A1E" stroke-width="3"/>
+            <text x="55" y="79" text-anchor="middle" font-family="'Anton',sans-serif" font-size="62" fill="#1B2A1E">π</text>
           </svg>
         </div>
         <div class="stk stk-heart">
@@ -376,18 +469,10 @@ a{color:inherit}
             <circle cx="85" cy="58" r="4.6" fill="#1B2A1E"/>
           </svg>
         </div>
-        <div class="stk stk-pencil">
-          <svg viewBox="0 0 180 60" width="158" xmlns="http://www.w3.org/2000/svg" aria-label="crayon">
-            <g transform="rotate(-8 90 30)">
-              <rect x="44" y="18" width="98" height="24" fill="#F2B324" stroke="#1B2A1E" stroke-width="2.5"/>
-              <path d="M44 18 L18 30 L44 42 Z" fill="#EAD7AE" stroke="#1B2A1E" stroke-width="2.5"/>
-              <path d="M27 23 L18 30 L27 37 Z" fill="#1B2A1E"/>
-              <rect x="142" y="18" width="9" height="24" fill="#6E7268" stroke="#1B2A1E" stroke-width="2.5"/>
-              <rect x="151" y="18" width="16" height="24" rx="5" fill="#D4593C" stroke="#1B2A1E" stroke-width="2.5"/>
-            </g>
-          </svg>
-        </div>
-        <div class="stk-slogan">don't ask<br>· just solve ·</div>
+        <div class="stk-slogan">demande pas<br>calcule !</div>
+        <div class="stk-op" style="background:var(--amber);transform:rotate(-8deg)">×</div>
+        <div class="stk-op" style="background:var(--lcd);transform:rotate(7deg)">+</div>
+        <div class="stk-op" style="background:var(--clay);color:#fff;transform:rotate(-4deg)">√</div>
       </div>
       <div class="cd-wrap">
         <span class="cd-label">temps restant avant l'examen</span>
@@ -408,7 +493,7 @@ a{color:inherit}
   <section class="sec" id="demo">
     <span class="eyebrow">démo</span>
     <h2 class="sec-h2">une question qui peut <span class="accent">tomber le jour j.</span></h2>
-    <p class="sec-lead">fais tourner la roulette, écris ta réponse, regarde la correction. exactement ce qui t'attend dans un sujet b.révise.</p>
+    <p class="sec-lead">fais tourner la roulette, écris ta réponse, regarde la correction. exactement ce qui t'attend dans un sujet brévise.</p>
     <div class="demo-stage">
       <div class="exo-demo">
         <div class="exo-demo-body">
@@ -453,11 +538,11 @@ a{color:inherit}
   </section>
 
   <section class="sec-alt"><div class="sec-inner sec" style="padding-top:72px;padding-bottom:72px">
-    <span class="eyebrow">b.révise vs annales papier</span>
+    <span class="eyebrow">brévise vs annales papier</span>
     <h2 class="sec-h2">tu révises sur <span class="accent">les annales de tes grands frères ?</span></h2>
     <p class="sec-lead">le programme de maths de 3ᵉ a changé. les épreuves du DNB aussi. s'entraîner sur des sujets d'il y a trois ans, c'est préparer le brevet de 2022.</p>
     <div class="compare">
-      <div class="compare-row compare-head"><div></div><div class="cb">B.RÉVISE</div><div class="co">annales papier</div></div>
+      <div class="compare-row compare-head"><div></div><div class="cb">BRÉVISE</div><div class="co">annales papier</div></div>
       <div class="compare-row"><div class="compare-feat">mise à jour du programme</div><div class="yes">✓ en continu</div><div class="no">✕ figées</div></div>
       <div class="compare-row"><div class="compare-feat">nombre de brevets</div><div class="yes">✓ illimité, inédit</div><div class="no">✕ 10-15, vite tournés</div></div>
       <div class="compare-row"><div class="compare-feat">format &amp; durée</div><div class="yes">✓ 2h chrono</div><div class="no">✕ sans cadre</div></div>
@@ -469,7 +554,7 @@ a{color:inherit}
     <span class="eyebrow">questions fréquentes</span>
     <h2 class="sec-h2">une question <span class="accent">avant de te lancer ?</span></h2>
     <div class="faq">
-      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">c'est quoi un brevet blanc b.révise ?</div><div class="faq-a">un sujet de maths complet de 2 heures pour la 3ᵉ, avec ses 4 exercices couvrant les 5 domaines du programme : nombres et calculs, géométrie, grandeurs et mesures, stats et probas, algorithmique. même format, même difficulté, même barème que l'épreuve officielle du DNB. et chaque sujet est inédit.</div></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">c'est quoi un brevet blanc brévise ?</div><div class="faq-a">un sujet de maths complet de 2 heures pour la 3ᵉ, avec ses 4 exercices couvrant les 5 domaines du programme : nombres et calculs, géométrie, grandeurs et mesures, stats et probas, algorithmique. même format, même difficulté, même barème que l'épreuve officielle du DNB. et chaque sujet est inédit.</div></div>
       <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">les sujets sont-ils à jour ?</div><div class="faq-a">oui. chaque sujet respecte le programme officiel de 3ᵉ dans sa version la plus récente. dès qu'une évolution est annoncée, le générateur se met à jour.</div></div>
       <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">comment marche la correction ?</div><div class="faq-a">chaque sujet arrive avec son corrigé détaillé, étape par étape, avec la méthode expliquée — pas juste la réponse. l'objectif, c'est de comprendre pourquoi.</div></div>
       <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">y a-t-il un essai gratuit ?</div><div class="faq-a">oui : le 1ᵉʳ brevet blanc est offert, sans carte bancaire. tu le fais en conditions réelles, tu vois la correction complète, tu juges par toi-même.</div></div>
@@ -485,13 +570,13 @@ a{color:inherit}
 
   <footer class="footer">
     <div class="footer-top">
-      <div><div class="footer-logo">B<span>.</span>RÉVISE</div><p class="footer-desc">le générateur de brevets blancs de maths. sujets inédits, 2h en conditions réelles, corrigés détaillés. don't stress just révise.</p></div>
+      <div><div class="footer-logo">BRÉVISE</div><p class="footer-desc">le générateur de brevets blancs de maths. sujets inédits, 2h en conditions réelles, corrigés détaillés. don't stress just révise.</p></div>
       <div><div class="footer-col-t">notions</div><ul class="footer-links"><li>nombres &amp; calculs</li><li>probas &amp; stats</li><li>grandeurs &amp; mesures</li><li>espace &amp; géométrie</li><li>algorithmique</li></ul></div>
       <div><div class="footer-col-t">navigation</div><ul class="footer-links"><li onclick="goTo('accueil')">accueil</li><li onclick="goTo('generer')">générer</li><li onclick="goTo('parcours')">parcours</li><li onclick="goTo('planning')">planning</li></ul></div>
       <div><div class="footer-col-t">contact</div><ul class="footer-links"><li><a href="mailto:contact@brevise.fr" style="text-decoration:none">nous écrire</a></li><li>instagram</li><li>newsletter</li></ul></div>
     </div>
     <div class="footer-bar">
-      <span class="footer-bar-copy">© 2026 b.révise — tous droits réservés</span>
+      <span class="footer-bar-copy">© 2026 brévise — tous droits réservés</span>
       <span class="footer-bar-slogan">√ DON'T ASK <span>·</span> JUST SOLVE √</span>
     </div>
   </footer>
@@ -501,8 +586,7 @@ a{color:inherit}
   <div class="gen-layout">
     <div class="gen-col">
       <div>
-        <span class="eyebrow" style="margin-bottom:12px">brevet 2026 · maths</span>
-        <h1 class="gen-title" style="margin-top:10px">génère ton <span>brevet.</span></h1>
+        <h1 class="gen-title">génère ton <span>brevet.</span></h1>
       </div>
       <div>
         <div class="gen-label">durée de l'épreuve</div>
@@ -531,7 +615,8 @@ a{color:inherit}
         <button class="corr-chip" onclick="selectCorr(this)" data-mode="fin"><div><div class="corr-title">à la fin de l'examen</div><div class="corr-sub">tout révélé en une fois</div></div><div class="ccheck"></div></button>
       </div>
       <div class="gen-cta">
-        <button class="btn btn-amber gen-go" onclick="lancerBrevet()">générer mon brevet →</button>
+        <button class="btn btn-cobalt gen-go" onclick="lancerBrevet()">générer mon brevet →</button>
+        <div class="gen-note">gratuit · corrigé · illimité</div>
         <button class="btn btn-ghost gen-back" onclick="goTo('accueil')">← retour</button>
       </div>
     </div>
@@ -568,19 +653,128 @@ a{color:inherit}
 </div>
 
 <div class="page" id="page-parcours">
-  <div class="simple-page">
-    <span class="eyebrow">section 01</span>
-    <h1 class="simple-h1" style="margin-top:12px">mon <span>parcours.</span></h1>
-    <p class="simple-lead">termine un brevet blanc et ta progression, tes notions et tes badges débarquent ici. radar des forces/faiblesses, historique, analyse d'erreurs.</p>
-    <button class="btn btn-cobalt" style="margin-top:26px" onclick="goTo('generer')">générer un brevet →</button>
+  <div class="parcours-wrap">
+    <div class="parcours-grid">
+
+      <div class="pc-col pc-left">
+        <div class="pc-card pc-level">
+          <div class="pc-kicker">niveau actuel</div>
+          <div class="pc-bignum">9,8<span>/20</span></div>
+          <div class="pc-sub">moyenne générale</div>
+          <div class="pc-tag pc-tag-warn">à retravailler</div>
+        </div>
+        <div class="pc-card">
+          <div class="pc-kicker">objectif à atteindre</div>
+          <div class="pc-bignum pc-bignum-ink">14<span>/20</span></div>
+          <div class="pc-track"><div class="pc-track-fill" style="width:70%"></div><div class="pc-track-dot" style="left:70%"></div></div>
+        </div>
+        <div class="pc-card">
+          <div class="pc-kicker">progression</div>
+          <svg class="pc-spark" viewBox="0 0 200 64" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="12,33 72,27 132,21 192,59" fill="none" stroke="#2E54E8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="12" cy="33" r="4" fill="#2E54E8"/><circle cx="72" cy="27" r="4" fill="#2E54E8"/><circle cx="132" cy="21" r="4.5" fill="#4F8A3D"/><circle cx="192" cy="59" r="4.5" fill="#D4593C"/>
+          </svg>
+        </div>
+        <div class="pc-card">
+          <div class="pc-kicker">trophées <span class="pc-kicker-r">3/6 débloqués</span></div>
+          <div class="pc-trophies">
+            <div class="pc-trophy"><div class="pc-trophy-ic">✦</div><div><div class="pc-trophy-name">premier pas</div><div class="pc-trophy-desc">premier brevet saisi</div></div></div>
+            <div class="pc-trophy"><div class="pc-trophy-ic">▲</div><div><div class="pc-trophy-name">trio</div><div class="pc-trophy-desc">3 brevets réalisés</div></div></div>
+            <div class="pc-trophy"><div class="pc-trophy-ic">★</div><div><div class="pc-trophy-name">mention bien</div><div class="pc-trophy-desc">note ≥ 14/20</div></div></div>
+            <div class="pc-trophy locked"><div class="pc-trophy-ic">★</div><div><div class="pc-trophy-name">très bien</div><div class="pc-trophy-desc">note ≥ 16/20</div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc-col pc-center">
+        <div class="pc-card pc-head">
+          <h1 class="pc-title">mon <span>parcours.</span></h1>
+          <div class="pc-stats">
+            <div class="pc-stat"><div class="pc-stat-num">4</div><div class="pc-stat-lbl">brevets</div></div>
+            <div class="pc-stat"><div class="pc-stat-num">9,8</div><div class="pc-stat-lbl">moyenne</div></div>
+            <div class="pc-stat"><div class="pc-stat-num">15,5</div><div class="pc-stat-lbl">meilleure note</div></div>
+          </div>
+        </div>
+        <div class="pc-card">
+          <div class="pc-section-head">
+            <div><div class="pc-kicker">section 01</div><div class="pc-section-title">historique des brevets</div></div>
+            <div class="pc-filters"><button class="pc-pill active">tous</button><button class="pc-pill">≥ 14</button><button class="pc-pill">&lt; 10</button><button class="pc-pill pc-pill-add">+ ajouter</button></div>
+          </div>
+          <div class="pc-history">
+            <div class="pc-hrow"><div><div class="pc-hmeta">brevet 04 · 4 mai 2026</div><div class="pc-hname">brevet généré</div></div><div class="pc-hright"><div class="pc-hnote">0<span>/20</span></div><div class="pc-htag pc-tag-bad">à retravailler</div></div></div>
+            <div class="pc-hrow"><div><div class="pc-hmeta">brevet 03 · 14 mars 2025</div><div class="pc-hname">géométrie, pythagore</div></div><div class="pc-hright"><div class="pc-hnote">15,5<span>/20</span></div><div class="pc-htag pc-tag-good">bien</div></div></div>
+            <div class="pc-hrow"><div><div class="pc-hmeta">brevet 02 · 28 fév. 2025</div><div class="pc-hname">algèbre, fonctions</div></div><div class="pc-hright"><div class="pc-hnote">13<span>/20</span></div><div class="pc-htag pc-tag-mid">assez bien</div></div></div>
+            <div class="pc-hrow"><div><div class="pc-hmeta">brevet 01 · 10 fév. 2025</div><div class="pc-hname">statistiques, probabilités</div></div><div class="pc-hright"><div class="pc-hnote">10,5<span>/20</span></div><div class="pc-htag pc-tag-neutral">admis</div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc-col pc-right">
+        <div class="pc-card">
+          <div class="pc-kicker">radar des notions</div>
+          <svg class="pc-radar" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="110,28 181,69 181,151 110,192 39,151 39,69" fill="none" stroke="#DDE0D2" stroke-width="1.5"/>
+            <polygon points="110,55.9 156.8,83 156.8,137 110,164.1 63.2,137 63.2,83" fill="none" stroke="#DDE0D2" stroke-width="1.5"/>
+            <polygon points="110,83 133.4,96.5 133.4,123.5 110,137 86.6,123.5 86.6,96.5" fill="none" stroke="#DDE0D2" stroke-width="1.5"/>
+            <line x1="110" y1="110" x2="110" y2="28" stroke="#DDE0D2" stroke-width="1"/><line x1="110" y1="110" x2="181" y2="69" stroke="#DDE0D2" stroke-width="1"/><line x1="110" y1="110" x2="181" y2="151" stroke="#DDE0D2" stroke-width="1"/><line x1="110" y1="110" x2="110" y2="192" stroke="#DDE0D2" stroke-width="1"/><line x1="110" y1="110" x2="39" y2="151" stroke="#DDE0D2" stroke-width="1"/><line x1="110" y1="110" x2="39" y2="69" stroke="#DDE0D2" stroke-width="1"/>
+            <polygon points="110,53.4 145.5,89.5 160.4,139.1 110,159.2 65.2,135.8 74.5,89.5" fill="rgba(46,84,232,0.22)" stroke="#2E54E8" stroke-width="2.5" stroke-linejoin="round"/>
+            <circle cx="110" cy="53.4" r="3" fill="#2E54E8"/><circle cx="145.5" cy="89.5" r="3" fill="#2E54E8"/><circle cx="160.4" cy="139.1" r="3" fill="#2E54E8"/><circle cx="110" cy="159.2" r="3" fill="#2E54E8"/><circle cx="65.2" cy="135.8" r="3" fill="#2E54E8"/><circle cx="74.5" cy="89.5" r="3" fill="#2E54E8"/>
+            <text x="110" y="20" text-anchor="middle" font-family="Space Mono,monospace" font-size="8" fill="#6E7268">géom.</text>
+            <text x="188" y="66" text-anchor="start" font-family="Space Mono,monospace" font-size="8" fill="#6E7268">fract.</text>
+            <text x="188" y="156" text-anchor="start" font-family="Space Mono,monospace" font-size="8" fill="#6E7268">stat.</text>
+            <text x="110" y="208" text-anchor="middle" font-family="Space Mono,monospace" font-size="8" fill="#6E7268">algè.</text>
+            <text x="32" y="156" text-anchor="end" font-family="Space Mono,monospace" font-size="8" fill="#6E7268">fonct.</text>
+            <text x="32" y="66" text-anchor="end" font-family="Space Mono,monospace" font-size="8" fill="#6E7268">proba.</text>
+          </svg>
+        </div>
+        <div class="pc-card">
+          <div class="pc-kicker">points forts · faibles</div>
+          <div class="pc-bars">
+            <div class="pc-bar-row"><div class="pc-bar-lbl">statistiques</div><div class="pc-bar-track"><div class="pc-bar-fill" style="width:71%"></div></div><div class="pc-bar-pct">~71%</div></div>
+            <div class="pc-bar-row"><div class="pc-bar-lbl">géométrie</div><div class="pc-bar-track"><div class="pc-bar-fill" style="width:69%"></div></div><div class="pc-bar-pct">~69%</div></div>
+            <div class="pc-bar-row"><div class="pc-bar-lbl">fonctions</div><div class="pc-bar-track"><div class="pc-bar-fill" style="width:63%"></div></div><div class="pc-bar-pct">~63%</div></div>
+            <div class="pc-bar-row"><div class="pc-bar-lbl">algèbre</div><div class="pc-bar-track"><div class="pc-bar-fill" style="width:60%"></div></div><div class="pc-bar-pct">~60%</div></div>
+            <div class="pc-bar-row"><div class="pc-bar-lbl">fractions</div><div class="pc-bar-track"><div class="pc-bar-fill" style="width:50%"></div></div><div class="pc-bar-pct">~50%</div></div>
+            <div class="pc-bar-row"><div class="pc-bar-lbl">probabilités</div><div class="pc-bar-track"><div class="pc-bar-fill" style="width:50%"></div></div><div class="pc-bar-pct">~50%</div></div>
+          </div>
+        </div>
+        <div class="pc-card">
+          <div class="pc-section-head" style="margin-bottom:0"><div><div class="pc-kicker">section 02</div><div class="pc-section-title">analyse des erreurs</div></div><button class="pc-analyser" onclick="showToast('ajoute des brevets pour analyser')">analyser →</button></div>
+          <div class="pc-locked"><div class="pc-skel"></div><div class="pc-skel" style="width:80%"></div><div class="pc-skel" style="width:60%"></div><div class="pc-locked-txt">ajoute des brevets<br>puis clique <strong>analyser →</strong></div></div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>
 
 <div class="page" id="page-planning">
-  <div class="simple-page">
-    <span class="eyebrow">organisation · révision</span>
-    <h1 class="simple-h1" style="margin-top:12px">mon <span>planning.</span></h1>
-    <p class="simple-lead">le planning hebdo et la génération de révisions par ia ont besoin d'un compte connecté — non dispo dans cette version locale de prévisualisation.</p>
+  <div class="plan-wrap">
+    <div class="plan-head">
+      <span class="eyebrow">organisation · révision</span>
+      <h1 class="plan-title">mon <span>planning.</span></h1>
+    </div>
+    <div class="plan-toolbar">
+      <div class="plan-toggle"><button class="pt-seg" id="pt-sem" onclick="planView('semaine')">semaine</button><button class="pt-seg active" id="pt-mois" onclick="planView('mois')">mois</button></div>
+      <div class="plan-nav">
+        <button class="pn-arrow" onclick="planNav(-1)">‹</button>
+        <span class="plan-month" id="planMonth">—</span>
+        <button class="pn-arrow" onclick="planNav(1)">›</button>
+        <button class="pn-today" onclick="planToday()">aujourd'hui</button>
+      </div>
+      <div class="plan-stats">
+        <div class="plan-stat"><div class="ps-num">0</div><div class="ps-lbl">faites</div></div>
+        <div class="plan-stat"><div class="ps-num">0</div><div class="ps-lbl">planifiées</div></div>
+        <div class="plan-stat"><div class="ps-num">0%</div><div class="ps-lbl">complétion</div></div>
+        <button class="plan-ia" onclick="showToast('plan IA bientôt dispo')">✦ plan IA</button>
+      </div>
+    </div>
+    <div class="plan-claude">
+      <span class="plan-claude-badge">CLAUDE</span>
+      <button class="plan-propose" onclick="showToast('Claude prépare un planning de révisions…')">✦ proposer des révisions →</button>
+    </div>
+    <div class="plan-grid-head"><div>lu</div><div>ma</div><div>me</div><div>je</div><div>ve</div><div>sa</div><div>di</div></div>
+    <div class="plan-grid" id="planGrid"></div>
   </div>
 </div>
 
@@ -601,8 +795,38 @@ a{color:inherit}
 <div id="toast" class="toast"></div>
 
 <script id="figures-db">
-var figureProgCalc1 = `<svg viewBox="0 0 300 320" width="240" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto"><defs><marker id="aPC" markerWidth="7" markerHeight="7" refX="3.5" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#1B2A1E"/></marker></defs><rect x="55" y="10" width="190" height="38" rx="8" fill="#fff" stroke="#1B2A1E" stroke-width="2.5"/><text x="150" y="34" text-anchor="middle" fill="#2E54E8" font-weight="700" font-size="12" font-family="Space Grotesk,sans-serif">choisir un nombre</text><line x1="150" y1="48" x2="150" y2="68" stroke="#1B2A1E" stroke-width="2" marker-end="url(#aPC)"/><rect x="55" y="68" width="190" height="38" rx="8" fill="#fff" stroke="#1B2A1E" stroke-width="2.5"/><text x="150" y="92" text-anchor="middle" font-size="12" font-family="Space Grotesk,sans-serif">le multiplier par 2</text><line x1="150" y1="106" x2="150" y2="126" stroke="#1B2A1E" stroke-width="2" marker-end="url(#aPC)"/><rect x="55" y="126" width="190" height="38" rx="8" fill="#fff" stroke="#1B2A1E" stroke-width="2.5"/><text x="150" y="150" text-anchor="middle" font-size="12" font-family="Space Grotesk,sans-serif">élever au carré</text><line x1="150" y1="164" x2="150" y2="184" stroke="#1B2A1E" stroke-width="2" marker-end="url(#aPC)"/><rect x="55" y="184" width="190" height="38" rx="8" fill="#fff" stroke="#1B2A1E" stroke-width="2.5"/><text x="150" y="208" text-anchor="middle" font-size="12" font-family="Space Grotesk,sans-serif">retrancher 9</text><line x1="150" y1="222" x2="150" y2="242" stroke="#1B2A1E" stroke-width="2" marker-end="url(#aPC)"/><rect x="55" y="242" width="190" height="38" rx="8" fill="#DCEFCB" stroke="#1B2A1E" stroke-width="2.5"/><text x="150" y="266" text-anchor="middle" fill="#3A6A2C" font-weight="700" font-size="12" font-family="Space Grotesk,sans-serif">afficher le résultat</text></svg>`;
+var figureProgCalc1 = `<svg viewBox="0 0 300 320" width="320" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto"><defs><marker id="aPC" markerWidth="7" markerHeight="7" refX="3.5" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#1B2A1E"/></marker></defs><rect x="55" y="10" width="190" height="38" rx="8" fill="#fff" stroke="#1B2A1E" stroke-width="2.5"/><text x="150" y="34" text-anchor="middle" fill="#2E54E8" font-weight="700" font-size="12" font-family="Space Grotesk,sans-serif">choisir un nombre</text><line x1="150" y1="48" x2="150" y2="68" stroke="#1B2A1E" stroke-width="2" marker-end="url(#aPC)"/><rect x="55" y="68" width="190" height="38" rx="8" fill="#fff" stroke="#1B2A1E" stroke-width="2.5"/><text x="150" y="92" text-anchor="middle" font-size="12" font-family="Space Grotesk,sans-serif">le multiplier par 2</text><line x1="150" y1="106" x2="150" y2="126" stroke="#1B2A1E" stroke-width="2" marker-end="url(#aPC)"/><rect x="55" y="126" width="190" height="38" rx="8" fill="#fff" stroke="#1B2A1E" stroke-width="2.5"/><text x="150" y="150" text-anchor="middle" font-size="12" font-family="Space Grotesk,sans-serif">élever au carré</text><line x1="150" y1="164" x2="150" y2="184" stroke="#1B2A1E" stroke-width="2" marker-end="url(#aPC)"/><rect x="55" y="184" width="190" height="38" rx="8" fill="#fff" stroke="#1B2A1E" stroke-width="2.5"/><text x="150" y="208" text-anchor="middle" font-size="12" font-family="Space Grotesk,sans-serif">retrancher 9</text><line x1="150" y1="222" x2="150" y2="242" stroke="#1B2A1E" stroke-width="2" marker-end="url(#aPC)"/><rect x="55" y="242" width="190" height="38" rx="8" fill="#DCEFCB" stroke="#1B2A1E" stroke-width="2.5"/><text x="150" y="266" text-anchor="middle" fill="#3A6A2C" font-weight="700" font-size="12" font-family="Space Grotesk,sans-serif">afficher le résultat</text></svg>`;
 var figureTableSemaines = `<div style="width:100%;display:flex;flex-direction:column;gap:10px;align-items:center"><div style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em">masse jetée par semaine (kg)</div><table class="brevet-table"><tr><th>sem.</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th></tr><tr><td>kg</td><td>62</td><td>59</td><td>74</td><td>68</td><td>55</td><td>61</td><td>71</td></tr></table></div>`;
+var figureBarChartVelo = (function(){
+  var data=[33,32,42,31,36,28,24,22,14],W=480,H=320,x0=46,x1=464,yTop=44,yBot=274,maxV=46;
+  var scale=(yBot-yTop)/maxV,band=(x1-x0)/data.length,bw=Math.min(30,band-12);
+  var s='<svg viewBox="0 0 '+W+' '+H+'" width="460" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">';
+  s+='<text x="'+(W/2)+'" y="18" text-anchor="middle" font-family="Space Mono,monospace" font-weight="700" font-size="12" fill="#1B2A1E">distance parcourue à vélo · effectif</text>';
+  for(var g=0;g<=maxV;g+=10){var y=yBot-g*scale;s+='<line x1="'+x0+'" y1="'+y+'" x2="'+x1+'" y2="'+y+'" stroke="#DDE0D2" stroke-width="1"/><text x="'+(x0-6)+'" y="'+(y+4)+'" text-anchor="end" font-family="Space Mono,monospace" font-size="9" fill="#6E7268">'+g+'</text>';}
+  s+='<line x1="'+x0+'" y1="'+yTop+'" x2="'+x0+'" y2="'+yBot+'" stroke="#1B2A1E" stroke-width="2"/><line x1="'+x0+'" y1="'+yBot+'" x2="'+x1+'" y2="'+yBot+'" stroke="#1B2A1E" stroke-width="2"/>';
+  for(var i=0;i<data.length;i++){var v=data[i],bh=v*scale,bx=x0+i*band+(band-bw)/2,by=yBot-bh;
+    s+='<rect x="'+bx.toFixed(1)+'" y="'+by.toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+bh.toFixed(1)+'" fill="#D4593C" stroke="#1B2A1E" stroke-width="2"/>';
+    s+='<text x="'+(bx+bw/2).toFixed(1)+'" y="'+(by-4).toFixed(1)+'" text-anchor="middle" font-family="Space Mono,monospace" font-size="9" font-weight="700" fill="#1B2A1E">'+v+'</text>';
+    s+='<text x="'+(bx+bw/2).toFixed(1)+'" y="'+(yBot+15)+'" text-anchor="middle" font-family="Space Mono,monospace" font-size="10" fill="#1B2A1E">'+i+'</text>';}
+  s+='<text x="'+(W/2)+'" y="'+(yBot+32)+'" text-anchor="middle" font-family="Space Mono,monospace" font-size="10" fill="#6E7268">distance (km)</text></svg>';
+  return s;
+})();
+var figureFonctions = (function(){
+  var L=42,R=18,T=18,B=28,W=380,H=358,xmin=-1,xmax=5,ymin=-1,ymax=18;
+  var pw=W-L-R,ph=H-T-B,xs=pw/(xmax-xmin),ys=ph/(ymax-ymin);
+  function px(x){return (L+(x-xmin)*xs).toFixed(1);}function py(y){return (T+(ymax-y)*ys).toFixed(1);}
+  var s='<svg viewBox="0 0 '+W+' '+H+'" width="360" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">';
+  for(var gx=xmin;gx<=xmax;gx++){s+='<line x1="'+px(gx)+'" y1="'+py(ymax)+'" x2="'+px(gx)+'" y2="'+py(ymin)+'" stroke="#E3E6DA" stroke-width="1"/>';}
+  for(var gy=0;gy<=ymax;gy+=2){s+='<line x1="'+px(xmin)+'" y1="'+py(gy)+'" x2="'+px(xmax)+'" y2="'+py(gy)+'" stroke="#E3E6DA" stroke-width="1"/><text x="'+(L+(0-xmin)*xs-6).toFixed(1)+'" y="'+(T+(ymax-gy)*ys+3).toFixed(1)+'" text-anchor="end" font-family="Space Mono,monospace" font-size="8" fill="#6E7268">'+gy+'</text>';}
+  s+='<line x1="'+px(xmin)+'" y1="'+py(0)+'" x2="'+px(xmax)+'" y2="'+py(0)+'" stroke="#1B2A1E" stroke-width="2"/><line x1="'+px(0)+'" y1="'+py(ymax)+'" x2="'+px(0)+'" y2="'+py(ymin)+'" stroke="#1B2A1E" stroke-width="2"/>';
+  for(var lx=xmin;lx<=xmax;lx++){if(lx!==0)s+='<text x="'+px(lx)+'" y="'+(T+(ymax-0)*ys+12).toFixed(1)+'" text-anchor="middle" font-family="Space Mono,monospace" font-size="8" fill="#6E7268">'+lx+'</text>';}
+  s+='<line x1="'+px(-1)+'" y1="'+py(-1)+'" x2="'+px(3.75)+'" y2="'+py(18)+'" stroke="#D4593C" stroke-width="2.6"/>';
+  s+='<line x1="'+px(-1/6)+'" y1="'+py(-1)+'" x2="'+px(3)+'" y2="'+py(18)+'" stroke="#2E54E8" stroke-width="2.6"/>';
+  s+='<circle cx="'+px(1.5)+'" cy="'+py(9)+'" r="3.6" fill="#1B2A1E"/>';
+  s+='<text x="'+px(2.45)+'" y="'+py(17)+'" font-family="Space Mono,monospace" font-size="11" font-weight="700" fill="#2E54E8">(d₁)</text>';
+  s+='<text x="'+px(3.75)+'" y="'+py(16.5)+'" font-family="Space Mono,monospace" font-size="11" font-weight="700" fill="#D4593C">(d₂)</text>';
+  s+='</svg>';return s;
+})();
 var figurePolygone1, figurePolygone2;
 (function(){
   var A=[0,0],B=[180,0],C=[180,180],D=[0,180];
@@ -643,20 +867,33 @@ const exercises = [
       {pts:1,text:"25 % des 300 élèves font l'olympiade. Combien n'y participent pas ?",answer:"225 élèves",solution:"25 % de 300 = 75 → 300 − 75 = 225"}
     ]
   },
-  { id:2, num:"02", source:"Brevet Test 2026 N°1", name:"Programme de calcul", pts:3, notion:"Algèbre",
+  { id:2, num:"02", source:"Brevet Test 2026 N°1", name:"Dév. durable", pts:3, notion:"Statistiques",
+    stimulus:"Dans le cadre d'un projet « Éducation au développement durable », un collège réalise deux enquêtes. La 1ʳᵉ porte sur le gaspillage alimentaire à la cantine : on relève la masse jetée chaque semaine (kg).", figure:figureTableSemaines, figureWide:true,
+    questions:[
+      {pts:1,text:"Le collège vise une moyenne hebdomadaire de déchets <strong>≤ 65 kg</strong> sur les 7 semaines. Montrer qu'il a atteint son objectif.",answer:"Oui (≈ 64,3 kg)",solution:"Total = 62+59+74+68+55+61+71 = 450 kg. Moyenne = 450 ÷ 7 ≈ 64,3 kg ≤ 65 kg → objectif atteint."},
+      {pts:1,context:"2ᵉ enquête : déplacements à vélo. Le diagramme donne, pour chaque distance, l'effectif d'élèves qui la parcourent à vélo (0 km = élèves qui ne viennent pas à vélo).",figureOverride:figureBarChartVelo,text:"Déterminer l'effectif total d'élèves du collège.",answer:"262",solution:"33+32+42+31+36+28+24+22+14 = 262 élèves."},
+      {pts:1,figureOverride:figureBarChartVelo,text:"L'affirmation « <strong>plus de 30 % des élèves ont parcouru au moins 5 km à vélo</strong> » est-elle vraie ? Justifie en précisant la démarche.",answer:"Vraie",solution:"Au moins 5 km : 28+24+22+14 = 88 élèves. 88 ÷ 262 ≈ 0,336 = 33,6 %. 33,6 % > 30 % → l'affirmation est vraie."}
+    ]
+  },
+  { id:3, num:"03", source:"Brevet Test 2026 N°1", name:"Programme de calcul", pts:3, notion:"Algèbre",
     stimulus:"On donne un programme de calcul (voir le diagramme).", figure:figureProgCalc1,
     questions:[
-      {pts:1,text:"Avec le nombre 4, vérifier que le programme affiche 55.",answer:"55",solution:"4 → 8 → 64 → 64 − 9 = 55. ✓"},
-      {pts:1,context:"On appelle x le nombre choisi.",text:"Écrire, en fonction de x, le résultat du programme.",answer:"4x² − 9",solution:"x → 2x → (2x)² = 4x² → 4x² − 9."}
+      {pts:1,text:"Lorsque le nombre choisi est 4, vérifier que le programme affiche 55, en précisant chaque étape du calcul.",answer:"55",solution:"4 → ×2 = 8 → 8² = 64 → 64 − 9 = 55. Le programme affiche bien 55. ✓"},
+      {pts:1,context:"On appelle x le nombre choisi au départ.",text:"Écrire, en fonction de x, le résultat obtenu par le programme.",answer:"4x² − 9",solution:"x → 2x → (2x)² = 4x² → 4x² − 9."},
+      {pts:1,text:"Parmi ces quatre expressions, laquelle correspond au résultat du programme ?<br><strong>A</strong> = 55 · <strong>B</strong> = (2x+3)² · <strong>C</strong> = (2x−3)(2x+3) · <strong>D</strong> = (2x−3)²",answer:"C",solution:"4x² − 9 = (2x)² − 3² = (2x − 3)(2x + 3), c'est une différence de deux carrés : l'expression C convient."}
     ]
   },
-  { id:3, num:"03", source:"Brevet Test 2026 N°1", name:"Gaspillage", pts:3, notion:"Statistiques",
-    stimulus:"Un collège enquête sur le gaspillage alimentaire à la cantine pendant 7 semaines.", figure:figureTableSemaines, figureWide:true,
+  { id:4, num:"04", source:"Sujet 0 2026", name:"Fonctions f et g", pts:3, notion:"Algèbre",
+    stimulus:"On considère les fonctions f : x ↦ 4x + 3 et g : x ↦ 6x. Leurs représentations graphiques (d₁) et (d₂) sont tracées ci-dessous.", figure:figureFonctions,
     questions:[
-      {pts:1,text:"<strong>Le collège vise une moyenne ≤ 65 kg sur 7 semaines. Objectif atteint ?</strong>",answer:"Oui (≈ 64,3 kg)",solution:"Total = 450 kg. Moyenne = 450 ÷ 7 ≈ 64,3 kg < 65 → objectif atteint."}
+      {pts:0.5,text:"Parmi ces deux fonctions, laquelle représente une situation de proportionnalité ?",answer:"g",solution:"g : x ↦ 6x est linéaire (de la forme ax, sans terme constant) → c'est une situation de proportionnalité. f : x ↦ 4x + 3 est affine (terme « + 3 ») → pas proportionnelle. Réponse : g."},
+      {pts:0.5,text:"Calculer l'image de 0 par la fonction g.",answer:"0",solution:"g(0) = 6 × 0 = 0."},
+      {pts:0.5,text:"Déterminer l'antécédent de 0 par la fonction f.",answer:"−0,75",solution:"On résout f(x) = 0 : 4x + 3 = 0 → 4x = −3 → x = −3/4 = −0,75."},
+      {pts:0.5,text:"Associer à chaque droite la fonction qu'elle représente. <strong>Justifie ta réponse.</strong>",answer:"(d₁) = g, (d₂) = f",solution:"(d₁) passe par l'origine → c'est g (y = 6x, proportionnalité). (d₂) coupe l'axe des ordonnées en 3 → c'est f (y = 4x + 3). On peut aussi comparer les pentes : (d₁) est plus raide (6 > 4)."},
+      {pts:1,text:"Déterminer graphiquement les coordonnées du point d'intersection des droites (d₁) et (d₂).",answer:"(1,5 ; 9)",solution:"Les deux droites se croisent au point de coordonnées (1,5 ; 9). Vérification : f(1,5) = 4 × 1,5 + 3 = 9 et g(1,5) = 6 × 1,5 = 9."}
     ]
   },
-  { id:4, num:"04", source:"Brevet Test 2026 N°1", name:"Polygone IJKLMNOP", pts:3, notion:"Géométrie",
+  { id:5, num:"05", source:"Brevet Test 2026 N°1", name:"Polygone IJKLMNOP", pts:3, notion:"Géométrie",
     stimulus:"ABCD est un carré de côté 9 cm. Les segments de même longueur sont codés (voir la figure).", figure:figurePolygone1,
     questions:[
       {pts:1,text:"Le polygone IJKLMNOP est-il régulier, c'est-à-dire a-t-il tous ses côtés de même longueur ? <strong>Justifie ta réponse.</strong>",answer:"Non",solution:"Chaque côté du carré est partagé en 3 segments égaux de 3 cm. Les côtés « droits » (IJ, KL, MN, OP) mesurent 3 cm, mais les côtés obliques des coins (comme PI) mesurent 3√2 ≈ 4,24 cm. Les côtés ne sont pas tous égaux : le polygone n'est donc pas régulier."},
@@ -883,14 +1120,16 @@ function goNextFromCorr(){showingCorrection=false;var old=document.getElementByI
 function advance(ex){if(curQ<ex.questions.length-1){curQ++;}else{var idx=playerExercises.findIndex(e=>e.id===curEx);if(idx<playerExercises.length-1){curEx=playerExercises[idx+1].id;curQ=0;}}}
 function goPrev(){saveAnswer();if(curQ>0){curQ--;}else{var idx=playerExercises.findIndex(e=>e.id===curEx);if(idx>0){curEx=playerExercises[idx-1].id;curQ=playerExercises[idx-1].questions.length-1;}}buildSidebar();buildQuestion();}
 function jumpTo(exId,qIdx){saveAnswer();curEx=exId;curQ=qIdx;buildSidebar();buildQuestion();}
-function handleSubmit(){saveAnswer();doneSet.add(key(curEx,curQ));buildSidebar();clearInterval(playerTimerInt);showEnd();}
+function handleSubmit(){saveAnswer();doneSet.add(key(curEx,curQ));gradeAll();buildSidebar();clearInterval(playerTimerInt);showEnd();}
+function gradeAll(){playerExercises.forEach(function(ex){ex.questions.forEach(function(q,i){var k=key(ex.id,i);if(playerVerdicts[k])return;var ua=(playerAnswers[k]||'').trim().toLowerCase().replace(/\s/g,'');if(!ua)return;var ans=(q.answer||'').toLowerCase().replace(/\s/g,'');var ok=ans.indexOf(ua)!==-1||ua.indexOf(ans.slice(0,3))!==-1;playerVerdicts[k]=ok?'CORRECT':'INCORRECT';});});}
 function computeScore(){var earned=0,total=0,vc=0,ans=0,tot=0;playerExercises.forEach(ex=>{ex.questions.forEach((q,i)=>{tot++;var pts=+q.pts||0;total+=pts;if((playerAnswers[key(ex.id,i)]||'').trim()){ans++;var v=playerVerdicts[key(ex.id,i)]||'';if(v){vc++;if(v.indexOf('INCORRECT')===-1&&v.indexOf('PARTIEL')===-1&&v.indexOf('CORRECT')!==-1)earned+=pts;else if(v.indexOf('PARTIEL')!==-1)earned+=pts*0.5;}}});});var has=vc>0,s20=has?Math.min(20,Math.round((earned/total)*20*2)/2):null;return{answered:ans,total:tot,earned:Math.round(earned*10)/10,ptsTotal:Math.round(total*10)/10,score20:s20,has:has};}
-function updatePts(){var sc=computeScore(),pill=document.getElementById('ptsPill');if(!pill)return;var f=function(n){return String(n).replace('.',',');};if(sc.has&&sc.score20!==null){pill.innerHTML=f(sc.score20)+'/20';}else{pill.textContent='0 / '+f(sc.ptsTotal)+' pts';}}
+function updatePts(){var sc=computeScore(),pill=document.getElementById('ptsPill');if(!pill)return;var f=function(n){return String(n).replace('.',',');};if(sc.has&&sc.score20!==null){pill.innerHTML=f(sc.score20)+'/20';}else{pill.textContent='—/20';}}
 function showEnd(){
-  var sc=computeScore(),card=document.getElementById('examArea');if(!card)return;var noteHTML;
-  if(sc.has){var m=sc.score20>=16?'très bien':sc.score20>=14?'bien':sc.score20>=12?'assez bien':sc.score20>=10?'passable':'à retravailler';
-    noteHTML='<div style="text-align:center;padding:32px 0"><div class="answer-lbl" style="text-align:center">note estimée</div><div style="font-family:var(--anton);font-size:84px;color:var(--green-deep);line-height:.9">'+String(sc.score20).replace('.',',')+'<span style="font-family:var(--grot);font-size:.32em;color:var(--muted);font-weight:500"> /20</span></div><div style="display:inline-block;margin-top:12px;font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink);border:2.5px solid var(--ink);padding:5px 16px;border-radius:999px;background:var(--amber)">'+m+'</div></div>';}
-  else{noteHTML='<div style="text-align:center;padding:32px 0"><div class="answer-lbl" style="text-align:center">brevet terminé</div><div style="font-family:var(--anton);font-size:64px;color:var(--cobalt)">'+sc.answered+'<span style="font-family:var(--grot);font-size:.4em;color:var(--muted);font-weight:500"> / '+sc.total+'</span></div><div style="font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:8px">questions répondues</div></div>';}
+  gradeAll();
+  var sc=computeScore(),card=document.getElementById('examArea');if(!card)return;
+  var note=(sc.score20!==null?sc.score20:0);
+  var m=note>=16?'très bien':note>=14?'bien':note>=12?'assez bien':note>=10?'passable':'à retravailler';
+  var noteHTML='<div style="text-align:center;padding:32px 0"><div class="answer-lbl" style="text-align:center">note estimée</div><div style="font-family:var(--anton);font-size:84px;color:var(--green-deep);line-height:.9">'+String(note).replace('.',',')+'<span style="font-family:var(--grot);font-size:.32em;color:var(--muted);font-weight:500"> /20</span></div><div style="display:inline-block;margin-top:12px;font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink);border:2.5px solid var(--ink);padding:5px 16px;border-radius:999px;background:var(--amber)">'+m+'</div></div>';
   card.innerHTML='<div class="question-card" style="display:block;overflow-y:auto"><div style="max-width:480px;margin:0 auto;padding:30px 20px"><div style="font-family:var(--anton);font-size:34px;text-transform:uppercase;line-height:.95">brevet blanc<br><span style="color:var(--cobalt)">terminé.</span></div><div style="border:3px solid var(--ink);border-radius:16px;box-shadow:5px 5px 0 var(--ink);margin-top:22px;background:var(--paper-2)">'+noteHTML+'</div><div style="display:flex;flex-direction:column;gap:10px;margin-top:22px"><button class="btn btn-amber" style="justify-content:center" onclick="quitterBrevet();setTimeout(function(){goTo(&#39;generer&#39;)},80)">refaire un brevet →</button><button class="btn btn-ghost" style="justify-content:center" onclick="quitterBrevet();setTimeout(function(){goTo(&#39;parcours&#39;)},80)">mon parcours →</button></div></div></div>';
 }
 function tick(){totalSecs--;if(totalSecs<=0){clearInterval(playerTimerInt);showToast('⏱ temps écoulé !');setTimeout(showEnd,1000);return;}var tv=document.getElementById("timerVal");if(tv)tv.textContent=fmtTimer(totalSecs);}
@@ -919,7 +1158,31 @@ function lancerEntrainement(exId){
   setTimeout(function(){buildSidebar();buildQuestion();updatePts();startTimer();},50);
 }
 
+// ── PLANNING (calendrier) ──
+var planRef=new Date();
+var planMonths=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+function buildPlanning(){
+  var grid=document.getElementById('planGrid');if(!grid)return;
+  var y=planRef.getFullYear(),m=planRef.getMonth();
+  var lbl=document.getElementById('planMonth');if(lbl)lbl.textContent=planMonths[m]+' '+y;
+  var startDow=(new Date(y,m,1).getDay()+6)%7;
+  var nb=new Date(y,m+1,0).getDate();
+  var t=new Date(),cur=(t.getFullYear()===y&&t.getMonth()===m),td=t.getDate();
+  var cells=[];
+  for(var i=0;i<startDow;i++)cells.push('<div class="plan-cell empty"></div>');
+  for(var d=1;d<=nb;d++){
+    var now=cur&&d===td;
+    cells.push('<div class="plan-cell'+(now?' today':'')+'"><div class="pc-daynum'+(now?' now':'')+'">'+d+'</div><button class="pc-add" onclick="showToast(&#39;créneau de révision bientôt&#39;)">+</button></div>');
+  }
+  while(cells.length%7!==0)cells.push('<div class="plan-cell empty"></div>');
+  grid.innerHTML=cells.join('');
+}
+function planNav(d){planRef=new Date(planRef.getFullYear(),planRef.getMonth()+d,1);buildPlanning();}
+function planToday(){planRef=new Date();buildPlanning();}
+function planView(v){var s=document.getElementById('pt-sem'),mo=document.getElementById('pt-mois');if(s)s.classList.toggle('active',v==='semaine');if(mo)mo.classList.toggle('active',v==='mois');if(v==='semaine')showToast('vue semaine bientôt dispo');}
+
 buildEntrainement();
+buildPlanning();
 document.querySelectorAll('.page').forEach(p=>p.style.display='none');
 goTo('accueil');
 </script>
