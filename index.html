@@ -431,28 +431,6 @@ a{color:inherit}
 #page-brevet.opt-glass .stage{background:linear-gradient(135deg,#EEF0FE,#E7F6EC 55%,#FCEBEA)}
 #page-brevet.opt-glass .sidebar,#page-brevet.opt-glass .enonce-card,#page-brevet.opt-glass .question-card{background:rgba(255,255,255,.55);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.7);box-shadow:0 14px 34px -16px rgba(24,27,34,.28);border-radius:20px}
 #page-brevet.opt-glass .card-header,#page-brevet.opt-glass .card-footer{border-color:rgba(24,27,34,.12)}
-/* ── DENSITÉ (test) ── */
-#page-brevet.dens-aere .content{gap:20px}
-#page-brevet.dens-aere .card-main{padding:28px 34px;gap:18px;line-height:1.6}
-#page-brevet.dens-aere .enonce-card{padding:26px 30px}
-#page-brevet.dens-aere .enonce-card,#page-brevet.dens-aere .question-card,#page-brevet.dens-aere .sidebar{border-color:var(--line)}
-#page-brevet.dens-aere .card-header,#page-brevet.dens-aere .card-footer{padding:14px 26px}
-#page-brevet.dens-epure .enonce-card,#page-brevet.dens-epure .question-card,#page-brevet.dens-epure .sidebar{border:none;box-shadow:none;background:transparent}
-#page-brevet.dens-epure .stage{background:var(--paper)}
-#page-brevet.dens-epure .card-header,#page-brevet.dens-epure .card-footer{border-color:var(--line)}
-#page-brevet.dens-epure .content{gap:24px}
-#page-brevet.dens-epure .card-main{padding:22px 28px;line-height:1.6}
-#page-brevet.dens-focus .sidebar{display:none}
-#page-brevet.dens-focus .main{grid-template-columns:1fr}
-#page-brevet.dens-focus .content{flex-direction:column;max-width:720px;margin:0 auto;overflow-y:auto;gap:14px}
-#page-brevet.dens-focus .enonce-card,#page-brevet.dens-focus .question-card{overflow:visible}
-#page-brevet.dens-focus .card-main{padding:26px 30px;line-height:1.6}
-.dens-switch{display:none;position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:700;align-items:center;gap:5px;background:var(--paper-2);border:1.5px solid var(--ink);border-radius:999px;padding:6px 10px;box-shadow:0 10px 26px -8px rgba(24,27,34,.32)}
-#page-brevet.active ~ .dens-switch{display:flex}
-.dn-lbl{font-family:var(--mono);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-right:2px}
-.dn-btn{font-family:var(--mono);font-size:11px;font-weight:700;padding:5px 10px;border:1.5px solid var(--ink);border-radius:999px;background:var(--paper-2);cursor:pointer;transition:background .12s}
-.dn-btn:hover{background:var(--lcd)}
-.dn-btn.active{background:var(--cobalt);color:#fff}
 .enonce-lbl{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--green);margin-bottom:2px}
 .enonce-foot{margin-top:auto;padding-top:14px;display:flex}
 .enonce-foot:empty{display:none}
@@ -1444,13 +1422,6 @@ a{color:inherit}
   </div>
 </div>
 
-<div class="dens-switch" id="densSwitch">
-  <span class="dn-lbl">densité</span>
-  <button class="dn-btn active" onclick="setDens('actuel',this)">actuel</button>
-  <button class="dn-btn" onclick="setDens('aere',this)">aéré</button>
-  <button class="dn-btn" onclick="setDens('epure',this)">épuré</button>
-  <button class="dn-btn" onclick="setDens('focus',this)">focus</button>
-</div>
 <div id="toast" class="toast"></div>
 
 <script id="figures-db">
@@ -1589,12 +1560,6 @@ function buildGenRecap(){
   el.innerHTML='<div class="recap-row"><span class="recap-k">durée</span><span class="recap-v">'+durTxt+'</span></div>'+
     '<div class="recap-row"><span class="recap-k">notions</span><span class="recap-v">'+notions+'</span></div>'+
     '<div class="recap-row"><span class="recap-k">correction</span><span class="recap-v">'+corrTxt+'</span></div>';
-}
-function setDens(k,btn){
-  var pb=document.getElementById('page-brevet');
-  if(pb){pb.classList.remove('dens-aere','dens-epure','dens-focus');if(k!=='actuel')pb.classList.add('dens-'+k);}
-  document.querySelectorAll('.dn-btn').forEach(b=>b.classList.remove('active'));
-  if(btn)btn.classList.add('active');
 }
 function flagLine(l){var box=l.closest('.err-exo');if(box&&box.classList.contains('checked'))return;l.classList.toggle('flagged');}
 function checkErrors(btn){
