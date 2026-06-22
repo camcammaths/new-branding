@@ -14,7 +14,7 @@
 :root{
   --paper:#F6F7F9;--paper-2:#FFFFFF;--ink:#181B22;--muted:#6B7280;
   --green:#16A34A;--green-deep:#15803D;--olive:#4D7C0F;
-  --cobalt:#4F46E5;--amber:#F59E0B;--clay:#E2483D;--lcd:#E7F6EC;--line:#E5E7EB;
+  --cobalt:#4F46E5;--amber:#F59E0B;--clay:#E2483D;--lcd:#E7F6EC;--ko-soft:#FCEBEA;--line:#E5E7EB;
   --pop:#84CC16;--pop-soft:#ECFCCB;
   --anton:'Anton',Impact,sans-serif;--grot:'Space Grotesk',-apple-system,sans-serif;--mono:'Space Mono',monospace;
 }
@@ -87,6 +87,40 @@ a{color:inherit}
 .train-card-tag{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green-deep);background:var(--lcd);border:1.5px solid var(--ink);border-radius:999px;padding:3px 10px;align-self:flex-start}
 .train-card-name{font-family:var(--grot);font-weight:700;font-size:24px;text-transform:uppercase;line-height:.95}
 .train-card-meta{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.fiche-back{font-family:var(--mono);font-size:11px;font-weight:700;border:1.5px solid var(--ink);border-radius:999px;background:var(--paper-2);padding:6px 12px;cursor:pointer;margin-bottom:14px}
+.fiche-back:hover{background:var(--lcd)}
+.fiche-tag{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--lcd);color:var(--green-deep);border:1.5px solid var(--ink);border-radius:999px;padding:4px 10px}
+.fiche-grid{display:flex;flex-direction:column;gap:16px;max-width:720px;margin-top:22px}
+.fiche-block{background:var(--paper-2);border:1.5px solid var(--ink);border-radius:16px;padding:20px 22px;box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
+.fiche-block h3{font-family:var(--grot);font-weight:700;font-size:17px;margin-bottom:10px;text-transform:lowercase}
+.fiche-block h3 .fiche-sub{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--muted);text-transform:none}
+.fiche-block p{font-size:14px;line-height:1.6;margin-bottom:8px}
+.fiche-block p:last-child{margin-bottom:0}
+.fiche-muted{color:var(--muted)}
+.fiche-formula{font-family:var(--grot);font-weight:700;font-size:24px;text-align:center;background:var(--pop-soft);border:1.5px solid var(--ink);border-radius:12px;padding:14px;margin:10px 0;color:var(--ink)}
+.fiche-formula.sm{font-size:19px}
+.fiche-fig{display:flex;justify-content:center}
+.fiche-fig svg{max-width:100%;height:auto}
+.fiche-ex{background:var(--lcd);border-left:4px solid var(--green);border-radius:0 10px 10px 0;padding:12px 14px;font-size:14px;line-height:1.6;margin-top:10px}
+.fiche-ex-t{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green-deep);margin-bottom:4px}
+.fiche-note{background:#FEF3C7;border:1.5px solid var(--ink);border-radius:12px;padding:14px 16px;font-size:14px;line-height:1.6}
+.fiche-exo .fiche-fig{margin:4px auto 12px}
+.err-exo{border:1.5px solid var(--line);border-radius:14px;padding:14px 16px;background:var(--paper)}
+.err-title{font-size:13px;font-weight:700;margin-bottom:8px;line-height:1.5}
+.err-exo .errline{border:1.5px solid var(--line);border-radius:10px;padding:9px 12px;margin:7px 0;font-size:13.5px;line-height:1.5;cursor:pointer;transition:background .12s,border-color .12s;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.err-exo .errline:hover{border-color:var(--ink)}
+.errline.flagged{border-color:var(--clay);background:var(--ko-soft)}
+.errline.flagged::after{content:'⚑';color:var(--clay);font-size:13px}
+.errline.revealed{cursor:default}
+.errline.good{border-color:var(--green);background:var(--lcd)}
+.errline.good::after{content:'✓ trouvée';font-family:var(--mono);font-size:10px;font-weight:700;color:var(--green-deep)}
+.errline.missed{border-color:var(--clay);background:var(--ko-soft)}
+.errline.missed::after{content:'✗ manquée';font-family:var(--mono);font-size:10px;font-weight:700;color:var(--clay)}
+.errline.falsepos{border-color:var(--amber);background:#FEF3C7}
+.errline.falsepos::after{content:'correcte';font-family:var(--mono);font-size:10px;font-weight:700;color:var(--muted)}
+.err-check{margin-top:10px;font-family:var(--grot);font-size:13px;font-weight:700;background:var(--cobalt);color:#fff;border:1.5px solid var(--ink);border-radius:999px;padding:8px 16px;cursor:pointer}
+.err-check:disabled{background:var(--green);cursor:default}
+.err-explain{display:none;margin-top:12px;background:var(--lcd);border-left:4px solid var(--green);border-radius:0 10px 10px 0;padding:12px 14px;font-size:14px;line-height:1.6}
 .train-card-btn{margin-top:6px;font-family:var(--grot);font-size:13px;font-weight:700;background:var(--cobalt);color:#fff;border:1.5px solid var(--ink);border-radius:999px;padding:10px;cursor:pointer;text-transform:lowercase;box-shadow:0 6px 18px -6px rgba(24,27,34,.26);transition:transform .1s,box-shadow .1s}
 .train-card-btn:hover{transform:translate(-1px,-1px);box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
 .train-card-btn:active{transform:translate(2px,2px);box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
@@ -283,7 +317,7 @@ a{color:inherit}
 .footer-bar-copy{font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.8);letter-spacing:.04em}
 .footer-bar-slogan{font-family:var(--grot);font-weight:700;font-size:16px;color:#fff;text-transform:uppercase;letter-spacing:.03em}
 .footer-bar-slogan span{color:var(--amber)}
-.gen-layout{flex:1 1 0;min-height:0;overflow-y:auto;display:flex;align-items:flex-start;justify-content:center}
+.gen-layout{flex:1 1 0;min-height:0;overflow-y:auto;display:flex;align-items:center;justify-content:center}
 .gen-col{width:100%;max-width:600px;padding:18px 30px 22px;display:flex;flex-direction:column;gap:13px}
 .gen-title{font-family:var(--grot);font-weight:700;font-size:clamp(24px,2.6vw,34px);text-transform:uppercase;line-height:.95}
 .gen-title span{color:var(--cobalt)}
@@ -309,22 +343,44 @@ a{color:inherit}
 .ccheck{width:18px;height:18px;border:1.5px solid var(--ink);border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;background:#fff}
 .corr-chip.sel .ccheck{background:var(--green);color:#fff}
 .gen-cta{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+.gen-wizard{width:100%;max-width:620px;padding:18px 30px 22px;display:flex;flex-direction:column;gap:16px}
+.gen-steps{display:flex;flex-wrap:wrap;gap:8px 14px;justify-content:center}
+.gen-step-pip{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.gen-step-pip span{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:11px;background:var(--paper-2);color:var(--ink)}
+.gen-step-pip.active{color:var(--ink)}
+.gen-step-pip.active span{background:var(--cobalt);color:#fff;border-color:var(--cobalt)}
+.gen-step-pip.done span{background:var(--green);color:#fff;border-color:var(--green-deep)}
+.gen-panel{display:none}
+.gen-panel.active{display:block;animation:genFade .25s ease}
+@keyframes genFade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.gen-nav{display:flex;justify-content:space-between;gap:12px;margin-top:2px}
+.gen-recap{display:flex;flex-direction:column;gap:10px;border:1.5px solid var(--ink);border-radius:14px;padding:16px 18px;background:var(--paper-2);box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
+.recap-row{display:flex;justify-content:space-between;gap:14px;align-items:baseline;border-bottom:1.5px solid var(--line);padding-bottom:9px}
+.recap-row:last-child{border-bottom:none;padding-bottom:0}
+.recap-k{font-family:var(--mono);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);flex-shrink:0}
+.recap-v{font-weight:700;text-align:right}
 .gen-go{justify-content:center;width:100%;font-size:17px;font-weight:700;padding:16px;box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
 .gen-go:hover{box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
 .gen-note{text-align:center;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.gen-back{justify-content:center;width:100%;padding:9px}
 .gen-lead{font-size:14px;line-height:1.5;color:var(--muted);margin-top:8px;font-weight:500;max-width:46ch}
 #page-brevet.active{display:block;height:100vh;overflow:hidden;position:relative}
 .bp-top{position:absolute;top:0;left:0;right:0;z-index:20;background:var(--paper);border-bottom:1.5px solid var(--ink);display:flex;justify-content:space-between;align-items:center;padding:9px 22px}
 .bp-quit{font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);background:none;border:none;cursor:pointer}
 .bp-quit:hover{color:var(--ink)}
-.bp-sujet{font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.bp-sujet{font-family:var(--mono);font-size:10px;font-weight:700;color:var(--green-deep);background:var(--lcd);text-transform:uppercase;letter-spacing:.1em;padding:5px 12px;border:1.5px solid var(--ink);border-radius:999px}
+.bp-sujet::before{content:'✦ '}
 .pts-pill{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--cobalt);background:var(--lcd);padding:6px 14px;border:1.5px solid var(--ink);border-radius:999px}
 .timer-wrap{display:flex;align-items:center;gap:8px;background:var(--paper-2);border:1.5px solid var(--ink);border-radius:999px;padding:6px 14px}
 .timer-dot{width:8px;height:8px;border-radius:50%;background:var(--clay);animation:pulse 1s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 .timer-val{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--ink)}
 .stage{position:absolute;top:51px;bottom:0;left:0;right:0;display:flex;background:var(--paper);overflow:hidden}
+.stage::before{content:'';position:absolute;top:-90px;right:-70px;width:540px;height:540px;background:radial-gradient(circle,rgba(132,204,22,.13),rgba(79,70,229,.07) 45%,transparent 70%);filter:blur(22px);pointer-events:none;z-index:0}
+#page-brevet .main{position:relative;z-index:1}
+.sidebar-revo{display:flex;align-items:center;gap:9px;padding:9px 10px;background:var(--pop-soft);border:1.5px solid var(--ink);border-radius:12px}
+.sidebar-revo svg{width:40px;height:auto;flex-shrink:0}
+.sidebar-revo-txt{font-size:11px;font-weight:700;line-height:1.3}
+.sidebar-revo-txt span{display:block;color:var(--green-deep);font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1px}
 .main{display:grid;grid-template-columns:220px 1fr;gap:12px;flex:1;padding:14px 20px 18px;min-height:0;width:100%}
 .sidebar{background:var(--paper-2);border:1.5px solid var(--ink);border-radius:16px;padding:14px 12px;display:flex;flex-direction:column;gap:10px;overflow:hidden;box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
 .ex-list-wrap{flex:1;overflow-y:auto;min-height:0}
@@ -359,6 +415,37 @@ a{color:inherit}
 .q-breadcrumb strong{color:var(--ink)}
 .card-body{display:flex;overflow:hidden;min-height:0}
 .card-main{flex:1;overflow-y:auto;padding:20px 26px;display:flex;flex-direction:column;gap:14px}
+/* ── OPTIONS D'AFFICHAGE (élève) ── */
+.opt-toggle{font-family:var(--mono);font-size:10px;font-weight:700;padding:5px 10px;border:1.5px solid var(--ink);border-radius:999px;background:var(--paper-2);color:var(--muted);cursor:pointer;transition:background .12s}
+.opt-toggle:hover{background:var(--lcd)}
+.opt-toggle.active{background:var(--cobalt);color:#fff}
+#page-brevet.opt-nobar .sidebar{display:none}
+#page-brevet.opt-nobar .main{grid-template-columns:1fr}
+#page-brevet.opt-glass .stage{background:linear-gradient(135deg,#EEF0FE,#E7F6EC 55%,#FCEBEA)}
+#page-brevet.opt-glass .sidebar,#page-brevet.opt-glass .enonce-card,#page-brevet.opt-glass .question-card{background:rgba(255,255,255,.55);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.7);box-shadow:0 14px 34px -16px rgba(24,27,34,.28);border-radius:20px}
+#page-brevet.opt-glass .card-header,#page-brevet.opt-glass .card-footer{border-color:rgba(24,27,34,.12)}
+/* ── DENSITÉ (test) ── */
+#page-brevet.dens-aere .content{gap:20px}
+#page-brevet.dens-aere .card-main{padding:28px 34px;gap:18px;line-height:1.6}
+#page-brevet.dens-aere .enonce-card{padding:26px 30px}
+#page-brevet.dens-aere .enonce-card,#page-brevet.dens-aere .question-card,#page-brevet.dens-aere .sidebar{border-color:var(--line)}
+#page-brevet.dens-aere .card-header,#page-brevet.dens-aere .card-footer{padding:14px 26px}
+#page-brevet.dens-epure .enonce-card,#page-brevet.dens-epure .question-card,#page-brevet.dens-epure .sidebar{border:none;box-shadow:none;background:transparent}
+#page-brevet.dens-epure .stage{background:var(--paper)}
+#page-brevet.dens-epure .card-header,#page-brevet.dens-epure .card-footer{border-color:var(--line)}
+#page-brevet.dens-epure .content{gap:24px}
+#page-brevet.dens-epure .card-main{padding:22px 28px;line-height:1.6}
+#page-brevet.dens-focus .sidebar{display:none}
+#page-brevet.dens-focus .main{grid-template-columns:1fr}
+#page-brevet.dens-focus .content{flex-direction:column;max-width:720px;margin:0 auto;overflow-y:auto;gap:14px}
+#page-brevet.dens-focus .enonce-card,#page-brevet.dens-focus .question-card{overflow:visible}
+#page-brevet.dens-focus .card-main{padding:26px 30px;line-height:1.6}
+.dens-switch{display:none;position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:700;align-items:center;gap:5px;background:var(--paper-2);border:1.5px solid var(--ink);border-radius:999px;padding:6px 10px;box-shadow:0 10px 26px -8px rgba(24,27,34,.32)}
+#page-brevet.active ~ .dens-switch{display:flex}
+.dn-lbl{font-family:var(--mono);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-right:2px}
+.dn-btn{font-family:var(--mono);font-size:11px;font-weight:700;padding:5px 10px;border:1.5px solid var(--ink);border-radius:999px;background:var(--paper-2);cursor:pointer;transition:background .12s}
+.dn-btn:hover{background:var(--lcd)}
+.dn-btn.active{background:var(--cobalt);color:#fff}
 .enonce-lbl{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--green);margin-bottom:2px}
 .enonce-foot{margin-top:auto;padding-top:14px;display:flex}
 .enonce-foot:empty{display:none}
@@ -398,24 +485,6 @@ a{color:inherit}
 .pack-feat{font-size:12px;display:flex;gap:8px;font-weight:500}
 .pack-btn{font-family:var(--grot);font-size:12px;font-weight:700;border:1.5px solid var(--ink);border-radius:999px;padding:9px;cursor:pointer;text-transform:lowercase;background:var(--amber);color:var(--ink);box-shadow:0 6px 18px -6px rgba(24,27,34,.26);margin-top:auto}
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:12px;font-weight:700;padding:11px 22px;border:1.5px solid var(--ink);border-radius:999px;box-shadow:0 6px 18px -6px rgba(79,70,229,.30);z-index:600;transition:transform .3s;white-space:nowrap;pointer-events:none}
-/* ── STYLES D'EXAMEN (test) ── */
-#page-brevet.exam-focus .stage{background:var(--lcd)}
-#page-brevet.exam-focus .enonce-card,#page-brevet.exam-focus .question-card{border-radius:20px}
-#page-brevet.exam-focus .answer-textarea:focus{outline:2px solid var(--cobalt);outline-offset:1px;border-color:var(--cobalt)}
-#page-brevet.exam-clean .stage{background:var(--paper-2)}
-#page-brevet.exam-clean .enonce-card,#page-brevet.exam-clean .question-card,#page-brevet.exam-clean .sidebar{border-color:var(--line);box-shadow:none}
-#page-brevet.exam-clean .card-header,#page-brevet.exam-clean .card-footer{border-color:var(--line)}
-#page-brevet.exam-clean .bp-top{background:transparent;border-bottom:1px solid var(--line)}
-#page-brevet.exam-sharp .question-card{border-left:4px solid var(--cobalt)}
-#page-brevet.exam-sharp .enonce-card{border-left:4px solid var(--green)}
-#page-brevet.exam-sharp .bp-top{border-bottom:2.5px solid var(--cobalt)}
-#page-brevet.exam-sharp .pts-pill,#page-brevet.exam-sharp .timer-wrap{border-width:2px}
-.exam-style-switch{display:none;position:fixed;right:16px;bottom:16px;z-index:700;align-items:center;gap:5px;background:var(--paper-2);border:1.5px solid var(--ink);border-radius:999px;padding:6px 10px;box-shadow:0 10px 26px -8px rgba(24,27,34,.32)}
-#page-brevet.active ~ .exam-style-switch{display:flex}
-.ess-lbl{font-family:var(--mono);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-right:2px}
-.ess-btn{font-family:var(--mono);font-size:11px;font-weight:700;padding:5px 10px;border:1.5px solid var(--ink);border-radius:999px;background:var(--paper-2);cursor:pointer;transition:background .12s}
-.ess-btn:hover{background:var(--lcd)}
-.ess-btn.active{background:var(--cobalt);color:#fff}
 .toast.show{transform:translateX(-50%) translateY(0)}
 @media (prefers-reduced-motion:reduce){.wheel-spin,.roulette-ball,.timer-dot,.exo-confetti{animation:none !important}}
 @media(max-width:920px){
@@ -449,8 +518,9 @@ a{color:inherit}
   </div>
   <div class="nav-r">
     <ul class="nav-links">
-      <li data-page="accueil" onclick="goTo('accueil')">accueil</li>
       <li data-page="entrainement" onclick="goTo('entrainement')">entraînement</li>
+      <li data-page="annales" onclick="goTo('annales')">annales</li>
+      <li data-page="fiches" onclick="goTo('fiches')">fiches</li>
       <li data-page="parcours" onclick="goTo('parcours')">parcours</li>
       <li data-page="planning" onclick="goTo('planning')">planning</li>
       <li data-page="checkout" class="on-orange" onclick="goTo('checkout')">s'inscrire ✦</li>
@@ -470,17 +540,26 @@ a{color:inherit}
         <button class="btn btn-cobalt" onclick="goTo('generer')">c'est parti →</button>
         <button class="btn btn-ghost" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">voir un exercice</button>
       </div>
-      <p class="hero-fine">1ᵉʳ sujet offert · puis 19,90 €/mois · sans engagement</p>
+      <p class="hero-fine">19,90 €/mois · sans engagement</p>
     </div>
     <div class="hero-right">
       <div class="hero-stickers">
         <div class="stk stk-seal">
-          <svg viewBox="0 0 150 150" width="130" xmlns="http://www.w3.org/2000/svg" aria-label="badge brevet maths">
-            <circle cx="75" cy="75" r="70" fill="#16A34A" stroke="#181B22" stroke-width="2"/>
-            <circle cx="75" cy="75" r="60" fill="none" stroke="#fff" stroke-width="1.5" stroke-dasharray="2 5" opacity="0.85"/>
-            <text x="75" y="67" text-anchor="middle" font-family="'Anton',sans-serif" font-size="26" fill="#fff" letter-spacing="0.5">BREVET</text>
-            <text x="75" y="97" text-anchor="middle" font-family="'Anton',sans-serif" font-size="26" fill="#fff" letter-spacing="0.5">MATHS</text>
-            <text x="75" y="121" text-anchor="middle" font-family="'Space Mono',monospace" font-size="11" font-weight="700" fill="#fff" letter-spacing="3">π √ =</text>
+          <svg viewBox="0 0 150 150" width="132" xmlns="http://www.w3.org/2000/svg" aria-label="sceau brevet blanc mathématiques">
+            <defs>
+              <path id="arcTop" d="M 24 75 A 51 51 0 0 1 126 75"/>
+              <path id="arcBot" d="M 28 75 A 47 47 0 0 0 122 75"/>
+            </defs>
+            <circle cx="75" cy="75" r="71" fill="#4F46E5" stroke="#181B22" stroke-width="2.5"/>
+            <circle cx="75" cy="75" r="62" fill="none" stroke="#fff" stroke-width="2" opacity="0.9"/>
+            <circle cx="75" cy="75" r="58" fill="none" stroke="#fff" stroke-width="1" stroke-dasharray="1.5 4" opacity="0.6"/>
+            <circle cx="75" cy="75" r="42" fill="#4338CA"/>
+            <text font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="13" fill="#fff" letter-spacing="2.5"><textPath href="#arcTop" startOffset="50%" text-anchor="middle">BREVET BLANC</textPath></text>
+            <text font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="11" fill="#fff" letter-spacing="2"><textPath href="#arcBot" startOffset="50%" text-anchor="middle">MATHÉMATIQUES</textPath></text>
+            <text x="15.5" y="79" text-anchor="middle" font-size="12" fill="#fff">★</text>
+            <text x="134.5" y="79" text-anchor="middle" font-size="12" fill="#fff">★</text>
+            <text x="75" y="84" text-anchor="middle" font-family="'Anton',sans-serif" font-size="44" fill="#fff">π</text>
+            <text x="75" y="100" text-anchor="middle" font-family="'Space Mono',monospace" font-size="9" font-weight="700" fill="#fff" letter-spacing="3">2026</text>
           </svg>
         </div>
         <div class="stk stk-revo revo revo-anim" aria-label="révo, la mascotte">
@@ -502,9 +581,11 @@ a{color:inherit}
           </svg>
         </div>
         <div class="stk stk-pi">
-          <svg viewBox="0 0 110 110" width="92" xmlns="http://www.w3.org/2000/svg" aria-label="pi">
-            <circle cx="55" cy="55" r="50" fill="#F59E0B" stroke="#181B22" stroke-width="2"/>
-            <text x="55" y="79" text-anchor="middle" font-family="'Anton',sans-serif" font-size="62" fill="#181B22">π</text>
+          <svg viewBox="0 0 110 110" width="94" xmlns="http://www.w3.org/2000/svg" aria-label="pi">
+            <path d="M 55.0 4.0 L 63.2 13.8 L 74.5 7.9 L 78.3 20.1 L 91.1 18.9 L 89.9 31.7 L 102.1 35.5 L 96.2 46.8 L 106.0 55.0 L 96.2 63.2 L 102.1 74.5 L 89.9 78.3 L 91.1 91.1 L 78.3 89.9 L 74.5 102.1 L 63.2 96.2 L 55.0 106.0 L 46.8 96.2 L 35.5 102.1 L 31.7 89.9 L 18.9 91.1 L 20.1 78.3 L 7.9 74.5 L 13.8 63.2 L 4.0 55.0 L 13.8 46.8 L 7.9 35.5 L 20.1 31.7 L 18.9 18.9 L 31.7 20.1 L 35.5 7.9 L 46.8 13.8 Z" fill="#FACC15" stroke="#181B22" stroke-width="2.5" stroke-linejoin="round"/>
+            <circle cx="55" cy="55" r="33" fill="#FEF3C7"/>
+            <circle cx="55" cy="55" r="34" fill="none" stroke="#181B22" stroke-width="1.5" opacity="0.25"/>
+            <text x="55" y="72" text-anchor="middle" font-family="'Anton',sans-serif" font-size="46" fill="#181B22">π</text>
           </svg>
         </div>
       </div>
@@ -596,10 +677,10 @@ a{color:inherit}
   </section>
 
   <section class="final">
-    <h2>alors, <span class="y">on révise ?</span></h2>
+    <h2>alors, <span class="y">on brévise ?</span></h2>
     <p>il te reste <strong style="color:#fff"><span id="final-d">—</span> jours</strong> avant l'épreuve. chaque brevet blanc fait maintenant, c'est un point de plus le jour j.</p>
     <button class="btn btn-amber" onclick="goTo('generer')">je génère mon 1ᵉʳ brevet →</button>
-    <p class="final-fine">à partir de 19,90 €/mois · 1ᵉʳ sujet offert · sans engagement · résiliable en 1 clic</p>
+    <p class="final-fine">à partir de 19,90 €/mois · sans engagement · résiliable en 1 clic</p>
   </section>
 
   <footer class="footer">
@@ -618,11 +699,15 @@ a{color:inherit}
 
 <div class="page" id="page-generer">
   <div class="gen-layout">
-    <div class="gen-col">
-      <div>
-        <h1 class="gen-title">génère ton <span>brevet.</span></h1>
+    <div class="gen-wizard">
+      <h1 class="gen-title">génère ton <span>brevet.</span></h1>
+      <div class="gen-steps" id="genSteps">
+        <div class="gen-step-pip active" data-s="1"><span>1</span>durée</div>
+        <div class="gen-step-pip" data-s="2"><span>2</span>notions</div>
+        <div class="gen-step-pip" data-s="3"><span>3</span>correction</div>
+        <div class="gen-step-pip" data-s="4"><span>4</span>récap</div>
       </div>
-      <div>
+      <div class="gen-panel active" data-step="1">
         <div class="gen-label">durée de l'épreuve</div>
         <div class="duree-list">
           <button class="duree-chip sel" onclick="selectDuree(this)" data-mins="120"><span>2h</span></button>
@@ -632,7 +717,7 @@ a{color:inherit}
           <button class="duree-chip" onclick="selectDuree(this)" data-mins="10"><span>10 min</span></button>
         </div>
       </div>
-      <div>
+      <div class="gen-panel" data-step="2">
         <div class="gen-label">notions à travailler</div>
         <div class="notions-grid">
           <button class="notion-chip all-chip sel" data-notion="all" onclick="toggleNotion(this)"><span class="ncheck">✓</span>toutes les notions</button>
@@ -643,26 +728,29 @@ a{color:inherit}
           <button class="notion-chip" data-notion="Algèbre" onclick="toggleNotion(this)"><span class="ncheck"></span>algèbre</button>
         </div>
       </div>
-      <div>
+      <div class="gen-panel" data-step="3">
         <div class="gen-label">mode de correction</div>
         <button class="corr-chip sel" onclick="selectCorr(this)" data-mode="question"><div><div class="corr-title">question par question</div><div class="corr-sub">la correction après chaque réponse</div></div><div class="ccheck">✓</div></button>
         <button class="corr-chip" onclick="selectCorr(this)" data-mode="fin"><div><div class="corr-title">à la fin de l'examen</div><div class="corr-sub">tout révélé en une fois</div></div><div class="ccheck"></div></button>
       </div>
-      <div class="gen-cta">
-        <button class="btn btn-cobalt gen-go" onclick="lancerBrevet()">générer mon brevet →</button>
-        <div class="gen-note">gratuit · corrigé · illimité</div>
-        <button class="btn btn-ghost gen-back" onclick="goTo('accueil')">← retour</button>
+      <div class="gen-panel" data-step="4">
+        <div class="gen-label">récapitulatif</div>
+        <div class="gen-recap" id="genRecap"></div>
+      </div>
+      <div class="gen-nav">
+        <button class="btn btn-ghost" id="genPrev" onclick="genGo(-1)">← précédent</button>
+        <button class="btn btn-cobalt" id="genNext" onclick="genGo(1)">suivant →</button>
       </div>
     </div>
   </div>
 </div>
 
-<div class="page" id="page-brevet">
+<div class="page opt-glass" id="page-brevet">
   <div class="bp-top">
     <button class="bp-quit" onclick="quitterBrevet()">← quitter</button>
     <span class="bp-sujet" id="sujetLabel"></span>
     <div style="display:flex;align-items:center;gap:8px">
-      <span class="pts-pill" id="ptsPill">0 pts</span>
+      <button class="opt-toggle active" id="optGlass" onclick="toggleOpt('glass',this)">verre</button><button class="opt-toggle" id="optBar" onclick="toggleOpt('nobar',this)">masquer la barre</button><span class="pts-pill" id="ptsPill">0 pts</span>
       <div class="timer-wrap"><div class="timer-dot"></div><span class="timer-val" id="timerVal">2:00:00</span></div>
     </div>
   </div>
@@ -670,6 +758,7 @@ a{color:inherit}
     <div class="main">
       <div class="sidebar">
         <div class="ex-list-wrap"><div class="sidebar-label">exercices</div><div class="ex-list" id="exList"></div></div>
+        <div class="sidebar-revo"><svg viewBox="0 0 110 120" xmlns="http://www.w3.org/2000/svg"><path d="M55 28 C55 17 60 11 69 10" fill="none" stroke="#4D7C0F" stroke-width="3" stroke-linecap="round"/><path d="M69 10 C79 6 86 13 81 22 C73 26 64 20 69 10 Z" fill="#84CC16" stroke="#181B22" stroke-width="1.5"/><rect x="14" y="26" width="82" height="82" rx="32" fill="#16A34A" stroke="#181B22" stroke-width="2"/><ellipse cx="42" cy="62" rx="8.5" ry="10" fill="#fff" stroke="#181B22" stroke-width="1.6"/><ellipse cx="68" cy="62" rx="8.5" ry="10" fill="#fff" stroke="#181B22" stroke-width="1.6"/><circle cx="44" cy="64" r="3.6" fill="#181B22"/><circle cx="70" cy="64" r="3.6" fill="#181B22"/><path d="M44 82 Q55 92 66 82" fill="none" stroke="#181B22" stroke-width="2.2" stroke-linecap="round"/></svg><div class="sidebar-revo-txt"><span>révo</span>garde le rythme, tu gères !</div></div>
         <div class="sidebar-progress"><div class="prog-label"><span id="progText">0 / 0</span><span id="progPct">0%</span></div><div class="prog-bar"><div class="prog-fill" id="progFill" style="width:0%"></div></div></div>
       </div>
       <div class="content" id="examArea"></div>
@@ -683,6 +772,142 @@ a{color:inherit}
     <h1 class="simple-h1" style="margin-top:12px">mode <span>entraînement.</span></h1>
     <p class="simple-lead">choisis une notion et travaille un exercice à la fois, avec la correction après chaque réponse. pas de stress, juste de l'entraînement.</p>
     <div class="train-grid" id="trainList"></div>
+  </div>
+</div>
+
+<div class="page" id="page-annales">
+  <div class="simple-page">
+    <span class="eyebrow">sujets officiels · DNB</span>
+    <h1 class="simple-h1" style="margin-top:12px">les <span>annales.</span></h1>
+    <p class="simple-lead">entraîne-toi sur les vrais sujets du brevet des années précédentes, en conditions réelles. même format, même barème que le jour J.</p>
+    <div class="train-grid">
+      <div class="train-card"><span class="train-card-tag">juin 2025</span><div class="train-card-name">DNB 2025 · métropole</div><div class="train-card-meta">2h · 4 exercices · /20</div><button class="train-card-btn" onclick="lancerBrevet()">s&#39;entraîner →</button></div>
+      <div class="train-card"><span class="train-card-tag">juin 2024</span><div class="train-card-name">DNB 2024 · métropole</div><div class="train-card-meta">2h · 4 exercices · /20</div><button class="train-card-btn" onclick="lancerBrevet()">s&#39;entraîner →</button></div>
+      <div class="train-card"><span class="train-card-tag">sept. 2024</span><div class="train-card-name">DNB 2024 · rattrapage</div><div class="train-card-meta">2h · 4 exercices · /20</div><button class="train-card-btn" onclick="lancerBrevet()">s&#39;entraîner →</button></div>
+      <div class="train-card"><span class="train-card-tag">juin 2023</span><div class="train-card-name">DNB 2023 · métropole</div><div class="train-card-meta">2h · 4 exercices · /20</div><button class="train-card-btn" onclick="lancerBrevet()">s&#39;entraîner →</button></div>
+      <div class="train-card"><span class="train-card-tag">officiel 2026</span><div class="train-card-name">sujet 0 · DNB 2026</div><div class="train-card-meta">2h · 4 exercices · /20</div><button class="train-card-btn" onclick="lancerBrevet()">s&#39;entraîner →</button></div>
+      <div class="train-card"><span class="train-card-tag">juin 2022</span><div class="train-card-name">DNB 2022 · métropole</div><div class="train-card-meta">2h · 4 exercices · /20</div><button class="train-card-btn" onclick="lancerBrevet()">s&#39;entraîner →</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="page-fiches">
+  <div class="simple-page">
+    <span class="eyebrow">mémo · méthodes · formules</span>
+    <h1 class="simple-h1" style="margin-top:12px">les <span>fiches.</span></h1>
+    <p class="simple-lead">l'essentiel à connaître pour le brevet : définitions, formules clés et méthodes, notion par notion. à réviser avant de te lancer.</p>
+    <div class="train-grid">
+      <div class="train-card"><span class="train-card-tag">géométrie</span><div class="train-card-name">théorème de Pythagore</div><div class="train-card-meta">formule · réciproque · méthode</div><button class="train-card-btn" onclick="goTo('fiche-pythagore')">consulter →</button></div>
+      <div class="train-card"><span class="train-card-tag">géométrie</span><div class="train-card-name">théorème de Thalès</div><div class="train-card-meta">configuration · calcul · réciproque</div><button class="train-card-btn" onclick="showToast('fiche bientôt dispo')">consulter →</button></div>
+      <div class="train-card"><span class="train-card-tag">géométrie</span><div class="train-card-name">trigonométrie</div><div class="train-card-meta">cos · sin · tan dans le triangle</div><button class="train-card-btn" onclick="showToast('fiche bientôt dispo')">consulter →</button></div>
+      <div class="train-card"><span class="train-card-tag">algèbre</span><div class="train-card-name">calcul littéral & équations</div><div class="train-card-meta">développer · factoriser · résoudre</div><button class="train-card-btn" onclick="showToast('fiche bientôt dispo')">consulter →</button></div>
+      <div class="train-card"><span class="train-card-tag">algèbre</span><div class="train-card-name">fonctions</div><div class="train-card-meta">affine · linéaire · image · antécédent</div><button class="train-card-btn" onclick="showToast('fiche bientôt dispo')">consulter →</button></div>
+      <div class="train-card"><span class="train-card-tag">statistiques</span><div class="train-card-name">statistiques</div><div class="train-card-meta">moyenne · médiane · étendue</div><button class="train-card-btn" onclick="showToast('fiche bientôt dispo')">consulter →</button></div>
+      <div class="train-card"><span class="train-card-tag">probabilités</span><div class="train-card-name">probabilités</div><div class="train-card-meta">événement · arbre · calcul</div><button class="train-card-btn" onclick="showToast('fiche bientôt dispo')">consulter →</button></div>
+      <div class="train-card"><span class="train-card-tag">grandeurs</span><div class="train-card-name">proportionnalité & %</div><div class="train-card-meta">4ᵉ proportionnelle · pourcentages</div><button class="train-card-btn" onclick="showToast('fiche bientôt dispo')">consulter →</button></div>
+      <div class="train-card"><span class="train-card-tag">nombres</span><div class="train-card-name">arithmétique</div><div class="train-card-meta">PGCD · nombres premiers · fractions</div><button class="train-card-btn" onclick="showToast('fiche bientôt dispo')">consulter →</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="page-fiche-pythagore">
+  <div class="simple-page">
+    <button class="fiche-back" onclick="goTo('fiches')">← toutes les fiches</button>
+    <div><span class="fiche-tag">géométrie</span></div>
+    <h1 class="simple-h1" style="margin-top:10px">théorème de <span>Pythagore.</span></h1>
+    <div class="fiche-grid">
+      <div class="fiche-block">
+        <h3>le théorème</h3>
+        <p>Si un triangle <strong>ABC est rectangle en A</strong>, alors :</p>
+        <div class="fiche-formula">BC² = AB² + AC²</div>
+        <p class="fiche-muted">Le carré de l'<strong>hypoténuse</strong> (le côté opposé à l'angle droit, le plus long) est égal à la somme des carrés des deux autres côtés.</p>
+      </div>
+      <div class="fiche-block fiche-fig">
+        <svg viewBox="0 0 250 200" width="250" xmlns="http://www.w3.org/2000/svg" aria-label="triangle rectangle ABC">
+          <polygon points="50,160 210,160 50,50" fill="#E7F6EC" stroke="#181B22" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M64 160 L64 146 L50 146" fill="none" stroke="#181B22" stroke-width="1.5"/>
+          <circle cx="50" cy="160" r="2.5" fill="#181B22"/><circle cx="210" cy="160" r="2.5" fill="#181B22"/><circle cx="50" cy="50" r="2.5" fill="#181B22"/>
+          <text x="37" y="176" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="14" fill="#181B22">A</text>
+          <text x="216" y="176" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="14" fill="#181B22">C</text>
+          <text x="37" y="46" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="14" fill="#181B22">B</text>
+          <text x="125" y="178" text-anchor="middle" font-family="'Space Mono',monospace" font-size="11" fill="#6B7280">AC</text>
+          <text x="33" y="108" text-anchor="middle" font-family="'Space Mono',monospace" font-size="11" fill="#6B7280">AB</text>
+          <text x="140" y="98" font-family="'Space Mono',monospace" font-size="11" font-weight="700" fill="#4F46E5">BC</text>
+        </svg>
+      </div>
+      <div class="fiche-block">
+        <h3>calculer l'hypoténuse</h3>
+        <p>On connaît les deux côtés de l'angle droit, on cherche le plus long côté (BC).</p>
+        <div class="fiche-formula sm">BC = √(AB² + AC²)</div>
+        <div class="fiche-ex"><div class="fiche-ex-t">exemple</div>AB = 3 et AC = 4 → BC = √(3² + 4²) = √(9 + 16) = √25 = <strong>5</strong></div>
+      </div>
+      <div class="fiche-block">
+        <h3>calculer un côté de l'angle droit</h3>
+        <p>On connaît l'hypoténuse et un côté, on cherche l'autre.</p>
+        <div class="fiche-formula sm">AB = √(BC² − AC²)</div>
+        <div class="fiche-ex"><div class="fiche-ex-t">exemple</div>BC = 10 et AC = 6 → AB = √(10² − 6²) = √(100 − 36) = √64 = <strong>8</strong></div>
+      </div>
+      <div class="fiche-block">
+        <h3>la réciproque <span class="fiche-sub">— prouver qu'un triangle est rectangle</span></h3>
+        <p>Si dans un triangle <strong>BC² = AB² + AC²</strong> (BC étant le plus grand côté), alors le triangle est <strong>rectangle en A</strong>.</p>
+        <div class="fiche-ex"><div class="fiche-ex-t">exemple</div>Côtés 6, 8 et 10 : 6² + 8² = 36 + 64 = 100, et 10² = 100. L'égalité est vraie → le triangle est <strong>rectangle</strong>.</div>
+        <p class="fiche-muted">Si l'égalité est fausse, le triangle <strong>n'est pas</strong> rectangle.</p>
+      </div>
+      <div class="fiche-block fiche-exo">
+        <h3>exercice type 1 <span class="fiche-sub">— appliquer Pythagore</span></h3>
+        <div class="fiche-fig">
+          <svg viewBox="0 0 240 195" width="230" xmlns="http://www.w3.org/2000/svg" aria-label="triangle ABC rectangle en A, AB 6 cm, AC 8 cm">
+            <polygon points="55,165 200,165 55,70" fill="#E7F6EC" stroke="#181B22" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M69 165 L69 151 L55 151" fill="none" stroke="#181B22" stroke-width="1.5"/>
+            <text x="44" y="180" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="13" fill="#181B22">A</text>
+            <text x="204" y="180" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="13" fill="#181B22">C</text>
+            <text x="44" y="67" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="13" fill="#181B22">B</text>
+            <text x="27" y="121" text-anchor="middle" font-family="'Space Mono',monospace" font-size="11" fill="#6B7280">6 cm</text>
+            <text x="127" y="182" text-anchor="middle" font-family="'Space Mono',monospace" font-size="11" fill="#6B7280">8 cm</text>
+            <text x="138" y="110" font-family="'Space Mono',monospace" font-size="11" font-weight="700" fill="#4F46E5">BC = ?</text>
+          </svg>
+        </div>
+        <p>ABC est un triangle <strong>rectangle en A</strong> tel que AB = 6 cm et AC = 8 cm. Calculer la longueur BC.</p>
+        <div class="fiche-ex"><div class="fiche-ex-t">solution</div>Le triangle est rectangle en A, donc d'après le théorème de Pythagore :<br>BC² = AB² + AC² = 6² + 8² = 36 + 64 = 100.<br>Donc BC = √100 = <strong>10 cm</strong>.</div>
+      </div>
+      <div class="fiche-block fiche-exo">
+        <h3>exercice type 2 <span class="fiche-sub">— réciproque</span></h3>
+        <div class="fiche-fig">
+          <svg viewBox="0 0 240 200" width="230" xmlns="http://www.w3.org/2000/svg" aria-label="triangle RST de côtés 9, 12 et 15 cm">
+            <polygon points="62,170 198,170 62,72" fill="#E7F6EC" stroke="#181B22" stroke-width="2" stroke-linejoin="round"/>
+            <text x="50" y="185" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="13" fill="#181B22">S</text>
+            <text x="202" y="185" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="13" fill="#181B22">T</text>
+            <text x="50" y="69" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="13" fill="#181B22">R</text>
+            <text x="34" y="124" text-anchor="middle" font-family="'Space Mono',monospace" font-size="11" fill="#6B7280">9 cm</text>
+            <text x="130" y="187" text-anchor="middle" font-family="'Space Mono',monospace" font-size="11" fill="#6B7280">12 cm</text>
+            <text x="140" y="114" font-family="'Space Mono',monospace" font-size="11" font-weight="700" fill="#4F46E5">15 cm</text>
+          </svg>
+        </div>
+        <p>Le triangle RST a pour côtés RS = 9 cm, ST = 12 cm et RT = 15 cm. Ce triangle est-il rectangle ?</p>
+        <div class="fiche-ex"><div class="fiche-ex-t">solution</div>On repère le plus grand côté : RT = 15 cm.<br>D'un côté : RS² + ST² = 9² + 12² = 81 + 144 = 225.<br>De l'autre : RT² = 15² = 225.<br>Les deux résultats sont égaux, donc d'après la <strong>réciproque</strong> du théorème de Pythagore, le triangle RST est <strong>rectangle en S</strong>.</div>
+      </div>
+      <div class="fiche-block">
+        <h3>repère les erreurs <span class="fiche-sub">— deux copies à corriger</span></h3>
+        <p class="fiche-muted">Voici des copies d'élèves. Clique sur les lignes qui contiennent une erreur, puis vérifie.</p>
+        <div class="err-exo" style="margin-top:14px">
+          <div class="err-title">copie 1 — ABC rectangle en A, AB = 9 cm, AC = 12 cm. On cherche BC.</div>
+          <div class="errline" data-err="0" onclick="flagLine(this)">BC² = AB² + AC² = 9² + 12² = 81 + 144 = 225</div>
+          <div class="errline" data-err="1" onclick="flagLine(this)">donc BC = 225 cm</div>
+          <button class="err-check" onclick="checkErrors(this)">vérifier</button>
+          <div class="err-explain"><strong>L'erreur :</strong> on a oublié la racine carrée. BC² = 225 donne BC = √225 = <strong>15 cm</strong> (et non 225 cm).</div>
+        </div>
+        <div class="err-exo" style="margin-top:14px">
+          <div class="err-title">copie 2 — un triangle a pour côtés 8 cm, 15 cm et 17 cm. Est-il rectangle ?</div>
+          <div class="errline" data-err="0" onclick="flagLine(this)">Le plus grand côté est 17 cm.</div>
+          <div class="errline" data-err="0" onclick="flagLine(this)">8² + 15² = 64 + 225 = 289 et 17² = 289</div>
+          <div class="errline" data-err="1" onclick="flagLine(this)">Les valeurs sont différentes, donc le triangle n'est pas rectangle.</div>
+          <button class="err-check" onclick="checkErrors(this)">vérifier</button>
+          <div class="err-explain"><strong>L'erreur :</strong> les deux valeurs sont <strong>égales</strong> (289 = 289). D'après la réciproque, le triangle <strong>est</strong> rectangle (en l'angle opposé au côté de 17 cm).</div>
+        </div>
+      </div>
+      <div class="fiche-note"><strong>à retenir :</strong> l'hypoténuse est toujours le plus grand côté, face à l'angle droit. Repère bien quel côté tu cherches (l'hypoténuse → on additionne ; un côté de l'angle droit → on soustrait) avant d'écrire la formule.</div>
+      <button class="btn btn-cobalt" style="align-self:flex-start" onclick="lancerBrevet()">s'entraîner sur un brevet →</button>
+    </div>
   </div>
 </div>
 
@@ -826,12 +1051,12 @@ a{color:inherit}
   </div>
 </div>
 
-<div class="exam-style-switch" id="examStyleSwitch">
-  <span class="ess-lbl">examen</span>
-  <button class="ess-btn active" onclick="setExamStyle('actuel',this)">actuel</button>
-  <button class="ess-btn" onclick="setExamStyle('focus',this)">focus</button>
-  <button class="ess-btn" onclick="setExamStyle('clean',this)">épuré</button>
-  <button class="ess-btn" onclick="setExamStyle('sharp',this)">net</button>
+<div class="dens-switch" id="densSwitch">
+  <span class="dn-lbl">densité</span>
+  <button class="dn-btn active" onclick="setDens('actuel',this)">actuel</button>
+  <button class="dn-btn" onclick="setDens('aere',this)">aéré</button>
+  <button class="dn-btn" onclick="setDens('epure',this)">épuré</button>
+  <button class="dn-btn" onclick="setDens('focus',this)">focus</button>
 </div>
 <div id="toast" class="toast"></div>
 
@@ -946,15 +1171,61 @@ const exercises = [
 ];
 </script>
 <script>
+function toggleOpt(k,btn){var pb=document.getElementById('page-brevet');if(!pb)return;var on=pb.classList.toggle('opt-'+k);if(btn)btn.classList.toggle('active',on);}
+// ── ASSISTANT GÉNÉRATEUR ──
+var genStep=1,GEN_MAX=4;
+function showGenStep(n){
+  genStep=Math.max(1,Math.min(GEN_MAX,n));
+  document.querySelectorAll('#page-generer .gen-panel').forEach(p=>p.classList.toggle('active',+p.dataset.step===genStep));
+  document.querySelectorAll('#genSteps .gen-step-pip').forEach(p=>{var s=+p.dataset.s;p.classList.toggle('active',s===genStep);p.classList.toggle('done',s<genStep);});
+  var prev=document.getElementById('genPrev'),next=document.getElementById('genNext');
+  if(prev)prev.style.visibility=genStep===1?'hidden':'visible';
+  if(next)next.textContent=genStep===GEN_MAX?'démarrer le brevet →':'suivant →';
+  if(genStep===GEN_MAX)buildGenRecap();
+}
+function genGo(d){if(d>0&&genStep===GEN_MAX){lancerBrevet();return;}showGenStep(genStep+d);}
+function buildGenRecap(){
+  var el=document.getElementById('genRecap');if(!el)return;
+  var dur=document.querySelector('#page-generer .duree-chip.sel');
+  var durTxt=dur?dur.textContent.trim():'2h';
+  var notions;
+  if(document.querySelector('#page-generer .all-chip.sel'))notions='toutes les notions';
+  else{var sel=[].slice.call(document.querySelectorAll('#page-generer .notion-chip.sel')).filter(c=>c.dataset.notion!=='all').map(c=>c.textContent.trim());notions=sel.length?sel.join(', '):'toutes les notions';}
+  var corr=document.querySelector('#page-generer .corr-chip.sel .corr-title');
+  var corrTxt=corr?corr.textContent.trim():'—';
+  el.innerHTML='<div class="recap-row"><span class="recap-k">durée</span><span class="recap-v">'+durTxt+'</span></div>'+
+    '<div class="recap-row"><span class="recap-k">notions</span><span class="recap-v">'+notions+'</span></div>'+
+    '<div class="recap-row"><span class="recap-k">correction</span><span class="recap-v">'+corrTxt+'</span></div>';
+}
+function setDens(k,btn){
+  var pb=document.getElementById('page-brevet');
+  if(pb){pb.classList.remove('dens-aere','dens-epure','dens-focus');if(k!=='actuel')pb.classList.add('dens-'+k);}
+  document.querySelectorAll('.dn-btn').forEach(b=>b.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+}
+function flagLine(l){var box=l.closest('.err-exo');if(box&&box.classList.contains('checked'))return;l.classList.toggle('flagged');}
+function checkErrors(btn){
+  var box=btn.closest('.err-exo');if(!box)return;box.classList.add('checked');
+  box.querySelectorAll('.errline').forEach(function(l){
+    var isErr=l.dataset.err==='1',flagged=l.classList.contains('flagged');
+    l.classList.add('revealed');
+    if(isErr&&flagged)l.classList.add('good');
+    else if(isErr)l.classList.add('missed');
+    else if(flagged)l.classList.add('falsepos');
+  });
+  var ex=box.querySelector('.err-explain');if(ex)ex.style.display='block';
+  btn.disabled=true;btn.textContent='corrigé ✓';
+}
 function goTo(page){
   document.querySelectorAll('.page').forEach(p=>{p.style.display='none';p.classList.remove('active');});
   var t=document.getElementById('page-'+page);
   if(!t){showToast('page « '+page+' » indispo');page='accueil';t=document.getElementById('page-accueil');}
   t.classList.add('active');
+  if(page==='generer'&&typeof showGenStep==='function')showGenStep(1);
   if(page==='parcours'||page==='planning'||page==='generer'||page==='entrainement'){t.style.display='flex';t.style.flexDirection='column';t.style.height='calc(100vh - 79px)';t.style.overflow='hidden';}
   else if(page==='brevet'){t.style.display='block';t.style.height='100vh';t.style.overflow='hidden';}
   else{t.style.display='block';}
-  document.body.style.overflow=(page==='accueil'||page==='checkout')?'auto':'hidden';
+  document.body.style.overflow=(page==='accueil'||page==='checkout'||page==='annales'||page==='fiches'||page==='fiche-pythagore'||page==='entrainement')?'auto':'hidden';
   document.querySelectorAll('.nav-links li').forEach(li=>{li.classList.remove('on','on-orange');if(li.dataset.page==='checkout')li.classList.add('on-orange');else if(li.dataset.page===page)li.classList.add('on');});
   var nav=document.querySelector('body > nav.nav');
   var hide=(page==='brevet');
@@ -1147,7 +1418,7 @@ function localCorrection(ex,q){
   var user=(playerAnswers[key(curEx,curQ)]||'').trim().toLowerCase().replace(/\s/g,''),ans=(q.answer||'').toLowerCase().replace(/\s/g,'');
   var ok=user&&(ans.indexOf(user)!==-1||user.indexOf(ans.slice(0,3))!==-1);
   playerVerdicts[key(curEx,curQ)]=ok?'CORRECT':'INCORRECT';doneSet.add(key(curEx,curQ));updatePts();sfx(ok);
-  var color=ok?'#16A34A':'#E2483D',bg=ok?'#E7F6EC':'#FCEBEA',icon=ok?'✓':'✗',label=ok?'bravo':'à revoir';
+  var color=ok?'var(--green)':'var(--clay)',bg=ok?'var(--lcd)':'var(--ko-soft)',icon=ok?'✓':'✗',label=ok?'bravo':'à revoir';
   var block=document.createElement('div');block.id='corrBlock';
   block.innerHTML='<div class="corr-verdict" style="background:'+bg+'"><div class="corr-vicon" style="background:'+color+'">'+icon+'</div><div><div class="corr-vlabel" style="color:'+color+'">'+label+'</div><div style="font-size:14px;margin-top:3px">réponse attendue : <strong>'+q.answer+'</strong></div></div></div>'
     +'<div class="corr-section"><div class="corr-section-lbl">démarche</div><div style="font-size:14px;line-height:1.7;font-weight:500">'+q.solution+'</div></div>';
@@ -1222,12 +1493,6 @@ function planNav(d){planRef=new Date(planRef.getFullYear(),planRef.getMonth()+d,
 function planToday(){planRef=new Date();buildPlanning();}
 function planView(v){var s=document.getElementById('pt-sem'),mo=document.getElementById('pt-mois');if(s)s.classList.toggle('active',v==='semaine');if(mo)mo.classList.toggle('active',v==='mois');if(v==='semaine')showToast('vue semaine bientôt dispo');}
 
-function setExamStyle(k,btn){
-  var pb=document.getElementById('page-brevet');
-  if(pb){pb.classList.remove('exam-focus','exam-clean','exam-sharp');if(k!=='actuel')pb.classList.add('exam-'+k);}
-  document.querySelectorAll('.ess-btn').forEach(b=>b.classList.remove('active'));
-  if(btn)btn.classList.add('active');
-}
 
 buildEntrainement();
 buildPlanning();
