@@ -91,6 +91,8 @@ a{color:inherit}
 .fiche-back:hover{background:var(--lcd)}
 .fiche-tag{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--lcd);color:var(--green-deep);border:1.5px solid var(--ink);border-radius:999px;padding:4px 10px}
 .fiche-grid{display:flex;flex-direction:column;gap:16px;max-width:720px;margin-top:22px}
+.simple-page.fiche-read{max-width:820px}
+.fiche-read .fiche-grid{max-width:none}
 .fiche-block{background:var(--paper-2);border:1.5px solid var(--ink);border-radius:16px;padding:20px 22px;box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
 .fiche-block h3{font-family:var(--grot);font-weight:700;font-size:17px;margin-bottom:10px;text-transform:lowercase}
 .fiche-block h3 .fiche-sub{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--muted);text-transform:none}
@@ -121,11 +123,16 @@ a{color:inherit}
 .err-check{margin-top:10px;font-family:var(--grot);font-size:13px;font-weight:700;background:var(--cobalt);color:#fff;border:1.5px solid var(--ink);border-radius:999px;padding:8px 16px;cursor:pointer}
 .err-check:disabled{background:var(--green);cursor:default}
 .err-explain{display:none;margin-top:12px;background:var(--lcd);border-left:4px solid var(--green);border-radius:0 10px 10px 0;padding:12px 14px;font-size:14px;line-height:1.6}
+.fiche-flist{display:flex;flex-direction:column;margin-top:6px}
+.fiche-frow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.fiche-frow:last-child{border-bottom:none}
+.fiche-fname{font-size:14px;font-weight:600}
+.fiche-fval{font-family:var(--grot);font-weight:700;font-size:15px;background:var(--pop-soft);border:1.5px solid var(--ink);border-radius:8px;padding:4px 10px;white-space:nowrap}
 .train-card-btn{margin-top:6px;font-family:var(--grot);font-size:13px;font-weight:700;background:var(--cobalt);color:#fff;border:1.5px solid var(--ink);border-radius:999px;padding:10px;cursor:pointer;text-transform:lowercase;box-shadow:0 6px 18px -6px rgba(24,27,34,.26);transition:transform .1s,box-shadow .1s}
 .train-card-btn:hover{transform:translate(-1px,-1px);box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
 .train-card-btn:active{transform:translate(2px,2px);box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
 /* ── MON PARCOURS ── */
-.parcours-wrap{flex:1 1 0;min-height:0;overflow:hidden;padding:13px 16px;display:flex}
+.parcours-wrap{flex:1 1 0;min-height:0;overflow-y:auto;overflow-x:hidden;padding:13px 16px 22px;display:flex}
 .parcours-grid{display:grid;grid-template-columns:226px 1fr 272px;gap:12px;max-width:1340px;margin:0 auto;width:100%;align-items:start}
 .pc-col{display:flex;flex-direction:column;gap:12px;min-width:0}
 .pc-card{background:var(--paper-2);border:1.5px solid var(--ink);border-radius:14px;padding:13px 14px;box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
@@ -244,7 +251,7 @@ a{color:inherit}
 .exo-demo-tag{font-family:var(--mono);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;background:var(--amber);border:1.5px solid var(--ink);color:var(--ink);padding:4px 12px;border-radius:999px;margin-left:auto;transform:rotate(-3deg)}
 .exo-demo-cols{display:grid;grid-template-columns:1fr .8fr;gap:24px;align-items:start}
 .exo-demo-intro{font-size:15px;line-height:1.6;font-weight:500}
-.exo-demo-intro strong{color:var(--green-deep)}
+.exo-demo-intro strong{color:var(--ink)}
 .exo-demo-qtext{font-size:16px;line-height:1.5;font-weight:700}
 .exo-demo-answer-lbl{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px}
 .exo-demo-answer-row{display:flex;gap:8px}
@@ -263,7 +270,7 @@ a{color:inherit}
 .spin-hint{position:absolute;top:8px;right:10px;font-family:var(--mono);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;background:var(--ink);color:var(--paper);padding:4px 9px;border-radius:999px;pointer-events:none}
 .wheel-spin{transform-origin:0 0;animation:wheel-loop 14s linear infinite}
 @keyframes wheel-loop{from{transform:rotate(0)}to{transform:rotate(360deg)}}
-.roulette-ball{transform-origin:center;animation:ball-loop 2.8s linear infinite}
+.roulette-ball{transform-box:view-box;transform-origin:130px 134px;animation:ball-loop 2.8s linear infinite}
 @keyframes ball-loop{from{transform:rotate(0)}to{transform:rotate(-360deg)}}
 .wheel-spin.once{animation:wheel-once 3.4s cubic-bezier(.2,.65,.25,1) forwards}
 @keyframes wheel-once{0%{transform:rotate(0)}75%{transform:rotate(calc(var(--we,1200deg) - 20deg))}90%{transform:rotate(calc(var(--we,1200deg) + 8deg))}100%{transform:rotate(var(--we,1200deg))}}
@@ -273,7 +280,7 @@ a{color:inherit}
 .exo-demo-reveal-badge{font-family:var(--mono);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--green-deep)}
 .exo-demo-reveal-pts{font-family:var(--grot);font-weight:700;font-size:14px;color:var(--clay)}
 .exo-demo-reveal-body{padding:0 16px 14px;font-size:14px;line-height:1.6;font-weight:500}
-.exo-demo-reveal-body strong{color:var(--green-deep)}
+.exo-demo-reveal-body strong{color:var(--ink)}
 .exo-confetti{position:absolute;top:40%;width:9px;height:13px;border:1.5px solid var(--ink);pointer-events:none;z-index:10;animation:cfall 1.6s cubic-bezier(.2,.65,.3,1) forwards}
 @keyframes cfall{0%{opacity:1;transform:translate(0,0) rotate(0)}100%{opacity:0;transform:translate(var(--dx,0),200px) rotate(var(--rot,360deg))}}
 .transition{text-align:center;padding:56px 40px 8px}
@@ -534,7 +541,7 @@ a{color:inherit}
     <div class="hero-left">
       <span class="hero-badge">✦ conforme au programme officiel 2026</span>
       <h1 class="hero-title">prêt·e pour le <span class="l2">brevet</span><br>de maths&nbsp;?</h1>
-      <span class="hero-hook"><span class="dot"></span>révise sans stress · progresse vite</span>
+      <span class="hero-hook"><span class="dot"></span>révise sans stress · progresse</span>
       <p class="hero-lead">génère un brevet blanc pour te situer. puis un autre. puis un autre — autant qu'il faut pour arriver serein·e le jour j.</p>
       <div class="hero-ctas">
         <button class="btn btn-cobalt" onclick="goTo('generer')">c'est parti →</button>
@@ -607,7 +614,7 @@ a{color:inherit}
 
   <section class="sec" id="demo">
     <span class="eyebrow">démo</span>
-    <h2 class="sec-h2">une question qui peut <span class="accent">tomber le jour j.</span></h2>
+    <h2 class="sec-h2">prêt·e ? voici une question <span class="accent">type brevet.</span></h2>
     <p class="sec-lead">fais tourner la roulette, écris ta réponse, regarde la correction. exactement ce qui t'attend dans un sujet brévise.</p>
     <div class="demo-stage">
       <div class="exo-demo">
@@ -617,8 +624,8 @@ a{color:inherit}
           </div>
           <div class="exo-demo-cols">
             <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
-              <p class="exo-demo-intro">une roulette de casino est divisée en <strong>18 cases identiques</strong>, numérotées de 1 à 18, alternant <strong style="color:var(--clay)">rouge</strong> et <strong>noir</strong>. on la fait tourner.</p>
-              <p class="exo-demo-qtext">quelle est la probabilité que la bille tombe sur une case <strong style="color:var(--clay)">rouge</strong> ?</p>
+              <p class="exo-demo-intro">une roulette de casino est divisée en <strong>18 cases identiques</strong>, numérotées de 1 à 18, alternant <strong>rouge</strong> et <strong>noir</strong>. on la fait tourner.</p>
+              <p class="exo-demo-qtext">quelle est la probabilité que la bille tombe sur une case <strong>rouge</strong> ?</p>
               <div class="exo-demo-answer">
                 <label class="exo-demo-answer-lbl">ta réponse</label>
                 <div class="exo-demo-answer-row">
@@ -635,13 +642,14 @@ a{color:inherit}
               <div class="wheel-box">
                 <div class="spin-hint" id="demo-spin-hint">clique</div>
                 <svg id="demo-wheel-svg" viewBox="0 0 260 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Roulette 18 cases" onclick="demoSpinWheel()">
-                  <g transform="translate(130,134)"><circle class="roulette-ball" cx="0" cy="-110" r="5" fill="#fff" stroke="#181B22" stroke-width="2"/></g>
+                  <defs><radialGradient id="ballGrad" cx="36%" cy="30%" r="72%"><stop offset="0%" stop-color="#ffffff"/><stop offset="55%" stop-color="#EEF0F2"/><stop offset="100%" stop-color="#C2C7CE"/></radialGradient></defs>
                   <g transform="translate(130,134)">
                     <circle cx="0" cy="0" r="116" fill="#E7F6EC" stroke="#181B22" stroke-width="1.8"/>
                     <g class="wheel-spin" id="demo-wheel-spin"><g id="roulette-sectors"></g><g id="roulette-numbers"></g><g id="roulette-dividers" stroke="#fff" stroke-width="1.5" opacity=".9"></g></g>
                     <circle cx="0" cy="0" r="18" fill="#fff" stroke="#181B22" stroke-width="1.8"/>
                     <circle cx="0" cy="0" r="5" fill="#F59E0B" stroke="#181B22" stroke-width="1.5"/>
                   </g>
+                  <g class="roulette-ball"><circle cx="130" cy="28" r="6.5" fill="url(#ballGrad)" stroke="#181B22" stroke-width="1.5"/><circle cx="127.4" cy="25.6" r="2" fill="#ffffff" opacity=".85"/></g>
                   <g transform="translate(130,12)"><path d="M -11 -4 L 11 -4 L 0 13 Z" fill="#E2483D" stroke="#181B22" stroke-width="2" stroke-linejoin="round"/></g>
                 </svg>
               </div>
@@ -675,6 +683,46 @@ a{color:inherit}
       <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">y a-t-il un essai gratuit ?</div><div class="faq-a">oui : le 1ᵉʳ brevet blanc est offert, sans carte bancaire. tu le fais en conditions réelles, tu vois la correction complète, tu juges par toi-même.</div></div>
     </div>
   </section>
+
+  <section class="sec-alt"><div class="sec-inner sec" style="padding-top:72px;padding-bottom:72px">
+    <span class="eyebrow">tarifs</span>
+    <h2 class="sec-h2">choisis <span class="accent">ta formule.</span></h2>
+    <div class="pack-grid">
+      <div class="pack" onclick="goTo('checkout')">
+        <div class="pack-tier">sans engagement</div>
+        <div class="pack-name">mensuel</div>
+        <div class="pack-price">19,99€</div>
+        <div class="pack-per">/mois · résiliable en 1 clic</div>
+        <div class="pack-feats">
+          <div class="pack-feat">✓ accès complet à brévise</div>
+          <div class="pack-feat">✓ brevets blancs illimités</div>
+        </div>
+        <button class="pack-btn" onclick="event.stopPropagation();goTo('checkout')">choisir →</button>
+      </div>
+      <div class="pack feat" onclick="goTo('checkout')">
+        <div class="pack-tier">★ le plus choisi · 2 mois offerts</div>
+        <div class="pack-name">pass année</div>
+        <div class="pack-price">149€</div>
+        <div class="pack-per">paiement unique · jusqu'au jour J</div>
+        <div class="pack-feats">
+          <div class="pack-feat">✓ tout inclus, rentrée → brevet</div>
+          <div class="pack-feat">✓ ~50 € d'économie vs mensuel</div>
+        </div>
+        <button class="pack-btn" onclick="event.stopPropagation();goTo('checkout')">choisir →</button>
+      </div>
+      <div class="pack dark" onclick="goTo('checkout')">
+        <div class="pack-tier">professeurs · collèges</div>
+        <div class="pack-name">établissement</div>
+        <div class="pack-price" style="font-size:26px">sur devis</div>
+        <div class="pack-per">licence classe ou collège</div>
+        <div class="pack-feats">
+          <div class="pack-feat">✓ toute la classe + suivi des élèves</div>
+        </div>
+        <button class="pack-btn" onclick="event.stopPropagation();goTo('checkout')">demander un devis →</button>
+      </div>
+    </div>
+    <div style="margin-top:24px"><button class="btn btn-cobalt" onclick="goTo('checkout')">voir le détail des offres →</button></div>
+  </div></section>
 
   <section class="final">
     <h2>alors, <span class="y">on brévise ?</span></h2>
@@ -799,7 +847,7 @@ a{color:inherit}
     <div class="train-grid">
       <div class="train-card"><span class="train-card-tag">géométrie</span><div class="train-card-name">théorème de Pythagore</div><div class="train-card-meta">formule · réciproque · méthode</div><button class="train-card-btn" onclick="goTo('fiche-pythagore')">consulter →</button></div>
       <div class="train-card"><span class="train-card-tag">géométrie</span><div class="train-card-name">théorème de Thalès</div><div class="train-card-meta">configuration · calcul · réciproque</div><button class="train-card-btn" onclick="showToast('fiche bientôt dispo')">consulter →</button></div>
-      <div class="train-card"><span class="train-card-tag">géométrie</span><div class="train-card-name">trigonométrie</div><div class="train-card-meta">cos · sin · tan dans le triangle</div><button class="train-card-btn" onclick="showToast('fiche bientôt dispo')">consulter →</button></div>
+      <div class="train-card"><span class="train-card-tag">géométrie</span><div class="train-card-name">trigonométrie</div><div class="train-card-meta">cos · sin · tan dans le triangle</div><button class="train-card-btn" onclick="goTo('fiche-trigo')">consulter →</button></div><div class="train-card"><span class="train-card-tag">grandeurs</span><div class="train-card-name">périmètre</div><div class="train-card-meta">contour des figures usuelles</div><button class="train-card-btn" onclick="goTo('fiche-perimetre')">consulter →</button></div><div class="train-card"><span class="train-card-tag">grandeurs</span><div class="train-card-name">aire</div><div class="train-card-meta">surface des figures usuelles</div><button class="train-card-btn" onclick="goTo('fiche-aire')">consulter →</button></div><div class="train-card"><span class="train-card-tag">grandeurs</span><div class="train-card-name">volume</div><div class="train-card-meta">volume des solides usuels</div><button class="train-card-btn" onclick="goTo('fiche-volume')">consulter →</button></div>
       <div class="train-card"><span class="train-card-tag">algèbre</span><div class="train-card-name">calcul littéral & équations</div><div class="train-card-meta">développer · factoriser · résoudre</div><button class="train-card-btn" onclick="showToast('fiche bientôt dispo')">consulter →</button></div>
       <div class="train-card"><span class="train-card-tag">algèbre</span><div class="train-card-name">fonctions</div><div class="train-card-meta">affine · linéaire · image · antécédent</div><button class="train-card-btn" onclick="showToast('fiche bientôt dispo')">consulter →</button></div>
       <div class="train-card"><span class="train-card-tag">statistiques</span><div class="train-card-name">statistiques</div><div class="train-card-meta">moyenne · médiane · étendue</div><button class="train-card-btn" onclick="showToast('fiche bientôt dispo')">consulter →</button></div>
@@ -811,7 +859,7 @@ a{color:inherit}
 </div>
 
 <div class="page" id="page-fiche-pythagore">
-  <div class="simple-page">
+  <div class="simple-page fiche-read">
     <button class="fiche-back" onclick="goTo('fiches')">← toutes les fiches</button>
     <div><span class="fiche-tag">géométrie</span></div>
     <h1 class="simple-h1" style="margin-top:10px">théorème de <span>Pythagore.</span></h1>
@@ -839,18 +887,18 @@ a{color:inherit}
         <h3>calculer l'hypoténuse</h3>
         <p>On connaît les deux côtés de l'angle droit, on cherche le plus long côté (BC).</p>
         <div class="fiche-formula sm">BC = √(AB² + AC²)</div>
-        <div class="fiche-ex"><div class="fiche-ex-t">exemple</div>AB = 3 et AC = 4 → BC = √(3² + 4²) = √(9 + 16) = √25 = <strong>5</strong></div>
+        <div class="fiche-ex"><div class="fiche-ex-t">exemple</div>AB = 3 et AC = 4<br>BC = √(3² + 4²)<br>BC = √(9 + 16)<br>BC = √25 = <strong>5</strong></div>
       </div>
       <div class="fiche-block">
         <h3>calculer un côté de l'angle droit</h3>
         <p>On connaît l'hypoténuse et un côté, on cherche l'autre.</p>
         <div class="fiche-formula sm">AB = √(BC² − AC²)</div>
-        <div class="fiche-ex"><div class="fiche-ex-t">exemple</div>BC = 10 et AC = 6 → AB = √(10² − 6²) = √(100 − 36) = √64 = <strong>8</strong></div>
+        <div class="fiche-ex"><div class="fiche-ex-t">exemple</div>BC = 10 et AC = 6<br>AB = √(10² − 6²)<br>AB = √(100 − 36)<br>AB = √64 = <strong>8</strong></div>
       </div>
       <div class="fiche-block">
         <h3>la réciproque <span class="fiche-sub">— prouver qu'un triangle est rectangle</span></h3>
         <p>Si dans un triangle <strong>BC² = AB² + AC²</strong> (BC étant le plus grand côté), alors le triangle est <strong>rectangle en A</strong>.</p>
-        <div class="fiche-ex"><div class="fiche-ex-t">exemple</div>Côtés 6, 8 et 10 : 6² + 8² = 36 + 64 = 100, et 10² = 100. L'égalité est vraie → le triangle est <strong>rectangle</strong>.</div>
+        <div class="fiche-ex"><div class="fiche-ex-t">exemple</div>Côtés 6, 8 et 10.<br>6² + 8² = 36 + 64 = 100<br>10² = 100<br>L'égalité est vraie → le triangle est <strong>rectangle</strong>.</div>
         <p class="fiche-muted">Si l'égalité est fausse, le triangle <strong>n'est pas</strong> rectangle.</p>
       </div>
       <div class="fiche-block fiche-exo">
@@ -868,7 +916,7 @@ a{color:inherit}
           </svg>
         </div>
         <p>ABC est un triangle <strong>rectangle en A</strong> tel que AB = 6 cm et AC = 8 cm. Calculer la longueur BC.</p>
-        <div class="fiche-ex"><div class="fiche-ex-t">solution</div>Le triangle est rectangle en A, donc d'après le théorème de Pythagore :<br>BC² = AB² + AC² = 6² + 8² = 36 + 64 = 100.<br>Donc BC = √100 = <strong>10 cm</strong>.</div>
+        <div class="fiche-ex"><div class="fiche-ex-t">solution</div>Le triangle est rectangle en A, donc d'après le théorème de Pythagore :<br>BC² = AB² + AC²<br>BC² = 6² + 8²<br>BC² = 36 + 64<br>BC² = 100<br>BC = √100<br>BC = <strong>10 cm</strong></div>
       </div>
       <div class="fiche-block fiche-exo">
         <h3>exercice type 2 <span class="fiche-sub">— réciproque</span></h3>
@@ -884,7 +932,7 @@ a{color:inherit}
           </svg>
         </div>
         <p>Le triangle RST a pour côtés RS = 9 cm, ST = 12 cm et RT = 15 cm. Ce triangle est-il rectangle ?</p>
-        <div class="fiche-ex"><div class="fiche-ex-t">solution</div>On repère le plus grand côté : RT = 15 cm.<br>D'un côté : RS² + ST² = 9² + 12² = 81 + 144 = 225.<br>De l'autre : RT² = 15² = 225.<br>Les deux résultats sont égaux, donc d'après la <strong>réciproque</strong> du théorème de Pythagore, le triangle RST est <strong>rectangle en S</strong>.</div>
+        <div class="fiche-ex"><div class="fiche-ex-t">solution</div>On repère le plus grand côté : RT = 15 cm.<br>RS² + ST² = 9² + 12²<br>RS² + ST² = 81 + 144 = 225<br>RT² = 15² = 225<br>L'égalité est vraie, donc d'après la <strong>réciproque</strong> du théorème de Pythagore, le triangle RST est <strong>rectangle en S</strong>.</div>
       </div>
       <div class="fiche-block">
         <h3>repère les erreurs <span class="fiche-sub">— deux copies à corriger</span></h3>
@@ -906,6 +954,318 @@ a{color:inherit}
         </div>
       </div>
       <div class="fiche-note"><strong>à retenir :</strong> l'hypoténuse est toujours le plus grand côté, face à l'angle droit. Repère bien quel côté tu cherches (l'hypoténuse → on additionne ; un côté de l'angle droit → on soustrait) avant d'écrire la formule.</div>
+      <button class="btn btn-cobalt" style="align-self:flex-start" onclick="lancerBrevet()">s'entraîner sur un brevet →</button>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="page-fiche-trigo">
+  <div class="simple-page fiche-read">
+    <button class="fiche-back" onclick="goTo('fiches')">← toutes les fiches</button>
+    <div><span class="fiche-tag">géométrie</span></div>
+    <h1 class="simple-h1" style="margin-top:10px">la <span>trigonométrie.</span></h1>
+    <div class="fiche-grid">
+      <div class="fiche-block">
+        <h3>de quoi on parle</h3>
+        <p>Dans un <strong>triangle rectangle</strong>, la trigonométrie relie un <strong>angle aigu</strong> aux longueurs des côtés. Par rapport à l'angle choisi, on nomme les côtés :</p>
+        <p class="fiche-muted"><strong>l'hypoténuse</strong> (face à l'angle droit, le plus long) · <strong>le côté adjacent</strong> (qui touche l'angle) · <strong>le côté opposé</strong> (en face de l'angle).</p>
+      </div>
+      <div class="fiche-block fiche-fig">
+        <svg viewBox="0 0 250 200" width="250" xmlns="http://www.w3.org/2000/svg" aria-label="triangle rectangle, côtés adjacent, opposé et hypoténuse par rapport à l'angle B">
+          <polygon points="60,160 205,160 60,55" fill="#E7F6EC" stroke="#181B22" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M74 160 L74 146 L60 146" fill="none" stroke="#181B22" stroke-width="1.5"/>
+          <path d="M60 82 A 27 27 0 0 0 82 70" fill="none" stroke="#4F46E5" stroke-width="2"/>
+          <circle cx="60" cy="160" r="2.5" fill="#181B22"/><circle cx="205" cy="160" r="2.5" fill="#181B22"/><circle cx="60" cy="55" r="2.5" fill="#181B22"/>
+          <text x="47" y="176" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="13" fill="#181B22">A</text>
+          <text x="210" y="176" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="13" fill="#181B22">C</text>
+          <text x="47" y="52" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="13" fill="#181B22">B</text>
+          <text transform="translate(41,118) rotate(-90)" text-anchor="middle" font-family="'Space Mono',monospace" font-size="10" fill="#6B7280">adjacent</text>
+          <text x="132" y="178" text-anchor="middle" font-family="'Space Mono',monospace" font-size="10" fill="#6B7280">opposé</text>
+          <text transform="translate(150,98) rotate(36)" text-anchor="middle" font-family="'Space Mono',monospace" font-size="10" font-weight="700" fill="#4F46E5">hypoténuse</text>
+        </svg>
+      </div>
+      <div class="fiche-block">
+        <h3>les trois rapports</h3>
+        <div class="fiche-formula sm">cos = adjacent / hypoténuse</div>
+        <div class="fiche-formula sm">sin = opposé / hypoténuse</div>
+        <div class="fiche-formula sm">tan = opposé / adjacent</div>
+        <p class="fiche-muted">Moyen mnémotechnique : <strong>SOH-CAH-TOA</strong> — <strong>S</strong>in = <strong>O</strong>pp/<strong>H</strong>yp, <strong>C</strong>os = <strong>A</strong>dj/<strong>H</strong>yp, <strong>T</strong>an = <strong>O</strong>pp/<strong>A</strong>dj.</p>
+      </div>
+      <div class="fiche-block">
+        <h3>comment s'en servir</h3>
+        <p><strong>Pour une longueur :</strong> on choisit le rapport (cos, sin ou tan) qui relie l'angle connu et les côtés, puis on isole la longueur cherchée.</p>
+        <p><strong>Pour un angle :</strong> on calcule le rapport correspondant, puis on utilise la touche inverse de la calculatrice (sin⁻¹, cos⁻¹ ou tan⁻¹) pour remonter à l'angle.</p>
+      </div>
+      <div class="fiche-block fiche-exo">
+        <h3>exercice type 1 <span class="fiche-sub">— calculer une longueur</span></h3>
+        <div class="fiche-fig">
+          <svg viewBox="0 0 250 200" width="230" xmlns="http://www.w3.org/2000/svg" aria-label="triangle rectangle en A, angle B 60 degrés, hypoténuse 10 cm">
+            <polygon points="60,160 205,160 60,55" fill="#E7F6EC" stroke="#181B22" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M74 160 L74 146 L60 146" fill="none" stroke="#181B22" stroke-width="1.5"/>
+            <path d="M60 82 A 27 27 0 0 0 82 70" fill="none" stroke="#4F46E5" stroke-width="2"/>
+            <text x="47" y="176" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="13" fill="#181B22">A</text>
+            <text x="210" y="176" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="13" fill="#181B22">C</text>
+            <text x="47" y="52" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="13" fill="#181B22">B</text>
+            <text x="78" y="80" font-family="'Space Mono',monospace" font-size="10" font-weight="700" fill="#4F46E5">60°</text>
+            <text transform="translate(150,98) rotate(36)" text-anchor="middle" font-family="'Space Mono',monospace" font-size="10" fill="#6B7280">10 cm</text>
+            <text transform="translate(41,118) rotate(-90)" text-anchor="middle" font-family="'Space Mono',monospace" font-size="10" font-weight="700" fill="#4F46E5">AB = ?</text>
+          </svg>
+        </div>
+        <p>ABC est rectangle en A, avec l'angle B = 60° et l'hypoténuse BC = 10 cm. Calculer AB.</p>
+        <div class="fiche-ex"><div class="fiche-ex-t">solution</div>AB est le côté adjacent à B, donc on utilise le cosinus :<br>cos B = AB / BC<br>AB = BC × cos B<br>AB = 10 × cos 60°<br>AB = 10 × 0,5<br>AB = <strong>5 cm</strong></div>
+      </div>
+      <div class="fiche-block fiche-exo">
+        <h3>exercice type 2 <span class="fiche-sub">— calculer un angle</span></h3>
+        <div class="fiche-fig">
+          <svg viewBox="0 0 250 200" width="230" xmlns="http://www.w3.org/2000/svg" aria-label="triangle rectangle en A, côté opposé 4 cm, hypoténuse 8 cm, angle inconnu">
+            <polygon points="60,160 205,160 60,55" fill="#E7F6EC" stroke="#181B22" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M74 160 L74 146 L60 146" fill="none" stroke="#181B22" stroke-width="1.5"/>
+            <path d="M60 82 A 27 27 0 0 0 82 70" fill="none" stroke="#4F46E5" stroke-width="2"/>
+            <text x="47" y="176" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="13" fill="#181B22">A</text>
+            <text x="210" y="176" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="13" fill="#181B22">C</text>
+            <text x="47" y="52" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="13" fill="#181B22">B</text>
+            <text x="78" y="80" font-family="'Space Mono',monospace" font-size="11" font-weight="700" fill="#4F46E5">?</text>
+            <text x="132" y="178" text-anchor="middle" font-family="'Space Mono',monospace" font-size="10" fill="#6B7280">4 cm</text>
+            <text transform="translate(150,98) rotate(36)" text-anchor="middle" font-family="'Space Mono',monospace" font-size="10" fill="#6B7280">8 cm</text>
+          </svg>
+        </div>
+        <p>ABC est rectangle en A, avec AC = 4 cm et BC = 8 cm. Calculer la mesure de l'angle B (arrondie au degré).</p>
+        <div class="fiche-ex"><div class="fiche-ex-t">solution</div>AC est opposé à B et BC est l'hypoténuse, donc on utilise le sinus :<br>sin B = AC / BC<br>sin B = 4 / 8 = 0,5<br>B = sin⁻¹(0,5)<br>B = <strong>30°</strong></div>
+      </div>
+      <div class="fiche-block">
+        <h3>repère les erreurs <span class="fiche-sub">— deux copies à corriger</span></h3>
+        <p class="fiche-muted">Clique sur les lignes qui contiennent une erreur, puis vérifie.</p>
+        <div class="err-exo" style="margin-top:14px">
+          <div class="err-title">copie 1 — rectangle en A, AB = 5 cm (adjacent à B), BC = 10 cm. On calcule cos B.</div>
+          <div class="errline" data-err="0" onclick="flagLine(this)">cos B = adjacent / hypoténuse</div>
+          <div class="errline" data-err="1" onclick="flagLine(this)">cos B = 10 / 5 = 2</div>
+          <button class="err-check" onclick="checkErrors(this)">vérifier</button>
+          <div class="err-explain"><strong>L'erreur :</strong> le rapport est inversé. cos B = AB / BC = 5 / 10 = <strong>0,5</strong> (on divise l'adjacent par l'hypoténuse — et un cosinus est toujours compris entre 0 et 1).</div>
+        </div>
+        <div class="err-exo" style="margin-top:14px">
+          <div class="err-title">copie 2 — rectangle en A, AC = 3 cm (opposé à B), BC = 6 cm. On calcule l'angle B.</div>
+          <div class="errline" data-err="0" onclick="flagLine(this)">sin B = opposé / hypoténuse = 3 / 6 = 0,5</div>
+          <div class="errline" data-err="1" onclick="flagLine(this)">donc B = 0,5°</div>
+          <button class="err-check" onclick="checkErrors(this)">vérifier</button>
+          <div class="err-explain"><strong>L'erreur :</strong> 0,5 est la valeur du sinus, pas l'angle. Il faut utiliser la touche inverse : B = sin⁻¹(0,5) = <strong>30°</strong>.</div>
+        </div>
+      </div>
+      <div class="fiche-note"><strong>à retenir :</strong> adjacent et opposé dépendent de l'angle choisi. Un cosinus et un sinus sont toujours entre 0 et 1. Pour trouver un angle, on utilise les touches sin⁻¹ / cos⁻¹ / tan⁻¹ (et la calculatrice doit être en degrés).</div>
+      <button class="btn btn-cobalt" style="align-self:flex-start" onclick="lancerBrevet()">s'entraîner sur un brevet →</button>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="page-fiche-perimetre">
+  <div class="simple-page fiche-read">
+    <button class="fiche-back" onclick="goTo('fiches')">← toutes les fiches</button>
+    <div><span class="fiche-tag">grandeurs & mesures</span></div>
+    <h1 class="simple-h1" style="margin-top:10px">le <span>périmètre.</span></h1>
+    <div class="fiche-grid">
+      <div class="fiche-block">
+        <h3>de quoi on parle</h3>
+        <p>Le <strong>périmètre</strong> d'une figure est la <strong>longueur de son contour</strong>. Il se mesure en unité de longueur (mm, cm, m, km…).</p>
+        <p class="fiche-muted">Avant de calculer, toutes les longueurs doivent être dans la <strong>même unité</strong>.</p>
+      </div>
+      <div class="fiche-block">
+        <h3>les formules</h3>
+        <div class="fiche-flist">
+          <div class="fiche-frow"><span class="fiche-fname">carré (côté c)</span><span class="fiche-fval">P = 4 × c</span></div>
+          <div class="fiche-frow"><span class="fiche-fname">rectangle (L, l)</span><span class="fiche-fval">P = 2 × (L + l)</span></div>
+          <div class="fiche-frow"><span class="fiche-fname">triangle</span><span class="fiche-fval">P = a + b + c</span></div>
+          <div class="fiche-frow"><span class="fiche-fname">cercle (rayon r)</span><span class="fiche-fval">P = 2 × π × r</span></div>
+        </div>
+        <p class="fiche-muted" style="margin-top:10px">Pour le cercle, on parle de <strong>circonférence</strong>. Avec le diamètre d = 2 × r, on a aussi P = π × d.</p>
+      </div>
+      <div class="fiche-block fiche-fig">
+        <svg viewBox="0 0 240 165" width="220" xmlns="http://www.w3.org/2000/svg" aria-label="rectangle de longueur L et largeur l">
+          <rect x="42" y="38" width="158" height="86" fill="#E7F6EC" stroke="#181B22" stroke-width="2"/>
+          <text x="121" y="146" text-anchor="middle" font-family="'Space Mono',monospace" font-size="11" fill="#6B7280">L = 8 cm</text>
+          <text transform="translate(28,81) rotate(-90)" text-anchor="middle" font-family="'Space Mono',monospace" font-size="11" fill="#6B7280">l = 5 cm</text>
+        </svg>
+      </div>
+      <div class="fiche-block">
+        <h3>exemple <span class="fiche-sub">— rectangle</span></h3>
+        <div class="fiche-ex"><div class="fiche-ex-t">solution</div>Rectangle de longueur L = 8 cm et largeur l = 5 cm.<br>P = 2 × (L + l)<br>P = 2 × (8 + 5)<br>P = 2 × 13<br>P = <strong>26 cm</strong></div>
+      </div>
+      <div class="fiche-block fiche-exo">
+        <h3>exercice type <span class="fiche-sub">— cercle</span></h3>
+        <div class="fiche-fig">
+          <svg viewBox="0 0 200 165" width="180" xmlns="http://www.w3.org/2000/svg" aria-label="cercle de rayon r">
+            <circle cx="100" cy="82" r="58" fill="#E7F6EC" stroke="#181B22" stroke-width="2"/>
+            <circle cx="100" cy="82" r="2.5" fill="#181B22"/>
+            <line x1="100" y1="82" x2="158" y2="82" stroke="#4F46E5" stroke-width="2"/>
+            <text x="126" y="76" font-family="'Space Mono',monospace" font-size="11" font-weight="700" fill="#4F46E5">r = 3 cm</text>
+          </svg>
+        </div>
+        <p>Calculer le périmètre (la circonférence) d'un cercle de rayon r = 3 cm. On arrondira au dixième.</p>
+        <div class="fiche-ex"><div class="fiche-ex-t">solution</div>P = 2 × π × r<br>P = 2 × π × 3<br>P = 6 × π<br>P ≈ <strong>18,8 cm</strong></div>
+      </div>
+      <div class="fiche-block">
+        <h3>repère les erreurs <span class="fiche-sub">— deux copies à corriger</span></h3>
+        <p class="fiche-muted">Clique sur les lignes qui contiennent une erreur, puis vérifie.</p>
+        <div class="err-exo" style="margin-top:14px">
+          <div class="err-title">copie 1 — périmètre d'un rectangle L = 7 cm, l = 4 cm.</div>
+          <div class="errline" data-err="1" onclick="flagLine(this)">P = L × l = 7 × 4 = 28 cm</div>
+          <button class="err-check" onclick="checkErrors(this)">vérifier</button>
+          <div class="err-explain"><strong>L'erreur :</strong> ça, c'est l'aire ! Le périmètre est P = 2 × (L + l) = 2 × (7 + 4) = <strong>22 cm</strong>.</div>
+        </div>
+        <div class="err-exo" style="margin-top:14px">
+          <div class="err-title">copie 2 — circonférence d'un cercle de rayon r = 5 cm.</div>
+          <div class="errline" data-err="0" onclick="flagLine(this)">P = 2 × π × r</div>
+          <div class="errline" data-err="1" onclick="flagLine(this)">P = 2 × π × 25 ≈ 157 cm</div>
+          <button class="err-check" onclick="checkErrors(this)">vérifier</button>
+          <div class="err-explain"><strong>L'erreur :</strong> on a confondu r et r². Ici P = 2 × π × 5 = 10 × π ≈ <strong>31,4 cm</strong>.</div>
+        </div>
+      </div>
+      <div class="fiche-note"><strong>à retenir :</strong> le périmètre est une longueur (cm, m…). Garde la même unité partout, n'oublie pas le × 2 du rectangle et le 2 × π × r du cercle.</div>
+      <button class="btn btn-cobalt" style="align-self:flex-start" onclick="lancerBrevet()">s'entraîner sur un brevet →</button>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="page-fiche-aire">
+  <div class="simple-page fiche-read">
+    <button class="fiche-back" onclick="goTo('fiches')">← toutes les fiches</button>
+    <div><span class="fiche-tag">grandeurs & mesures</span></div>
+    <h1 class="simple-h1" style="margin-top:10px">l'<span>aire.</span></h1>
+    <div class="fiche-grid">
+      <div class="fiche-block">
+        <h3>de quoi on parle</h3>
+        <p>L'<strong>aire</strong> mesure la <strong>surface</strong> d'une figure (la place qu'elle occupe). Elle se mesure en unité d'aire : mm², cm², m²…</p>
+        <p class="fiche-muted">La <strong>hauteur</strong> d'un triangle (ou d'un parallélogramme) est toujours <strong>perpendiculaire</strong> à la base.</p>
+      </div>
+      <div class="fiche-block">
+        <h3>les formules</h3>
+        <div class="fiche-flist">
+          <div class="fiche-frow"><span class="fiche-fname">carré (côté c)</span><span class="fiche-fval">A = c²</span></div>
+          <div class="fiche-frow"><span class="fiche-fname">rectangle (L, l)</span><span class="fiche-fval">A = L × l</span></div>
+          <div class="fiche-frow"><span class="fiche-fname">triangle (base b, hauteur h)</span><span class="fiche-fval">A = (b × h) / 2</span></div>
+          <div class="fiche-frow"><span class="fiche-fname">parallélogramme</span><span class="fiche-fval">A = b × h</span></div>
+          <div class="fiche-frow"><span class="fiche-fname">disque (rayon r)</span><span class="fiche-fval">A = π × r²</span></div>
+        </div>
+      </div>
+      <div class="fiche-block fiche-fig">
+        <svg viewBox="0 0 240 170" width="220" xmlns="http://www.w3.org/2000/svg" aria-label="triangle de base b et hauteur h">
+          <polygon points="40,140 200,140 120,52" fill="#E7F6EC" stroke="#181B22" stroke-width="2" stroke-linejoin="round"/>
+          <line x1="120" y1="140" x2="120" y2="52" stroke="#4F46E5" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <path d="M120 128 L132 128 L132 140" fill="none" stroke="#181B22" stroke-width="1.2"/>
+          <text x="120" y="158" text-anchor="middle" font-family="'Space Mono',monospace" font-size="11" fill="#6B7280">b = 6 cm</text>
+          <text x="128" y="100" font-family="'Space Mono',monospace" font-size="11" font-weight="700" fill="#4F46E5">h = 4 cm</text>
+        </svg>
+      </div>
+      <div class="fiche-block">
+        <h3>exemple <span class="fiche-sub">— triangle</span></h3>
+        <div class="fiche-ex"><div class="fiche-ex-t">solution</div>Triangle de base b = 6 cm et hauteur h = 4 cm.<br>A = (b × h) / 2<br>A = (6 × 4) / 2<br>A = 24 / 2<br>A = <strong>12 cm²</strong></div>
+      </div>
+      <div class="fiche-block fiche-exo">
+        <h3>exercice type <span class="fiche-sub">— disque</span></h3>
+        <div class="fiche-fig">
+          <svg viewBox="0 0 200 165" width="180" xmlns="http://www.w3.org/2000/svg" aria-label="disque de rayon r">
+            <circle cx="100" cy="82" r="58" fill="#E7F6EC" stroke="#181B22" stroke-width="2"/>
+            <circle cx="100" cy="82" r="2.5" fill="#181B22"/>
+            <line x1="100" y1="82" x2="158" y2="82" stroke="#4F46E5" stroke-width="2"/>
+            <text x="126" y="76" font-family="'Space Mono',monospace" font-size="11" font-weight="700" fill="#4F46E5">r = 5 cm</text>
+          </svg>
+        </div>
+        <p>Calculer l'aire d'un disque de rayon r = 5 cm. On arrondira au dixième.</p>
+        <div class="fiche-ex"><div class="fiche-ex-t">solution</div>A = π × r²<br>A = π × 5²<br>A = π × 25<br>A = 25 × π<br>A ≈ <strong>78,5 cm²</strong></div>
+      </div>
+      <div class="fiche-block">
+        <h3>repère les erreurs <span class="fiche-sub">— deux copies à corriger</span></h3>
+        <p class="fiche-muted">Clique sur les lignes qui contiennent une erreur, puis vérifie.</p>
+        <div class="err-exo" style="margin-top:14px">
+          <div class="err-title">copie 1 — aire d'un triangle de base 6 cm et hauteur 4 cm.</div>
+          <div class="errline" data-err="1" onclick="flagLine(this)">A = b × h = 6 × 4 = 24 cm²</div>
+          <button class="err-check" onclick="checkErrors(this)">vérifier</button>
+          <div class="err-explain"><strong>L'erreur :</strong> on a oublié de diviser par 2. Pour un triangle, A = (b × h) / 2 = (6 × 4) / 2 = <strong>12 cm²</strong>.</div>
+        </div>
+        <div class="err-exo" style="margin-top:14px">
+          <div class="err-title">copie 2 — aire d'un disque de rayon r = 5 cm.</div>
+          <div class="errline" data-err="0" onclick="flagLine(this)">A = π × r²</div>
+          <div class="errline" data-err="1" onclick="flagLine(this)">A = π × 5 = 5 × π ≈ 15,7 cm²</div>
+          <button class="err-check" onclick="checkErrors(this)">vérifier</button>
+          <div class="err-explain"><strong>L'erreur :</strong> il faut élever le rayon au carré. A = π × 5² = π × 25 = 25 × π ≈ <strong>78,5 cm²</strong>.</div>
+        </div>
+      </div>
+      <div class="fiche-note"><strong>à retenir :</strong> l'aire s'exprime en unité au carré (cm²…). La hauteur est perpendiculaire à la base, on n'oublie pas le « / 2 » du triangle, et on ne confond pas l'aire avec le périmètre.</div>
+      <button class="btn btn-cobalt" style="align-self:flex-start" onclick="lancerBrevet()">s'entraîner sur un brevet →</button>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="page-fiche-volume">
+  <div class="simple-page fiche-read">
+    <button class="fiche-back" onclick="goTo('fiches')">← toutes les fiches</button>
+    <div><span class="fiche-tag">grandeurs & mesures</span></div>
+    <h1 class="simple-h1" style="margin-top:10px">le <span>volume.</span></h1>
+    <div class="fiche-grid">
+      <div class="fiche-block">
+        <h3>de quoi on parle</h3>
+        <p>Le <strong>volume</strong> mesure la <strong>place occupée par un solide</strong> dans l'espace. Il se mesure en unité de volume : mm³, cm³, m³… (et en litres : 1 L = 1 dm³).</p>
+        <p class="fiche-muted">Pour beaucoup de solides : volume = <strong>aire de la base × hauteur</strong>.</p>
+      </div>
+      <div class="fiche-block">
+        <h3>les formules</h3>
+        <div class="fiche-flist">
+          <div class="fiche-frow"><span class="fiche-fname">cube (arête a)</span><span class="fiche-fval">V = a³</span></div>
+          <div class="fiche-frow"><span class="fiche-fname">pavé droit (L, l, h)</span><span class="fiche-fval">V = L × l × h</span></div>
+          <div class="fiche-frow"><span class="fiche-fname">cylindre (rayon r, hauteur h)</span><span class="fiche-fval">V = π × r² × h</span></div>
+          <div class="fiche-frow"><span class="fiche-fname">pyramide / cône</span><span class="fiche-fval">V = (aire base × h) / 3</span></div>
+          <div class="fiche-frow"><span class="fiche-fname">boule (rayon r)</span><span class="fiche-fval">V = (4/3) × π × r³</span></div>
+        </div>
+      </div>
+      <div class="fiche-block fiche-fig">
+        <svg viewBox="0 0 240 180" width="220" xmlns="http://www.w3.org/2000/svg" aria-label="pavé droit de dimensions L, l et h">
+          <polygon points="40,70 80,40 190,40 150,70" fill="#D7F0DE" stroke="#181B22" stroke-width="2" stroke-linejoin="round"/>
+          <polygon points="150,70 190,40 190,120 150,150" fill="#CFEAD7" stroke="#181B22" stroke-width="2" stroke-linejoin="round"/>
+          <rect x="40" y="70" width="110" height="80" fill="#E7F6EC" stroke="#181B22" stroke-width="2"/>
+          <text x="95" y="166" text-anchor="middle" font-family="'Space Mono',monospace" font-size="11" fill="#6B7280">L = 5 cm</text>
+          <text x="183" y="92" font-family="'Space Mono',monospace" font-size="11" fill="#6B7280">h = 4 cm</text>
+          <text x="150" y="34" text-anchor="middle" font-family="'Space Mono',monospace" font-size="11" fill="#6B7280">l = 3 cm</text>
+        </svg>
+      </div>
+      <div class="fiche-block">
+        <h3>exemple <span class="fiche-sub">— pavé droit</span></h3>
+        <div class="fiche-ex"><div class="fiche-ex-t">solution</div>Pavé droit : L = 5 cm, l = 3 cm, h = 4 cm.<br>V = L × l × h<br>V = 5 × 3 × 4<br>V = <strong>60 cm³</strong></div>
+      </div>
+      <div class="fiche-block fiche-exo">
+        <h3>exercice type <span class="fiche-sub">— cylindre</span></h3>
+        <div class="fiche-fig">
+          <svg viewBox="0 0 200 200" width="180" xmlns="http://www.w3.org/2000/svg" aria-label="cylindre de rayon r et hauteur h">
+            <rect x="45" y="50" width="110" height="100" fill="#E7F6EC" stroke="none"/>
+            <path d="M45 150 A 55 18 0 0 0 155 150" fill="#E7F6EC" stroke="#181B22" stroke-width="2"/>
+            <path d="M45 150 A 55 18 0 0 1 155 150" fill="none" stroke="#181B22" stroke-width="1" stroke-dasharray="4 3"/>
+            <line x1="45" y1="50" x2="45" y2="150" stroke="#181B22" stroke-width="2"/>
+            <line x1="155" y1="50" x2="155" y2="150" stroke="#181B22" stroke-width="2"/>
+            <ellipse cx="100" cy="50" rx="55" ry="18" fill="#D7F0DE" stroke="#181B22" stroke-width="2"/>
+            <circle cx="100" cy="50" r="2.5" fill="#181B22"/>
+            <line x1="100" y1="50" x2="155" y2="50" stroke="#4F46E5" stroke-width="2"/>
+            <text x="120" y="44" font-family="'Space Mono',monospace" font-size="11" font-weight="700" fill="#4F46E5">r = 2 cm</text>
+            <text x="162" y="105" font-family="'Space Mono',monospace" font-size="11" fill="#6B7280">h = 10 cm</text>
+          </svg>
+        </div>
+        <p>Calculer le volume d'un cylindre de rayon r = 2 cm et de hauteur h = 10 cm. On arrondira au dixième.</p>
+        <div class="fiche-ex"><div class="fiche-ex-t">solution</div>V = π × r² × h<br>V = π × 2² × 10<br>V = π × 4 × 10<br>V = 40 × π<br>V ≈ <strong>125,7 cm³</strong></div>
+      </div>
+      <div class="fiche-block">
+        <h3>repère les erreurs <span class="fiche-sub">— deux copies à corriger</span></h3>
+        <p class="fiche-muted">Clique sur les lignes qui contiennent une erreur, puis vérifie.</p>
+        <div class="err-exo" style="margin-top:14px">
+          <div class="err-title">copie 1 — volume d'un cylindre r = 2 cm, h = 10 cm.</div>
+          <div class="errline" data-err="0" onclick="flagLine(this)">V = π × r² × h</div>
+          <div class="errline" data-err="1" onclick="flagLine(this)">V = π × 2 × 10 = 20 × π ≈ 62,8 cm³</div>
+          <button class="err-check" onclick="checkErrors(this)">vérifier</button>
+          <div class="err-explain"><strong>L'erreur :</strong> on a oublié le carré du rayon. V = π × 2² × 10 = 40 × π ≈ <strong>125,7 cm³</strong>.</div>
+        </div>
+        <div class="err-exo" style="margin-top:14px">
+          <div class="err-title">copie 2 — volume d'une pyramide : aire de base = 12 cm², hauteur = 6 cm.</div>
+          <div class="errline" data-err="1" onclick="flagLine(this)">V = aire de base × hauteur = 12 × 6 = 72 cm³</div>
+          <button class="err-check" onclick="checkErrors(this)">vérifier</button>
+          <div class="err-explain"><strong>L'erreur :</strong> pour une pyramide (ou un cône), on divise par 3. V = (12 × 6) / 3 = <strong>24 cm³</strong>.</div>
+        </div>
+      </div>
+      <div class="fiche-note"><strong>à retenir :</strong> le volume s'exprime en unité au cube (cm³…) et 1 L = 1 dm³. Pour le cylindre, le rayon est au carré ; pour la pyramide et le cône, on divise par 3.</div>
       <button class="btn btn-cobalt" style="align-self:flex-start" onclick="lancerBrevet()">s'entraîner sur un brevet →</button>
     </div>
   </div>
@@ -1039,14 +1399,47 @@ a{color:inherit}
 
 <div class="page" id="page-checkout">
   <div class="simple-page">
-    <span class="eyebrow">étape 1 / 2</span>
-    <h1 class="simple-h1" style="margin-top:12px">choisis ton <span>pack.</span></h1>
-    <p class="simple-lead">sans engagement. accès immédiat après paiement.</p>
+    <span class="eyebrow">tarifs · sans engagement</span>
+    <h1 class="simple-h1" style="margin-top:12px">choisis ton <span>offre.</span></h1>
+    <p class="simple-lead">accès immédiat. 149 €, c'est moins qu'une heure de cours particulier.</p>
     <div class="pack-grid">
-      <div class="pack" onclick="showToast('paiement indispo en local')"><div class="pack-tier">la veille</div><div class="pack-name">pack urgence</div><div class="pack-price">4€</div><div class="pack-per">/48h</div><div class="pack-feats"><div class="pack-feat">✓ 1 brevet complet</div><div class="pack-feat">✓ corrections détaillées</div></div><button class="pack-btn">choisir →</button></div>
-      <div class="pack" onclick="showToast('paiement indispo en local')"><div class="pack-tier">1 semaine avant</div><div class="pack-name">pack sprint</div><div class="pack-price">9€</div><div class="pack-per">/semaine</div><div class="pack-feats"><div class="pack-feat">✓ 3 brevets complets</div><div class="pack-feat">✓ planning 7 jours ia</div></div><button class="pack-btn">choisir →</button></div>
-      <div class="pack feat" onclick="showToast('paiement indispo en local')"><div class="pack-tier">1 mois avant · populaire</div><div class="pack-name">pack intensif</div><div class="pack-price">19€</div><div class="pack-per">/mois</div><div class="pack-feats"><div class="pack-feat">✓ toutes les annales</div><div class="pack-feat">✓ planning 30 jours ia</div><div class="pack-feat">✓ suivi de progression</div></div><button class="pack-btn">choisir →</button></div>
-      <div class="pack dark" onclick="showToast('paiement indispo en local')"><div class="pack-tier">3 mois avant</div><div class="pack-name">pack sérénité</div><div class="pack-price">39€</div><div class="pack-per">/3 mois</div><div class="pack-feats"><div class="pack-feat">✓ toutes les annales</div><div class="pack-feat">✓ planning 90 jours ia</div><div class="pack-feat">✓ suivi de progression</div></div><button class="pack-btn">choisir →</button></div>
+      <div class="pack" onclick="showToast('paiement indispo en local')">
+        <div class="pack-tier">sans engagement</div>
+        <div class="pack-name">mensuel</div>
+        <div class="pack-price">19,99€</div>
+        <div class="pack-per">/mois · résiliable en 1 clic</div>
+        <div class="pack-feats">
+          <div class="pack-feat">✓ accès complet à brévise</div>
+          <div class="pack-feat">✓ brevets blancs illimités</div>
+          <div class="pack-feat">✓ toutes les fiches & annales</div>
+          <div class="pack-feat">✓ parcours & suivi de progression</div>
+        </div>
+        <button class="pack-btn">choisir →</button>
+      </div>
+      <div class="pack feat" onclick="showToast('paiement indispo en local')">
+        <div class="pack-tier">★ le plus choisi · 2 mois offerts</div>
+        <div class="pack-name">pass année</div>
+        <div class="pack-price">149€</div>
+        <div class="pack-per">paiement unique · jusqu'au jour J</div>
+        <div class="pack-feats">
+          <div class="pack-feat">✓ tout le mensuel inclus</div>
+          <div class="pack-feat">✓ accès de la rentrée au brevet</div>
+          <div class="pack-feat">✓ ~50 € d'économie vs le mensuel</div>
+        </div>
+        <button class="pack-btn">choisir →</button>
+      </div>
+      <div class="pack dark" onclick="showToast('formulaire de devis bientôt dispo')">
+        <div class="pack-tier">professeurs · collèges</div>
+        <div class="pack-name">établissement</div>
+        <div class="pack-price" style="font-size:26px">sur devis</div>
+        <div class="pack-per">licence classe ou collège</div>
+        <div class="pack-feats">
+          <div class="pack-feat">✓ sujets pour toute la classe</div>
+          <div class="pack-feat">✓ suivi des élèves</div>
+          <div class="pack-feat">✓ facturation établissement</div>
+        </div>
+        <button class="pack-btn">demander un devis →</button>
+      </div>
     </div>
   </div>
 </div>
@@ -1225,7 +1618,7 @@ function goTo(page){
   if(page==='parcours'||page==='planning'||page==='generer'||page==='entrainement'){t.style.display='flex';t.style.flexDirection='column';t.style.height='calc(100vh - 79px)';t.style.overflow='hidden';}
   else if(page==='brevet'){t.style.display='block';t.style.height='100vh';t.style.overflow='hidden';}
   else{t.style.display='block';}
-  document.body.style.overflow=(page==='accueil'||page==='checkout'||page==='annales'||page==='fiches'||page==='fiche-pythagore'||page==='entrainement')?'auto':'hidden';
+  document.body.style.overflow=(page==='accueil'||page==='checkout'||page==='annales'||page==='fiches'||page==='fiche-pythagore'||page==='fiche-trigo'||page==='fiche-perimetre'||page==='fiche-aire'||page==='fiche-volume'||page==='entrainement')?'auto':'hidden';
   document.querySelectorAll('.nav-links li').forEach(li=>{li.classList.remove('on','on-orange');if(li.dataset.page==='checkout')li.classList.add('on-orange');else if(li.dataset.page===page)li.classList.add('on');});
   var nav=document.querySelector('body > nav.nav');
   var hide=(page==='brevet');
@@ -1235,33 +1628,49 @@ function goTo(page){
 function showToast(msg){var t=document.getElementById('toast');if(!t)return;t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2600);}
 // ── BRUITAGES bon / faux (Web Audio, sans fichier externe) ──
 var sfxCtx=null;
+function _sfxCtx(){
+  if(!sfxCtx)sfxCtx=new (window.AudioContext||window.webkitAudioContext)();
+  if(sfxCtx.state==='suspended')sfxCtx.resume();
+  return sfxCtx;
+}
+function _voice(ctx,freq,start,dur,peak,type,cutoff){
+  var o=ctx.createOscillator(),g=ctx.createGain(),f=ctx.createBiquadFilter();
+  o.type=type||'sine';o.frequency.value=freq;
+  f.type='lowpass';f.frequency.value=cutoff||2800;
+  o.connect(f);f.connect(g);g.connect(ctx.destination);
+  g.gain.setValueAtTime(0.0001,start);
+  g.gain.exponentialRampToValueAtTime(peak,start+0.018);
+  g.gain.exponentialRampToValueAtTime(0.0001,start+dur);
+  o.start(start);o.stop(start+dur+0.05);
+}
 function sfx(ok){
   try{
-    if(!sfxCtx)sfxCtx=new (window.AudioContext||window.webkitAudioContext)();
-    if(sfxCtx.state==='suspended')sfxCtx.resume();
-    var ctx=sfxCtx,t0=ctx.currentTime;
-    function tone(freq,start,dur,peak,type){
-      var o=ctx.createOscillator(),g=ctx.createGain();
-      o.type=type||'square';o.frequency.value=freq;o.connect(g);g.connect(ctx.destination);
-      var s=t0+start;
-      g.gain.setValueAtTime(0.0001,s);
-      g.gain.exponentialRampToValueAtTime(peak,s+0.008);
-      g.gain.exponentialRampToValueAtTime(0.0001,s+dur);
-      o.start(s);o.stop(s+dur+0.02);
-    }
+    var ctx=_sfxCtx(),t=ctx.currentTime;
     if(ok){
-      var notes=[523.25,659.25,783.99,1046.50];
-      for(var i=0;i<notes.length;i++)tone(notes[i],i*0.07,0.10,0.10,'square');
+      var n=[523.25,659.25,783.99];           // do – mi – sol montant, chaleureux
+      for(var i=0;i<n.length;i++){
+        _voice(ctx,n[i],t+i*0.085,0.32,0.15,'triangle',3200);
+        _voice(ctx,n[i]*2,t+i*0.085,0.20,0.04,'sine',5200);  // léger éclat aigu
+      }
+      _voice(ctx,1046.50,t+0.255,0.55,0.11,'sine',5200);     // cloche finale qui résonne
     }else{
-      var o=ctx.createOscillator(),g=ctx.createGain();
-      o.type='sawtooth';o.connect(g);g.connect(ctx.destination);
-      o.frequency.setValueAtTime(440,t0);
-      o.frequency.exponentialRampToValueAtTime(150,t0+0.34);
-      g.gain.setValueAtTime(0.0001,t0);
-      g.gain.exponentialRampToValueAtTime(0.11,t0+0.02);
-      g.gain.exponentialRampToValueAtTime(0.0001,t0+0.36);
-      o.start(t0);o.stop(t0+0.38);
+      _voice(ctx,392.00,t,0.20,0.11,'sine',1300);            // deux notes douces qui descendent
+      _voice(ctx,293.66,t+0.11,0.32,0.11,'sine',1100);       // feutré, jamais agressif
     }
+  }catch(e){}
+}
+function sfxTap(){
+  try{var ctx=_sfxCtx();_voice(ctx,330,ctx.currentTime,0.075,0.045,'sine',2400);}catch(e){}
+}
+document.addEventListener('click',function(e){
+  var el=e.target.closest('button,a.logo,.nav-links a,.train-card-btn,.errline,[class*="chip"]');
+  if(el&&!el.disabled)sfxTap();
+},true);
+function sfxRoulette(){
+  try{
+    var ctx=_sfxCtx(),t0=ctx.currentTime,t=0,gap=0.045;
+    while(t<3.0){_voice(ctx,1250,t0+t,0.022,0.03,'triangle',3200);t+=gap;gap*=1.17;}
+    _voice(ctx,659.25,t0+t+0.04,0.34,0.07,'sine',3000);
   }catch(e){}
 }
 
@@ -1280,29 +1689,56 @@ function tickCD(){
 tickCD();setInterval(tickCD,1000);
 
 (function(){
-  function build(){
+  var NS='http://www.w3.org/2000/svg';
+  var demoVariants=[
+    {n:18,k:9,hex:'#E2483D',name:'rouge'},
+    {n:12,k:3,hex:'#4F46E5',name:'bleue'},
+    {n:10,k:4,hex:'#F59E0B',name:'jaune'},
+    {n:16,k:12,hex:'#4F46E5',name:'bleue'}
+  ];
+  var demoIdx=0,demoTarget=0.5,spinning=false;
+  function gcd(a,b){return b?gcd(b,a%b):a;}
+  function brightSet(n,k){var s={},acc=0;for(var i=0;i<n;i++){acc+=k;if(acc>=n){acc-=n;s[i]=1;}}return s;}
+  function buildWheel(v){
     var sectors=document.getElementById('roulette-sectors'),numbers=document.getElementById('roulette-numbers'),dividers=document.getElementById('roulette-dividers');
     if(!sectors||!numbers||!dividers)return false;
-    if(sectors.childNodes.length>0)return true;
-    var R=102,N=18,step=360/N,NS='http://www.w3.org/2000/svg';
-    for(var i=0;i<N;i++){
+    sectors.textContent='';numbers.textContent='';dividers.textContent='';
+    var R=102,n=v.n,step=360/n,bright=brightSet(n,v.k);
+    for(var i=0;i<n;i++){
       var a1=(i*step-90-step/2)*Math.PI/180,a2=((i+1)*step-90-step/2)*Math.PI/180;
       var x1=Math.cos(a1)*R,y1=Math.sin(a1)*R,x2=Math.cos(a2)*R,y2=Math.sin(a2)*R;
-      var color=(i%2===0)?'#E2483D':'#181B22';
+      var isB=!!bright[i],color=isB?v.hex:'#181B22';
       var p=document.createElementNS(NS,'path');
       p.setAttribute('d','M 0 0 L '+x1.toFixed(2)+' '+y1.toFixed(2)+' A '+R+' '+R+' 0 0 1 '+x2.toFixed(2)+' '+y2.toFixed(2)+' Z');
       p.setAttribute('fill',color);sectors.appendChild(p);
       var l=document.createElementNS(NS,'line');l.setAttribute('x1','0');l.setAttribute('y1','0');l.setAttribute('x2',x1.toFixed(2));l.setAttribute('y2',y1.toFixed(2));dividers.appendChild(l);
       var am=(i*step-90)*Math.PI/180,rn=R*0.78,nx=Math.cos(am)*rn,ny=Math.sin(am)*rn;
-      var tx=document.createElementNS(NS,'text');tx.setAttribute('x',nx.toFixed(2));tx.setAttribute('y',(ny+3).toFixed(2));tx.setAttribute('text-anchor','middle');tx.setAttribute('font-size','11');tx.setAttribute('font-weight','700');tx.setAttribute('font-family','Space Mono,monospace');tx.setAttribute('fill','#fff');tx.setAttribute('transform','rotate('+(i*step).toFixed(2)+' '+nx.toFixed(2)+' '+ny.toFixed(2)+')');tx.textContent=(i+1);numbers.appendChild(tx);
+      var tx=document.createElementNS(NS,'text');tx.setAttribute('x',nx.toFixed(2));tx.setAttribute('y',(ny+3).toFixed(2));tx.setAttribute('text-anchor','middle');tx.setAttribute('font-size',n>14?'10':'11');tx.setAttribute('font-weight','700');tx.setAttribute('font-family','Space Mono,monospace');tx.setAttribute('fill',isB&&v.hex==='#F59E0B'?'#181B22':'#fff');tx.setAttribute('transform','rotate('+(i*step).toFixed(2)+' '+nx.toFixed(2)+' '+ny.toFixed(2)+')');tx.textContent=(i+1);numbers.appendChild(tx);
     }
     return true;
   }
-  if(!build()){if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',build);window.addEventListener('load',build);}
-  var spinning=false;
+  function applyVariant(v){
+    demoTarget=v.k/v.n;
+    var g=gcd(v.k,v.n),simpl=(v.k/g)+'/'+(v.n/g),raw=v.k+'/'+v.n;
+    var dec=(''+(Math.round(v.k/v.n*1000)/1000)).replace('.',',');
+    var fr=simpl===raw?raw:(raw+' = '+simpl);
+    var intro=document.querySelector('.exo-demo-intro'),q=document.querySelector('.exo-demo-qtext'),body=document.querySelector('.exo-demo-reveal-body');
+    if(intro)intro.innerHTML='une roulette de casino est divisée en <strong>'+v.n+' cases identiques</strong>, numérotées de 1 à '+v.n+', dont <strong>'+v.k+' sont '+v.name+'s</strong>. on la fait tourner.';
+    if(q)q.innerHTML='quelle est la probabilité que la bille tombe sur une case <strong>'+v.name+'</strong> ?';
+    if(body)body.innerHTML='sur '+v.n+' cases, <strong>'+v.k+' sont '+v.name+'s</strong>. la probabilité vaut donc <strong>'+fr+' = '+dec+'</strong>.';
+    var input=document.getElementById('demo-answer-input');if(input){input.value='';input.disabled=false;}
+    var btn=document.querySelector('.exo-demo-answer-btn');if(btn)btn.disabled=false;
+    var wrap=document.querySelector('.exo-demo-answer');if(wrap)wrap.classList.remove('right','wrong');
+    var rev=document.getElementById('demo-reveal');if(rev)rev.classList.remove('open');
+    var badge=document.getElementById('demo-reveal-badge');if(badge)badge.textContent='✓ bonne réponse';
+    buildWheel(v);
+  }
+  function ensureWheel(){var s=document.getElementById('roulette-sectors');if(s&&s.childNodes.length===0)buildWheel(demoVariants[demoIdx]);}
+  function init(){applyVariant(demoVariants[0]);}
+  if(document.getElementById('roulette-sectors'))init();else{document.addEventListener('DOMContentLoaded',init);window.addEventListener('load',init);}
   window.demoSpinWheel=function(){
     if(spinning)return;var w=document.getElementById('demo-wheel-spin');if(!w)return;
-    build();spinning=true;var hint=document.getElementById('demo-spin-hint');if(hint)hint.style.opacity='0';
+    ensureWheel();spinning=true;if(typeof sfxRoulette==='function')sfxRoulette();var hint=document.getElementById('demo-spin-hint');if(hint)hint.style.opacity='0';
     w.classList.remove('once');w.style.animation='';void w.getBoundingClientRect();
     var end=1080+Math.floor(Math.random()*360);w.style.setProperty('--we',end+'deg');
     requestAnimationFrame(function(){w.classList.add('once');});
@@ -1312,10 +1748,9 @@ tickCD();setInterval(tickCD,1000);
     var input=document.getElementById('demo-answer-input');if(!input)return;
     var raw=(input.value||'').trim().toLowerCase().replace(/\s+/g,'').replace(',','.');
     if(!raw)return;
-    var ok=false,acc=['1/2','9/18','0.5','50%'];
-    if(acc.indexOf(raw)>=0)ok=true;
-    if(!ok){var fm=raw.match(/^(\d+)\/(\d+)$/);if(fm){var a=+fm[1],b=+fm[2];if(b>0&&Math.abs(a/b-0.5)<0.005)ok=true;}}
-    if(!ok){var n=parseFloat(raw.replace('%',''));if(!isNaN(n)){if(raw.indexOf('%')>=0)n/=100;if(Math.abs(n-0.5)<0.01)ok=true;}}
+    var ok=false,T=demoTarget,fm=raw.match(/^(\d+)\/(\d+)$/);
+    if(fm){var a=+fm[1],b=+fm[2];if(b>0&&Math.abs(a/b-T)<0.005)ok=true;}
+    if(!ok){var nn=parseFloat(raw.replace('%',''));if(!isNaN(nn)){if(raw.indexOf('%')>=0)nn/=100;if(Math.abs(nn-T)<0.01)ok=true;}}
     var wrap=document.querySelector('.exo-demo-answer');if(wrap){wrap.classList.remove('right','wrong');wrap.classList.add(ok?'right':'wrong');}
     input.disabled=true;var btn=document.querySelector('.exo-demo-answer-btn');if(btn)btn.disabled=true;
     var rev=document.getElementById('demo-reveal'),badge=document.getElementById('demo-reveal-badge');
@@ -1328,6 +1763,19 @@ tickCD();setInterval(tickCD,1000);
     var colors=['#4F46E5','#F59E0B','#16A34A','#E2483D'];
     for(var i=0;i<18;i++){var c=document.createElement('span');c.className='exo-confetti';c.style.left=(40+Math.random()*20)+'%';c.style.background=colors[i%colors.length];c.style.animationDelay=(Math.random()*.2)+'s';c.style.setProperty('--dx',(Math.random()*400-200)+'px');c.style.setProperty('--rot',(Math.random()*720-360)+'deg');wrap.appendChild(c);setTimeout(function(el){return function(){el.remove();};}(c),2000);}
   }
+  (function(){
+    var sec=document.getElementById('demo');if(!sec||!('IntersectionObserver' in window))return;
+    var everIn=false,hasLeft=false;
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){
+          if(everIn&&hasLeft){demoIdx=(demoIdx+1)%demoVariants.length;applyVariant(demoVariants[demoIdx]);}
+          everIn=true;hasLeft=false;
+        }else if(everIn){hasLeft=true;}
+      });
+    },{threshold:0.45});
+    io.observe(sec);
+  })();
   setTimeout(function(){window.demoSpinWheel();},800);
 })();
 
