@@ -1,0 +1,1916 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BRÉVISE — Générateur de brevet de maths 2026 (3ᵉ)</title>
+<meta name="description" content="Génère des brevets blancs de maths inédits, en conditions réelles, avec correction détaillée. DON'T STRESS JUST RÉVISE.">
+<meta name="theme-color" content="#4F46E5">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%232E54E8'/><text y='25' x='5' font-size='24' font-family='Arial' font-weight='900' fill='white'>B</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F6F7F9;--paper-2:#FFFFFF;--ink:#181B22;--muted:#6B7280;
+  --green:#16A34A;--green-deep:#15803D;--olive:#4D7C0F;
+  --cobalt:#4F46E5;--amber:#F59E0B;--clay:#E2483D;--lcd:#E7F6EC;--ko-soft:#FCEBEA;--line:#E5E7EB;
+  --pop:#84CC16;--pop-soft:#ECFCCB;
+  --anton:'Anton',Impact,sans-serif;--grot:'Space Grotesk',-apple-system,sans-serif;--mono:'Space Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--grot);-webkit-font-smoothing:antialiased;position:relative;min-height:100vh}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background-image:radial-gradient(circle,#0000000a 1px,transparent 1px);background-size:46px 46px;mask-image:radial-gradient(ellipse 90% 70% at 50% 15%,#000 45%,transparent 100%)}
+::selection{background:var(--amber);color:var(--ink)}
+a{color:inherit}
+.eyebrow{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--green);display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:34px;height:3px;background:var(--cobalt);border-radius:2px;display:inline-block;flex-shrink:0}
+.nav{position:relative;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:20px 40px;border-bottom:1.5px solid var(--ink);background:var(--paper)}
+.logo{cursor:pointer;display:flex;flex-direction:row;align-items:center;gap:10px;line-height:1;text-decoration:none}
+.logo-top{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--green);border:1.5px solid var(--ink);border-radius:12px;padding:4px 9px;line-height:1.25;text-align:left}
+.logo-bot{font-family:var(--grot);font-weight:700;font-size:32px;letter-spacing:.01em;text-transform:uppercase;color:var(--ink)}
+.logo-bot span{color:var(--cobalt)}
+.nav-r{display:flex;align-items:center;gap:26px}
+.nav-links{display:flex;gap:22px;list-style:none}
+.nav-links li{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;color:var(--muted);transition:color .15s}
+.nav-links li:hover{color:var(--ink)}
+.nav-links li.on{color:var(--ink)}
+.nav-links li.on-orange{color:var(--clay)}
+.cta{font-family:var(--grot);font-size:13px;font-weight:700;background:var(--cobalt);color:#fff;padding:11px 22px;border:1.5px solid var(--ink);border-radius:999px;cursor:pointer;box-shadow:0 6px 18px -6px rgba(24,27,34,.26);transition:transform .12s,box-shadow .12s;text-transform:lowercase;display:inline-flex;align-items:center;gap:6px}
+.cta:hover{transform:translate(-2px,-2px);box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
+.cta:active{transform:translate(2px,2px);box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
+.page{display:none;position:relative;z-index:1}
+.page.active{display:block}
+#page-parcours.active,#page-planning.active,#page-generer.active,#page-entrainement.active{display:flex;flex-direction:column;height:calc(100vh - 79px);overflow:hidden}
+.btn{font-family:var(--grot);font-size:14px;font-weight:700;border:1.5px solid var(--ink);border-radius:999px;cursor:pointer;padding:13px 26px;text-transform:lowercase;display:inline-flex;align-items:center;gap:8px;box-shadow:0 6px 18px -6px rgba(24,27,34,.26);transition:transform .12s,box-shadow .12s;text-decoration:none}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
+.btn:active{transform:translate(3px,3px);box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
+.btn-cobalt{background:var(--cobalt);color:#fff}
+.btn-green{background:var(--green);color:#fff}
+.btn-amber{background:var(--amber);color:var(--ink)}
+.btn-ghost{background:transparent;color:var(--ink);box-shadow:none}
+.btn-ghost:hover{background:var(--ink);color:var(--paper);transform:none;box-shadow:none}
+.btn-ghost:active{transform:translate(2px,2px);box-shadow:none}
+.hero{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;max-width:1180px;padding:56px 40px 56px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--lcd);color:var(--green-deep);border:1.5px solid var(--ink);border-radius:999px;padding:7px 14px;box-shadow:0 6px 18px -6px rgba(24,27,34,.26);transform:rotate(-2deg);align-self:flex-start}
+.hero-title{font-family:var(--grot);font-weight:700;font-size:clamp(34px,4.7vw,60px);line-height:.94;text-transform:uppercase;margin:22px 0 0;letter-spacing:-.005em;color:var(--ink)}
+.hero-title .l2{color:var(--cobalt)}
+.hero-lead{font-size:17px;line-height:1.6;color:var(--ink);max-width:42ch;margin-top:24px;font-weight:500}
+.hero-ctas{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap}
+.hero-fine{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:16px;letter-spacing:.02em}
+.hero{position:relative;z-index:0}
+.hero::after{content:'';position:absolute;top:-60px;right:-30px;width:540px;height:540px;background:radial-gradient(circle,rgba(132,204,22,.20),rgba(79,70,229,.12) 45%,transparent 70%);filter:blur(18px);z-index:0;pointer-events:none}
+.hero-left,.hero-right{position:relative;z-index:1}
+.hero-hook{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.04em;background:var(--pop-soft);color:var(--green-deep);border:1.5px solid var(--ink);border-radius:999px;padding:6px 13px;margin-top:18px}
+.hero-hook .dot{width:7px;height:7px;border-radius:50%;background:var(--pop);border:1.5px solid var(--ink)}
+.revo{filter:drop-shadow(0 10px 18px rgba(24,27,34,.14))}
+.hero-stickers .stk-revo svg{height:196px;width:auto;display:block}
+.revo-anim{animation:revoBob 4s ease-in-out infinite}
+@keyframes revoBob{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-7px) rotate(1deg)}}
+.cd-wrap{display:flex;flex-direction:column;align-items:center;gap:14px}
+.cd-label{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.cd-row{display:flex;gap:10px;align-items:center}
+.cd-card{background:var(--paper-2);border:1.5px solid var(--ink);border-radius:12px;box-shadow:0 6px 18px -6px rgba(24,27,34,.26);min-width:64px;padding:10px 8px;text-align:center}
+.cd-num{font-family:var(--mono);font-weight:700;font-size:clamp(22px,3.4vw,38px);color:var(--ink);line-height:1}
+.cd-lbl{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.cd-sep{font-family:var(--grot);font-weight:700;font-size:30px;color:var(--cobalt)}
+.sec{position:relative;z-index:1;padding:56px 40px;max-width:1280px;margin:0 auto}
+.sec-alt{background:var(--paper-2);border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.sec-inner{max-width:1280px;margin:0 auto}
+.sec-h2{font-family:var(--grot);font-weight:700;font-size:clamp(32px,4.6vw,60px);line-height:.98;text-transform:uppercase;margin:18px 0 0;max-width:18ch}
+.sec-h2 .accent{color:var(--cobalt)}
+.sec-lead{font-size:17px;line-height:1.6;color:var(--ink);max-width:64ch;margin-top:18px;font-weight:500}
+.demo-stage{margin-top:40px}
+.train-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:32px}
+.train-card{background:var(--paper-2);border:1.5px solid var(--ink);border-radius:18px;box-shadow:0 6px 18px -6px rgba(24,27,34,.26);padding:22px 20px;display:flex;flex-direction:column;gap:10px}
+.train-card-tag{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green-deep);background:var(--lcd);border:1.5px solid var(--ink);border-radius:999px;padding:3px 10px;align-self:flex-start}
+.train-card-name{font-family:var(--grot);font-weight:700;font-size:24px;text-transform:uppercase;line-height:.95}
+.train-card-meta{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.fiche-back{font-family:var(--mono);font-size:11px;font-weight:700;border:1.5px solid var(--ink);border-radius:999px;background:var(--paper-2);padding:6px 12px;cursor:pointer;margin-bottom:14px}
+.fiche-back:hover{background:var(--lcd)}
+.fiche-tag{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--lcd);color:var(--green-deep);border:1.5px solid var(--ink);border-radius:999px;padding:4px 10px}
+.fiche-grid{display:flex;flex-direction:column;gap:16px;max-width:720px;margin-top:22px}
+.simple-page.fiche-read{max-width:820px}
+.fiche-read .fiche-grid{max-width:none}
+.fiche-block{background:var(--paper-2);border:1.5px solid var(--ink);border-radius:16px;padding:20px 22px;box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
+.fiche-block h3{font-family:var(--grot);font-weight:700;font-size:17px;margin-bottom:10px;text-transform:lowercase}
+.fiche-block h3 .fiche-sub{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--muted);text-transform:none}
+.fiche-block p{font-size:14px;line-height:1.6;margin-bottom:8px}
+.fiche-block p:last-child{margin-bottom:0}
+.fiche-muted{color:var(--muted)}
+.fiche-formula{font-family:var(--grot);font-weight:700;font-size:24px;text-align:center;background:var(--pop-soft);border:1.5px solid var(--ink);border-radius:12px;padding:14px;margin:10px 0;color:var(--ink)}
+.fiche-formula.sm{font-size:19px}
+.fiche-fig{display:flex;justify-content:center}
+.fiche-fig svg{max-width:100%;height:auto}
+.fiche-ex{background:var(--lcd);border-left:4px solid var(--green);border-radius:0 10px 10px 0;padding:12px 14px;font-size:14px;line-height:1.6;margin-top:10px}
+.fiche-ex-t{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green-deep);margin-bottom:4px}
+.fiche-note{background:#FEF3C7;border:1.5px solid var(--ink);border-radius:12px;padding:14px 16px;font-size:14px;line-height:1.6}
+.fiche-exo .fiche-fig{margin:4px auto 12px}
+.err-exo{border:1.5px solid var(--line);border-radius:14px;padding:14px 16px;background:var(--paper)}
+.err-title{font-size:13px;font-weight:700;margin-bottom:8px;line-height:1.5}
+.err-exo .errline{border:1.5px solid var(--line);border-radius:10px;padding:9px 12px;margin:7px 0;font-size:13.5px;line-height:1.5;cursor:pointer;transition:background .12s,border-color .12s;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.err-exo .errline:hover{border-color:var(--ink)}
+.errline.flagged{border-color:var(--clay);background:var(--ko-soft)}
+.errline.flagged::after{content:'⚑';color:var(--clay);font-size:13px}
+.errline.revealed{cursor:default}
+.errline.good{border-color:var(--green);background:var(--lcd)}
+.errline.good::after{content:'✓ trouvée';font-family:var(--mono);font-size:10px;font-weight:700;color:var(--green-deep)}
+.errline.missed{border-color:var(--clay);background:var(--ko-soft)}
+.errline.missed::after{content:'✗ manquée';font-family:var(--mono);font-size:10px;font-weight:700;color:var(--clay)}
+.errline.falsepos{border-color:var(--amber);background:#FEF3C7}
+.errline.falsepos::after{content:'correcte';font-family:var(--mono);font-size:10px;font-weight:700;color:var(--muted)}
+.err-check{margin-top:10px;font-family:var(--grot);font-size:13px;font-weight:700;background:var(--cobalt);color:#fff;border:1.5px solid var(--ink);border-radius:999px;padding:8px 16px;cursor:pointer}
+.err-check:disabled{background:var(--green);cursor:default}
+.err-explain{display:none;margin-top:12px;background:var(--lcd);border-left:4px solid var(--green);border-radius:0 10px 10px 0;padding:12px 14px;font-size:14px;line-height:1.6}
+.fiche-flist{display:flex;flex-direction:column;margin-top:6px}
+.fiche-frow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.fiche-frow:last-child{border-bottom:none}
+.fiche-fname{font-size:14px;font-weight:600}
+.fiche-fval{font-family:var(--grot);font-weight:700;font-size:15px;background:var(--pop-soft);border:1.5px solid var(--ink);border-radius:8px;padding:4px 10px;white-space:nowrap}
+.train-card-btn{margin-top:6px;font-family:var(--grot);font-size:13px;font-weight:700;background:var(--cobalt);color:#fff;border:1.5px solid var(--ink);border-radius:999px;padding:10px;cursor:pointer;text-transform:lowercase;box-shadow:0 6px 18px -6px rgba(24,27,34,.26);transition:transform .1s,box-shadow .1s}
+.train-card-btn:hover{transform:translate(-1px,-1px);box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
+.train-card-btn:active{transform:translate(2px,2px);box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
+/* ── MON PARCOURS ── */
+.parcours-wrap{flex:1 1 0;min-height:0;overflow-y:auto;overflow-x:hidden;padding:13px 16px 22px;display:flex}
+.parcours-grid{display:grid;grid-template-columns:226px 1fr 272px;gap:12px;max-width:1340px;margin:0 auto;width:100%;align-items:start}
+.pc-col{display:flex;flex-direction:column;gap:12px;min-width:0}
+.pc-card{background:var(--paper-2);border:1.5px solid var(--ink);border-radius:14px;padding:13px 14px;box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
+.pc-kicker{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+.pc-kicker-r{color:var(--muted);letter-spacing:.06em}
+.pc-level{background:var(--cobalt);border-color:var(--ink);color:#fff}
+.pc-level .pc-kicker{color:rgba(255,255,255,.7)}
+.pc-bignum{font-family:var(--grot);font-weight:700;font-size:40px;line-height:.9;margin-top:3px}
+.pc-bignum span{font-family:var(--grot);font-size:.34em;font-weight:700;opacity:.6;margin-left:2px}
+.pc-bignum-ink{color:var(--ink)}
+.pc-sub{font-size:13px;opacity:.85;margin-top:4px}
+.pc-tag{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;border-radius:999px;border:1.5px solid var(--ink);margin-top:8px}
+.pc-tag-warn{background:var(--amber);color:var(--ink)}
+.pc-tag-good{background:var(--lcd);color:var(--green-deep)}
+.pc-tag-mid{background:#EEF0FE;color:var(--cobalt)}
+.pc-tag-neutral{background:var(--paper);color:var(--muted)}
+.pc-tag-bad{background:#FCEBEA;color:var(--clay)}
+.pc-level .pc-tag-warn{background:var(--amber);color:var(--ink);border-color:var(--ink)}
+.pc-track{position:relative;height:8px;background:var(--line);border:1.5px solid var(--ink);border-radius:999px;margin-top:12px}
+.pc-track-fill{position:absolute;left:0;top:0;bottom:0;background:var(--green);border-radius:999px}
+.pc-track-dot{position:absolute;top:50%;width:16px;height:16px;background:var(--cobalt);border:1.5px solid var(--ink);border-radius:50%;transform:translate(-50%,-50%)}
+.pc-spark{margin-top:6px;width:100%;height:auto;max-height:54px}
+.pc-trophies{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.pc-trophy{display:flex;align-items:center;gap:9px}
+.pc-trophy-ic{width:28px;height:28px;border-radius:8px;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:13px;background:var(--lcd);flex-shrink:0;color:var(--green-deep)}
+.pc-trophy-name{font-weight:700;font-size:13px}
+.pc-trophy-desc{font-family:var(--mono);font-size:10px;color:var(--muted)}
+.pc-trophy.locked{opacity:.4}
+.pc-trophy.locked .pc-trophy-ic{background:var(--paper);color:var(--muted)}
+.pc-head{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.pc-title{font-family:var(--grot);font-weight:700;font-size:26px;text-transform:lowercase;line-height:1}
+.pc-title span{color:var(--cobalt)}
+.pc-stats{display:flex;gap:10px}
+.pc-stat{text-align:center;border:1.5px solid var(--ink);border-radius:12px;padding:7px 13px;background:var(--paper)}
+.pc-stat-num{font-family:var(--grot);font-weight:700;font-size:19px;color:var(--cobalt);line-height:1}
+.pc-stat-lbl{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+.pc-section-head{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:10px}
+.pc-section-title{font-family:var(--grot);font-weight:700;font-size:21px;text-transform:lowercase;margin-top:2px}
+.pc-filters{display:flex;gap:6px;flex-wrap:wrap}
+.pc-pill{font-family:var(--mono);font-size:11px;font-weight:700;padding:6px 12px;border:1.5px solid var(--ink);border-radius:999px;background:var(--paper-2);cursor:pointer;transition:background .12s}
+.pc-pill:hover{background:var(--lcd)}
+.pc-pill.active{background:var(--cobalt);color:#fff}
+.pc-pill-add{background:var(--ink);color:#fff}
+.pc-history{display:flex;flex-direction:column;gap:6px}
+.pc-hrow{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1.5px solid var(--ink);border-radius:10px;padding:9px 13px;background:var(--paper);transition:transform .1s}
+.pc-hrow:hover{transform:translateX(2px);background:var(--paper-2)}
+.pc-hmeta{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.pc-hname{font-weight:700;font-size:15px;margin-top:3px}
+.pc-hright{text-align:right;flex-shrink:0}
+.pc-hnote{font-family:var(--grot);font-weight:700;font-size:20px;color:var(--ink);line-height:1}
+.pc-hnote span{font-family:var(--grot);font-size:.42em;font-weight:700;color:var(--muted)}
+.pc-htag{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:999px;border:1.5px solid var(--ink);display:inline-block;margin-top:5px}
+.pc-radar{display:block;margin:2px auto 0;width:100%;max-width:166px;height:auto}
+.pc-bars{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.pc-bar-row{display:grid;grid-template-columns:74px 1fr 34px;align-items:center;gap:8px}
+.pc-bar-lbl{font-size:11px;font-weight:600}
+.pc-bar-track{height:9px;background:var(--line);border:1.5px solid var(--ink);border-radius:999px;overflow:hidden}
+.pc-bar-fill{height:100%;background:var(--clay)}
+.pc-bar-pct{font-family:var(--mono);font-size:10px;font-weight:700;color:var(--muted);text-align:right}
+.pc-locked{display:flex;flex-direction:column;gap:7px;margin-top:8px;align-items:center;text-align:center}
+.pc-skel{width:100%;height:9px;border-radius:999px;background:var(--line)}
+.pc-locked-txt{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:6px;line-height:1.6}
+.pc-analyser{font-family:var(--mono);font-size:11px;font-weight:700;background:#EEF0FE;color:var(--cobalt);border:1.5px solid var(--ink);border-radius:999px;padding:5px 12px;cursor:pointer}
+/* ── PLANNING ── */
+.plan-wrap{flex:1 1 0;min-height:0;overflow-y:auto;padding:22px 26px}
+.plan-head{margin-bottom:16px}
+.plan-title{font-family:var(--grot);font-weight:700;font-size:34px;text-transform:lowercase;line-height:1;margin-top:6px}
+.plan-title span{color:var(--cobalt)}
+.plan-toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:12px}
+.plan-toggle{background:var(--paper);border:1.5px solid var(--ink);border-radius:999px;padding:3px;display:inline-flex;gap:3px}
+.pt-seg{border-radius:999px;padding:6px 16px;font-family:var(--mono);font-size:12px;font-weight:700;border:none;background:transparent;color:var(--muted);cursor:pointer}
+.pt-seg.active{background:#fff;color:var(--ink);box-shadow:0 0 0 2px var(--ink)}
+.plan-nav{display:flex;align-items:center;gap:10px}
+.pn-arrow{width:32px;height:32px;border:1.5px solid var(--ink);border-radius:50%;background:var(--paper-2);cursor:pointer;font-size:16px;font-weight:700;display:flex;align-items:center;justify-content:center;line-height:1}
+.pn-arrow:hover{background:var(--lcd)}
+.plan-month{font-family:var(--grot);font-weight:700;font-size:16px;min-width:130px;text-align:center;text-transform:lowercase}
+.pn-today{font-family:var(--mono);font-size:11px;font-weight:700;border:1.5px solid var(--ink);border-radius:999px;padding:6px 14px;background:var(--paper);cursor:pointer}
+.pn-today:hover{background:var(--lcd)}
+.plan-stats{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.plan-stat{text-align:center;border:1.5px solid var(--ink);border-radius:10px;padding:6px 13px;background:var(--paper-2)}
+.ps-num{font-family:var(--grot);font-weight:700;font-size:17px;color:var(--cobalt);line-height:1}
+.ps-lbl{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+.plan-ia{font-family:var(--mono);font-size:11px;font-weight:700;border:1.5px solid var(--ink);border-radius:999px;padding:8px 14px;background:var(--lcd);cursor:pointer}
+.plan-claude{display:flex;align-items:center;justify-content:flex-end;gap:10px;margin-bottom:14px}
+.plan-claude-badge{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.12em;background:var(--ink);color:#fff;padding:5px 11px;border-radius:999px}
+.plan-propose{font-family:var(--grot);font-size:13px;font-weight:700;background:var(--cobalt);color:#fff;border:1.5px solid var(--ink);border-radius:999px;padding:9px 16px;cursor:pointer;box-shadow:0 6px 18px -6px rgba(24,27,34,.26);transition:transform .1s,box-shadow .1s}
+.plan-propose:hover{transform:translate(-1px,-1px);box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
+.plan-grid-head{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-bottom:8px}
+.plan-grid-head div{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-left:4px}
+.plan-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.plan-cell{min-height:94px;border:1.5px solid var(--ink);border-radius:12px;background:var(--paper-2);padding:8px;display:flex;flex-direction:column;gap:8px}
+.plan-cell.empty{border-style:dashed;border-color:var(--line);background:transparent}
+.plan-cell.today{background:#EEF0FE;border-color:var(--cobalt)}
+.pc-daynum{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--ink)}
+.pc-daynum.now{background:var(--cobalt);color:#fff;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.pc-add{margin-top:auto;border:1.5px dashed var(--muted);border-radius:8px;background:transparent;color:var(--muted);font-size:14px;padding:5px;cursor:pointer;transition:background .12s,color .12s,border-color .12s}
+.pc-add:hover{background:var(--lcd);border-color:var(--ink);color:var(--ink)}
+.hero-stickers{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 18px;margin-bottom:30px;max-width:420px}
+.hero-stickers .stk svg{height:78px;width:auto;display:block}
+.hero-stickers .stk-seal svg{height:104px}
+.hero-stickers .stk-pi svg{height:76px}
+.hero-stickers .stk-heart svg{height:70px}
+.stk{filter:drop-shadow(0 5px 11px rgba(24,27,34,.20))}
+.stk-seal{transform:rotate(-5deg)}
+.stk-pi{transform:rotate(7deg)}
+.stk-heart{transform:rotate(6deg)}
+.stk-slogan{background:var(--amber);border:1.5px solid var(--ink);border-radius:12px;box-shadow:0 6px 18px -6px rgba(24,27,34,.26);padding:9px 13px;font-family:var(--grot);font-weight:700;text-transform:uppercase;color:var(--ink);line-height:.9;transform:rotate(4deg);text-align:center;font-size:16px}
+.stk-pyth{background:var(--cobalt);color:#fff;border:1.5px solid var(--ink);border-radius:10px;box-shadow:0 6px 18px -6px rgba(24,27,34,.26);padding:9px 13px;font-family:var(--mono);font-weight:700;font-size:14px;transform:rotate(-3deg);white-space:nowrap}
+.stk-op{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--ink);box-shadow:0 6px 18px -6px rgba(24,27,34,.26);display:flex;align-items:center;justify-content:center;font-family:var(--grot);font-weight:700;font-size:20px;line-height:1;color:var(--ink)}
+.exo-demo{background:var(--paper-2);border:1.5px solid var(--ink);border-radius:18px;overflow:hidden;max-width:860px;margin:0 auto;box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
+.exo-demo-body{padding:22px 26px 26px;display:flex;flex-direction:column;gap:16px}
+.exo-demo-tabs{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.exo-demo-tab{font-family:var(--mono);font-size:10px;font-weight:700;color:var(--muted);padding:5px 12px;text-transform:uppercase;letter-spacing:.06em;border-radius:999px;border:1.5px solid var(--ink);background:var(--paper)}
+.exo-demo-tab.done{opacity:.5}
+.exo-demo-tab.active{color:#fff;background:var(--cobalt)}
+.exo-demo-tag{font-family:var(--mono);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;background:var(--amber);border:1.5px solid var(--ink);color:var(--ink);padding:4px 12px;border-radius:999px;margin-left:auto;transform:rotate(-3deg)}
+.exo-demo-cols{display:grid;grid-template-columns:1fr .8fr;gap:24px;align-items:start}
+.exo-demo-intro{font-size:15px;line-height:1.6;font-weight:500}
+.exo-demo-intro strong{color:var(--ink)}
+.exo-demo-qtext{font-size:16px;line-height:1.5;font-weight:700}
+.exo-demo-answer-lbl{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px}
+.exo-demo-answer-row{display:flex;gap:8px}
+.exo-demo-answer-input{flex:1;padding:12px 14px;background:var(--paper);border:1.5px solid var(--ink);border-radius:12px;font-family:var(--mono);font-size:15px;font-weight:700;color:var(--ink);outline:none;min-width:0}
+.exo-demo-answer-input:focus{box-shadow:0 6px 18px -6px rgba(79,70,229,.30)}
+.exo-demo-answer-input:disabled{opacity:.7}
+.exo-demo-answer-btn{font-family:var(--grot);background:var(--cobalt);color:#fff;border:1.5px solid var(--ink);padding:0 18px;border-radius:12px;font-size:13px;font-weight:700;cursor:pointer;text-transform:lowercase;box-shadow:0 6px 18px -6px rgba(24,27,34,.26);transition:transform .1s,box-shadow .1s;white-space:nowrap}
+.exo-demo-answer-btn:hover:not(:disabled){transform:translate(-1px,-1px);box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
+.exo-demo-answer-btn:active:not(:disabled){transform:translate(2px,2px);box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
+.exo-demo-answer-btn:disabled{opacity:.4;cursor:default}
+.exo-demo-answer-hint{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:6px}
+.exo-demo-answer.right .exo-demo-answer-input{border-color:var(--green);background:var(--lcd);color:var(--green-deep)}
+.exo-demo-answer.wrong .exo-demo-answer-input{border-color:var(--clay);background:#FCEBEA;color:var(--clay)}
+.wheel-box{background:var(--lcd);border:1.5px solid var(--ink);border-radius:16px;padding:16px 10px;display:flex;justify-content:center;position:relative;box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
+.wheel-box svg{width:100%;max-width:220px;height:auto;cursor:pointer}
+.spin-hint{position:absolute;top:8px;right:10px;font-family:var(--mono);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;background:var(--ink);color:var(--paper);padding:4px 9px;border-radius:999px;pointer-events:none}
+.wheel-spin{transform-origin:0 0;animation:wheel-loop 14s linear infinite}
+@keyframes wheel-loop{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.roulette-ball{transform-box:view-box;transform-origin:130px 134px;animation:ball-loop 2.8s linear infinite}
+@keyframes ball-loop{from{transform:rotate(0)}to{transform:rotate(-360deg)}}
+.wheel-spin.once{animation:wheel-once 3.4s cubic-bezier(.2,.65,.25,1) forwards}
+@keyframes wheel-once{0%{transform:rotate(0)}75%{transform:rotate(calc(var(--we,1200deg) - 20deg))}90%{transform:rotate(calc(var(--we,1200deg) + 8deg))}100%{transform:rotate(var(--we,1200deg))}}
+.exo-demo-reveal{max-height:0;overflow:hidden;transition:max-height .45s ease,margin-top .45s ease,border-color .3s ease,background-color .3s ease;background:transparent;border:2.5px solid transparent;border-radius:12px}
+.exo-demo-reveal.open{max-height:240px;margin-top:4px;border-color:var(--ink);background:var(--lcd)}
+.exo-demo-reveal-head{display:flex;justify-content:space-between;align-items:center;padding:12px 16px 6px}
+.exo-demo-reveal-badge{font-family:var(--mono);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--green-deep)}
+.exo-demo-reveal-pts{font-family:var(--grot);font-weight:700;font-size:14px;color:var(--clay)}
+.exo-demo-reveal-body{padding:0 16px 14px;font-size:14px;line-height:1.6;font-weight:500}
+.exo-demo-reveal-body strong{color:var(--ink)}
+.exo-confetti{position:absolute;top:40%;width:9px;height:13px;border:1.5px solid var(--ink);pointer-events:none;z-index:10;animation:cfall 1.6s cubic-bezier(.2,.65,.3,1) forwards}
+@keyframes cfall{0%{opacity:1;transform:translate(0,0) rotate(0)}100%{opacity:0;transform:translate(var(--dx,0),200px) rotate(var(--rot,360deg))}}
+.transition{text-align:center;padding:56px 40px 8px}
+.transition-line{width:3px;height:46px;background:var(--ink);margin:0 auto 22px}
+.transition-text{font-family:var(--grot);font-weight:700;font-size:clamp(20px,2.6vw,30px);text-transform:uppercase;color:var(--muted);max-width:24ch;margin:0 auto;line-height:1.1}
+.transition-text strong{color:var(--ink)}
+.compare{margin-top:32px;border:1.5px solid var(--ink);border-radius:18px;overflow:hidden;max-width:860px;margin-left:auto;margin-right:auto;box-shadow:0 6px 18px -6px rgba(24,27,34,.26);background:var(--paper-2)}
+.compare-row{display:grid;grid-template-columns:1.2fr 1fr 1fr;border-bottom:1.5px solid var(--ink)}
+.compare-row:last-child{border-bottom:none}
+.compare-row>div{padding:16px 20px;font-size:14px;font-weight:500;border-right:1.5px solid var(--ink)}
+.compare-row>div:last-child{border-right:none}
+.compare-head>div{font-family:var(--grot);font-weight:700;text-transform:uppercase;background:var(--paper);font-size:18px}
+.compare-head .cb{color:var(--cobalt)}
+.compare-head .co{color:var(--muted);font-size:15px}
+.compare-feat{font-weight:700;background:var(--lcd)}
+.compare .yes{color:var(--green-deep);font-weight:700}
+.compare .no{color:var(--muted)}
+.faq{max-width:820px;margin:36px auto 0}
+.faq-item{background:var(--paper-2);border:1.5px solid var(--ink);border-radius:14px;margin-bottom:12px;overflow:hidden;box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
+.faq-q{padding:18px 24px;font-weight:700;font-size:16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;user-select:none}
+.faq-q::after{content:"+";font-family:var(--grot);font-weight:700;font-size:24px;color:var(--cobalt);transition:transform .25s}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;padding:0 24px;font-size:14px;line-height:1.7;color:var(--muted);font-weight:500}
+.faq-item.open .faq-a{max-height:420px;padding:0 24px 20px}
+.final{background:var(--cobalt);border:1.5px solid var(--ink);border-radius:24px;box-shadow:0 6px 18px -6px rgba(24,27,34,.26);padding:72px 48px;text-align:center;margin:0 40px 90px;max-width:1200px;margin-left:auto;margin-right:auto;position:relative;overflow:hidden}
+.final h2{font-family:var(--grot);font-weight:700;font-size:clamp(34px,5.4vw,72px);text-transform:uppercase;color:#fff;line-height:.96;max-width:20ch;margin:0 auto 22px}
+.final h2 .y{color:var(--amber)}
+.final p{font-size:16px;color:rgba(255,255,255,.92);max-width:46ch;margin:0 auto 30px;font-weight:500;line-height:1.6}
+.final .btn{background:var(--amber);color:var(--ink)}
+.final-fine{font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.75);margin-top:20px;letter-spacing:.03em}
+.footer{border-top:1.5px solid var(--ink);background:var(--paper-2)}
+.footer-top{max-width:1280px;margin:0 auto;padding:48px 40px 36px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px}
+.footer-logo{font-family:var(--grot);font-weight:700;font-size:28px;text-transform:uppercase;margin-bottom:12px}
+.footer-logo span{color:var(--cobalt)}
+.footer-desc{font-size:13px;color:var(--muted);line-height:1.6;font-weight:500;max-width:34ch}
+.footer-col-t{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ink);margin-bottom:14px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:9px}
+.footer-links li{font-size:13px;color:var(--muted);cursor:pointer;font-weight:500}
+.footer-links li:hover{color:var(--ink)}
+.footer-bar{border-top:1.5px solid var(--ink);background:var(--green);padding:14px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.footer-bar-copy{font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.8);letter-spacing:.04em}
+.footer-bar-slogan{font-family:var(--grot);font-weight:700;font-size:16px;color:#fff;text-transform:uppercase;letter-spacing:.03em}
+.footer-bar-slogan span{color:var(--amber)}
+.gen-layout{flex:1 1 0;min-height:0;overflow-y:auto;display:flex;align-items:center;justify-content:center}
+.gen-col{width:100%;max-width:600px;padding:18px 30px 22px;display:flex;flex-direction:column;gap:13px}
+.gen-title{font-family:var(--grot);font-weight:700;font-size:clamp(24px,2.6vw,34px);text-transform:uppercase;line-height:.95}
+.gen-title span{color:var(--cobalt)}
+.gen-label{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.duree-list{display:flex;flex-wrap:wrap;gap:8px}
+.duree-chip{flex:1 1 auto;min-width:80px;font-family:var(--grot);font-size:14px;font-weight:600;padding:9px 12px;border:1.5px solid var(--ink);border-radius:12px;background:var(--paper-2);cursor:pointer;display:flex;justify-content:center;align-items:center;transition:background .12s}
+.duree-chip:hover{background:var(--lcd)}
+.duree-chip.sel{background:var(--cobalt);color:#fff}
+.notions-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
+.notion-chip{font-family:var(--grot);font-size:11px;font-weight:600;padding:8px 9px;border:1.5px solid var(--ink);border-radius:10px;background:var(--paper-2);cursor:pointer;display:flex;align-items:center;gap:7px;transition:background .12s;text-align:left}
+.notion-chip:hover{background:var(--lcd)}
+.notion-chip.sel{background:var(--lcd)}
+.notion-chip.all-chip{grid-column:1/-1;font-family:var(--mono);font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:11px}
+.notion-chip.all-chip.sel{background:var(--ink);color:var(--paper)}
+.ncheck{width:15px;height:15px;border:1.5px solid var(--ink);border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;background:#fff}
+.notion-chip.sel .ncheck{background:var(--green);border-color:var(--ink);color:#fff}
+.notion-chip.all-chip.sel .ncheck{background:#fff;color:var(--ink)}
+.corr-chip{width:100%;display:flex;justify-content:space-between;align-items:center;padding:9px 13px;border:1.5px solid var(--ink);border-radius:12px;background:var(--paper-2);cursor:pointer;margin-bottom:6px;text-align:left;transition:background .12s}
+.corr-chip:hover{background:var(--lcd)}
+.corr-chip.sel{background:var(--lcd)}
+.corr-title{font-weight:700;font-size:13px}
+.corr-sub{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:2px}
+.ccheck{width:18px;height:18px;border:1.5px solid var(--ink);border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;background:#fff}
+.corr-chip.sel .ccheck{background:var(--green);color:#fff}
+.gen-cta{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+.gen-wizard{width:100%;max-width:620px;padding:18px 30px 22px;display:flex;flex-direction:column;gap:16px}
+.gen-steps{display:flex;flex-wrap:wrap;gap:8px 14px;justify-content:center}
+.gen-step-pip{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.gen-step-pip span{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:11px;background:var(--paper-2);color:var(--ink)}
+.gen-step-pip.active{color:var(--ink)}
+.gen-step-pip.active span{background:var(--cobalt);color:#fff;border-color:var(--cobalt)}
+.gen-step-pip.done span{background:var(--green);color:#fff;border-color:var(--green-deep)}
+.gen-panel{display:none}
+.gen-panel.active{display:block;animation:genFade .25s ease}
+@keyframes genFade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.gen-nav{display:flex;justify-content:space-between;gap:12px;margin-top:2px}
+.gen-recap{display:flex;flex-direction:column;gap:10px;border:1.5px solid var(--ink);border-radius:14px;padding:16px 18px;background:var(--paper-2);box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
+.recap-row{display:flex;justify-content:space-between;gap:14px;align-items:baseline;border-bottom:1.5px solid var(--line);padding-bottom:9px}
+.recap-row:last-child{border-bottom:none;padding-bottom:0}
+.recap-k{font-family:var(--mono);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);flex-shrink:0}
+.recap-v{font-weight:700;text-align:right}
+.gen-go{justify-content:center;width:100%;font-size:17px;font-weight:700;padding:16px;box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
+.gen-go:hover{box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
+.gen-note{text-align:center;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.gen-lead{font-size:14px;line-height:1.5;color:var(--muted);margin-top:8px;font-weight:500;max-width:46ch}
+#page-brevet.active{display:block;height:100vh;overflow:hidden;position:relative}
+.bp-top{position:absolute;top:0;left:0;right:0;z-index:20;background:var(--paper);border-bottom:1.5px solid var(--ink);display:flex;justify-content:space-between;align-items:center;padding:9px 22px}
+.bp-quit{font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);background:none;border:none;cursor:pointer}
+.bp-quit:hover{color:var(--ink)}
+.bp-sujet{font-family:var(--mono);font-size:10px;font-weight:700;color:var(--green-deep);background:var(--lcd);text-transform:uppercase;letter-spacing:.1em;padding:5px 12px;border:1.5px solid var(--ink);border-radius:999px}
+.bp-sujet::before{content:'✦ '}
+.pts-pill{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--cobalt);background:var(--lcd);padding:6px 14px;border:1.5px solid var(--ink);border-radius:999px}
+.timer-wrap{display:flex;align-items:center;gap:8px;background:var(--paper-2);border:1.5px solid var(--ink);border-radius:999px;padding:6px 14px}
+.timer-dot{width:8px;height:8px;border-radius:50%;background:var(--clay);animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.timer-val{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--ink)}
+.stage{position:absolute;top:51px;bottom:0;left:0;right:0;display:flex;background:var(--paper);overflow:hidden}
+.stage::before{content:'';position:absolute;top:-90px;right:-70px;width:540px;height:540px;background:radial-gradient(circle,rgba(132,204,22,.13),rgba(79,70,229,.07) 45%,transparent 70%);filter:blur(22px);pointer-events:none;z-index:0}
+#page-brevet .main{position:relative;z-index:1}
+.sidebar-revo{display:flex;align-items:center;gap:9px;padding:9px 10px;background:var(--pop-soft);border:1.5px solid var(--ink);border-radius:12px}
+.sidebar-revo svg{width:40px;height:auto;flex-shrink:0}
+.sidebar-revo-txt{font-size:11px;font-weight:700;line-height:1.3}
+.sidebar-revo-txt span{display:block;color:var(--green-deep);font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1px}
+.main{display:grid;grid-template-columns:220px 1fr;gap:12px;flex:1;padding:14px 20px 18px;min-height:0;width:100%}
+.sidebar{background:var(--paper-2);border:1.5px solid var(--ink);border-radius:16px;padding:14px 12px;display:flex;flex-direction:column;gap:10px;overflow:hidden;box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
+.ex-list-wrap{flex:1;overflow-y:auto;min-height:0}
+.sidebar-label{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.ex-list{display:flex;flex-direction:column;gap:6px}
+.ex-item{border:1.5px solid var(--ink);border-radius:10px;cursor:pointer;overflow:hidden;background:var(--paper)}
+.ex-item.active{background:var(--lcd)}
+.ex-item.done{background:#fff}
+.ex-header{display:flex;align-items:center;gap:10px;padding:8px 10px}
+.ex-num{width:26px;height:26px;border:1.5px solid var(--ink);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--grot);font-weight:700;font-size:13px;flex-shrink:0}
+.ex-item.active .ex-num{background:var(--cobalt);color:#fff}
+.ex-item.done .ex-num{background:var(--green);color:#fff}
+.ex-name{font-size:12px;font-weight:700;text-transform:lowercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ex-sub{font-family:var(--mono);font-size:9px;color:var(--muted);margin-top:1px}
+.ex-dots{display:flex;flex-wrap:wrap;gap:4px;padding:2px 10px 8px 46px}
+.dot{width:9px;height:9px;border:1.5px solid var(--ink);border-radius:50%;background:#fff;cursor:pointer}
+.dot.done{background:var(--green)}
+.dot.partial{background:var(--amber)}
+.dot.wrong{background:var(--clay)}
+.dot.active{background:var(--cobalt)}
+.sidebar-progress{margin-top:auto;padding-top:10px;border-top:1.5px solid var(--ink)}
+.prog-label{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;font-weight:700;color:var(--muted);margin-bottom:6px}
+.prog-bar{height:8px;background:var(--paper);border:1.5px solid var(--ink);border-radius:999px;overflow:hidden}
+.prog-fill{height:100%;background:var(--green);transition:width .4s}
+.content{display:flex;gap:14px;min-height:0;width:100%}
+.enonce-card{flex:1;background:var(--paper-2);border:1.5px solid var(--ink);border-radius:16px;box-shadow:0 6px 18px -6px rgba(24,27,34,.26);padding:18px 20px;display:flex;flex-direction:column;gap:12px;overflow-y:auto}
+.question-card{flex:1;background:var(--paper-2);border:1.5px solid var(--ink);border-radius:16px;box-shadow:0 6px 18px -6px rgba(24,27,34,.26);overflow:hidden;display:grid;grid-template-rows:auto 1fr auto;min-height:0}
+.card-header{display:flex;justify-content:space-between;align-items:center;padding:11px 22px;border-bottom:1.5px solid var(--ink)}
+.card-footer{display:flex;justify-content:space-between;align-items:center;padding:11px 22px;border-top:1.5px solid var(--ink)}
+.q-tag{font-family:var(--mono);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;background:var(--lcd);color:var(--green-deep);border:1.5px solid var(--ink);padding:4px 11px;border-radius:999px}
+.q-breadcrumb{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.q-breadcrumb strong{color:var(--ink)}
+.card-body{display:flex;overflow:hidden;min-height:0}
+.card-main{flex:1;overflow-y:auto;padding:20px 26px;display:flex;flex-direction:column;gap:14px}
+/* ── OPTIONS D'AFFICHAGE (élève) ── */
+.opt-toggle{font-family:var(--mono);font-size:10px;font-weight:700;padding:5px 10px;border:1.5px solid var(--ink);border-radius:999px;background:var(--paper-2);color:var(--muted);cursor:pointer;transition:background .12s}
+.opt-toggle:hover{background:var(--lcd)}
+.opt-toggle.active{background:var(--cobalt);color:#fff}
+#page-brevet.opt-nobar .sidebar{display:none}
+#page-brevet.opt-nobar .main{grid-template-columns:1fr}
+#page-brevet.opt-glass .stage{background:linear-gradient(135deg,#EEF0FE,#E7F6EC 55%,#FCEBEA)}
+#page-brevet.opt-glass .sidebar,#page-brevet.opt-glass .enonce-card,#page-brevet.opt-glass .question-card{background:rgba(255,255,255,.55);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.7);box-shadow:0 14px 34px -16px rgba(24,27,34,.28);border-radius:20px}
+#page-brevet.opt-glass .card-header,#page-brevet.opt-glass .card-footer{border-color:rgba(24,27,34,.12)}
+.enonce-lbl{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--green);margin-bottom:2px}
+.enonce-foot{margin-top:auto;padding-top:14px;display:flex}
+.enonce-foot:empty{display:none}
+.q-num{font-family:var(--grot);font-weight:700;font-size:18px;color:var(--cobalt);flex-shrink:0}
+.q-text{font-size:15px;line-height:1.7;font-weight:500}
+.q-pts{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--clay);background:#FCEBEA;border:1.5px solid var(--ink);padding:3px 10px;border-radius:999px;white-space:nowrap;flex-shrink:0}
+.answer-lbl{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.answer-textarea{width:100%;flex:1;min-height:120px;font-family:var(--grot);font-size:14px;line-height:1.7;border:1.5px solid var(--ink);border-radius:12px;padding:12px 16px;resize:none;background:var(--paper);outline:none}
+.answer-textarea:focus{box-shadow:0 6px 18px -6px rgba(79,70,229,.30)}
+.fig-frame{background:var(--paper);border:1.5px solid var(--ink);border-radius:12px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.stim-box{font-size:13px;line-height:1.6;background:var(--lcd);border:1.5px solid var(--ink);border-radius:10px;padding:12px 16px;font-weight:500}
+.ctx-box{font-size:13px;line-height:1.6;background:var(--paper);border:1.5px solid var(--ink);border-radius:10px;padding:10px 14px;font-weight:500}
+.brevet-table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:13px;border:1.5px solid var(--ink);margin:6px 0}
+.brevet-table th{background:var(--cobalt);color:#fff;padding:8px 12px;border:1.5px solid var(--ink);font-weight:700}
+.brevet-table td{padding:8px 12px;text-align:center;border:1.5px solid var(--ink);background:#fff}
+.step-info{font-family:var(--mono);font-size:11px;color:var(--muted)}
+#corrBlock{margin-top:18px;border:1.5px solid var(--ink);border-radius:14px;overflow:hidden}
+.corr-verdict{padding:16px 20px;display:flex;align-items:center;gap:14px;border-bottom:1.5px solid var(--ink)}
+.corr-vicon{width:40px;height:40px;border:1.5px solid var(--ink);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--grot);font-weight:700;font-size:22px;color:#fff;flex-shrink:0}
+.corr-vlabel{font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em}
+.corr-section{padding:18px 22px}
+.corr-section-lbl{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--cobalt);margin-bottom:8px}
+.simple-page{padding:64px 40px;max-width:980px;margin:0 auto;overflow-y:auto;height:100%}
+.simple-h1{font-family:var(--grot);font-weight:700;font-size:clamp(32px,4vw,52px);text-transform:uppercase;line-height:.95}
+.simple-h1 span{color:var(--cobalt)}
+.simple-lead{font-size:16px;color:var(--muted);margin-top:14px;font-weight:500;max-width:56ch;line-height:1.6}
+.pack-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;margin-top:36px}
+.pack{background:var(--paper-2);border:1.5px solid var(--ink);border-radius:18px;box-shadow:0 6px 18px -6px rgba(24,27,34,.26);padding:22px 20px;display:flex;flex-direction:column;cursor:pointer;transition:transform .12s,box-shadow .12s}
+.pack:hover{transform:translate(-2px,-2px);box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
+.pack.feat{background:var(--cobalt);color:#fff}
+.pack.dark{background:var(--ink);color:var(--paper)}
+.pack-tier{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.7;margin-bottom:4px}
+.pack-name{font-weight:700;font-size:15px;margin-bottom:12px}
+.pack-price{font-family:var(--grot);font-weight:700;font-size:38px;line-height:.9}
+.pack-per{font-family:var(--mono);font-size:11px;opacity:.6;margin-bottom:16px;margin-top:4px}
+.pack-feats{display:flex;flex-direction:column;gap:7px;margin-bottom:18px;flex:1}
+.pack-feat{font-size:12px;display:flex;gap:8px;font-weight:500}
+.pack-btn{font-family:var(--grot);font-size:12px;font-weight:700;border:1.5px solid var(--ink);border-radius:999px;padding:9px;cursor:pointer;text-transform:lowercase;background:var(--amber);color:var(--ink);box-shadow:0 6px 18px -6px rgba(24,27,34,.26);margin-top:auto}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:12px;font-weight:700;padding:11px 22px;border:1.5px solid var(--ink);border-radius:999px;box-shadow:0 6px 18px -6px rgba(79,70,229,.30);z-index:600;transition:transform .3s;white-space:nowrap;pointer-events:none}
+.toast.show{transform:translateX(-50%) translateY(0)}
+@media (prefers-reduced-motion:reduce){.wheel-spin,.roulette-ball,.timer-dot,.exo-confetti{animation:none !important}}
+@media(max-width:920px){
+  .hero{grid-template-columns:1fr;gap:32px;padding:40px 22px 44px}
+  .hero-right{order:-1;margin-bottom:0}
+  .sec{padding:56px 22px}
+  .nav{padding:14px 20px;flex-wrap:wrap;gap:12px}
+  .nav-r{width:100%;justify-content:space-between;overflow-x:auto}
+  .nav-links{gap:14px}
+  .compare-row{grid-template-columns:1fr}
+  .compare-row>div{border-right:none;border-bottom:1.5px solid var(--ink)}
+  .compare-head{display:none}
+  .footer-top{grid-template-columns:1fr 1fr;padding:36px 22px}
+  .final{margin:0 22px 64px;padding:48px 26px}
+  #page-generer.active{height:auto;overflow:visible}
+  .gen-layout{overflow:visible;align-items:flex-start}
+  .exo-demo-cols{grid-template-columns:1fr}
+  .parcours-grid{grid-template-columns:1fr}
+  .content{flex-direction:column;overflow-y:auto}
+  .main{grid-template-columns:1fr}
+  .sidebar{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="logo" onclick="goTo('accueil')">
+    <span class="logo-bot">BRÉVISE</span>
+    <span class="logo-top">mon générateur<br>de brevet</span>
+  </div>
+  <div class="nav-r">
+    <ul class="nav-links">
+      <li data-page="entrainement" onclick="goTo('entrainement')">entraînement</li>
+      <li data-page="annales" onclick="goTo('annales')">annales</li>
+      <li data-page="fiches" onclick="goTo('fiches')">fiches</li>
+      <li data-page="parcours" onclick="goTo('parcours')">parcours</li>
+      <li data-page="planning" onclick="goTo('planning')">planning</li>
+      <li data-page="checkout" class="on-orange" onclick="goTo('checkout')">s'inscrire ✦</li>
+    </ul>
+    <button class="cta" onclick="goTo('generer')" data-page="generer">générer un brevet →</button>
+  </div>
+</nav>
+
+<div class="page active" id="page-accueil">
+  <section class="hero">
+    <div class="hero-left">
+      <span class="hero-badge">✦ conforme au programme officiel 2026</span>
+      <h1 class="hero-title">prêt·e pour le <span class="l2">brevet</span><br>de maths&nbsp;?</h1>
+      <span class="hero-hook"><span class="dot"></span>révise sans stress · progresse</span>
+      <p class="hero-lead">génère un brevet blanc pour te situer. puis un autre. puis un autre — autant qu'il faut pour arriver serein·e le jour j.</p>
+      <div class="hero-ctas">
+        <button class="btn btn-cobalt" onclick="goTo('generer')">c'est parti →</button>
+        <button class="btn btn-ghost" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">voir un exercice</button>
+      </div>
+      <p class="hero-fine">19,90 €/mois · sans engagement</p>
+    </div>
+    <div class="hero-right">
+      <div class="hero-stickers">
+        <div class="stk stk-seal">
+          <svg viewBox="0 0 150 150" width="132" xmlns="http://www.w3.org/2000/svg" aria-label="sceau brevet blanc mathématiques">
+            <defs>
+              <path id="arcTop" d="M 24 75 A 51 51 0 0 1 126 75"/>
+              <path id="arcBot" d="M 28 75 A 47 47 0 0 0 122 75"/>
+            </defs>
+            <circle cx="75" cy="75" r="71" fill="#4F46E5" stroke="#181B22" stroke-width="2.5"/>
+            <circle cx="75" cy="75" r="62" fill="none" stroke="#fff" stroke-width="2" opacity="0.9"/>
+            <circle cx="75" cy="75" r="58" fill="none" stroke="#fff" stroke-width="1" stroke-dasharray="1.5 4" opacity="0.6"/>
+            <circle cx="75" cy="75" r="42" fill="#4338CA"/>
+            <text font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="13" fill="#fff" letter-spacing="2.5"><textPath href="#arcTop" startOffset="50%" text-anchor="middle">BREVET BLANC</textPath></text>
+            <text font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="11" fill="#fff" letter-spacing="2"><textPath href="#arcBot" startOffset="50%" text-anchor="middle">MATHÉMATIQUES</textPath></text>
+            <text x="15.5" y="79" text-anchor="middle" font-size="12" fill="#fff">★</text>
+            <text x="134.5" y="79" text-anchor="middle" font-size="12" fill="#fff">★</text>
+            <text x="75" y="84" text-anchor="middle" font-family="'Anton',sans-serif" font-size="44" fill="#fff">π</text>
+            <text x="75" y="100" text-anchor="middle" font-family="'Space Mono',monospace" font-size="9" font-weight="700" fill="#fff" letter-spacing="3">2026</text>
+          </svg>
+        </div>
+        <div class="stk stk-revo revo revo-anim" aria-label="révo, la mascotte">
+          <svg viewBox="0 0 180 200" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="90" cy="188" rx="52" ry="9" fill="rgba(24,27,34,.10)"/>
+            <path d="M90 44 C 90 24, 98 14, 112 12" fill="none" stroke="#4D7C0F" stroke-width="4" stroke-linecap="round"/>
+            <path d="M112 12 C 128 6, 138 16, 130 30 C 119 36, 106 28, 112 12 Z" fill="#84CC16" stroke="#181B22" stroke-width="2"/>
+            <rect x="22" y="42" width="136" height="136" rx="52" fill="#16A34A" stroke="#181B22" stroke-width="2.5"/>
+            <ellipse cx="90" cy="122" rx="48" ry="44" fill="#22C55E" opacity="0.5"/>
+            <circle cx="56" cy="124" r="9" fill="#E2483D" opacity="0.26"/>
+            <circle cx="124" cy="124" r="9" fill="#E2483D" opacity="0.26"/>
+            <ellipse cx="68" cy="100" rx="13" ry="15" fill="#fff" stroke="#181B22" stroke-width="2"/>
+            <ellipse cx="112" cy="100" rx="13" ry="15" fill="#fff" stroke="#181B22" stroke-width="2"/>
+            <circle cx="71" cy="103" r="6" fill="#181B22"/>
+            <circle cx="115" cy="103" r="6" fill="#181B22"/>
+            <circle cx="73.5" cy="100.5" r="2" fill="#fff"/>
+            <circle cx="117.5" cy="100.5" r="2" fill="#fff"/>
+            <path d="M74 130 Q90 144 106 130" fill="none" stroke="#181B22" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="stk stk-pi">
+          <svg viewBox="0 0 110 110" width="94" xmlns="http://www.w3.org/2000/svg" aria-label="pi">
+            <path d="M 55.0 4.0 L 63.2 13.8 L 74.5 7.9 L 78.3 20.1 L 91.1 18.9 L 89.9 31.7 L 102.1 35.5 L 96.2 46.8 L 106.0 55.0 L 96.2 63.2 L 102.1 74.5 L 89.9 78.3 L 91.1 91.1 L 78.3 89.9 L 74.5 102.1 L 63.2 96.2 L 55.0 106.0 L 46.8 96.2 L 35.5 102.1 L 31.7 89.9 L 18.9 91.1 L 20.1 78.3 L 7.9 74.5 L 13.8 63.2 L 4.0 55.0 L 13.8 46.8 L 7.9 35.5 L 20.1 31.7 L 18.9 18.9 L 31.7 20.1 L 35.5 7.9 L 46.8 13.8 Z" fill="#FACC15" stroke="#181B22" stroke-width="2.5" stroke-linejoin="round"/>
+            <circle cx="55" cy="55" r="33" fill="#FEF3C7"/>
+            <circle cx="55" cy="55" r="34" fill="none" stroke="#181B22" stroke-width="1.5" opacity="0.25"/>
+            <text x="55" y="72" text-anchor="middle" font-family="'Anton',sans-serif" font-size="46" fill="#181B22">π</text>
+          </svg>
+        </div>
+      </div>
+      <div class="cd-wrap">
+        <span class="cd-label">temps restant avant l'examen</span>
+        <div class="cd-row">
+          <div class="cd-card"><div class="cd-num" id="cd-j">—</div><div class="cd-lbl">jours</div></div>
+          <span class="cd-sep">:</span>
+          <div class="cd-card"><div class="cd-num" id="cd-h">—</div><div class="cd-lbl">heures</div></div>
+          <span class="cd-sep">:</span>
+          <div class="cd-card"><div class="cd-num" id="cd-m">—</div><div class="cd-lbl">min</div></div>
+          <span class="cd-sep">:</span>
+          <div class="cd-card"><div class="cd-num" id="cd-s">—</div><div class="cd-lbl">sec</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="sec" id="demo">
+    <span class="eyebrow">démo</span>
+    <h2 class="sec-h2">prêt·e ? voici une question <span class="accent">type brevet.</span></h2>
+    <p class="sec-lead">fais tourner la roulette, écris ta réponse, regarde la correction. exactement ce qui t'attend dans un sujet brévise.</p>
+    <div class="demo-stage">
+      <div class="exo-demo">
+        <div class="exo-demo-body">
+          <div class="exo-demo-tabs">
+            <div class="exo-demo-tag" style="margin-left:0">probabilités</div>
+          </div>
+          <div class="exo-demo-cols">
+            <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
+              <p class="exo-demo-intro">une roulette de casino est divisée en <strong>18 cases identiques</strong>, numérotées de 1 à 18, alternant <strong>rouge</strong> et <strong>noir</strong>. on la fait tourner.</p>
+              <p class="exo-demo-qtext">quelle est la probabilité que la bille tombe sur une case <strong>rouge</strong> ?</p>
+              <div class="exo-demo-answer">
+                <label class="exo-demo-answer-lbl">ta réponse</label>
+                <div class="exo-demo-answer-row">
+                  <input type="text" id="demo-answer-input" class="exo-demo-answer-input" placeholder="" autocomplete="off" onkeydown="if(event.key==='Enter')demoValidate()">
+                  <button class="exo-demo-answer-btn" onclick="demoValidate()">valider →</button>
+                </div>
+              </div>
+              <div class="exo-demo-reveal" id="demo-reveal">
+                <div class="exo-demo-reveal-head"><span class="exo-demo-reveal-badge" id="demo-reveal-badge">✓ bonne réponse</span><span class="exo-demo-reveal-pts">+5 pts</span></div>
+                <div class="exo-demo-reveal-body">sur 18 cases, <strong>9 sont rouges</strong>. la probabilité vaut donc <strong>9/18 = 1/2 = 0,5</strong>.</div>
+              </div>
+            </div>
+            <div>
+              <div class="wheel-box">
+                <div class="spin-hint" id="demo-spin-hint">clique</div>
+                <svg id="demo-wheel-svg" viewBox="0 0 260 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Roulette 18 cases" onclick="demoSpinWheel()">
+                  <defs><radialGradient id="ballGrad" cx="36%" cy="30%" r="72%"><stop offset="0%" stop-color="#ffffff"/><stop offset="55%" stop-color="#EEF0F2"/><stop offset="100%" stop-color="#C2C7CE"/></radialGradient></defs>
+                  <g transform="translate(130,134)">
+                    <circle cx="0" cy="0" r="116" fill="#E7F6EC" stroke="#181B22" stroke-width="1.8"/>
+                    <g class="wheel-spin" id="demo-wheel-spin"><g id="roulette-sectors"></g><g id="roulette-numbers"></g><g id="roulette-dividers" stroke="#fff" stroke-width="1.5" opacity=".9"></g></g>
+                    <circle cx="0" cy="0" r="18" fill="#fff" stroke="#181B22" stroke-width="1.8"/>
+                    <circle cx="0" cy="0" r="5" fill="#F59E0B" stroke="#181B22" stroke-width="1.5"/>
+                  </g>
+                  <g class="roulette-ball"><circle cx="130" cy="28" r="6.5" fill="url(#ballGrad)" stroke="#181B22" stroke-width="1.5"/><circle cx="127.4" cy="25.6" r="2" fill="#ffffff" opacity=".85"/></g>
+                  <g transform="translate(130,12)"><path d="M -11 -4 L 11 -4 L 0 13 Z" fill="#E2483D" stroke="#181B22" stroke-width="2" stroke-linejoin="round"/></g>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec-alt"><div class="sec-inner sec" style="padding-top:72px;padding-bottom:72px">
+    <span class="eyebrow">brévise vs annales papier</span>
+    <h2 class="sec-h2">tu révises sur <span class="accent">les annales de tes grands frères ?</span></h2>
+    <p class="sec-lead">le programme de maths de 3ᵉ a changé. les épreuves du DNB aussi. s'entraîner sur des sujets d'il y a trois ans, c'est préparer le brevet de 2022.</p>
+    <div class="compare">
+      <div class="compare-row compare-head"><div></div><div class="cb">BRÉVISE</div><div class="co">annales papier</div></div>
+      <div class="compare-row"><div class="compare-feat">mise à jour du programme</div><div class="yes">✓ en continu</div><div class="no">✕ figées</div></div>
+      <div class="compare-row"><div class="compare-feat">nombre de brevets</div><div class="yes">✓ illimité, inédit</div><div class="no">✕ 10-15, vite tournés</div></div>
+      <div class="compare-row"><div class="compare-feat">format &amp; durée</div><div class="yes">✓ 2h chrono</div><div class="no">✕ sans cadre</div></div>
+      <div class="compare-row"><div class="compare-feat">correction</div><div class="yes">✓ étape par étape</div><div class="no">✕ expéditive</div></div>
+    </div>
+  </div></section>
+
+  <section class="sec">
+    <span class="eyebrow">questions fréquentes</span>
+    <h2 class="sec-h2">une question <span class="accent">avant de te lancer ?</span></h2>
+    <div class="faq">
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">c'est quoi un brevet blanc brévise ?</div><div class="faq-a">un sujet de maths complet de 2 heures pour la 3ᵉ, avec ses 4 exercices couvrant les 5 domaines du programme : nombres et calculs, géométrie, grandeurs et mesures, stats et probas, algorithmique. même format, même difficulté, même barème que l'épreuve officielle du DNB. et chaque sujet est inédit.</div></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">les sujets sont-ils à jour ?</div><div class="faq-a">oui. chaque sujet respecte le programme officiel de 3ᵉ dans sa version la plus récente. dès qu'une évolution est annoncée, le générateur se met à jour.</div></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">comment marche la correction ?</div><div class="faq-a">chaque sujet arrive avec son corrigé détaillé, étape par étape, avec la méthode expliquée — pas juste la réponse. l'objectif, c'est de comprendre pourquoi.</div></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">y a-t-il un essai gratuit ?</div><div class="faq-a">oui : le 1ᵉʳ brevet blanc est offert, sans carte bancaire. tu le fais en conditions réelles, tu vois la correction complète, tu juges par toi-même.</div></div>
+    </div>
+  </section>
+
+  <section class="sec-alt"><div class="sec-inner sec" style="padding-top:72px;padding-bottom:72px">
+    <span class="eyebrow">tarifs</span>
+    <h2 class="sec-h2">choisis <span class="accent">ta formule.</span></h2>
+    <div class="pack-grid">
+      <div class="pack" onclick="goTo('checkout')">
+        <div class="pack-tier">sans engagement</div>
+        <div class="pack-name">mensuel</div>
+        <div class="pack-price">19,99€</div>
+        <div class="pack-per">/mois · résiliable en 1 clic</div>
+        <div class="pack-feats">
+          <div class="pack-feat">✓ accès complet à brévise</div>
+          <div class="pack-feat">✓ brevets blancs illimités</div>
+        </div>
+        <button class="pack-btn" onclick="event.stopPropagation();goTo('checkout')">choisir →</button>
+      </div>
+      <div class="pack feat" onclick="goTo('checkout')">
+        <div class="pack-tier">★ le plus choisi · 2 mois offerts</div>
+        <div class="pack-name">pass année</div>
+        <div class="pack-price">149€</div>
+        <div class="pack-per">paiement unique · jusqu'au jour J</div>
+        <div class="pack-feats">
+          <div class="pack-feat">✓ tout inclus, rentrée → brevet</div>
+          <div class="pack-feat">✓ ~50 € d'économie vs mensuel</div>
+        </div>
+        <button class="pack-btn" onclick="event.stopPropagation();goTo('checkout')">choisir →</button>
+      </div>
+      <div class="pack dark" onclick="goTo('checkout')">
+        <div class="pack-tier">professeurs · collèges</div>
+        <div class="pack-name">établissement</div>
+        <div class="pack-price" style="font-size:26px">sur devis</div>
+        <div class="pack-per">licence classe ou collège</div>
+        <div class="pack-feats">
+          <div class="pack-feat">✓ toute la classe + suivi des élèves</div>
+        </div>
+        <button class="pack-btn" onclick="event.stopPropagation();goTo('checkout')">demander un devis →</button>
+      </div>
+    </div>
+    <div style="margin-top:24px"><button class="btn btn-cobalt" onclick="goTo('checkout')">voir le détail des offres →</button></div>
+  </div></section>
+
+  <section class="final">
+    <h2>alors, <span class="y">on brévise ?</span></h2>
+    <p>il te reste <strong style="color:#fff"><span id="final-d">—</span> jours</strong> avant l'épreuve. chaque brevet blanc fait maintenant, c'est un point de plus le jour j.</p>
+    <button class="btn btn-amber" onclick="goTo('generer')">je génère mon 1ᵉʳ brevet →</button>
+    <p class="final-fine">à partir de 19,90 €/mois · sans engagement · résiliable en 1 clic</p>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div><div class="footer-logo">BRÉVISE</div><p class="footer-desc">le générateur de brevets blancs de maths. sujets inédits, 2h en conditions réelles, corrigés détaillés. don't stress just révise.</p></div>
+      <div><div class="footer-col-t">notions</div><ul class="footer-links"><li>nombres &amp; calculs</li><li>probas &amp; stats</li><li>grandeurs &amp; mesures</li><li>espace &amp; géométrie</li><li>algorithmique</li></ul></div>
+      <div><div class="footer-col-t">navigation</div><ul class="footer-links"><li onclick="goTo('accueil')">accueil</li><li onclick="goTo('generer')">générer</li><li onclick="goTo('parcours')">parcours</li><li onclick="goTo('planning')">planning</li></ul></div>
+      <div><div class="footer-col-t">contact</div><ul class="footer-links"><li><a href="mailto:contact@brevise.fr" style="text-decoration:none">nous écrire</a></li><li>instagram</li><li>newsletter</li></ul></div>
+    </div>
+    <div class="footer-bar">
+      <span class="footer-bar-copy">© 2026 brévise — tous droits réservés</span>
+      <span class="footer-bar-slogan">√ DON'T ASK <span>·</span> JUST SOLVE √</span>
+    </div>
+  </footer>
+</div>
+
+<div class="page" id="page-generer">
+  <div class="gen-layout">
+    <div class="gen-wizard">
+      <h1 class="gen-title">génère ton <span>brevet.</span></h1>
+      <div class="gen-steps" id="genSteps">
+        <div class="gen-step-pip active" data-s="1"><span>1</span>durée</div>
+        <div class="gen-step-pip" data-s="2"><span>2</span>notions</div>
+        <div class="gen-step-pip" data-s="3"><span>3</span>correction</div>
+        <div class="gen-step-pip" data-s="4"><span>4</span>récap</div>
+      </div>
+      <div class="gen-panel active" data-step="1">
+        <div class="gen-label">durée de l'épreuve</div>
+        <div class="duree-list">
+          <button class="duree-chip sel" onclick="selectDuree(this)" data-mins="120"><span>2h</span></button>
+          <button class="duree-chip" onclick="selectDuree(this)" data-mins="90"><span>1h30</span></button>
+          <button class="duree-chip" onclick="selectDuree(this)" data-mins="60"><span>1h</span></button>
+          <button class="duree-chip" onclick="selectDuree(this)" data-mins="30"><span>30 min</span></button>
+          <button class="duree-chip" onclick="selectDuree(this)" data-mins="10"><span>10 min</span></button>
+        </div>
+      </div>
+      <div class="gen-panel" data-step="2">
+        <div class="gen-label">notions à travailler</div>
+        <div class="notions-grid">
+          <button class="notion-chip all-chip sel" data-notion="all" onclick="toggleNotion(this)"><span class="ncheck">✓</span>toutes les notions</button>
+          <button class="notion-chip" data-notion="Statistiques" onclick="toggleNotion(this)"><span class="ncheck"></span>statistiques</button>
+          <button class="notion-chip" data-notion="Probabilités" onclick="toggleNotion(this)"><span class="ncheck"></span>probabilités</button>
+          <button class="notion-chip" data-notion="Algorithmique" onclick="toggleNotion(this)"><span class="ncheck"></span>algorithmique</button>
+          <button class="notion-chip" data-notion="Géométrie" onclick="toggleNotion(this)"><span class="ncheck"></span>géométrie</button>
+          <button class="notion-chip" data-notion="Algèbre" onclick="toggleNotion(this)"><span class="ncheck"></span>algèbre</button>
+        </div>
+      </div>
+      <div class="gen-panel" data-step="3">
+        <div class="gen-label">mode de correction</div>
+        <button class="corr-chip sel" onclick="selectCorr(this)" data-mode="question"><div><div class="corr-title">question par question</div><div class="corr-sub">la correction après chaque réponse</div></div><div class="ccheck">✓</div></button>
+        <button class="corr-chip" onclick="selectCorr(this)" data-mode="fin"><div><div class="corr-title">à la fin de l'examen</div><div class="corr-sub">tout révélé en une fois</div></div><div class="ccheck"></div></button>
+      </div>
+      <div class="gen-panel" data-step="4">
+        <div class="gen-label">récapitulatif</div>
+        <div class="gen-recap" id="genRecap"></div>
+      </div>
+      <div class="gen-nav">
+        <button class="btn btn-ghost" id="genPrev" onclick="genGo(-1)">← précédent</button>
+        <button class="btn btn-cobalt" id="genNext" onclick="genGo(1)">suivant →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page opt-glass" id="page-brevet">
+  <div class="bp-top">
+    <button class="bp-quit" onclick="quitterBrevet()">← quitter</button>
+    <span class="bp-sujet" id="sujetLabel"></span>
+    <div style="display:flex;align-items:center;gap:8px">
+      <button class="opt-toggle active" id="optGlass" onclick="toggleOpt('glass',this)">verre</button><button class="opt-toggle" id="optBar" onclick="toggleOpt('nobar',this)">masquer la barre</button><span class="pts-pill" id="ptsPill">0 pts</span>
+      <div class="timer-wrap"><div class="timer-dot"></div><span class="timer-val" id="timerVal">2:00:00</span></div>
+    </div>
+  </div>
+  <div class="stage">
+    <div class="main">
+      <div class="sidebar">
+        <div class="ex-list-wrap"><div class="sidebar-label">exercices</div><div class="ex-list" id="exList"></div></div>
+        <div class="sidebar-revo"><svg viewBox="0 0 110 120" xmlns="http://www.w3.org/2000/svg"><path d="M55 28 C55 17 60 11 69 10" fill="none" stroke="#4D7C0F" stroke-width="3" stroke-linecap="round"/><path d="M69 10 C79 6 86 13 81 22 C73 26 64 20 69 10 Z" fill="#84CC16" stroke="#181B22" stroke-width="1.5"/><rect x="14" y="26" width="82" height="82" rx="32" fill="#16A34A" stroke="#181B22" stroke-width="2"/><ellipse cx="42" cy="62" rx="8.5" ry="10" fill="#fff" stroke="#181B22" stroke-width="1.6"/><ellipse cx="68" cy="62" rx="8.5" ry="10" fill="#fff" stroke="#181B22" stroke-width="1.6"/><circle cx="44" cy="64" r="3.6" fill="#181B22"/><circle cx="70" cy="64" r="3.6" fill="#181B22"/><path d="M44 82 Q55 92 66 82" fill="none" stroke="#181B22" stroke-width="2.2" stroke-linecap="round"/></svg><div class="sidebar-revo-txt"><span>révo</span>garde le rythme, tu gères !</div></div>
+        <div class="sidebar-progress"><div class="prog-label"><span id="progText">0 / 0</span><span id="progPct">0%</span></div><div class="prog-bar"><div class="prog-fill" id="progFill" style="width:0%"></div></div></div>
+      </div>
+      <div class="content" id="examArea"></div>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="page-entrainement">
+  <div class="simple-page">
+    <span class="eyebrow">sans chrono · feedback immédiat</span>
+    <h1 class="simple-h1" style="margin-top:12px">mode <span>entraînement.</span></h1>
+    <p class="simple-lead">choisis une notion et travaille un exercice à la fois, avec la correction après chaque réponse. pas de stress, juste de l'entraînement.</p>
+    <div class="train-grid" id="trainList"></div>
+  </div>
+</div>
+
+<div class="page" id="page-annales">
+  <div class="simple-page">
+    <span class="eyebrow">sujets officiels · DNB</span>
+    <h1 class="simple-h1" style="margin-top:12px">les <span>annales.</span></h1>
+    <p class="simple-lead">entraîne-toi sur les vrais sujets du brevet des années précédentes, en conditions réelles. même format, même barème que le jour J.</p>
+    <div class="train-grid">
+      <div class="train-card"><span class="train-card-tag">juin 2025</span><div class="train-card-name">DNB 2025 · métropole</div><div class="train-card-meta">2h · 4 exercices · /20</div><button class="train-card-btn" onclick="lancerBrevet()">s&#39;entraîner →</button></div>
+      <div class="train-card"><span class="train-card-tag">juin 2024</span><div class="train-card-name">DNB 2024 · métropole</div><div class="train-card-meta">2h · 4 exercices · /20</div><button class="train-card-btn" onclick="lancerBrevet()">s&#39;entraîner →</button></div>
+      <div class="train-card"><span class="train-card-tag">sept. 2024</span><div class="train-card-name">DNB 2024 · rattrapage</div><div class="train-card-meta">2h · 4 exercices · /20</div><button class="train-card-btn" onclick="lancerBrevet()">s&#39;entraîner →</button></div>
+      <div class="train-card"><span class="train-card-tag">juin 2023</span><div class="train-card-name">DNB 2023 · métropole</div><div class="train-card-meta">2h · 4 exercices · /20</div><button class="train-card-btn" onclick="lancerBrevet()">s&#39;entraîner →</button></div>
+      <div class="train-card"><span class="train-card-tag">officiel 2026</span><div class="train-card-name">sujet 0 · DNB 2026</div><div class="train-card-meta">2h · 4 exercices · /20</div><button class="train-card-btn" onclick="lancerBrevet()">s&#39;entraîner →</button></div>
+      <div class="train-card"><span class="train-card-tag">juin 2022</span><div class="train-card-name">DNB 2022 · métropole</div><div class="train-card-meta">2h · 4 exercices · /20</div><button class="train-card-btn" onclick="lancerBrevet()">s&#39;entraîner →</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="page-fiches">
+  <div class="simple-page">
+    <span class="eyebrow">mémo · méthodes · formules</span>
+    <h1 class="simple-h1" style="margin-top:12px">les <span>fiches.</span></h1>
+    <p class="simple-lead">l'essentiel à connaître pour le brevet : définitions, formules clés et méthodes, notion par notion. à réviser avant de te lancer.</p>
+    <div class="train-grid">
+      <div class="train-card"><span class="train-card-tag">géométrie</span><div class="train-card-name">théorème de Pythagore</div><div class="train-card-meta">formule · réciproque · méthode</div><button class="train-card-btn" onclick="goTo('fiche-pythagore')">consulter →</button></div>
+      <div class="train-card"><span class="train-card-tag">géométrie</span><div class="train-card-name">théorème de Thalès</div><div class="train-card-meta">configuration · calcul · réciproque</div><button class="train-card-btn" onclick="showToast('fiche bientôt dispo')">consulter →</button></div>
+      <div class="train-card"><span class="train-card-tag">géométrie</span><div class="train-card-name">trigonométrie</div><div class="train-card-meta">cos · sin · tan dans le triangle</div><button class="train-card-btn" onclick="goTo('fiche-trigo')">consulter →</button></div><div class="train-card"><span class="train-card-tag">grandeurs</span><div class="train-card-name">périmètre</div><div class="train-card-meta">contour des figures usuelles</div><button class="train-card-btn" onclick="goTo('fiche-perimetre')">consulter →</button></div><div class="train-card"><span class="train-card-tag">grandeurs</span><div class="train-card-name">aire</div><div class="train-card-meta">surface des figures usuelles</div><button class="train-card-btn" onclick="goTo('fiche-aire')">consulter →</button></div><div class="train-card"><span class="train-card-tag">grandeurs</span><div class="train-card-name">volume</div><div class="train-card-meta">volume des solides usuels</div><button class="train-card-btn" onclick="goTo('fiche-volume')">consulter →</button></div>
+      <div class="train-card"><span class="train-card-tag">algèbre</span><div class="train-card-name">calcul littéral & équations</div><div class="train-card-meta">développer · factoriser · résoudre</div><button class="train-card-btn" onclick="showToast('fiche bientôt dispo')">consulter →</button></div>
+      <div class="train-card"><span class="train-card-tag">algèbre</span><div class="train-card-name">fonctions</div><div class="train-card-meta">affine · linéaire · image · antécédent</div><button class="train-card-btn" onclick="showToast('fiche bientôt dispo')">consulter →</button></div>
+      <div class="train-card"><span class="train-card-tag">statistiques</span><div class="train-card-name">statistiques</div><div class="train-card-meta">moyenne · médiane · étendue</div><button class="train-card-btn" onclick="showToast('fiche bientôt dispo')">consulter →</button></div>
+      <div class="train-card"><span class="train-card-tag">probabilités</span><div class="train-card-name">probabilités</div><div class="train-card-meta">événement · arbre · calcul</div><button class="train-card-btn" onclick="showToast('fiche bientôt dispo')">consulter →</button></div>
+      <div class="train-card"><span class="train-card-tag">grandeurs</span><div class="train-card-name">proportionnalité & %</div><div class="train-card-meta">4ᵉ proportionnelle · pourcentages</div><button class="train-card-btn" onclick="showToast('fiche bientôt dispo')">consulter →</button></div>
+      <div class="train-card"><span class="train-card-tag">nombres</span><div class="train-card-name">arithmétique</div><div class="train-card-meta">PGCD · nombres premiers · fractions</div><button class="train-card-btn" onclick="showToast('fiche bientôt dispo')">consulter →</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="page-fiche-pythagore">
+  <div class="simple-page fiche-read">
+    <button class="fiche-back" onclick="goTo('fiches')">← toutes les fiches</button>
+    <div><span class="fiche-tag">géométrie</span></div>
+    <h1 class="simple-h1" style="margin-top:10px">théorème de <span>Pythagore.</span></h1>
+    <div class="fiche-grid">
+      <div class="fiche-block">
+        <h3>le théorème</h3>
+        <p>Si un triangle <strong>ABC est rectangle en A</strong>, alors :</p>
+        <div class="fiche-formula">BC² = AB² + AC²</div>
+        <p class="fiche-muted">Le carré de l'<strong>hypoténuse</strong> (le côté opposé à l'angle droit, le plus long) est égal à la somme des carrés des deux autres côtés.</p>
+      </div>
+      <div class="fiche-block fiche-fig">
+        <svg viewBox="0 0 250 200" width="250" xmlns="http://www.w3.org/2000/svg" aria-label="triangle rectangle ABC">
+          <polygon points="50,160 210,160 50,50" fill="#E7F6EC" stroke="#181B22" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M64 160 L64 146 L50 146" fill="none" stroke="#181B22" stroke-width="1.5"/>
+          <circle cx="50" cy="160" r="2.5" fill="#181B22"/><circle cx="210" cy="160" r="2.5" fill="#181B22"/><circle cx="50" cy="50" r="2.5" fill="#181B22"/>
+          <text x="37" y="176" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="14" fill="#181B22">A</text>
+          <text x="216" y="176" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="14" fill="#181B22">C</text>
+          <text x="37" y="46" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="14" fill="#181B22">B</text>
+          <text x="125" y="178" text-anchor="middle" font-family="'Space Mono',monospace" font-size="11" fill="#6B7280">AC</text>
+          <text x="33" y="108" text-anchor="middle" font-family="'Space Mono',monospace" font-size="11" fill="#6B7280">AB</text>
+          <text x="140" y="98" font-family="'Space Mono',monospace" font-size="11" font-weight="700" fill="#4F46E5">BC</text>
+        </svg>
+      </div>
+      <div class="fiche-block">
+        <h3>calculer l'hypoténuse</h3>
+        <p>On connaît les deux côtés de l'angle droit, on cherche le plus long côté (BC).</p>
+        <div class="fiche-formula sm">BC = √(AB² + AC²)</div>
+        <div class="fiche-ex"><div class="fiche-ex-t">exemple</div>AB = 3 et AC = 4<br>BC = √(3² + 4²)<br>BC = √(9 + 16)<br>BC = √25 = <strong>5</strong></div>
+      </div>
+      <div class="fiche-block">
+        <h3>calculer un côté de l'angle droit</h3>
+        <p>On connaît l'hypoténuse et un côté, on cherche l'autre.</p>
+        <div class="fiche-formula sm">AB = √(BC² − AC²)</div>
+        <div class="fiche-ex"><div class="fiche-ex-t">exemple</div>BC = 10 et AC = 6<br>AB = √(10² − 6²)<br>AB = √(100 − 36)<br>AB = √64 = <strong>8</strong></div>
+      </div>
+      <div class="fiche-block">
+        <h3>la réciproque <span class="fiche-sub">— prouver qu'un triangle est rectangle</span></h3>
+        <p>Si dans un triangle <strong>BC² = AB² + AC²</strong> (BC étant le plus grand côté), alors le triangle est <strong>rectangle en A</strong>.</p>
+        <div class="fiche-ex"><div class="fiche-ex-t">exemple</div>Côtés 6, 8 et 10.<br>6² + 8² = 36 + 64 = 100<br>10² = 100<br>L'égalité est vraie → le triangle est <strong>rectangle</strong>.</div>
+        <p class="fiche-muted">Si l'égalité est fausse, le triangle <strong>n'est pas</strong> rectangle.</p>
+      </div>
+      <div class="fiche-block fiche-exo">
+        <h3>exercice type 1 <span class="fiche-sub">— appliquer Pythagore</span></h3>
+        <div class="fiche-fig">
+          <svg viewBox="0 0 240 195" width="230" xmlns="http://www.w3.org/2000/svg" aria-label="triangle ABC rectangle en A, AB 6 cm, AC 8 cm">
+            <polygon points="55,165 200,165 55,70" fill="#E7F6EC" stroke="#181B22" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M69 165 L69 151 L55 151" fill="none" stroke="#181B22" stroke-width="1.5"/>
+            <text x="44" y="180" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="13" fill="#181B22">A</text>
+            <text x="204" y="180" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="13" fill="#181B22">C</text>
+            <text x="44" y="67" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="13" fill="#181B22">B</text>
+            <text x="27" y="121" text-anchor="middle" font-family="'Space Mono',monospace" font-size="11" fill="#6B7280">6 cm</text>
+            <text x="127" y="182" text-anchor="middle" font-family="'Space Mono',monospace" font-size="11" fill="#6B7280">8 cm</text>
+            <text x="138" y="110" font-family="'Space Mono',monospace" font-size="11" font-weight="700" fill="#4F46E5">BC = ?</text>
+          </svg>
+        </div>
+        <p>ABC est un triangle <strong>rectangle en A</strong> tel que AB = 6 cm et AC = 8 cm. Calculer la longueur BC.</p>
+        <div class="fiche-ex"><div class="fiche-ex-t">solution</div>Le triangle est rectangle en A, donc d'après le théorème de Pythagore :<br>BC² = AB² + AC²<br>BC² = 6² + 8²<br>BC² = 36 + 64<br>BC² = 100<br>BC = √100<br>BC = <strong>10 cm</strong></div>
+      </div>
+      <div class="fiche-block fiche-exo">
+        <h3>exercice type 2 <span class="fiche-sub">— réciproque</span></h3>
+        <div class="fiche-fig">
+          <svg viewBox="0 0 240 200" width="230" xmlns="http://www.w3.org/2000/svg" aria-label="triangle RST de côtés 9, 12 et 15 cm">
+            <polygon points="62,170 198,170 62,72" fill="#E7F6EC" stroke="#181B22" stroke-width="2" stroke-linejoin="round"/>
+            <text x="50" y="185" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="13" fill="#181B22">S</text>
+            <text x="202" y="185" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="13" fill="#181B22">T</text>
+            <text x="50" y="69" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="13" fill="#181B22">R</text>
+            <text x="34" y="124" text-anchor="middle" font-family="'Space Mono',monospace" font-size="11" fill="#6B7280">9 cm</text>
+            <text x="130" y="187" text-anchor="middle" font-family="'Space Mono',monospace" font-size="11" fill="#6B7280">12 cm</text>
+            <text x="140" y="114" font-family="'Space Mono',monospace" font-size="11" font-weight="700" fill="#4F46E5">15 cm</text>
+          </svg>
+        </div>
+        <p>Le triangle RST a pour côtés RS = 9 cm, ST = 12 cm et RT = 15 cm. Ce triangle est-il rectangle ?</p>
+        <div class="fiche-ex"><div class="fiche-ex-t">solution</div>On repère le plus grand côté : RT = 15 cm.<br>RS² + ST² = 9² + 12²<br>RS² + ST² = 81 + 144 = 225<br>RT² = 15² = 225<br>L'égalité est vraie, donc d'après la <strong>réciproque</strong> du théorème de Pythagore, le triangle RST est <strong>rectangle en S</strong>.</div>
+      </div>
+      <div class="fiche-block">
+        <h3>repère les erreurs <span class="fiche-sub">— deux copies à corriger</span></h3>
+        <p class="fiche-muted">Voici des copies d'élèves. Clique sur les lignes qui contiennent une erreur, puis vérifie.</p>
+        <div class="err-exo" style="margin-top:14px">
+          <div class="err-title">copie 1 — ABC rectangle en A, AB = 9 cm, AC = 12 cm. On cherche BC.</div>
+          <div class="errline" data-err="0" onclick="flagLine(this)">BC² = AB² + AC² = 9² + 12² = 81 + 144 = 225</div>
+          <div class="errline" data-err="1" onclick="flagLine(this)">donc BC = 225 cm</div>
+          <button class="err-check" onclick="checkErrors(this)">vérifier</button>
+          <div class="err-explain"><strong>L'erreur :</strong> on a oublié la racine carrée. BC² = 225 donne BC = √225 = <strong>15 cm</strong> (et non 225 cm).</div>
+        </div>
+        <div class="err-exo" style="margin-top:14px">
+          <div class="err-title">copie 2 — un triangle a pour côtés 8 cm, 15 cm et 17 cm. Est-il rectangle ?</div>
+          <div class="errline" data-err="0" onclick="flagLine(this)">Le plus grand côté est 17 cm.</div>
+          <div class="errline" data-err="0" onclick="flagLine(this)">8² + 15² = 64 + 225 = 289 et 17² = 289</div>
+          <div class="errline" data-err="1" onclick="flagLine(this)">Les valeurs sont différentes, donc le triangle n'est pas rectangle.</div>
+          <button class="err-check" onclick="checkErrors(this)">vérifier</button>
+          <div class="err-explain"><strong>L'erreur :</strong> les deux valeurs sont <strong>égales</strong> (289 = 289). D'après la réciproque, le triangle <strong>est</strong> rectangle (en l'angle opposé au côté de 17 cm).</div>
+        </div>
+      </div>
+      <div class="fiche-note"><strong>à retenir :</strong> l'hypoténuse est toujours le plus grand côté, face à l'angle droit. Repère bien quel côté tu cherches (l'hypoténuse → on additionne ; un côté de l'angle droit → on soustrait) avant d'écrire la formule.</div>
+      <button class="btn btn-cobalt" style="align-self:flex-start" onclick="lancerBrevet()">s'entraîner sur un brevet →</button>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="page-fiche-trigo">
+  <div class="simple-page fiche-read">
+    <button class="fiche-back" onclick="goTo('fiches')">← toutes les fiches</button>
+    <div><span class="fiche-tag">géométrie</span></div>
+    <h1 class="simple-h1" style="margin-top:10px">la <span>trigonométrie.</span></h1>
+    <div class="fiche-grid">
+      <div class="fiche-block">
+        <h3>de quoi on parle</h3>
+        <p>Dans un <strong>triangle rectangle</strong>, la trigonométrie relie un <strong>angle aigu</strong> aux longueurs des côtés. Par rapport à l'angle choisi, on nomme les côtés :</p>
+        <p class="fiche-muted"><strong>l'hypoténuse</strong> (face à l'angle droit, le plus long) · <strong>le côté adjacent</strong> (qui touche l'angle) · <strong>le côté opposé</strong> (en face de l'angle).</p>
+      </div>
+      <div class="fiche-block fiche-fig">
+        <svg viewBox="0 0 250 200" width="250" xmlns="http://www.w3.org/2000/svg" aria-label="triangle rectangle, côtés adjacent, opposé et hypoténuse par rapport à l'angle B">
+          <polygon points="60,160 205,160 60,55" fill="#E7F6EC" stroke="#181B22" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M74 160 L74 146 L60 146" fill="none" stroke="#181B22" stroke-width="1.5"/>
+          <path d="M60 82 A 27 27 0 0 0 82 70" fill="none" stroke="#4F46E5" stroke-width="2"/>
+          <circle cx="60" cy="160" r="2.5" fill="#181B22"/><circle cx="205" cy="160" r="2.5" fill="#181B22"/><circle cx="60" cy="55" r="2.5" fill="#181B22"/>
+          <text x="47" y="176" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="13" fill="#181B22">A</text>
+          <text x="210" y="176" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="13" fill="#181B22">C</text>
+          <text x="47" y="52" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="13" fill="#181B22">B</text>
+          <text transform="translate(41,118) rotate(-90)" text-anchor="middle" font-family="'Space Mono',monospace" font-size="10" fill="#6B7280">adjacent</text>
+          <text x="132" y="178" text-anchor="middle" font-family="'Space Mono',monospace" font-size="10" fill="#6B7280">opposé</text>
+          <text transform="translate(150,98) rotate(36)" text-anchor="middle" font-family="'Space Mono',monospace" font-size="10" font-weight="700" fill="#4F46E5">hypoténuse</text>
+        </svg>
+      </div>
+      <div class="fiche-block">
+        <h3>les trois rapports</h3>
+        <div class="fiche-formula sm">cos = adjacent / hypoténuse</div>
+        <div class="fiche-formula sm">sin = opposé / hypoténuse</div>
+        <div class="fiche-formula sm">tan = opposé / adjacent</div>
+        <p class="fiche-muted">Moyen mnémotechnique : <strong>SOH-CAH-TOA</strong> — <strong>S</strong>in = <strong>O</strong>pp/<strong>H</strong>yp, <strong>C</strong>os = <strong>A</strong>dj/<strong>H</strong>yp, <strong>T</strong>an = <strong>O</strong>pp/<strong>A</strong>dj.</p>
+      </div>
+      <div class="fiche-block">
+        <h3>comment s'en servir</h3>
+        <p><strong>Pour une longueur :</strong> on choisit le rapport (cos, sin ou tan) qui relie l'angle connu et les côtés, puis on isole la longueur cherchée.</p>
+        <p><strong>Pour un angle :</strong> on calcule le rapport correspondant, puis on utilise la touche inverse de la calculatrice (sin⁻¹, cos⁻¹ ou tan⁻¹) pour remonter à l'angle.</p>
+      </div>
+      <div class="fiche-block fiche-exo">
+        <h3>exercice type 1 <span class="fiche-sub">— calculer une longueur</span></h3>
+        <div class="fiche-fig">
+          <svg viewBox="0 0 250 200" width="230" xmlns="http://www.w3.org/2000/svg" aria-label="triangle rectangle en A, angle B 60 degrés, hypoténuse 10 cm">
+            <polygon points="60,160 205,160 60,55" fill="#E7F6EC" stroke="#181B22" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M74 160 L74 146 L60 146" fill="none" stroke="#181B22" stroke-width="1.5"/>
+            <path d="M60 82 A 27 27 0 0 0 82 70" fill="none" stroke="#4F46E5" stroke-width="2"/>
+            <text x="47" y="176" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="13" fill="#181B22">A</text>
+            <text x="210" y="176" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="13" fill="#181B22">C</text>
+            <text x="47" y="52" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="13" fill="#181B22">B</text>
+            <text x="78" y="80" font-family="'Space Mono',monospace" font-size="10" font-weight="700" fill="#4F46E5">60°</text>
+            <text transform="translate(150,98) rotate(36)" text-anchor="middle" font-family="'Space Mono',monospace" font-size="10" fill="#6B7280">10 cm</text>
+            <text transform="translate(41,118) rotate(-90)" text-anchor="middle" font-family="'Space Mono',monospace" font-size="10" font-weight="700" fill="#4F46E5">AB = ?</text>
+          </svg>
+        </div>
+        <p>ABC est rectangle en A, avec l'angle B = 60° et l'hypoténuse BC = 10 cm. Calculer AB.</p>
+        <div class="fiche-ex"><div class="fiche-ex-t">solution</div>AB est le côté adjacent à B, donc on utilise le cosinus :<br>cos B = AB / BC<br>AB = BC × cos B<br>AB = 10 × cos 60°<br>AB = 10 × 0,5<br>AB = <strong>5 cm</strong></div>
+      </div>
+      <div class="fiche-block fiche-exo">
+        <h3>exercice type 2 <span class="fiche-sub">— calculer un angle</span></h3>
+        <div class="fiche-fig">
+          <svg viewBox="0 0 250 200" width="230" xmlns="http://www.w3.org/2000/svg" aria-label="triangle rectangle en A, côté opposé 4 cm, hypoténuse 8 cm, angle inconnu">
+            <polygon points="60,160 205,160 60,55" fill="#E7F6EC" stroke="#181B22" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M74 160 L74 146 L60 146" fill="none" stroke="#181B22" stroke-width="1.5"/>
+            <path d="M60 82 A 27 27 0 0 0 82 70" fill="none" stroke="#4F46E5" stroke-width="2"/>
+            <text x="47" y="176" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="13" fill="#181B22">A</text>
+            <text x="210" y="176" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="13" fill="#181B22">C</text>
+            <text x="47" y="52" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="13" fill="#181B22">B</text>
+            <text x="78" y="80" font-family="'Space Mono',monospace" font-size="11" font-weight="700" fill="#4F46E5">?</text>
+            <text x="132" y="178" text-anchor="middle" font-family="'Space Mono',monospace" font-size="10" fill="#6B7280">4 cm</text>
+            <text transform="translate(150,98) rotate(36)" text-anchor="middle" font-family="'Space Mono',monospace" font-size="10" fill="#6B7280">8 cm</text>
+          </svg>
+        </div>
+        <p>ABC est rectangle en A, avec AC = 4 cm et BC = 8 cm. Calculer la mesure de l'angle B (arrondie au degré).</p>
+        <div class="fiche-ex"><div class="fiche-ex-t">solution</div>AC est opposé à B et BC est l'hypoténuse, donc on utilise le sinus :<br>sin B = AC / BC<br>sin B = 4 / 8 = 0,5<br>B = sin⁻¹(0,5)<br>B = <strong>30°</strong></div>
+      </div>
+      <div class="fiche-block">
+        <h3>repère les erreurs <span class="fiche-sub">— deux copies à corriger</span></h3>
+        <p class="fiche-muted">Clique sur les lignes qui contiennent une erreur, puis vérifie.</p>
+        <div class="err-exo" style="margin-top:14px">
+          <div class="err-title">copie 1 — rectangle en A, AB = 5 cm (adjacent à B), BC = 10 cm. On calcule cos B.</div>
+          <div class="errline" data-err="0" onclick="flagLine(this)">cos B = adjacent / hypoténuse</div>
+          <div class="errline" data-err="1" onclick="flagLine(this)">cos B = 10 / 5 = 2</div>
+          <button class="err-check" onclick="checkErrors(this)">vérifier</button>
+          <div class="err-explain"><strong>L'erreur :</strong> le rapport est inversé. cos B = AB / BC = 5 / 10 = <strong>0,5</strong> (on divise l'adjacent par l'hypoténuse — et un cosinus est toujours compris entre 0 et 1).</div>
+        </div>
+        <div class="err-exo" style="margin-top:14px">
+          <div class="err-title">copie 2 — rectangle en A, AC = 3 cm (opposé à B), BC = 6 cm. On calcule l'angle B.</div>
+          <div class="errline" data-err="0" onclick="flagLine(this)">sin B = opposé / hypoténuse = 3 / 6 = 0,5</div>
+          <div class="errline" data-err="1" onclick="flagLine(this)">donc B = 0,5°</div>
+          <button class="err-check" onclick="checkErrors(this)">vérifier</button>
+          <div class="err-explain"><strong>L'erreur :</strong> 0,5 est la valeur du sinus, pas l'angle. Il faut utiliser la touche inverse : B = sin⁻¹(0,5) = <strong>30°</strong>.</div>
+        </div>
+      </div>
+      <div class="fiche-note"><strong>à retenir :</strong> adjacent et opposé dépendent de l'angle choisi. Un cosinus et un sinus sont toujours entre 0 et 1. Pour trouver un angle, on utilise les touches sin⁻¹ / cos⁻¹ / tan⁻¹ (et la calculatrice doit être en degrés).</div>
+      <button class="btn btn-cobalt" style="align-self:flex-start" onclick="lancerBrevet()">s'entraîner sur un brevet →</button>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="page-fiche-perimetre">
+  <div class="simple-page fiche-read">
+    <button class="fiche-back" onclick="goTo('fiches')">← toutes les fiches</button>
+    <div><span class="fiche-tag">grandeurs & mesures</span></div>
+    <h1 class="simple-h1" style="margin-top:10px">le <span>périmètre.</span></h1>
+    <div class="fiche-grid">
+      <div class="fiche-block">
+        <h3>de quoi on parle</h3>
+        <p>Le <strong>périmètre</strong> d'une figure est la <strong>longueur de son contour</strong>. Il se mesure en unité de longueur (mm, cm, m, km…).</p>
+        <p class="fiche-muted">Avant de calculer, toutes les longueurs doivent être dans la <strong>même unité</strong>.</p>
+      </div>
+      <div class="fiche-block">
+        <h3>les formules</h3>
+        <div class="fiche-flist">
+          <div class="fiche-frow"><span class="fiche-fname">carré (côté c)</span><span class="fiche-fval">P = 4 × c</span></div>
+          <div class="fiche-frow"><span class="fiche-fname">rectangle (L, l)</span><span class="fiche-fval">P = 2 × (L + l)</span></div>
+          <div class="fiche-frow"><span class="fiche-fname">triangle</span><span class="fiche-fval">P = a + b + c</span></div>
+          <div class="fiche-frow"><span class="fiche-fname">cercle (rayon r)</span><span class="fiche-fval">P = 2 × π × r</span></div>
+        </div>
+        <p class="fiche-muted" style="margin-top:10px">Pour le cercle, on parle de <strong>circonférence</strong>. Avec le diamètre d = 2 × r, on a aussi P = π × d.</p>
+      </div>
+      <div class="fiche-block fiche-fig">
+        <svg viewBox="0 0 240 165" width="220" xmlns="http://www.w3.org/2000/svg" aria-label="rectangle de longueur L et largeur l">
+          <rect x="42" y="38" width="158" height="86" fill="#E7F6EC" stroke="#181B22" stroke-width="2"/>
+          <text x="121" y="146" text-anchor="middle" font-family="'Space Mono',monospace" font-size="11" fill="#6B7280">L = 8 cm</text>
+          <text transform="translate(28,81) rotate(-90)" text-anchor="middle" font-family="'Space Mono',monospace" font-size="11" fill="#6B7280">l = 5 cm</text>
+        </svg>
+      </div>
+      <div class="fiche-block">
+        <h3>exemple <span class="fiche-sub">— rectangle</span></h3>
+        <div class="fiche-ex"><div class="fiche-ex-t">solution</div>Rectangle de longueur L = 8 cm et largeur l = 5 cm.<br>P = 2 × (L + l)<br>P = 2 × (8 + 5)<br>P = 2 × 13<br>P = <strong>26 cm</strong></div>
+      </div>
+      <div class="fiche-block fiche-exo">
+        <h3>exercice type <span class="fiche-sub">— cercle</span></h3>
+        <div class="fiche-fig">
+          <svg viewBox="0 0 200 165" width="180" xmlns="http://www.w3.org/2000/svg" aria-label="cercle de rayon r">
+            <circle cx="100" cy="82" r="58" fill="#E7F6EC" stroke="#181B22" stroke-width="2"/>
+            <circle cx="100" cy="82" r="2.5" fill="#181B22"/>
+            <line x1="100" y1="82" x2="158" y2="82" stroke="#4F46E5" stroke-width="2"/>
+            <text x="126" y="76" font-family="'Space Mono',monospace" font-size="11" font-weight="700" fill="#4F46E5">r = 3 cm</text>
+          </svg>
+        </div>
+        <p>Calculer le périmètre (la circonférence) d'un cercle de rayon r = 3 cm. On arrondira au dixième.</p>
+        <div class="fiche-ex"><div class="fiche-ex-t">solution</div>P = 2 × π × r<br>P = 2 × π × 3<br>P = 6 × π<br>P ≈ <strong>18,8 cm</strong></div>
+      </div>
+      <div class="fiche-block">
+        <h3>repère les erreurs <span class="fiche-sub">— deux copies à corriger</span></h3>
+        <p class="fiche-muted">Clique sur les lignes qui contiennent une erreur, puis vérifie.</p>
+        <div class="err-exo" style="margin-top:14px">
+          <div class="err-title">copie 1 — périmètre d'un rectangle L = 7 cm, l = 4 cm.</div>
+          <div class="errline" data-err="1" onclick="flagLine(this)">P = L × l = 7 × 4 = 28 cm</div>
+          <button class="err-check" onclick="checkErrors(this)">vérifier</button>
+          <div class="err-explain"><strong>L'erreur :</strong> ça, c'est l'aire ! Le périmètre est P = 2 × (L + l) = 2 × (7 + 4) = <strong>22 cm</strong>.</div>
+        </div>
+        <div class="err-exo" style="margin-top:14px">
+          <div class="err-title">copie 2 — circonférence d'un cercle de rayon r = 5 cm.</div>
+          <div class="errline" data-err="0" onclick="flagLine(this)">P = 2 × π × r</div>
+          <div class="errline" data-err="1" onclick="flagLine(this)">P = 2 × π × 25 ≈ 157 cm</div>
+          <button class="err-check" onclick="checkErrors(this)">vérifier</button>
+          <div class="err-explain"><strong>L'erreur :</strong> on a confondu r et r². Ici P = 2 × π × 5 = 10 × π ≈ <strong>31,4 cm</strong>.</div>
+        </div>
+      </div>
+      <div class="fiche-note"><strong>à retenir :</strong> le périmètre est une longueur (cm, m…). Garde la même unité partout, n'oublie pas le × 2 du rectangle et le 2 × π × r du cercle.</div>
+      <button class="btn btn-cobalt" style="align-self:flex-start" onclick="lancerBrevet()">s'entraîner sur un brevet →</button>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="page-fiche-aire">
+  <div class="simple-page fiche-read">
+    <button class="fiche-back" onclick="goTo('fiches')">← toutes les fiches</button>
+    <div><span class="fiche-tag">grandeurs & mesures</span></div>
+    <h1 class="simple-h1" style="margin-top:10px">l'<span>aire.</span></h1>
+    <div class="fiche-grid">
+      <div class="fiche-block">
+        <h3>de quoi on parle</h3>
+        <p>L'<strong>aire</strong> mesure la <strong>surface</strong> d'une figure (la place qu'elle occupe). Elle se mesure en unité d'aire : mm², cm², m²…</p>
+        <p class="fiche-muted">La <strong>hauteur</strong> d'un triangle (ou d'un parallélogramme) est toujours <strong>perpendiculaire</strong> à la base.</p>
+      </div>
+      <div class="fiche-block">
+        <h3>les formules</h3>
+        <div class="fiche-flist">
+          <div class="fiche-frow"><span class="fiche-fname">carré (côté c)</span><span class="fiche-fval">A = c²</span></div>
+          <div class="fiche-frow"><span class="fiche-fname">rectangle (L, l)</span><span class="fiche-fval">A = L × l</span></div>
+          <div class="fiche-frow"><span class="fiche-fname">triangle (base b, hauteur h)</span><span class="fiche-fval">A = (b × h) / 2</span></div>
+          <div class="fiche-frow"><span class="fiche-fname">parallélogramme</span><span class="fiche-fval">A = b × h</span></div>
+          <div class="fiche-frow"><span class="fiche-fname">disque (rayon r)</span><span class="fiche-fval">A = π × r²</span></div>
+        </div>
+      </div>
+      <div class="fiche-block fiche-fig">
+        <svg viewBox="0 0 240 170" width="220" xmlns="http://www.w3.org/2000/svg" aria-label="triangle de base b et hauteur h">
+          <polygon points="40,140 200,140 120,52" fill="#E7F6EC" stroke="#181B22" stroke-width="2" stroke-linejoin="round"/>
+          <line x1="120" y1="140" x2="120" y2="52" stroke="#4F46E5" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <path d="M120 128 L132 128 L132 140" fill="none" stroke="#181B22" stroke-width="1.2"/>
+          <text x="120" y="158" text-anchor="middle" font-family="'Space Mono',monospace" font-size="11" fill="#6B7280">b = 6 cm</text>
+          <text x="128" y="100" font-family="'Space Mono',monospace" font-size="11" font-weight="700" fill="#4F46E5">h = 4 cm</text>
+        </svg>
+      </div>
+      <div class="fiche-block">
+        <h3>exemple <span class="fiche-sub">— triangle</span></h3>
+        <div class="fiche-ex"><div class="fiche-ex-t">solution</div>Triangle de base b = 6 cm et hauteur h = 4 cm.<br>A = (b × h) / 2<br>A = (6 × 4) / 2<br>A = 24 / 2<br>A = <strong>12 cm²</strong></div>
+      </div>
+      <div class="fiche-block fiche-exo">
+        <h3>exercice type <span class="fiche-sub">— disque</span></h3>
+        <div class="fiche-fig">
+          <svg viewBox="0 0 200 165" width="180" xmlns="http://www.w3.org/2000/svg" aria-label="disque de rayon r">
+            <circle cx="100" cy="82" r="58" fill="#E7F6EC" stroke="#181B22" stroke-width="2"/>
+            <circle cx="100" cy="82" r="2.5" fill="#181B22"/>
+            <line x1="100" y1="82" x2="158" y2="82" stroke="#4F46E5" stroke-width="2"/>
+            <text x="126" y="76" font-family="'Space Mono',monospace" font-size="11" font-weight="700" fill="#4F46E5">r = 5 cm</text>
+          </svg>
+        </div>
+        <p>Calculer l'aire d'un disque de rayon r = 5 cm. On arrondira au dixième.</p>
+        <div class="fiche-ex"><div class="fiche-ex-t">solution</div>A = π × r²<br>A = π × 5²<br>A = π × 25<br>A = 25 × π<br>A ≈ <strong>78,5 cm²</strong></div>
+      </div>
+      <div class="fiche-block">
+        <h3>repère les erreurs <span class="fiche-sub">— deux copies à corriger</span></h3>
+        <p class="fiche-muted">Clique sur les lignes qui contiennent une erreur, puis vérifie.</p>
+        <div class="err-exo" style="margin-top:14px">
+          <div class="err-title">copie 1 — aire d'un triangle de base 6 cm et hauteur 4 cm.</div>
+          <div class="errline" data-err="1" onclick="flagLine(this)">A = b × h = 6 × 4 = 24 cm²</div>
+          <button class="err-check" onclick="checkErrors(this)">vérifier</button>
+          <div class="err-explain"><strong>L'erreur :</strong> on a oublié de diviser par 2. Pour un triangle, A = (b × h) / 2 = (6 × 4) / 2 = <strong>12 cm²</strong>.</div>
+        </div>
+        <div class="err-exo" style="margin-top:14px">
+          <div class="err-title">copie 2 — aire d'un disque de rayon r = 5 cm.</div>
+          <div class="errline" data-err="0" onclick="flagLine(this)">A = π × r²</div>
+          <div class="errline" data-err="1" onclick="flagLine(this)">A = π × 5 = 5 × π ≈ 15,7 cm²</div>
+          <button class="err-check" onclick="checkErrors(this)">vérifier</button>
+          <div class="err-explain"><strong>L'erreur :</strong> il faut élever le rayon au carré. A = π × 5² = π × 25 = 25 × π ≈ <strong>78,5 cm²</strong>.</div>
+        </div>
+      </div>
+      <div class="fiche-note"><strong>à retenir :</strong> l'aire s'exprime en unité au carré (cm²…). La hauteur est perpendiculaire à la base, on n'oublie pas le « / 2 » du triangle, et on ne confond pas l'aire avec le périmètre.</div>
+      <button class="btn btn-cobalt" style="align-self:flex-start" onclick="lancerBrevet()">s'entraîner sur un brevet →</button>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="page-fiche-volume">
+  <div class="simple-page fiche-read">
+    <button class="fiche-back" onclick="goTo('fiches')">← toutes les fiches</button>
+    <div><span class="fiche-tag">grandeurs & mesures</span></div>
+    <h1 class="simple-h1" style="margin-top:10px">le <span>volume.</span></h1>
+    <div class="fiche-grid">
+      <div class="fiche-block">
+        <h3>de quoi on parle</h3>
+        <p>Le <strong>volume</strong> mesure la <strong>place occupée par un solide</strong> dans l'espace. Il se mesure en unité de volume : mm³, cm³, m³… (et en litres : 1 L = 1 dm³).</p>
+        <p class="fiche-muted">Pour beaucoup de solides : volume = <strong>aire de la base × hauteur</strong>.</p>
+      </div>
+      <div class="fiche-block">
+        <h3>les formules</h3>
+        <div class="fiche-flist">
+          <div class="fiche-frow"><span class="fiche-fname">cube (arête a)</span><span class="fiche-fval">V = a³</span></div>
+          <div class="fiche-frow"><span class="fiche-fname">pavé droit (L, l, h)</span><span class="fiche-fval">V = L × l × h</span></div>
+          <div class="fiche-frow"><span class="fiche-fname">cylindre (rayon r, hauteur h)</span><span class="fiche-fval">V = π × r² × h</span></div>
+          <div class="fiche-frow"><span class="fiche-fname">pyramide / cône</span><span class="fiche-fval">V = (aire base × h) / 3</span></div>
+          <div class="fiche-frow"><span class="fiche-fname">boule (rayon r)</span><span class="fiche-fval">V = (4/3) × π × r³</span></div>
+        </div>
+      </div>
+      <div class="fiche-block fiche-fig">
+        <svg viewBox="0 0 240 180" width="220" xmlns="http://www.w3.org/2000/svg" aria-label="pavé droit de dimensions L, l et h">
+          <polygon points="40,70 80,40 190,40 150,70" fill="#D7F0DE" stroke="#181B22" stroke-width="2" stroke-linejoin="round"/>
+          <polygon points="150,70 190,40 190,120 150,150" fill="#CFEAD7" stroke="#181B22" stroke-width="2" stroke-linejoin="round"/>
+          <rect x="40" y="70" width="110" height="80" fill="#E7F6EC" stroke="#181B22" stroke-width="2"/>
+          <text x="95" y="166" text-anchor="middle" font-family="'Space Mono',monospace" font-size="11" fill="#6B7280">L = 5 cm</text>
+          <text x="183" y="92" font-family="'Space Mono',monospace" font-size="11" fill="#6B7280">h = 4 cm</text>
+          <text x="150" y="34" text-anchor="middle" font-family="'Space Mono',monospace" font-size="11" fill="#6B7280">l = 3 cm</text>
+        </svg>
+      </div>
+      <div class="fiche-block">
+        <h3>exemple <span class="fiche-sub">— pavé droit</span></h3>
+        <div class="fiche-ex"><div class="fiche-ex-t">solution</div>Pavé droit : L = 5 cm, l = 3 cm, h = 4 cm.<br>V = L × l × h<br>V = 5 × 3 × 4<br>V = <strong>60 cm³</strong></div>
+      </div>
+      <div class="fiche-block fiche-exo">
+        <h3>exercice type <span class="fiche-sub">— cylindre</span></h3>
+        <div class="fiche-fig">
+          <svg viewBox="0 0 200 200" width="180" xmlns="http://www.w3.org/2000/svg" aria-label="cylindre de rayon r et hauteur h">
+            <rect x="45" y="50" width="110" height="100" fill="#E7F6EC" stroke="none"/>
+            <path d="M45 150 A 55 18 0 0 0 155 150" fill="#E7F6EC" stroke="#181B22" stroke-width="2"/>
+            <path d="M45 150 A 55 18 0 0 1 155 150" fill="none" stroke="#181B22" stroke-width="1" stroke-dasharray="4 3"/>
+            <line x1="45" y1="50" x2="45" y2="150" stroke="#181B22" stroke-width="2"/>
+            <line x1="155" y1="50" x2="155" y2="150" stroke="#181B22" stroke-width="2"/>
+            <ellipse cx="100" cy="50" rx="55" ry="18" fill="#D7F0DE" stroke="#181B22" stroke-width="2"/>
+            <circle cx="100" cy="50" r="2.5" fill="#181B22"/>
+            <line x1="100" y1="50" x2="155" y2="50" stroke="#4F46E5" stroke-width="2"/>
+            <text x="120" y="44" font-family="'Space Mono',monospace" font-size="11" font-weight="700" fill="#4F46E5">r = 2 cm</text>
+            <text x="162" y="105" font-family="'Space Mono',monospace" font-size="11" fill="#6B7280">h = 10 cm</text>
+          </svg>
+        </div>
+        <p>Calculer le volume d'un cylindre de rayon r = 2 cm et de hauteur h = 10 cm. On arrondira au dixième.</p>
+        <div class="fiche-ex"><div class="fiche-ex-t">solution</div>V = π × r² × h<br>V = π × 2² × 10<br>V = π × 4 × 10<br>V = 40 × π<br>V ≈ <strong>125,7 cm³</strong></div>
+      </div>
+      <div class="fiche-block">
+        <h3>repère les erreurs <span class="fiche-sub">— deux copies à corriger</span></h3>
+        <p class="fiche-muted">Clique sur les lignes qui contiennent une erreur, puis vérifie.</p>
+        <div class="err-exo" style="margin-top:14px">
+          <div class="err-title">copie 1 — volume d'un cylindre r = 2 cm, h = 10 cm.</div>
+          <div class="errline" data-err="0" onclick="flagLine(this)">V = π × r² × h</div>
+          <div class="errline" data-err="1" onclick="flagLine(this)">V = π × 2 × 10 = 20 × π ≈ 62,8 cm³</div>
+          <button class="err-check" onclick="checkErrors(this)">vérifier</button>
+          <div class="err-explain"><strong>L'erreur :</strong> on a oublié le carré du rayon. V = π × 2² × 10 = 40 × π ≈ <strong>125,7 cm³</strong>.</div>
+        </div>
+        <div class="err-exo" style="margin-top:14px">
+          <div class="err-title">copie 2 — volume d'une pyramide : aire de base = 12 cm², hauteur = 6 cm.</div>
+          <div class="errline" data-err="1" onclick="flagLine(this)">V = aire de base × hauteur = 12 × 6 = 72 cm³</div>
+          <button class="err-check" onclick="checkErrors(this)">vérifier</button>
+          <div class="err-explain"><strong>L'erreur :</strong> pour une pyramide (ou un cône), on divise par 3. V = (12 × 6) / 3 = <strong>24 cm³</strong>.</div>
+        </div>
+      </div>
+      <div class="fiche-note"><strong>à retenir :</strong> le volume s'exprime en unité au cube (cm³…) et 1 L = 1 dm³. Pour le cylindre, le rayon est au carré ; pour la pyramide et le cône, on divise par 3.</div>
+      <button class="btn btn-cobalt" style="align-self:flex-start" onclick="lancerBrevet()">s'entraîner sur un brevet →</button>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="page-parcours">
+  <div class="parcours-wrap">
+    <div class="parcours-grid">
+
+      <div class="pc-col pc-left">
+        <div class="pc-card pc-level">
+          <div class="pc-kicker">niveau actuel</div>
+          <div class="pc-bignum">9,8<span>/20</span></div>
+          <div class="pc-sub">moyenne générale</div>
+          <div class="pc-tag pc-tag-warn">à retravailler</div>
+        </div>
+        <div class="pc-card">
+          <div class="pc-kicker">objectif à atteindre</div>
+          <div class="pc-bignum pc-bignum-ink">14<span>/20</span></div>
+          <div class="pc-track"><div class="pc-track-fill" style="width:70%"></div><div class="pc-track-dot" style="left:70%"></div></div>
+        </div>
+        <div class="pc-card">
+          <div class="pc-kicker">progression</div>
+          <svg class="pc-spark" viewBox="0 0 200 64" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="12,33 72,27 132,21 192,59" fill="none" stroke="#4F46E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="12" cy="33" r="4" fill="#4F46E5"/><circle cx="72" cy="27" r="4" fill="#4F46E5"/><circle cx="132" cy="21" r="4.5" fill="#16A34A"/><circle cx="192" cy="59" r="4.5" fill="#E2483D"/>
+          </svg>
+        </div>
+        <div class="pc-card">
+          <div class="pc-kicker">trophées <span class="pc-kicker-r">3/6 débloqués</span></div>
+          <div class="pc-trophies">
+            <div class="pc-trophy"><div class="pc-trophy-ic">✦</div><div><div class="pc-trophy-name">premier pas</div><div class="pc-trophy-desc">premier brevet saisi</div></div></div>
+            <div class="pc-trophy"><div class="pc-trophy-ic">▲</div><div><div class="pc-trophy-name">trio</div><div class="pc-trophy-desc">3 brevets réalisés</div></div></div>
+            <div class="pc-trophy"><div class="pc-trophy-ic">★</div><div><div class="pc-trophy-name">mention bien</div><div class="pc-trophy-desc">note ≥ 14/20</div></div></div>
+            <div class="pc-trophy locked"><div class="pc-trophy-ic">★</div><div><div class="pc-trophy-name">très bien</div><div class="pc-trophy-desc">note ≥ 16/20</div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc-col pc-center">
+        <div class="pc-card pc-head">
+          <h1 class="pc-title">mon <span>parcours.</span></h1>
+          <div class="pc-stats">
+            <div class="pc-stat"><div class="pc-stat-num">4</div><div class="pc-stat-lbl">brevets</div></div>
+            <div class="pc-stat"><div class="pc-stat-num">9,8</div><div class="pc-stat-lbl">moyenne</div></div>
+            <div class="pc-stat"><div class="pc-stat-num">15,5</div><div class="pc-stat-lbl">meilleure note</div></div>
+          </div>
+        </div>
+        <div class="pc-card">
+          <div class="pc-section-head">
+            <div><div class="pc-kicker">section 01</div><div class="pc-section-title">historique des brevets</div></div>
+            <div class="pc-filters"><button class="pc-pill active">tous</button><button class="pc-pill">≥ 14</button><button class="pc-pill">&lt; 10</button><button class="pc-pill pc-pill-add">+ ajouter</button></div>
+          </div>
+          <div class="pc-history">
+            <div class="pc-hrow"><div><div class="pc-hmeta">brevet 04 · 4 mai 2026</div><div class="pc-hname">brevet généré</div></div><div class="pc-hright"><div class="pc-hnote">0<span>/20</span></div><div class="pc-htag pc-tag-bad">à retravailler</div></div></div>
+            <div class="pc-hrow"><div><div class="pc-hmeta">brevet 03 · 14 mars 2025</div><div class="pc-hname">géométrie, pythagore</div></div><div class="pc-hright"><div class="pc-hnote">15,5<span>/20</span></div><div class="pc-htag pc-tag-good">bien</div></div></div>
+            <div class="pc-hrow"><div><div class="pc-hmeta">brevet 02 · 28 fév. 2025</div><div class="pc-hname">algèbre, fonctions</div></div><div class="pc-hright"><div class="pc-hnote">13<span>/20</span></div><div class="pc-htag pc-tag-mid">assez bien</div></div></div>
+            <div class="pc-hrow"><div><div class="pc-hmeta">brevet 01 · 10 fév. 2025</div><div class="pc-hname">statistiques, probabilités</div></div><div class="pc-hright"><div class="pc-hnote">10,5<span>/20</span></div><div class="pc-htag pc-tag-neutral">admis</div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc-col pc-right">
+        <div class="pc-card">
+          <div class="pc-kicker">radar des notions</div>
+          <svg class="pc-radar" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="110,28 181,69 181,151 110,192 39,151 39,69" fill="none" stroke="#E5E7EB" stroke-width="1.5"/>
+            <polygon points="110,55.9 156.8,83 156.8,137 110,164.1 63.2,137 63.2,83" fill="none" stroke="#E5E7EB" stroke-width="1.5"/>
+            <polygon points="110,83 133.4,96.5 133.4,123.5 110,137 86.6,123.5 86.6,96.5" fill="none" stroke="#E5E7EB" stroke-width="1.5"/>
+            <line x1="110" y1="110" x2="110" y2="28" stroke="#E5E7EB" stroke-width="1"/><line x1="110" y1="110" x2="181" y2="69" stroke="#E5E7EB" stroke-width="1"/><line x1="110" y1="110" x2="181" y2="151" stroke="#E5E7EB" stroke-width="1"/><line x1="110" y1="110" x2="110" y2="192" stroke="#E5E7EB" stroke-width="1"/><line x1="110" y1="110" x2="39" y2="151" stroke="#E5E7EB" stroke-width="1"/><line x1="110" y1="110" x2="39" y2="69" stroke="#E5E7EB" stroke-width="1"/>
+            <polygon points="110,53.4 145.5,89.5 160.4,139.1 110,159.2 65.2,135.8 74.5,89.5" fill="rgba(79,70,229,0.22)" stroke="#4F46E5" stroke-width="1.8" stroke-linejoin="round"/>
+            <circle cx="110" cy="53.4" r="3" fill="#4F46E5"/><circle cx="145.5" cy="89.5" r="3" fill="#4F46E5"/><circle cx="160.4" cy="139.1" r="3" fill="#4F46E5"/><circle cx="110" cy="159.2" r="3" fill="#4F46E5"/><circle cx="65.2" cy="135.8" r="3" fill="#4F46E5"/><circle cx="74.5" cy="89.5" r="3" fill="#4F46E5"/>
+            <text x="110" y="20" text-anchor="middle" font-family="Space Mono,monospace" font-size="8" fill="#6B7280">géom.</text>
+            <text x="188" y="66" text-anchor="start" font-family="Space Mono,monospace" font-size="8" fill="#6B7280">fract.</text>
+            <text x="188" y="156" text-anchor="start" font-family="Space Mono,monospace" font-size="8" fill="#6B7280">stat.</text>
+            <text x="110" y="208" text-anchor="middle" font-family="Space Mono,monospace" font-size="8" fill="#6B7280">algè.</text>
+            <text x="32" y="156" text-anchor="end" font-family="Space Mono,monospace" font-size="8" fill="#6B7280">fonct.</text>
+            <text x="32" y="66" text-anchor="end" font-family="Space Mono,monospace" font-size="8" fill="#6B7280">proba.</text>
+          </svg>
+        </div>
+        <div class="pc-card">
+          <div class="pc-kicker">points forts · faibles</div>
+          <div class="pc-bars">
+            <div class="pc-bar-row"><div class="pc-bar-lbl">statistiques</div><div class="pc-bar-track"><div class="pc-bar-fill" style="width:71%"></div></div><div class="pc-bar-pct">~71%</div></div>
+            <div class="pc-bar-row"><div class="pc-bar-lbl">géométrie</div><div class="pc-bar-track"><div class="pc-bar-fill" style="width:69%"></div></div><div class="pc-bar-pct">~69%</div></div>
+            <div class="pc-bar-row"><div class="pc-bar-lbl">fonctions</div><div class="pc-bar-track"><div class="pc-bar-fill" style="width:63%"></div></div><div class="pc-bar-pct">~63%</div></div>
+            <div class="pc-bar-row"><div class="pc-bar-lbl">algèbre</div><div class="pc-bar-track"><div class="pc-bar-fill" style="width:60%"></div></div><div class="pc-bar-pct">~60%</div></div>
+            <div class="pc-bar-row"><div class="pc-bar-lbl">fractions</div><div class="pc-bar-track"><div class="pc-bar-fill" style="width:50%"></div></div><div class="pc-bar-pct">~50%</div></div>
+            <div class="pc-bar-row"><div class="pc-bar-lbl">probabilités</div><div class="pc-bar-track"><div class="pc-bar-fill" style="width:50%"></div></div><div class="pc-bar-pct">~50%</div></div>
+          </div>
+        </div>
+        <div class="pc-card">
+          <div class="pc-section-head" style="margin-bottom:0"><div><div class="pc-kicker">section 02</div><div class="pc-section-title">analyse des erreurs</div></div><button class="pc-analyser" onclick="showToast('ajoute des brevets pour analyser')">analyser →</button></div>
+          <div class="pc-locked"><div class="pc-skel"></div><div class="pc-skel" style="width:80%"></div><div class="pc-skel" style="width:60%"></div><div class="pc-locked-txt">ajoute des brevets<br>puis clique <strong>analyser →</strong></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="page" id="page-planning">
+  <div class="plan-wrap">
+    <div class="plan-head">
+      <span class="eyebrow">organisation · révision</span>
+      <h1 class="plan-title">mon <span>planning.</span></h1>
+    </div>
+    <div class="plan-toolbar">
+      <div class="plan-toggle"><button class="pt-seg" id="pt-sem" onclick="planView('semaine')">semaine</button><button class="pt-seg active" id="pt-mois" onclick="planView('mois')">mois</button></div>
+      <div class="plan-nav">
+        <button class="pn-arrow" onclick="planNav(-1)">‹</button>
+        <span class="plan-month" id="planMonth">—</span>
+        <button class="pn-arrow" onclick="planNav(1)">›</button>
+        <button class="pn-today" onclick="planToday()">aujourd'hui</button>
+      </div>
+      <div class="plan-stats">
+        <div class="plan-stat"><div class="ps-num">0</div><div class="ps-lbl">faites</div></div>
+        <div class="plan-stat"><div class="ps-num">0</div><div class="ps-lbl">planifiées</div></div>
+        <div class="plan-stat"><div class="ps-num">0%</div><div class="ps-lbl">complétion</div></div>
+        <button class="plan-ia" onclick="showToast('plan IA bientôt dispo')">✦ plan IA</button>
+      </div>
+    </div>
+    <div class="plan-claude">
+      <span class="plan-claude-badge">CLAUDE</span>
+      <button class="plan-propose" onclick="showToast('Claude prépare un planning de révisions…')">✦ proposer des révisions →</button>
+    </div>
+    <div class="plan-grid-head"><div>lu</div><div>ma</div><div>me</div><div>je</div><div>ve</div><div>sa</div><div>di</div></div>
+    <div class="plan-grid" id="planGrid"></div>
+  </div>
+</div>
+
+<div class="page" id="page-checkout">
+  <div class="simple-page">
+    <span class="eyebrow">tarifs · sans engagement</span>
+    <h1 class="simple-h1" style="margin-top:12px">choisis ton <span>offre.</span></h1>
+    <p class="simple-lead">accès immédiat. 149 €, c'est moins qu'une heure de cours particulier.</p>
+    <div class="pack-grid">
+      <div class="pack" onclick="showToast('paiement indispo en local')">
+        <div class="pack-tier">sans engagement</div>
+        <div class="pack-name">mensuel</div>
+        <div class="pack-price">19,99€</div>
+        <div class="pack-per">/mois · résiliable en 1 clic</div>
+        <div class="pack-feats">
+          <div class="pack-feat">✓ accès complet à brévise</div>
+          <div class="pack-feat">✓ brevets blancs illimités</div>
+          <div class="pack-feat">✓ toutes les fiches & annales</div>
+          <div class="pack-feat">✓ parcours & suivi de progression</div>
+        </div>
+        <button class="pack-btn">choisir →</button>
+      </div>
+      <div class="pack feat" onclick="showToast('paiement indispo en local')">
+        <div class="pack-tier">★ le plus choisi · 2 mois offerts</div>
+        <div class="pack-name">pass année</div>
+        <div class="pack-price">149€</div>
+        <div class="pack-per">paiement unique · jusqu'au jour J</div>
+        <div class="pack-feats">
+          <div class="pack-feat">✓ tout le mensuel inclus</div>
+          <div class="pack-feat">✓ accès de la rentrée au brevet</div>
+          <div class="pack-feat">✓ ~50 € d'économie vs le mensuel</div>
+        </div>
+        <button class="pack-btn">choisir →</button>
+      </div>
+      <div class="pack dark" onclick="showToast('formulaire de devis bientôt dispo')">
+        <div class="pack-tier">professeurs · collèges</div>
+        <div class="pack-name">établissement</div>
+        <div class="pack-price" style="font-size:26px">sur devis</div>
+        <div class="pack-per">licence classe ou collège</div>
+        <div class="pack-feats">
+          <div class="pack-feat">✓ sujets pour toute la classe</div>
+          <div class="pack-feat">✓ suivi des élèves</div>
+          <div class="pack-feat">✓ facturation établissement</div>
+        </div>
+        <button class="pack-btn">demander un devis →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script id="figures-db">
+var figureProgCalc1 = `<svg viewBox="0 0 300 320" width="320" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto"><defs><marker id="aPC" markerWidth="7" markerHeight="7" refX="3.5" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#181B22"/></marker></defs><rect x="55" y="10" width="190" height="38" rx="8" fill="#fff" stroke="#181B22" stroke-width="1.8"/><text x="150" y="34" text-anchor="middle" fill="#4F46E5" font-weight="700" font-size="12" font-family="Space Grotesk,sans-serif">choisir un nombre</text><line x1="150" y1="48" x2="150" y2="68" stroke="#181B22" stroke-width="2" marker-end="url(#aPC)"/><rect x="55" y="68" width="190" height="38" rx="8" fill="#fff" stroke="#181B22" stroke-width="1.8"/><text x="150" y="92" text-anchor="middle" font-size="12" font-family="Space Grotesk,sans-serif">le multiplier par 2</text><line x1="150" y1="106" x2="150" y2="126" stroke="#181B22" stroke-width="2" marker-end="url(#aPC)"/><rect x="55" y="126" width="190" height="38" rx="8" fill="#fff" stroke="#181B22" stroke-width="1.8"/><text x="150" y="150" text-anchor="middle" font-size="12" font-family="Space Grotesk,sans-serif">élever au carré</text><line x1="150" y1="164" x2="150" y2="184" stroke="#181B22" stroke-width="2" marker-end="url(#aPC)"/><rect x="55" y="184" width="190" height="38" rx="8" fill="#fff" stroke="#181B22" stroke-width="1.8"/><text x="150" y="208" text-anchor="middle" font-size="12" font-family="Space Grotesk,sans-serif">retrancher 9</text><line x1="150" y1="222" x2="150" y2="242" stroke="#181B22" stroke-width="2" marker-end="url(#aPC)"/><rect x="55" y="242" width="190" height="38" rx="8" fill="#E7F6EC" stroke="#181B22" stroke-width="1.8"/><text x="150" y="266" text-anchor="middle" fill="#15803D" font-weight="700" font-size="12" font-family="Space Grotesk,sans-serif">afficher le résultat</text></svg>`;
+var figureTableSemaines = `<div style="width:100%;display:flex;flex-direction:column;gap:10px;align-items:center"><div style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em">masse jetée par semaine (kg)</div><table class="brevet-table"><tr><th>sem.</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th></tr><tr><td>kg</td><td>62</td><td>59</td><td>74</td><td>68</td><td>55</td><td>61</td><td>71</td></tr></table></div>`;
+var figureBarChartVelo = (function(){
+  var data=[33,32,42,31,36,28,24,22,14],W=480,H=320,x0=46,x1=464,yTop=44,yBot=274,maxV=46;
+  var scale=(yBot-yTop)/maxV,band=(x1-x0)/data.length,bw=Math.min(30,band-12);
+  var s='<svg viewBox="0 0 '+W+' '+H+'" width="460" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">';
+  s+='<text x="'+(W/2)+'" y="18" text-anchor="middle" font-family="Space Mono,monospace" font-weight="700" font-size="12" fill="#181B22">distance parcourue à vélo · effectif</text>';
+  for(var g=0;g<=maxV;g+=10){var y=yBot-g*scale;s+='<line x1="'+x0+'" y1="'+y+'" x2="'+x1+'" y2="'+y+'" stroke="#E5E7EB" stroke-width="1"/><text x="'+(x0-6)+'" y="'+(y+4)+'" text-anchor="end" font-family="Space Mono,monospace" font-size="9" fill="#6B7280">'+g+'</text>';}
+  s+='<line x1="'+x0+'" y1="'+yTop+'" x2="'+x0+'" y2="'+yBot+'" stroke="#181B22" stroke-width="2"/><line x1="'+x0+'" y1="'+yBot+'" x2="'+x1+'" y2="'+yBot+'" stroke="#181B22" stroke-width="2"/>';
+  for(var i=0;i<data.length;i++){var v=data[i],bh=v*scale,bx=x0+i*band+(band-bw)/2,by=yBot-bh;
+    s+='<rect x="'+bx.toFixed(1)+'" y="'+by.toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+bh.toFixed(1)+'" fill="#E2483D" stroke="#181B22" stroke-width="2"/>';
+    s+='<text x="'+(bx+bw/2).toFixed(1)+'" y="'+(by-4).toFixed(1)+'" text-anchor="middle" font-family="Space Mono,monospace" font-size="9" font-weight="700" fill="#181B22">'+v+'</text>';
+    s+='<text x="'+(bx+bw/2).toFixed(1)+'" y="'+(yBot+15)+'" text-anchor="middle" font-family="Space Mono,monospace" font-size="10" fill="#181B22">'+i+'</text>';}
+  s+='<text x="'+(W/2)+'" y="'+(yBot+32)+'" text-anchor="middle" font-family="Space Mono,monospace" font-size="10" fill="#6B7280">distance (km)</text></svg>';
+  return s;
+})();
+var figureFonctions = (function(){
+  var L=42,R=18,T=18,B=28,W=380,H=358,xmin=-1,xmax=5,ymin=-1,ymax=18;
+  var pw=W-L-R,ph=H-T-B,xs=pw/(xmax-xmin),ys=ph/(ymax-ymin);
+  function px(x){return (L+(x-xmin)*xs).toFixed(1);}function py(y){return (T+(ymax-y)*ys).toFixed(1);}
+  var s='<svg viewBox="0 0 '+W+' '+H+'" width="360" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">';
+  for(var gx=xmin;gx<=xmax;gx++){s+='<line x1="'+px(gx)+'" y1="'+py(ymax)+'" x2="'+px(gx)+'" y2="'+py(ymin)+'" stroke="#E3E6DA" stroke-width="1"/>';}
+  for(var gy=0;gy<=ymax;gy+=2){s+='<line x1="'+px(xmin)+'" y1="'+py(gy)+'" x2="'+px(xmax)+'" y2="'+py(gy)+'" stroke="#E3E6DA" stroke-width="1"/><text x="'+(L+(0-xmin)*xs-6).toFixed(1)+'" y="'+(T+(ymax-gy)*ys+3).toFixed(1)+'" text-anchor="end" font-family="Space Mono,monospace" font-size="8" fill="#6B7280">'+gy+'</text>';}
+  s+='<line x1="'+px(xmin)+'" y1="'+py(0)+'" x2="'+px(xmax)+'" y2="'+py(0)+'" stroke="#181B22" stroke-width="2"/><line x1="'+px(0)+'" y1="'+py(ymax)+'" x2="'+px(0)+'" y2="'+py(ymin)+'" stroke="#181B22" stroke-width="2"/>';
+  for(var lx=xmin;lx<=xmax;lx++){if(lx!==0)s+='<text x="'+px(lx)+'" y="'+(T+(ymax-0)*ys+12).toFixed(1)+'" text-anchor="middle" font-family="Space Mono,monospace" font-size="8" fill="#6B7280">'+lx+'</text>';}
+  s+='<line x1="'+px(-1)+'" y1="'+py(-1)+'" x2="'+px(3.75)+'" y2="'+py(18)+'" stroke="#E2483D" stroke-width="2.6"/>';
+  s+='<line x1="'+px(-1/6)+'" y1="'+py(-1)+'" x2="'+px(3)+'" y2="'+py(18)+'" stroke="#4F46E5" stroke-width="2.6"/>';
+  s+='<circle cx="'+px(1.5)+'" cy="'+py(9)+'" r="3.6" fill="#181B22"/>';
+  s+='<text x="'+px(2.45)+'" y="'+py(17)+'" font-family="Space Mono,monospace" font-size="11" font-weight="700" fill="#4F46E5">(d₁)</text>';
+  s+='<text x="'+px(3.75)+'" y="'+py(16.5)+'" font-family="Space Mono,monospace" font-size="11" font-weight="700" fill="#E2483D">(d₂)</text>';
+  s+='</svg>';return s;
+})();
+var figurePolygone1, figurePolygone2;
+(function(){
+  var A=[0,0],B=[180,0],C=[180,180],D=[0,180];
+  var I=[60,0],J=[120,0],K=[180,60],L=[180,120],M=[120,180],N=[60,180],O=[0,120],P=[0,60];
+  var oct=[I,J,K,L,M,N,O,P];
+  function ticks(p,q,n){
+    var mx=(p[0]+q[0])/2,my=(p[1]+q[1])/2,dx=q[0]-p[0],dy=q[1]-p[1],len=Math.hypot(dx,dy);
+    var ux=dx/len,uy=dy/len,px=-uy,py=ux,gap=4,half=4,out='';
+    for(var i=0;i<n;i++){var off=(i-(n-1)/2)*gap,cx=mx+ux*off,cy=my+uy*off;
+      out+='<line x1="'+(cx+px*half).toFixed(1)+'" y1="'+(cy+py*half).toFixed(1)+'" x2="'+(cx-px*half).toFixed(1)+'" y2="'+(cy-py*half).toFixed(1)+'" stroke="#181B22" stroke-width="1.6"/>';}
+    return out;
+  }
+  var segs=[[A,I],[I,J],[J,B],[B,K],[K,L],[L,C],[C,M],[M,N],[N,D],[D,P],[P,O],[O,A]];
+  var tickStr='';segs.forEach(function(s){tickStr+=ticks(s[0],s[1],2);});
+  var octPts=oct.map(function(p){return p[0]+','+p[1];}).join(' ');
+  var labels=[['A',-10,-8],['B',184,-8],['C',184,193],['D',-16,193],['I',55,-9],['J',114,-9],['K',186,63],['L',186,123],['M',114,197],['N',52,197],['O',-17,123],['P',-17,63]];
+  function lbl(){var out='';labels.forEach(function(t){out+='<text x="'+t[1]+'" y="'+t[2]+'" font-size="13" font-weight="700" font-family="Space Grotesk,sans-serif" fill="#181B22">'+t[0]+'</text>';});return out;}
+  var head='<svg viewBox="-28 -28 236 236" width="230" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">';
+  var square='<rect x="0" y="0" width="180" height="180" fill="none" stroke="#181B22" stroke-width="1.8"/>';
+  var octagon='<polygon points="'+octPts+'" fill="#C2C6BB" stroke="#181B22" stroke-width="1.8"/>';
+  figurePolygone1=head+square+octagon+tickStr+lbl()+'</svg>';
+  var circle='<circle cx="90" cy="90" r="90" fill="#C2C6BB" fill-opacity="0.5" stroke="#181B22" stroke-width="1.8"/>';
+  var diag='<line x1="0" y1="0" x2="180" y2="180" stroke="#181B22" stroke-width="1.6" stroke-dasharray="6 5"/><line x1="180" y1="0" x2="0" y2="180" stroke="#181B22" stroke-width="1.6" stroke-dasharray="6 5"/>';
+  var sdot='<circle cx="90" cy="90" r="2.8" fill="#181B22"/><text x="95" y="85" font-size="12" font-weight="700" font-family="Space Grotesk,sans-serif" fill="#181B22">S</text>';
+  figurePolygone2=head+square+octagon+circle+diag+sdot+tickStr+lbl()+'</svg>';
+})();
+</script>
+
+<script id="exercises-db">
+const exercises = [
+  { id:1, num:"01", source:"Brevet Test 2026 N°1", name:"Automatismes", pts:6, notion:"Automatisme", stimulus:null, figure:null,
+    questions:[
+      {pts:1,text:"Quel est le tiers de 18 ?",answer:"6",solution:"18 ÷ 3 = 6"},
+      {pts:1,text:"Un film dure 240 min. Sa durée en heures ?",answer:"4 heures",solution:"240 ÷ 60 = 4"},
+      {pts:1,text:"Médiane de la série : 8 ; 12 ; 6 ; 19 ; 15.",answer:"12",solution:"Ordre croissant : 6, 8, 12, 15, 19 → valeur centrale = 12"},
+      {pts:1,text:"Triangle ABC rectangle en B, angle A = 35°. Mesure de l'angle Ĉ ?",answer:"55°",solution:"35° + 90° + Ĉ = 180° → Ĉ = 55°"},
+      {pts:1,text:"Thalès : AC = 4, CB = 2, DE = 7. Calculer AD.",answer:"14 cm",solution:"4/2 = AD/7 → AD = 14 cm"},
+      {pts:1,text:"25 % des 300 élèves font l'olympiade. Combien n'y participent pas ?",answer:"225 élèves",solution:"25 % de 300 = 75 → 300 − 75 = 225"}
+    ]
+  },
+  { id:2, num:"02", source:"Brevet Test 2026 N°1", name:"Dév. durable", pts:3, notion:"Statistiques",
+    stimulus:"Dans le cadre d'un projet « Éducation au développement durable », un collège réalise deux enquêtes. La 1ʳᵉ porte sur le gaspillage alimentaire à la cantine : on relève la masse jetée chaque semaine (kg).", figure:figureTableSemaines, figureWide:true,
+    questions:[
+      {pts:1,text:"Le collège vise une moyenne hebdomadaire de déchets <strong>≤ 65 kg</strong> sur les 7 semaines. Montrer qu'il a atteint son objectif.",answer:"Oui (≈ 64,3 kg)",solution:"Total = 62+59+74+68+55+61+71 = 450 kg. Moyenne = 450 ÷ 7 ≈ 64,3 kg ≤ 65 kg → objectif atteint."},
+      {pts:1,context:"2ᵉ enquête : déplacements à vélo. Le diagramme donne, pour chaque distance, l'effectif d'élèves qui la parcourent à vélo (0 km = élèves qui ne viennent pas à vélo).",figureOverride:figureBarChartVelo,text:"Déterminer l'effectif total d'élèves du collège.",answer:"262",solution:"33+32+42+31+36+28+24+22+14 = 262 élèves."},
+      {pts:1,figureOverride:figureBarChartVelo,text:"L'affirmation « <strong>plus de 30 % des élèves ont parcouru au moins 5 km à vélo</strong> » est-elle vraie ? Justifie en précisant la démarche.",answer:"Vraie",solution:"Au moins 5 km : 28+24+22+14 = 88 élèves. 88 ÷ 262 ≈ 0,336 = 33,6 %. 33,6 % > 30 % → l'affirmation est vraie."}
+    ]
+  },
+  { id:3, num:"03", source:"Brevet Test 2026 N°1", name:"Programme de calcul", pts:3, notion:"Algèbre",
+    stimulus:"On donne un programme de calcul (voir le diagramme).", figure:figureProgCalc1,
+    questions:[
+      {pts:1,text:"Lorsque le nombre choisi est 4, vérifier que le programme affiche 55, en précisant chaque étape du calcul.",answer:"55",solution:"4 → ×2 = 8 → 8² = 64 → 64 − 9 = 55. Le programme affiche bien 55. ✓"},
+      {pts:1,context:"On appelle x le nombre choisi au départ.",text:"Écrire, en fonction de x, le résultat obtenu par le programme.",answer:"4x² − 9",solution:"x → 2x → (2x)² = 4x² → 4x² − 9."},
+      {pts:1,text:"Parmi ces quatre expressions, laquelle correspond au résultat du programme ?<br><strong>A</strong> = 55 · <strong>B</strong> = (2x+3)² · <strong>C</strong> = (2x−3)(2x+3) · <strong>D</strong> = (2x−3)²",answer:"C",solution:"4x² − 9 = (2x)² − 3² = (2x − 3)(2x + 3), c'est une différence de deux carrés : l'expression C convient."}
+    ]
+  },
+  { id:4, num:"04", source:"Sujet 0 2026", name:"Fonctions f et g", pts:3, notion:"Algèbre",
+    stimulus:"On considère les fonctions f : x ↦ 4x + 3 et g : x ↦ 6x. Leurs représentations graphiques (d₁) et (d₂) sont tracées ci-dessous.", figure:figureFonctions,
+    questions:[
+      {pts:0.5,text:"Parmi ces deux fonctions, laquelle représente une situation de proportionnalité ?",answer:"g",solution:"g : x ↦ 6x est linéaire (de la forme ax, sans terme constant) → c'est une situation de proportionnalité. f : x ↦ 4x + 3 est affine (terme « + 3 ») → pas proportionnelle. Réponse : g."},
+      {pts:0.5,text:"Calculer l'image de 0 par la fonction g.",answer:"0",solution:"g(0) = 6 × 0 = 0."},
+      {pts:0.5,text:"Déterminer l'antécédent de 0 par la fonction f.",answer:"−0,75",solution:"On résout f(x) = 0 : 4x + 3 = 0 → 4x = −3 → x = −3/4 = −0,75."},
+      {pts:0.5,text:"Associer à chaque droite la fonction qu'elle représente. <strong>Justifie ta réponse.</strong>",answer:"(d₁) = g, (d₂) = f",solution:"(d₁) passe par l'origine → c'est g (y = 6x, proportionnalité). (d₂) coupe l'axe des ordonnées en 3 → c'est f (y = 4x + 3). On peut aussi comparer les pentes : (d₁) est plus raide (6 > 4)."},
+      {pts:1,text:"Déterminer graphiquement les coordonnées du point d'intersection des droites (d₁) et (d₂).",answer:"(1,5 ; 9)",solution:"Les deux droites se croisent au point de coordonnées (1,5 ; 9). Vérification : f(1,5) = 4 × 1,5 + 3 = 9 et g(1,5) = 6 × 1,5 = 9."}
+    ]
+  },
+  { id:5, num:"05", source:"Brevet Test 2026 N°1", name:"Polygone IJKLMNOP", pts:3, notion:"Géométrie",
+    stimulus:"ABCD est un carré de côté 9 cm. Les segments de même longueur sont codés (voir la figure).", figure:figurePolygone1,
+    questions:[
+      {pts:1,text:"Le polygone IJKLMNOP est-il régulier, c'est-à-dire a-t-il tous ses côtés de même longueur ? <strong>Justifie ta réponse.</strong>",answer:"Non",solution:"Chaque côté du carré est partagé en 3 segments égaux de 3 cm. Les côtés « droits » (IJ, KL, MN, OP) mesurent 3 cm, mais les côtés obliques des coins (comme PI) mesurent 3√2 ≈ 4,24 cm. Les côtés ne sont pas tous égaux : le polygone n'est donc pas régulier."},
+      {pts:1,text:"Justifie que l'aire de la surface grisée IJKLMNOP est égale à 63 cm².",answer:"63 cm²",solution:"On retire au carré ses 4 coins. Chaque coin est un triangle rectangle isocèle de côtés 3 cm : aire = (3 × 3) ÷ 2 = 4,5 cm². Aire du polygone = 9² − 4 × 4,5 = 81 − 18 = 63 cm²."},
+      {pts:0.5,context:"Les diagonales du carré ABCD se coupent en S. On trace le cercle de centre S et de diamètre 9 cm.",text:"Détermine l'aire du disque de centre S et de diamètre 9 cm.",figureOverride:figurePolygone2,answer:"≈ 63,6 cm²",solution:"Rayon = 9 ÷ 2 = 4,5 cm. Aire = π × 4,5² = 20,25 × π ≈ 63,6 cm²."},
+      {pts:0.5,text:"Montre que la différence entre l'aire du disque et celle du polygone IJKLMNOP représente moins de 1 % de l'aire du disque.",figureOverride:figurePolygone2,answer:"≈ 0,97 %",solution:"Différence ≈ 63,6 − 63 = 0,6 cm². Part du disque = 0,6 ÷ 63,6 ≈ 0,0097 ≈ 0,97 %, soit moins de 1 %."}
+    ]
+  }
+];
+</script>
+<script>
+function toggleOpt(k,btn){var pb=document.getElementById('page-brevet');if(!pb)return;var on=pb.classList.toggle('opt-'+k);if(btn)btn.classList.toggle('active',on);}
+// ── ASSISTANT GÉNÉRATEUR ──
+var genStep=1,GEN_MAX=4;
+function showGenStep(n){
+  genStep=Math.max(1,Math.min(GEN_MAX,n));
+  document.querySelectorAll('#page-generer .gen-panel').forEach(p=>p.classList.toggle('active',+p.dataset.step===genStep));
+  document.querySelectorAll('#genSteps .gen-step-pip').forEach(p=>{var s=+p.dataset.s;p.classList.toggle('active',s===genStep);p.classList.toggle('done',s<genStep);});
+  var prev=document.getElementById('genPrev'),next=document.getElementById('genNext');
+  if(prev)prev.style.visibility=genStep===1?'hidden':'visible';
+  if(next)next.textContent=genStep===GEN_MAX?'démarrer le brevet →':'suivant →';
+  if(genStep===GEN_MAX)buildGenRecap();
+}
+function genGo(d){if(d>0&&genStep===GEN_MAX){lancerBrevet();return;}showGenStep(genStep+d);}
+function buildGenRecap(){
+  var el=document.getElementById('genRecap');if(!el)return;
+  var dur=document.querySelector('#page-generer .duree-chip.sel');
+  var durTxt=dur?dur.textContent.trim():'2h';
+  var notions;
+  if(document.querySelector('#page-generer .all-chip.sel'))notions='toutes les notions';
+  else{var sel=[].slice.call(document.querySelectorAll('#page-generer .notion-chip.sel')).filter(c=>c.dataset.notion!=='all').map(c=>c.textContent.trim());notions=sel.length?sel.join(', '):'toutes les notions';}
+  var corr=document.querySelector('#page-generer .corr-chip.sel .corr-title');
+  var corrTxt=corr?corr.textContent.trim():'—';
+  el.innerHTML='<div class="recap-row"><span class="recap-k">durée</span><span class="recap-v">'+durTxt+'</span></div>'+
+    '<div class="recap-row"><span class="recap-k">notions</span><span class="recap-v">'+notions+'</span></div>'+
+    '<div class="recap-row"><span class="recap-k">correction</span><span class="recap-v">'+corrTxt+'</span></div>';
+}
+function flagLine(l){var box=l.closest('.err-exo');if(box&&box.classList.contains('checked'))return;l.classList.toggle('flagged');}
+function checkErrors(btn){
+  var box=btn.closest('.err-exo');if(!box)return;box.classList.add('checked');
+  box.querySelectorAll('.errline').forEach(function(l){
+    var isErr=l.dataset.err==='1',flagged=l.classList.contains('flagged');
+    l.classList.add('revealed');
+    if(isErr&&flagged)l.classList.add('good');
+    else if(isErr)l.classList.add('missed');
+    else if(flagged)l.classList.add('falsepos');
+  });
+  var ex=box.querySelector('.err-explain');if(ex)ex.style.display='block';
+  btn.disabled=true;btn.textContent='corrigé ✓';
+}
+function goTo(page){
+  document.querySelectorAll('.page').forEach(p=>{p.style.display='none';p.classList.remove('active');});
+  var t=document.getElementById('page-'+page);
+  if(!t){showToast('page « '+page+' » indispo');page='accueil';t=document.getElementById('page-accueil');}
+  t.classList.add('active');
+  if(page==='generer'&&typeof showGenStep==='function')showGenStep(1);
+  if(page==='parcours'||page==='planning'||page==='generer'||page==='entrainement'){t.style.display='flex';t.style.flexDirection='column';t.style.height='calc(100vh - 79px)';t.style.overflow='hidden';}
+  else if(page==='brevet'){t.style.display='block';t.style.height='100vh';t.style.overflow='hidden';}
+  else{t.style.display='block';}
+  document.body.style.overflow=(page==='accueil'||page==='checkout'||page==='annales'||page==='fiches'||page==='fiche-pythagore'||page==='fiche-trigo'||page==='fiche-perimetre'||page==='fiche-aire'||page==='fiche-volume'||page==='entrainement')?'auto':'hidden';
+  document.querySelectorAll('.nav-links li').forEach(li=>{li.classList.remove('on','on-orange');if(li.dataset.page==='checkout')li.classList.add('on-orange');else if(li.dataset.page===page)li.classList.add('on');});
+  var nav=document.querySelector('body > nav.nav');
+  var hide=(page==='brevet');
+  if(nav)nav.style.display=hide?'none':'';
+  window.scrollTo(0,0);
+}
+function showToast(msg){var t=document.getElementById('toast');if(!t)return;t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2600);}
+// ── BRUITAGES bon / faux (Web Audio, sans fichier externe) ──
+var sfxCtx=null;
+function _sfxCtx(){
+  if(!sfxCtx)sfxCtx=new (window.AudioContext||window.webkitAudioContext)();
+  if(sfxCtx.state==='suspended')sfxCtx.resume();
+  return sfxCtx;
+}
+function _voice(ctx,freq,start,dur,peak,type,cutoff){
+  var o=ctx.createOscillator(),g=ctx.createGain(),f=ctx.createBiquadFilter();
+  o.type=type||'sine';o.frequency.value=freq;
+  f.type='lowpass';f.frequency.value=cutoff||2800;
+  o.connect(f);f.connect(g);g.connect(ctx.destination);
+  g.gain.setValueAtTime(0.0001,start);
+  g.gain.exponentialRampToValueAtTime(peak,start+0.018);
+  g.gain.exponentialRampToValueAtTime(0.0001,start+dur);
+  o.start(start);o.stop(start+dur+0.05);
+}
+function sfx(ok){
+  try{
+    var ctx=_sfxCtx(),t=ctx.currentTime;
+    if(ok){
+      var n=[523.25,659.25,783.99];           // do – mi – sol montant, chaleureux
+      for(var i=0;i<n.length;i++){
+        _voice(ctx,n[i],t+i*0.085,0.32,0.15,'triangle',3200);
+        _voice(ctx,n[i]*2,t+i*0.085,0.20,0.04,'sine',5200);  // léger éclat aigu
+      }
+      _voice(ctx,1046.50,t+0.255,0.55,0.11,'sine',5200);     // cloche finale qui résonne
+    }else{
+      _voice(ctx,392.00,t,0.20,0.11,'sine',1300);            // deux notes douces qui descendent
+      _voice(ctx,293.66,t+0.11,0.32,0.11,'sine',1100);       // feutré, jamais agressif
+    }
+  }catch(e){}
+}
+function sfxTap(){
+  try{var ctx=_sfxCtx();_voice(ctx,330,ctx.currentTime,0.075,0.045,'sine',2400);}catch(e){}
+}
+document.addEventListener('click',function(e){
+  var el=e.target.closest('button,a.logo,.nav-links a,.train-card-btn,.errline,[class*="chip"]');
+  if(el&&!el.disabled)sfxTap();
+},true);
+function sfxRoulette(){
+  try{
+    var ctx=_sfxCtx(),t0=ctx.currentTime,t=0,gap=0.045;
+    while(t<3.0){_voice(ctx,1250,t0+t,0.022,0.03,'triangle',3200);t+=gap;gap*=1.17;}
+    _voice(ctx,659.25,t0+t+0.04,0.34,0.07,'sine',3000);
+  }catch(e){}
+}
+
+var examDate=new Date('2026-06-30T08:00:00');
+function pad(n){return String(n).padStart(2,'0');}
+function tickCD(){
+  var diff=examDate-new Date();var ids=['cd-j','cd-h','cd-m','cd-s'];
+  if(diff<=0){ids.forEach(id=>{var e=document.getElementById(id);if(e)e.textContent='00';});return;}
+  var ts=Math.floor(diff/1000),j=Math.floor(ts/86400),h=Math.floor((ts%86400)/3600),m=Math.floor((ts%3600)/60),s=ts%60;
+  var cj=document.getElementById('cd-j');if(cj)cj.textContent=pad(j);
+  var ch=document.getElementById('cd-h');if(ch)ch.textContent=pad(h);
+  var cm=document.getElementById('cd-m');if(cm)cm.textContent=pad(m);
+  var cs=document.getElementById('cd-s');if(cs)cs.textContent=pad(s);
+  var fd=document.getElementById('final-d');if(fd)fd.textContent=j;
+}
+tickCD();setInterval(tickCD,1000);
+
+(function(){
+  var NS='http://www.w3.org/2000/svg';
+  var demoVariants=[
+    {n:18,k:9,hex:'#E2483D',name:'rouge'},
+    {n:12,k:3,hex:'#4F46E5',name:'bleue'},
+    {n:10,k:4,hex:'#F59E0B',name:'jaune'},
+    {n:16,k:12,hex:'#4F46E5',name:'bleue'}
+  ];
+  var demoIdx=0,demoTarget=0.5,spinning=false;
+  function gcd(a,b){return b?gcd(b,a%b):a;}
+  function brightSet(n,k){var s={},acc=0;for(var i=0;i<n;i++){acc+=k;if(acc>=n){acc-=n;s[i]=1;}}return s;}
+  function buildWheel(v){
+    var sectors=document.getElementById('roulette-sectors'),numbers=document.getElementById('roulette-numbers'),dividers=document.getElementById('roulette-dividers');
+    if(!sectors||!numbers||!dividers)return false;
+    sectors.textContent='';numbers.textContent='';dividers.textContent='';
+    var R=102,n=v.n,step=360/n,bright=brightSet(n,v.k);
+    for(var i=0;i<n;i++){
+      var a1=(i*step-90-step/2)*Math.PI/180,a2=((i+1)*step-90-step/2)*Math.PI/180;
+      var x1=Math.cos(a1)*R,y1=Math.sin(a1)*R,x2=Math.cos(a2)*R,y2=Math.sin(a2)*R;
+      var isB=!!bright[i],color=isB?v.hex:'#181B22';
+      var p=document.createElementNS(NS,'path');
+      p.setAttribute('d','M 0 0 L '+x1.toFixed(2)+' '+y1.toFixed(2)+' A '+R+' '+R+' 0 0 1 '+x2.toFixed(2)+' '+y2.toFixed(2)+' Z');
+      p.setAttribute('fill',color);sectors.appendChild(p);
+      var l=document.createElementNS(NS,'line');l.setAttribute('x1','0');l.setAttribute('y1','0');l.setAttribute('x2',x1.toFixed(2));l.setAttribute('y2',y1.toFixed(2));dividers.appendChild(l);
+      var am=(i*step-90)*Math.PI/180,rn=R*0.78,nx=Math.cos(am)*rn,ny=Math.sin(am)*rn;
+      var tx=document.createElementNS(NS,'text');tx.setAttribute('x',nx.toFixed(2));tx.setAttribute('y',(ny+3).toFixed(2));tx.setAttribute('text-anchor','middle');tx.setAttribute('font-size',n>14?'10':'11');tx.setAttribute('font-weight','700');tx.setAttribute('font-family','Space Mono,monospace');tx.setAttribute('fill',isB&&v.hex==='#F59E0B'?'#181B22':'#fff');tx.setAttribute('transform','rotate('+(i*step).toFixed(2)+' '+nx.toFixed(2)+' '+ny.toFixed(2)+')');tx.textContent=(i+1);numbers.appendChild(tx);
+    }
+    return true;
+  }
+  function applyVariant(v){
+    demoTarget=v.k/v.n;
+    var g=gcd(v.k,v.n),simpl=(v.k/g)+'/'+(v.n/g),raw=v.k+'/'+v.n;
+    var dec=(''+(Math.round(v.k/v.n*1000)/1000)).replace('.',',');
+    var fr=simpl===raw?raw:(raw+' = '+simpl);
+    var intro=document.querySelector('.exo-demo-intro'),q=document.querySelector('.exo-demo-qtext'),body=document.querySelector('.exo-demo-reveal-body');
+    if(intro)intro.innerHTML='une roulette de casino est divisée en <strong>'+v.n+' cases identiques</strong>, numérotées de 1 à '+v.n+', dont <strong>'+v.k+' sont '+v.name+'s</strong>. on la fait tourner.';
+    if(q)q.innerHTML='quelle est la probabilité que la bille tombe sur une case <strong>'+v.name+'</strong> ?';
+    if(body)body.innerHTML='sur '+v.n+' cases, <strong>'+v.k+' sont '+v.name+'s</strong>. la probabilité vaut donc <strong>'+fr+' = '+dec+'</strong>.';
+    var input=document.getElementById('demo-answer-input');if(input){input.value='';input.disabled=false;}
+    var btn=document.querySelector('.exo-demo-answer-btn');if(btn)btn.disabled=false;
+    var wrap=document.querySelector('.exo-demo-answer');if(wrap)wrap.classList.remove('right','wrong');
+    var rev=document.getElementById('demo-reveal');if(rev)rev.classList.remove('open');
+    var badge=document.getElementById('demo-reveal-badge');if(badge)badge.textContent='✓ bonne réponse';
+    buildWheel(v);
+  }
+  function ensureWheel(){var s=document.getElementById('roulette-sectors');if(s&&s.childNodes.length===0)buildWheel(demoVariants[demoIdx]);}
+  function init(){applyVariant(demoVariants[0]);}
+  if(document.getElementById('roulette-sectors'))init();else{document.addEventListener('DOMContentLoaded',init);window.addEventListener('load',init);}
+  window.demoSpinWheel=function(){
+    if(spinning)return;var w=document.getElementById('demo-wheel-spin');if(!w)return;
+    ensureWheel();spinning=true;if(typeof sfxRoulette==='function')sfxRoulette();var hint=document.getElementById('demo-spin-hint');if(hint)hint.style.opacity='0';
+    w.classList.remove('once');w.style.animation='';void w.getBoundingClientRect();
+    var end=1080+Math.floor(Math.random()*360);w.style.setProperty('--we',end+'deg');
+    requestAnimationFrame(function(){w.classList.add('once');});
+    setTimeout(function(){spinning=false;if(hint)hint.style.opacity='';},3500);
+  };
+  window.demoValidate=function(){
+    var input=document.getElementById('demo-answer-input');if(!input)return;
+    var raw=(input.value||'').trim().toLowerCase().replace(/\s+/g,'').replace(',','.');
+    if(!raw)return;
+    var ok=false,T=demoTarget,fm=raw.match(/^(\d+)\/(\d+)$/);
+    if(fm){var a=+fm[1],b=+fm[2];if(b>0&&Math.abs(a/b-T)<0.005)ok=true;}
+    if(!ok){var nn=parseFloat(raw.replace('%',''));if(!isNaN(nn)){if(raw.indexOf('%')>=0)nn/=100;if(Math.abs(nn-T)<0.01)ok=true;}}
+    var wrap=document.querySelector('.exo-demo-answer');if(wrap){wrap.classList.remove('right','wrong');wrap.classList.add(ok?'right':'wrong');}
+    input.disabled=true;var btn=document.querySelector('.exo-demo-answer-btn');if(btn)btn.disabled=true;
+    var rev=document.getElementById('demo-reveal'),badge=document.getElementById('demo-reveal-badge');
+    if(rev){if(!ok&&badge){badge.textContent='la bonne réponse';}rev.classList.add('open');}
+    if(ok)demoConfetti();
+    sfx(ok);
+  };
+  function demoConfetti(){
+    var wrap=document.querySelector('.exo-demo');if(!wrap)return;
+    var colors=['#4F46E5','#F59E0B','#16A34A','#E2483D'];
+    for(var i=0;i<18;i++){var c=document.createElement('span');c.className='exo-confetti';c.style.left=(40+Math.random()*20)+'%';c.style.background=colors[i%colors.length];c.style.animationDelay=(Math.random()*.2)+'s';c.style.setProperty('--dx',(Math.random()*400-200)+'px');c.style.setProperty('--rot',(Math.random()*720-360)+'deg');wrap.appendChild(c);setTimeout(function(el){return function(){el.remove();};}(c),2000);}
+  }
+  (function(){
+    var sec=document.getElementById('demo');if(!sec||!('IntersectionObserver' in window))return;
+    var everIn=false,hasLeft=false;
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){
+          if(everIn&&hasLeft){demoIdx=(demoIdx+1)%demoVariants.length;applyVariant(demoVariants[demoIdx]);}
+          everIn=true;hasLeft=false;
+        }else if(everIn){hasLeft=true;}
+      });
+    },{threshold:0.45});
+    io.observe(sec);
+  })();
+  setTimeout(function(){window.demoSpinWheel();},800);
+})();
+
+function selectDuree(e){document.querySelectorAll('.duree-chip').forEach(c=>c.classList.remove('sel'));e.classList.add('sel');var rd=document.getElementById('recap-duree');if(rd)rd.textContent=e.querySelector('span').textContent;}
+function toggleNotion(e){
+  if(e.dataset.notion==='all'){document.querySelectorAll('.notion-chip').forEach(c=>{c.classList.remove('sel');c.querySelector('.ncheck').textContent='';});e.classList.add('sel');e.querySelector('.ncheck').textContent='✓';}
+  else{var all=document.querySelector('.notion-chip[data-notion="all"]');if(all){all.classList.remove('sel');all.querySelector('.ncheck').textContent='';}e.classList.toggle('sel');e.querySelector('.ncheck').textContent=e.classList.contains('sel')?'✓':'';if(!document.querySelectorAll('.notion-chip.sel:not([data-notion="all"])').length&&all){all.classList.add('sel');all.querySelector('.ncheck').textContent='✓';}}
+  var el=document.getElementById('recap-notions');if(!el)return;el.innerHTML='';
+  if(document.querySelector('.notion-chip.all-chip.sel')){el.innerHTML='<span class="recap-tag all">toutes les notions</span>';}
+  else{document.querySelectorAll('.notion-chip.sel:not(.all-chip)').forEach(c=>{var s=document.createElement('span');s.className='recap-tag';s.textContent=c.dataset.notion.toLowerCase();el.appendChild(s);});}
+}
+function selectCorr(e){document.querySelectorAll('.corr-chip').forEach(c=>{c.classList.remove('sel');c.querySelector('.ccheck').textContent='';});e.classList.add('sel');e.querySelector('.ccheck').textContent='✓';var rc=document.getElementById('recap-corr');if(rc)rc.textContent=e.dataset.mode==='question'?'question par question':"à la fin de l'examen";}
+
+var playerExercises=[],playerAnswers={},playerVerdicts={},playerTimerInt=null;
+var curEx=1,curQ=0;const doneSet=new Set();var corrMode='question',showingCorrection=false,totalSecs=7200;
+function key(e,q){return e+"-"+q;}
+function totalQ(){return playerExercises.reduce((s,e)=>s+e.questions.length,0);}
+function getGI(){let i=0;for(const ex of playerExercises){if(ex.id===curEx)return i+curQ;i+=ex.questions.length;}return i;}
+function fmtTimer(s){var h=Math.floor(s/3600),m=Math.floor((s%3600)/60),sec=s%60;return (h>0?h+':':'')+pad(m)+':'+pad(sec);}
+function lancerBrevet(){
+  if(typeof exercises==='undefined'||!exercises.length){showToast('aucun exercice');return;}
+  var chip=document.querySelector('.duree-chip.sel');
+  playerExercises=exercises.slice();playerAnswers={};playerVerdicts={};doneSet.clear();
+  curEx=playerExercises[0].id;curQ=0;totalSecs=chip?+chip.dataset.mins*60:7200;
+  var tv=document.getElementById('timerVal');if(tv)tv.textContent=fmtTimer(totalSecs);
+  var sl=document.getElementById('sujetLabel');if(sl)sl.textContent=playerExercises[0].source||'';
+  var cc=document.querySelector('.corr-chip.sel');corrMode=cc?cc.dataset.mode:'question';showingCorrection=false;
+  goTo('brevet');
+  setTimeout(function(){buildSidebar();buildQuestion();updatePts();startTimer();},50);
+}
+function quitterBrevet(){clearInterval(playerTimerInt);goTo('generer');}
+function buildSidebar(){
+  var el=document.getElementById("exList");if(!el)return;el.innerHTML="";
+  playerExercises.forEach(ex=>{
+    var isActive=ex.id===curEx,allDone=ex.questions.every((_,i)=>doneSet.has(key(ex.id,i)));
+    var item=document.createElement("div");item.className="ex-item"+(isActive?" active":"")+(allDone&&!isActive?" done":"");
+    var dots=ex.questions.map((q,i)=>{
+      var a=isActive&&i===curQ,v=playerVerdicts[key(ex.id,i)]||'';
+      var w=v.indexOf('INCORRECT')!==-1,pa=v.indexOf('PARTIEL')!==-1,co=v&&!w&&!pa&&v.indexOf('CORRECT')!==-1;
+      var dc='dot';if(a)dc+=' active';else if(co)dc+=' done';else if(pa)dc+=' partial';else if(w)dc+=' wrong';
+      return '<div class="'+dc+'" onclick="jumpTo('+ex.id+','+i+')"></div>';
+    }).join("");
+    item.innerHTML='<div class="ex-header"><div class="ex-num">'+(allDone&&!isActive?"✓":(ex.num||ex.id))+'</div><div style="flex:1;min-width:0"><div class="ex-name">'+ex.name+'</div><div class="ex-sub">'+ex.pts+' pts</div></div></div><div class="ex-dots">'+dots+'</div>';
+    item.querySelector(".ex-header").onclick=()=>jumpTo(ex.id,0);el.appendChild(item);
+  });
+  var done=doneSet.size,total=totalQ(),pct=total?Math.round(done/total*100):0;
+  var pt=document.getElementById("progText");if(pt)pt.textContent=done+" / "+total;
+  var pp=document.getElementById("progPct");if(pp)pp.textContent=pct+"%";
+  var pf=document.getElementById("progFill");if(pf)pf.style.width=pct+"%";
+}
+function buildQuestion(){
+  showingCorrection=false;var old=document.getElementById('corrBlock');if(old)old.remove();
+  var ex=playerExercises.find(e=>e.id===curEx);if(!ex)return;var q=ex.questions[curQ];
+  var area=document.getElementById("examArea");if(!area)return;
+  var saved=playerAnswers[key(curEx,curQ)]||"";
+  var figHTML=q.figureOverride||(ex.figure||"");
+  var hasEnonce=!!(figHTML||ex.stimulus);
+  var stim=ex.stimulus?'<div class="stim-box">'+ex.stimulus+'</div>':"";
+  var fig=figHTML?'<div class="fig-frame">'+figHTML+'</div>':"";
+  var enonceCard=hasEnonce?'<div class="enonce-card"><div class="enonce-lbl">énoncé</div>'+stim+fig+'<div class="enonce-foot" id="enonceFoot"></div></div>':"";
+  var ctx=q.context?'<div class="ctx-box">'+q.context+'</div>':'';
+  var questionCard='<div class="question-card">'
+    +'<div class="card-header"><span class="q-tag">ex.'+ex.id+' — '+ex.name+'</span><span class="q-breadcrumb">question <strong>'+(curQ+1)+'</strong> / '+ex.questions.length+'</span></div>'
+    +'<div class="card-body"><div class="card-main">'+ctx
+    +'<div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><span class="q-num">'+(curQ+1)+'</span><span class="q-text" style="flex:1;min-width:0">'+q.text+'</span><span class="q-pts">'+q.pts+' pt'+(q.pts>1?'s':'')+'</span></div>'
+    +'<div style="display:flex;flex-direction:column;flex:1;min-height:0"><div class="answer-lbl">ta réponse</div><textarea class="answer-textarea" id="answerTA" placeholder="rédige tes calculs ici…">'+saved+'</textarea></div>'
+    +'</div></div><div class="card-footer" id="footerNav"></div></div>';
+  area.innerHTML=enonceCard+questionCard;
+  var ta=document.getElementById("answerTA");if(ta)ta.addEventListener("input",()=>{playerAnswers[key(curEx,curQ)]=ta.value;});
+  buildFooter(ex);
+}
+function renderNav(forwardHTML){
+  var isFirst=curEx===playerExercises[0].id&&curQ===0;
+  var prevBtn=(!isFirst)?'<button class="btn btn-ghost" onclick="goPrev()">← précédent</button>':'';
+  var stepInfo='<div class="step-info">question '+(getGI()+1)+' / '+totalQ()+'</div>';
+  var ef=document.getElementById("enonceFoot"),nav=document.getElementById("footerNav");
+  if(ef){ef.innerHTML=prevBtn;if(nav)nav.innerHTML=stepInfo+forwardHTML;}
+  else if(nav){nav.innerHTML=(prevBtn||'<div></div>')+stepInfo+forwardHTML;}
+}
+function buildFooter(ex){
+  if(!document.getElementById("footerNav"))return;
+  var isLastQ=curQ===ex.questions.length-1,isLastEx=ex.id===playerExercises[playerExercises.length-1].id;
+  renderNav(isLastQ&&isLastEx?'<button class="btn btn-amber" onclick="handleSubmit()">terminer →</button>':'<button class="btn btn-cobalt" onclick="goNext()">valider →</button>');
+}
+function saveAnswer(){var ta=document.getElementById("answerTA");if(ta)playerAnswers[key(curEx,curQ)]=ta.value;}
+function localCorrection(ex,q){
+  showingCorrection=true;var ta=document.getElementById("answerTA");if(ta){ta.disabled=true;ta.style.opacity='.6';}
+  var user=(playerAnswers[key(curEx,curQ)]||'').trim().toLowerCase().replace(/\s/g,''),ans=(q.answer||'').toLowerCase().replace(/\s/g,'');
+  var ok=user&&(ans.indexOf(user)!==-1||user.indexOf(ans.slice(0,3))!==-1);
+  playerVerdicts[key(curEx,curQ)]=ok?'CORRECT':'INCORRECT';doneSet.add(key(curEx,curQ));updatePts();sfx(ok);
+  var color=ok?'var(--green)':'var(--clay)',bg=ok?'var(--lcd)':'var(--ko-soft)',icon=ok?'✓':'✗',label=ok?'bravo':'à revoir';
+  var block=document.createElement('div');block.id='corrBlock';
+  block.innerHTML='<div class="corr-verdict" style="background:'+bg+'"><div class="corr-vicon" style="background:'+color+'">'+icon+'</div><div><div class="corr-vlabel" style="color:'+color+'">'+label+'</div><div style="font-size:14px;margin-top:3px">réponse attendue : <strong>'+q.answer+'</strong></div></div></div>'
+    +'<div class="corr-section"><div class="corr-section-lbl">démarche</div><div style="font-size:14px;line-height:1.7;font-weight:500">'+q.solution+'</div></div>';
+  var cm=document.querySelector(".card-main");if(cm)cm.appendChild(block);
+  var isLastQ=curQ===ex.questions.length-1,isLastEx=ex.id===playerExercises[playerExercises.length-1].id;
+  renderNav(isLastQ&&isLastEx?'<button class="btn btn-amber" onclick="handleSubmit()">terminer →</button>':'<button class="btn btn-cobalt" onclick="goNextFromCorr()">suivant →</button>');
+  buildSidebar();
+}
+function goNext(){saveAnswer();var ex=playerExercises.find(e=>e.id===curEx),q=ex.questions[curQ];if(corrMode==='question'&&!showingCorrection&&(playerAnswers[key(curEx,curQ)]||'').trim()){localCorrection(ex,q);return;}doneSet.add(key(curEx,curQ));advance(ex);buildSidebar();buildQuestion();}
+function goNextFromCorr(){showingCorrection=false;var old=document.getElementById('corrBlock');if(old)old.remove();var ex=playerExercises.find(e=>e.id===curEx);advance(ex);buildSidebar();buildQuestion();}
+function advance(ex){if(curQ<ex.questions.length-1){curQ++;}else{var idx=playerExercises.findIndex(e=>e.id===curEx);if(idx<playerExercises.length-1){curEx=playerExercises[idx+1].id;curQ=0;}}}
+function goPrev(){saveAnswer();if(curQ>0){curQ--;}else{var idx=playerExercises.findIndex(e=>e.id===curEx);if(idx>0){curEx=playerExercises[idx-1].id;curQ=playerExercises[idx-1].questions.length-1;}}buildSidebar();buildQuestion();}
+function jumpTo(exId,qIdx){saveAnswer();curEx=exId;curQ=qIdx;buildSidebar();buildQuestion();}
+function handleSubmit(){saveAnswer();doneSet.add(key(curEx,curQ));gradeAll();buildSidebar();clearInterval(playerTimerInt);showEnd();}
+function gradeAll(){playerExercises.forEach(function(ex){ex.questions.forEach(function(q,i){var k=key(ex.id,i);if(playerVerdicts[k])return;var ua=(playerAnswers[k]||'').trim().toLowerCase().replace(/\s/g,'');if(!ua)return;var ans=(q.answer||'').toLowerCase().replace(/\s/g,'');var ok=ans.indexOf(ua)!==-1||ua.indexOf(ans.slice(0,3))!==-1;playerVerdicts[k]=ok?'CORRECT':'INCORRECT';});});}
+function computeScore(){var earned=0,total=0,vc=0,ans=0,tot=0;playerExercises.forEach(ex=>{ex.questions.forEach((q,i)=>{tot++;var pts=+q.pts||0;total+=pts;if((playerAnswers[key(ex.id,i)]||'').trim()){ans++;var v=playerVerdicts[key(ex.id,i)]||'';if(v){vc++;if(v.indexOf('INCORRECT')===-1&&v.indexOf('PARTIEL')===-1&&v.indexOf('CORRECT')!==-1)earned+=pts;else if(v.indexOf('PARTIEL')!==-1)earned+=pts*0.5;}}});});var has=vc>0,s20=has?Math.min(20,Math.round((earned/total)*20*2)/2):null;return{answered:ans,total:tot,earned:Math.round(earned*10)/10,ptsTotal:Math.round(total*10)/10,score20:s20,has:has};}
+function updatePts(){var sc=computeScore(),pill=document.getElementById('ptsPill');if(!pill)return;var f=function(n){return String(n).replace('.',',');};if(sc.has&&sc.score20!==null){pill.innerHTML=f(sc.score20)+'/20';}else{pill.textContent='—/20';}}
+function showEnd(){
+  gradeAll();
+  var sc=computeScore(),card=document.getElementById('examArea');if(!card)return;
+  var note=(sc.score20!==null?sc.score20:0);
+  var m=note>=16?'très bien':note>=14?'bien':note>=12?'assez bien':note>=10?'passable':'à retravailler';
+  var noteHTML='<div style="text-align:center;padding:32px 0"><div class="answer-lbl" style="text-align:center">note estimée</div><div style="font-family:var(--grot);font-weight:700;font-size:84px;color:var(--green-deep);line-height:.9">'+String(note).replace('.',',')+'<span style="font-family:var(--grot);font-size:.32em;color:var(--muted);font-weight:500"> /20</span></div><div style="display:inline-block;margin-top:12px;font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink);border:1.5px solid var(--ink);padding:5px 16px;border-radius:999px;background:var(--amber)">'+m+'</div></div>';
+  card.innerHTML='<div class="question-card" style="display:block;overflow-y:auto"><div style="max-width:480px;margin:0 auto;padding:30px 20px"><div style="font-family:var(--grot);font-weight:700;font-size:34px;text-transform:uppercase;line-height:.95">brevet blanc<br><span style="color:var(--cobalt)">terminé.</span></div><div style="border:1.5px solid var(--ink);border-radius:16px;box-shadow:0 6px 18px -6px rgba(24,27,34,.26);margin-top:22px;background:var(--paper-2)">'+noteHTML+'</div><div style="display:flex;flex-direction:column;gap:10px;margin-top:22px"><button class="btn btn-amber" style="justify-content:center" onclick="quitterBrevet();setTimeout(function(){goTo(&#39;generer&#39;)},80)">refaire un brevet →</button><button class="btn btn-ghost" style="justify-content:center" onclick="quitterBrevet();setTimeout(function(){goTo(&#39;parcours&#39;)},80)">mon parcours →</button></div></div></div>';
+}
+function tick(){totalSecs--;if(totalSecs<=0){clearInterval(playerTimerInt);showToast('⏱ temps écoulé !');setTimeout(showEnd,1000);return;}var tv=document.getElementById("timerVal");if(tv)tv.textContent=fmtTimer(totalSecs);}
+function startTimer(){clearInterval(playerTimerInt);playerTimerInt=setInterval(tick,1000);}
+
+// ── ENTRAÎNEMENT ──
+function buildEntrainement(){
+  var el=document.getElementById('trainList');if(!el||typeof exercises==='undefined')return;
+  el.innerHTML=exercises.map(function(ex){
+    var nq=ex.questions.length;
+    return '<div class="train-card"><span class="train-card-tag">'+ex.notion+'</span>'
+      +'<div class="train-card-name">'+ex.name+'</div>'
+      +'<div class="train-card-meta">'+ex.pts+' pts · '+nq+' question'+(nq>1?'s':'')+'</div>'
+      +'<button class="train-card-btn" onclick="lancerEntrainement('+ex.id+')">s&#39;entraîner →</button></div>';
+  }).join('');
+}
+function lancerEntrainement(exId){
+  if(typeof exercises==='undefined'){showToast('aucun exercice');return;}
+  var ex=exercises.find(function(e){return e.id===exId;});if(!ex){showToast('exercice introuvable');return;}
+  playerExercises=[ex];playerAnswers={};playerVerdicts={};doneSet.clear();
+  curEx=ex.id;curQ=0;totalSecs=900;
+  var tv=document.getElementById('timerVal');if(tv)tv.textContent=fmtTimer(totalSecs);
+  var sl=document.getElementById('sujetLabel');if(sl)sl.textContent='entraînement · '+ex.name;
+  corrMode='question';showingCorrection=false;
+  goTo('brevet');
+  setTimeout(function(){buildSidebar();buildQuestion();updatePts();startTimer();},50);
+}
+
+// ── PLANNING (calendrier) ──
+var planRef=new Date();
+var planMonths=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+function buildPlanning(){
+  var grid=document.getElementById('planGrid');if(!grid)return;
+  var y=planRef.getFullYear(),m=planRef.getMonth();
+  var lbl=document.getElementById('planMonth');if(lbl)lbl.textContent=planMonths[m]+' '+y;
+  var startDow=(new Date(y,m,1).getDay()+6)%7;
+  var nb=new Date(y,m+1,0).getDate();
+  var t=new Date(),cur=(t.getFullYear()===y&&t.getMonth()===m),td=t.getDate();
+  var cells=[];
+  for(var i=0;i<startDow;i++)cells.push('<div class="plan-cell empty"></div>');
+  for(var d=1;d<=nb;d++){
+    var now=cur&&d===td;
+    cells.push('<div class="plan-cell'+(now?' today':'')+'"><div class="pc-daynum'+(now?' now':'')+'">'+d+'</div><button class="pc-add" onclick="showToast(&#39;créneau de révision bientôt&#39;)">+</button></div>');
+  }
+  while(cells.length%7!==0)cells.push('<div class="plan-cell empty"></div>');
+  grid.innerHTML=cells.join('');
+}
+function planNav(d){planRef=new Date(planRef.getFullYear(),planRef.getMonth()+d,1);buildPlanning();}
+function planToday(){planRef=new Date();buildPlanning();}
+function planView(v){var s=document.getElementById('pt-sem'),mo=document.getElementById('pt-mois');if(s)s.classList.toggle('active',v==='semaine');if(mo)mo.classList.toggle('active',v==='mois');if(v==='semaine')showToast('vue semaine bientôt dispo');}
+
+
+buildEntrainement();
+buildPlanning();
+document.querySelectorAll('.page').forEach(p=>p.style.display='none');
+goTo('accueil');
+</script>
+</body>
+</html>
