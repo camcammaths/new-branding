@@ -60,7 +60,7 @@ a{color:inherit}
 .hero-ctas{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap}
 .hero-fine{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:16px;letter-spacing:.02em}
 .hero{position:relative;z-index:0}
-.hero::after{content:'';position:absolute;top:-60px;right:-30px;width:540px;height:540px;background:radial-gradient(circle,rgba(132,204,22,.20),rgba(79,70,229,.12) 45%,transparent 70%);filter:blur(18px);z-index:0;pointer-events:none}
+.hero::after{content:'';position:absolute;top:-60px;right:-30px;width:620px;height:620px;background:radial-gradient(circle,rgba(132,204,22,.40),rgba(79,70,229,.26) 46%,transparent 72%);filter:blur(10px);z-index:0;pointer-events:none}
 .hero-left,.hero-right{position:relative;z-index:1}
 .hero-hook{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.04em;background:var(--pop-soft);color:var(--green-deep);border:1.5px solid var(--ink);border-radius:999px;padding:6px 13px;margin-top:18px}
 .hero-hook .dot{width:7px;height:7px;border-radius:50%;background:var(--pop);border:1.5px solid var(--ink)}
@@ -75,6 +75,21 @@ a{color:inherit}
 .cd-num{font-family:var(--mono);font-weight:700;font-size:clamp(22px,3.4vw,38px);color:var(--ink);line-height:1}
 .cd-lbl{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:4px}
 .cd-sep{font-family:var(--grot);font-weight:700;font-size:30px;color:var(--cobalt)}
+/* pile de sujets (visuel hero) */
+.he-pile{display:block;margin-bottom:54px}
+.pile-wrap{position:relative;width:264px;height:172px;margin:0 auto}
+.pile-card{position:absolute;inset:0;background:var(--paper-2);border:1.5px solid var(--ink);border-radius:16px;box-shadow:0 12px 28px -14px rgba(24,27,34,.32)}
+.pile-c3{transform:rotate(-7deg) translate(-9px,7px);background:var(--lcd)}
+.pile-c2{transform:rotate(4.5deg) translate(9px,4px);background:var(--pop-soft)}
+.pile-c1{padding:17px 18px;display:flex;flex-direction:column;gap:11px}
+.pile-top{display:flex;justify-content:space-between;align-items:center}
+.pile-badge{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.12em;background:var(--cobalt);color:#fff;border:1.5px solid var(--ink);border-radius:999px;padding:3px 10px}
+.pile-pi{font-family:'Anton',sans-serif;font-size:26px;color:var(--cobalt);line-height:1}
+.pile-lines{display:flex;flex-direction:column;gap:8px;margin-top:2px}
+.pile-lines span{height:9px;border-radius:999px;background:var(--line);display:block}
+.pile-lines span:nth-child(2){width:90%}
+.pile-lines span:nth-child(3){width:66%}
+.pile-foot{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:auto}
 .sec{position:relative;z-index:1;padding:56px 40px;max-width:1280px;margin:0 auto}
 .sec-alt{background:var(--paper-2);border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
 .sec-inner{max-width:1280px;margin:0 auto}
@@ -132,9 +147,9 @@ a{color:inherit}
 .train-card-btn:hover{transform:translate(-1px,-1px);box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
 .train-card-btn:active{transform:translate(2px,2px);box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
 /* ── MON PARCOURS ── */
-.parcours-wrap{flex:1 1 0;min-height:0;overflow-y:auto;overflow-x:hidden;padding:13px 16px 22px;display:flex}
-.parcours-grid{display:grid;grid-template-columns:226px 1fr 272px;gap:12px;max-width:1340px;margin:0 auto;width:100%;align-items:start}
-.pc-col{display:flex;flex-direction:column;gap:12px;min-width:0}
+.parcours-wrap{flex:1 1 0;min-height:0;overflow:hidden;padding:13px 16px 16px;display:flex}
+.parcours-grid{display:grid;grid-template-columns:226px 1fr 272px;gap:12px;max-width:1340px;margin:0 auto;width:100%;height:100%;min-height:0;align-items:stretch}
+.pc-col{display:flex;flex-direction:column;gap:12px;min-width:0;min-height:0;overflow-y:auto;overflow-x:hidden;padding-right:2px}
 .pc-card{background:var(--paper-2);border:1.5px solid var(--ink);border-radius:14px;padding:13px 14px;box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
 .pc-kicker{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
 .pc-kicker-r{color:var(--muted);letter-spacing:.06em}
@@ -177,8 +192,13 @@ a{color:inherit}
 .pc-pill.active{background:var(--cobalt);color:#fff}
 .pc-pill-add{background:var(--ink);color:#fff}
 .pc-history{display:flex;flex-direction:column;gap:6px}
-.pc-hrow{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1.5px solid var(--ink);border-radius:10px;padding:9px 13px;background:var(--paper);transition:transform .1s}
+.pc-hrow{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1.5px solid var(--ink);border-radius:10px;padding:9px 13px;background:var(--paper);transition:transform .1s;cursor:pointer}
 .pc-hrow:hover{transform:translateX(2px);background:var(--paper-2)}
+.pc-hitem{display:flex;flex-direction:column}
+.pc-hcomment{max-height:0;overflow:hidden;opacity:0;background:var(--lcd);border-left:4px solid var(--green);border-radius:0 10px 10px 0;padding:0 14px;font-size:14px;line-height:1.6;transition:max-height .25s ease,opacity .2s ease,padding .2s ease,margin .2s ease}
+.pc-hitem.open .pc-hcomment{max-height:320px;opacity:1;padding:12px 14px;margin-top:6px}
+.pc-hitem.open .pc-hrow{background:var(--paper-2)}
+.pc-hcomment-lbl{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green-deep);margin-bottom:5px}
 .pc-hmeta{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .pc-hname{font-weight:700;font-size:15px;margin-top:3px}
 .pc-hright{text-align:right;flex-shrink:0}
@@ -187,7 +207,25 @@ a{color:inherit}
 .pc-htag{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:999px;border:1.5px solid var(--ink);display:inline-block;margin-top:5px}
 .pc-radar{display:block;margin:2px auto 0;width:100%;max-width:166px;height:auto}
 .pc-bars{display:flex;flex-direction:column;gap:6px;margin-top:8px}
-.pc-bar-row{display:grid;grid-template-columns:74px 1fr 34px;align-items:center;gap:8px}
+.pc-bar-row{display:grid;grid-template-columns:74px 1fr 34px;align-items:center;gap:8px;cursor:pointer;border-radius:8px;padding:4px 6px;margin:0 -6px;transition:background .12s}
+.pc-bar-row:hover{background:var(--lcd)}
+.pc-trophy:not(.locked){cursor:pointer;border-radius:8px;transition:background .12s}
+.pc-trophy:not(.locked):hover{background:var(--lcd)}
+#objTrack{cursor:pointer;touch-action:none}
+#objTrack .pc-track-dot{cursor:grab}
+#objTrack .pc-track-dot:active{cursor:grabbing}
+.pc-modal{position:fixed;inset:0;z-index:800;display:none;align-items:center;justify-content:center;background:rgba(24,27,34,.5);padding:20px}
+.pc-modal.open{display:flex}
+.pc-modal-card{background:var(--paper-2);border:1.5px solid var(--ink);border-radius:18px;box-shadow:0 30px 70px -24px rgba(24,27,34,.5);max-width:480px;width:100%;padding:24px 26px;position:relative}
+.pc-modal-close{position:absolute;top:12px;right:15px;border:none;background:transparent;font-size:22px;cursor:pointer;color:var(--muted);line-height:1}
+.pc-modal-meta{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.pc-modal-title{font-family:var(--grot);font-weight:700;font-size:22px;margin:4px 0 10px;text-transform:lowercase}
+.pc-modal-note{display:inline-block;font-family:var(--grot);font-weight:700;font-size:14px;background:var(--lcd);border:1px solid var(--line);border-radius:999px;padding:4px 12px;margin-bottom:14px}
+.pc-modal-lbl{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green-deep);margin-bottom:6px}
+.pc-modal-comment{font-size:14.5px;line-height:1.65;background:var(--lcd);border-left:4px solid var(--green);border-radius:0 10px 10px 0;padding:14px 16px}
+.pc-modal-foot{display:flex;justify-content:flex-end;gap:10px;margin-top:18px}
+.pc-modal-btn{font-family:var(--grot);font-weight:700;font-size:13px;padding:9px 16px;border:1.5px solid var(--ink);border-radius:999px;background:var(--paper-2);cursor:pointer}
+.pc-modal-btn.cob{background:var(--cobalt);color:#fff;border-color:var(--cobalt)}
 .pc-bar-lbl{font-size:11px;font-weight:600}
 .pc-bar-track{height:9px;background:var(--line);border:1.5px solid var(--ink);border-radius:999px;overflow:hidden}
 .pc-bar-fill{height:100%;background:var(--clay)}
@@ -196,6 +234,28 @@ a{color:inherit}
 .pc-skel{width:100%;height:9px;border-radius:999px;background:var(--line)}
 .pc-locked-txt{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:6px;line-height:1.6}
 .pc-analyser{font-family:var(--mono);font-size:11px;font-weight:700;background:#EEF0FE;color:var(--cobalt);border:1.5px solid var(--ink);border-radius:999px;padding:5px 12px;cursor:pointer}
+/* compaction parcours (tenir sans scroll) */
+#page-parcours .pc-col{gap:9px}
+#page-parcours .pc-card{padding:9px 13px}
+#page-parcours .pc-bignum{font-size:30px;margin-top:1px}
+#page-parcours .pc-sub{margin-top:2px}
+#page-parcours .pc-tag{margin-top:5px}
+#page-parcours .pc-track{margin-top:8px}
+#page-parcours .pc-spark{max-height:64px;margin-top:6px}
+#page-parcours .pc-trophies{gap:4px;margin-top:5px}
+#page-parcours .pc-trophy-ic{width:23px;height:23px;font-size:12px;border-radius:7px}
+#page-parcours .pc-trophy-name{font-size:12px}
+#page-parcours .pc-trophy-desc{font-size:9px}
+#page-parcours .pc-radar{max-width:152px;margin-top:0}
+#page-parcours .pc-bars{gap:3px;margin-top:4px}
+#page-parcours .pc-bar-row{padding:1px 6px}
+#page-parcours .pc-bar-track{height:7px}
+#page-parcours .pc-locked{gap:4px;margin-top:4px}
+#page-parcours .pc-skel{height:6px}
+#page-parcours .pc-locked-txt{margin-top:3px;font-size:10px;line-height:1.5}
+#page-parcours .pc-section-head{margin-bottom:7px}
+#page-parcours .pc-history{gap:5px}
+#page-parcours .pc-hrow{padding:7px 12px}
 /* ── PLANNING ── */
 .plan-wrap{flex:1 1 0;min-height:0;overflow-y:auto;padding:22px 26px}
 .plan-head{margin-bottom:16px}
@@ -223,13 +283,44 @@ a{color:inherit}
 .plan-grid-head{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-bottom:8px}
 .plan-grid-head div{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-left:4px}
 .plan-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
-.plan-cell{min-height:94px;border:1.5px solid var(--ink);border-radius:12px;background:var(--paper-2);padding:8px;display:flex;flex-direction:column;gap:8px}
+.plan-cell{min-height:94px;border:1.5px solid var(--ink);border-radius:12px;background:var(--paper-2);padding:8px;display:flex;flex-direction:column;gap:8px;position:relative}
 .plan-cell.empty{border-style:dashed;border-color:var(--line);background:transparent}
 .plan-cell.today{background:#EEF0FE;border-color:var(--cobalt)}
 .pc-daynum{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--ink)}
 .pc-daynum.now{background:var(--cobalt);color:#fff;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center}
 .pc-add{margin-top:auto;border:1.5px dashed var(--muted);border-radius:8px;background:transparent;color:var(--muted);font-size:14px;padding:5px;cursor:pointer;transition:background .12s,color .12s,border-color .12s}
 .pc-add:hover{background:var(--lcd);border-color:var(--ink);color:var(--ink)}
+.plan-grid.is-week .plan-cell{min-height:300px}
+.plan-grid.is-week .plan-cell.empty{display:none}
+.pc-slot-hint{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:6px}
+.pe-chip{display:flex;align-items:center;gap:6px;border:1.5px solid var(--ink);border-radius:8px;padding:4px 7px;background:var(--paper-2);cursor:pointer;font-size:11px;font-weight:600;line-height:1.15;transition:background .12s,transform .1s}
+.pe-chip:hover{background:var(--ko-soft);transform:translateX(1px)}
+.pe-chip:hover .pe-name::after{content:' ✕';color:var(--clay);font-weight:700}
+.pe-dot{width:9px;height:9px;border-radius:50%;background:var(--c,var(--cobalt));border:1.5px solid var(--ink);flex-shrink:0}
+.pe-name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pe-time{font-family:var(--mono);font-size:9px;font-weight:700;color:var(--muted);flex-shrink:0}
+.pe-list{display:flex;flex-direction:column;gap:5px;margin-top:2px}
+.plan-modal{position:fixed;inset:0;background:rgba(24,27,34,.5);display:none;align-items:center;justify-content:center;z-index:200;padding:20px}
+.plan-modal.open{display:flex}
+.plan-modal-card{background:var(--paper-2);border:1.5px solid var(--ink);border-radius:18px;box-shadow:0 24px 60px -16px rgba(24,27,34,.5);width:100%;max-width:440px;padding:22px 24px;animation:pmIn .18s ease}
+@keyframes pmIn{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+.pm-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:16px}
+.pm-kicker{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.pm-date{font-family:var(--grot);font-weight:700;font-size:21px;text-transform:lowercase;margin-top:2px}
+.pm-x{border:1.5px solid var(--ink);background:var(--paper);border-radius:9px;width:30px;height:30px;cursor:pointer;font-size:13px;flex-shrink:0}
+.pm-x:hover{background:var(--ko-soft)}
+.pm-lbl{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:14px 0 8px}
+.pm-mats,.pm-times{display:flex;flex-wrap:wrap;gap:7px}
+.pm-opt{font-family:var(--grot);font-size:13px;font-weight:600;padding:6px 12px;border:1.5px solid var(--ink);border-radius:999px;background:var(--paper-2);cursor:pointer;display:flex;align-items:center;gap:6px;transition:background .12s,color .12s}
+.pm-opt:hover{background:var(--lcd)}
+.pm-opt .pe-dot{width:10px;height:10px}
+.pm-opt.sel{background:var(--cobalt);color:#fff;border-color:var(--ink)}
+.pm-opt.sel .pe-dot{border-color:#fff}
+.pm-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:22px}
+.pm-cancel{font-family:var(--grot);font-weight:600;font-size:14px;padding:9px 16px;border:1.5px solid var(--ink);border-radius:10px;background:var(--paper-2);cursor:pointer}
+.pm-cancel:hover{background:var(--ko-soft)}
+.pm-add{font-family:var(--grot);font-weight:700;font-size:14px;padding:9px 18px;border:1.5px solid var(--ink);border-radius:10px;background:var(--green);color:#fff;cursor:pointer;box-shadow:0 4px 0 var(--green-deep);transition:transform .1s,box-shadow .1s}
+.pm-add:active{transform:translateY(3px);box-shadow:0 1px 0 var(--green-deep)}
 .hero-stickers{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 18px;margin-bottom:30px;max-width:420px}
 .hero-stickers .stk svg{height:78px;width:auto;display:block}
 .hero-stickers .stk-seal svg{height:104px}
@@ -351,12 +442,16 @@ a{color:inherit}
 .corr-chip.sel .ccheck{background:var(--green);color:#fff}
 .gen-cta{display:flex;flex-direction:column;gap:8px;margin-top:4px}
 .gen-wizard{width:100%;max-width:620px;padding:18px 30px 22px;display:flex;flex-direction:column;gap:16px}
-.gen-steps{display:flex;flex-wrap:wrap;gap:8px 14px;justify-content:center}
-.gen-step-pip{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
-.gen-step-pip span{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:11px;background:var(--paper-2);color:var(--ink)}
+.gen-steps{display:flex;align-items:center;width:100%}
+.gen-step-pip{flex:1 1 0;display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);white-space:nowrap}
+.gen-step-pip:last-child{flex:0 0 auto}
+.gen-step-pip::after{content:"";flex:1 1 auto;height:1.5px;background:var(--line);margin:0 10px}
+.gen-step-pip:last-child::after{display:none}
+.gen-step-pip span{flex:0 0 auto;width:24px;height:24px;border-radius:50%;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:12px;background:var(--paper-2);color:var(--ink)}
 .gen-step-pip.active{color:var(--ink)}
 .gen-step-pip.active span{background:var(--cobalt);color:#fff;border-color:var(--cobalt)}
 .gen-step-pip.done span{background:var(--green);color:#fff;border-color:var(--green-deep)}
+.gen-step-pip.done::after{background:var(--cobalt)}
 .gen-panel{display:none}
 .gen-panel.active{display:block;animation:genFade .25s ease}
 @keyframes genFade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
@@ -375,7 +470,7 @@ a{color:inherit}
 .bp-quit{font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);background:none;border:none;cursor:pointer}
 .bp-quit:hover{color:var(--ink)}
 .bp-sujet{font-family:var(--mono);font-size:10px;font-weight:700;color:var(--green-deep);background:var(--lcd);text-transform:uppercase;letter-spacing:.1em;padding:5px 12px;border:1.5px solid var(--ink);border-radius:999px}
-.bp-sujet::before{content:'✦ '}
+.bp-sujet::before{content:''}
 .pts-pill{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--cobalt);background:var(--lcd);padding:6px 14px;border:1.5px solid var(--ink);border-radius:999px}
 .timer-wrap{display:flex;align-items:center;gap:8px;background:var(--paper-2);border:1.5px solid var(--ink);border-radius:999px;padding:6px 14px}
 .timer-dot{width:8px;height:8px;border-radius:50%;background:var(--clay);animation:pulse 1s infinite}
@@ -412,36 +507,46 @@ a{color:inherit}
 .prog-label{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;font-weight:700;color:var(--muted);margin-bottom:6px}
 .prog-bar{height:8px;background:var(--paper);border:1.5px solid var(--ink);border-radius:999px;overflow:hidden}
 .prog-fill{height:100%;background:var(--green);transition:width .4s}
-.content{display:flex;gap:14px;min-height:0;width:100%}
-.enonce-card{flex:1;background:var(--paper-2);border:1.5px solid var(--ink);border-radius:16px;box-shadow:0 6px 18px -6px rgba(24,27,34,.26);padding:18px 20px;display:flex;flex-direction:column;gap:12px;overflow-y:auto}
+.content{display:flex;gap:18px;min-height:0;width:100%}
+.enonce-card{flex:1;background:var(--paper-2);border:1.5px solid var(--ink);border-radius:16px;box-shadow:0 6px 18px -6px rgba(24,27,34,.26);display:flex;flex-direction:column;overflow:hidden}
+.enonce-body{flex:1;overflow-y:auto;padding:24px 28px;display:flex;flex-direction:column;gap:16px}
 .question-card{flex:1;background:var(--paper-2);border:1.5px solid var(--ink);border-radius:16px;box-shadow:0 6px 18px -6px rgba(24,27,34,.26);overflow:hidden;display:grid;grid-template-rows:auto 1fr auto;min-height:0}
-.card-header{display:flex;justify-content:space-between;align-items:center;padding:11px 22px;border-bottom:1.5px solid var(--ink)}
-.card-footer{display:flex;justify-content:space-between;align-items:center;padding:11px 22px;border-top:1.5px solid var(--ink)}
+.card-header{display:flex;justify-content:space-between;align-items:center;padding:14px 30px;border-bottom:1.5px solid var(--ink)}
+.card-footer{display:flex;justify-content:space-between;align-items:center;padding:14px 30px;border-top:1.5px solid var(--ink)}
 .q-tag{font-family:var(--mono);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;background:var(--lcd);color:var(--green-deep);border:1.5px solid var(--ink);padding:4px 11px;border-radius:999px}
 .q-breadcrumb{font-family:var(--mono);font-size:11px;color:var(--muted)}
 .q-breadcrumb strong{color:var(--ink)}
 .card-body{display:flex;overflow:hidden;min-height:0}
-.card-main{flex:1;overflow-y:auto;padding:20px 26px;display:flex;flex-direction:column;gap:14px}
+.card-main{flex:1;overflow-y:auto;padding:28px 36px;display:flex;flex-direction:column;gap:20px}
 /* ── OPTIONS D'AFFICHAGE (élève) ── */
 .opt-toggle{font-family:var(--mono);font-size:10px;font-weight:700;padding:5px 10px;border:1.5px solid var(--ink);border-radius:999px;background:var(--paper-2);color:var(--muted);cursor:pointer;transition:background .12s}
 .opt-toggle:hover{background:var(--lcd)}
 .opt-toggle.active{background:var(--cobalt);color:#fff}
 #page-brevet.opt-nobar .sidebar{display:none}
 #page-brevet.opt-nobar .main{grid-template-columns:1fr}
-#page-brevet.opt-glass .stage{background:linear-gradient(135deg,#EEF0FE,#E7F6EC 55%,#FCEBEA)}
+#page-brevet.opt-glass .stage{background:linear-gradient(180deg,#F2F3F9,#F6F7F9)}
 #page-brevet.opt-glass .sidebar,#page-brevet.opt-glass .enonce-card,#page-brevet.opt-glass .question-card{background:rgba(255,255,255,.55);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.7);box-shadow:0 14px 34px -16px rgba(24,27,34,.28);border-radius:20px}
 #page-brevet.opt-glass .card-header,#page-brevet.opt-glass .card-footer{border-color:rgba(24,27,34,.12)}
+/* ── EXAMEN : disposition centrée (DA) ── */
+/* barre latérale conservée + énoncé/question centrés et resserrés */
+#page-brevet.ex-centre .content{max-width:880px;width:100%;margin:0 auto}
+#page-brevet.ex-centre .enonce-card,#page-brevet.ex-centre .question-card{flex:1 1 0;min-width:0}
+#page-brevet.ex-centre .question-card:only-child{flex:0 1 460px;max-width:460px;margin:0 auto}
+#page-brevet.ex-centre .question-card:only-child .answer-textarea{flex:none;min-height:56px}
+#page-brevet .enonce-card,#page-brevet .question-card,#page-brevet .sidebar{border-width:1px;border-color:var(--line)}
+#page-brevet .card-header,#page-brevet .card-footer,#page-brevet .sidebar-progress{border-color:var(--line)}
+#page-brevet .bp-sujet,#page-brevet .q-tag,#page-brevet .q-pts,#page-brevet .pts-pill,#page-brevet .timer-wrap,#page-brevet .opt-toggle,#page-brevet .fig-frame,#page-brevet .stim-box,#page-brevet .ctx-box,#page-brevet .answer-textarea{border-width:1px;border-color:var(--line)}
 .enonce-lbl{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--green);margin-bottom:2px}
-.enonce-foot{margin-top:auto;padding-top:14px;display:flex}
+.enonce-foot{flex:none;padding:14px 28px;border-top:1.5px solid var(--line);display:flex;align-items:center}
 .enonce-foot:empty{display:none}
 .q-num{font-family:var(--grot);font-weight:700;font-size:18px;color:var(--cobalt);flex-shrink:0}
-.q-text{font-size:15px;line-height:1.7;font-weight:500}
+.q-text{font-size:16px;line-height:1.85;font-weight:500}
 .q-pts{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--clay);background:#FCEBEA;border:1.5px solid var(--ink);padding:3px 10px;border-radius:999px;white-space:nowrap;flex-shrink:0}
 .answer-lbl{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
-.answer-textarea{width:100%;flex:1;min-height:120px;font-family:var(--grot);font-size:14px;line-height:1.7;border:1.5px solid var(--ink);border-radius:12px;padding:12px 16px;resize:none;background:var(--paper);outline:none}
+.answer-textarea{width:100%;flex:1;min-height:132px;font-family:var(--grot);font-size:15px;line-height:1.8;border:1.5px solid var(--ink);border-radius:12px;padding:14px 18px;resize:none;background:var(--paper);outline:none}
 .answer-textarea:focus{box-shadow:0 6px 18px -6px rgba(79,70,229,.30)}
 .fig-frame{background:var(--paper);border:1.5px solid var(--ink);border-radius:12px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:8px}
-.stim-box{font-size:13px;line-height:1.6;background:var(--lcd);border:1.5px solid var(--ink);border-radius:10px;padding:12px 16px;font-weight:500}
+.stim-box{font-size:14px;line-height:1.7;background:var(--lcd);border:1.5px solid var(--ink);border-radius:10px;padding:14px 18px;font-weight:500}
 .ctx-box{font-size:13px;line-height:1.6;background:var(--paper);border:1.5px solid var(--ink);border-radius:10px;padding:10px 14px;font-weight:500}
 .brevet-table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:13px;border:1.5px solid var(--ink);margin:6px 0}
 .brevet-table th{background:var(--cobalt);color:#fff;padding:8px 12px;border:1.5px solid var(--ink);font-weight:700}
@@ -517,8 +622,8 @@ a{color:inherit}
 <div class="page active" id="page-accueil">
   <section class="hero">
     <div class="hero-left">
-      <span class="hero-badge">✦ conforme au programme officiel 2026</span>
       <h1 class="hero-title">prêt·e pour le <span class="l2">brevet</span><br>de maths&nbsp;?</h1>
+      <span class="hero-badge" style="margin-top:20px">✦ conforme au programme officiel 2026</span>
       <span class="hero-hook"><span class="dot"></span>révise sans stress · progresse</span>
       <p class="hero-lead">génère un brevet blanc pour te situer. puis un autre. puis un autre — autant qu'il faut pour arriver serein·e le jour j.</p>
       <div class="hero-ctas">
@@ -528,61 +633,23 @@ a{color:inherit}
       <p class="hero-fine">19,90 €/mois · sans engagement</p>
     </div>
     <div class="hero-right">
-      <div class="hero-stickers">
-        <div class="stk stk-seal">
-          <svg viewBox="0 0 150 150" width="132" xmlns="http://www.w3.org/2000/svg" aria-label="sceau brevet blanc mathématiques">
-            <defs>
-              <path id="arcTop" d="M 24 75 A 51 51 0 0 1 126 75"/>
-              <path id="arcBot" d="M 28 75 A 47 47 0 0 0 122 75"/>
-            </defs>
-            <circle cx="75" cy="75" r="71" fill="#4F46E5" stroke="#181B22" stroke-width="2.5"/>
-            <circle cx="75" cy="75" r="62" fill="none" stroke="#fff" stroke-width="2" opacity="0.9"/>
-            <circle cx="75" cy="75" r="58" fill="none" stroke="#fff" stroke-width="1" stroke-dasharray="1.5 4" opacity="0.6"/>
-            <circle cx="75" cy="75" r="42" fill="#4338CA"/>
-            <text font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="13" fill="#fff" letter-spacing="2.5"><textPath href="#arcTop" startOffset="50%" text-anchor="middle">BREVET BLANC</textPath></text>
-            <text font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="11" fill="#fff" letter-spacing="2"><textPath href="#arcBot" startOffset="50%" text-anchor="middle">MATHÉMATIQUES</textPath></text>
-            <text x="15.5" y="79" text-anchor="middle" font-size="12" fill="#fff">★</text>
-            <text x="134.5" y="79" text-anchor="middle" font-size="12" fill="#fff">★</text>
-            <text x="75" y="84" text-anchor="middle" font-family="'Anton',sans-serif" font-size="44" fill="#fff">π</text>
-            <text x="75" y="100" text-anchor="middle" font-family="'Space Mono',monospace" font-size="9" font-weight="700" fill="#fff" letter-spacing="3">2026</text>
-          </svg>
-        </div>
-        <div class="stk stk-revo revo revo-anim" aria-label="révo, la mascotte">
-          <svg viewBox="0 0 180 200" xmlns="http://www.w3.org/2000/svg">
-            <ellipse cx="90" cy="188" rx="52" ry="9" fill="rgba(24,27,34,.10)"/>
-            <path d="M90 44 C 90 24, 98 14, 112 12" fill="none" stroke="#4D7C0F" stroke-width="4" stroke-linecap="round"/>
-            <path d="M112 12 C 128 6, 138 16, 130 30 C 119 36, 106 28, 112 12 Z" fill="#84CC16" stroke="#181B22" stroke-width="2"/>
-            <rect x="22" y="42" width="136" height="136" rx="52" fill="#16A34A" stroke="#181B22" stroke-width="2.5"/>
-            <ellipse cx="90" cy="122" rx="48" ry="44" fill="#22C55E" opacity="0.5"/>
-            <circle cx="56" cy="124" r="9" fill="#E2483D" opacity="0.26"/>
-            <circle cx="124" cy="124" r="9" fill="#E2483D" opacity="0.26"/>
-            <ellipse cx="68" cy="100" rx="13" ry="15" fill="#fff" stroke="#181B22" stroke-width="2"/>
-            <ellipse cx="112" cy="100" rx="13" ry="15" fill="#fff" stroke="#181B22" stroke-width="2"/>
-            <circle cx="71" cy="103" r="6" fill="#181B22"/>
-            <circle cx="115" cy="103" r="6" fill="#181B22"/>
-            <circle cx="73.5" cy="100.5" r="2" fill="#fff"/>
-            <circle cx="117.5" cy="100.5" r="2" fill="#fff"/>
-            <path d="M74 130 Q90 144 106 130" fill="none" stroke="#181B22" stroke-width="3" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="stk stk-pi">
-          <svg viewBox="0 0 110 110" width="94" xmlns="http://www.w3.org/2000/svg" aria-label="pi">
-            <path d="M 55.0 4.0 L 63.2 13.8 L 74.5 7.9 L 78.3 20.1 L 91.1 18.9 L 89.9 31.7 L 102.1 35.5 L 96.2 46.8 L 106.0 55.0 L 96.2 63.2 L 102.1 74.5 L 89.9 78.3 L 91.1 91.1 L 78.3 89.9 L 74.5 102.1 L 63.2 96.2 L 55.0 106.0 L 46.8 96.2 L 35.5 102.1 L 31.7 89.9 L 18.9 91.1 L 20.1 78.3 L 7.9 74.5 L 13.8 63.2 L 4.0 55.0 L 13.8 46.8 L 7.9 35.5 L 20.1 31.7 L 18.9 18.9 L 31.7 20.1 L 35.5 7.9 L 46.8 13.8 Z" fill="#FACC15" stroke="#181B22" stroke-width="2.5" stroke-linejoin="round"/>
-            <circle cx="55" cy="55" r="33" fill="#FEF3C7"/>
-            <circle cx="55" cy="55" r="34" fill="none" stroke="#181B22" stroke-width="1.5" opacity="0.25"/>
-            <text x="55" y="72" text-anchor="middle" font-family="'Anton',sans-serif" font-size="46" fill="#181B22">π</text>
-          </svg>
+      <div class="he-pile">
+        <div class="pile-wrap">
+          <div class="pile-card pile-c3"></div>
+          <div class="pile-card pile-c2"></div>
+          <div class="pile-card pile-c1">
+            <div class="pile-top"><span class="pile-badge">BREVET BLANC</span><span class="pile-pi">π</span></div>
+            <div class="pile-lines"><span></span><span></span><span></span></div>
+            <div class="pile-foot">sujet n°<strong>12</strong> · corrigé inclus</div>
+          </div>
         </div>
       </div>
       <div class="cd-wrap">
         <span class="cd-label">temps restant avant l'examen</span>
         <div class="cd-row">
           <div class="cd-card"><div class="cd-num" id="cd-j">—</div><div class="cd-lbl">jours</div></div>
-          <span class="cd-sep">:</span>
           <div class="cd-card"><div class="cd-num" id="cd-h">—</div><div class="cd-lbl">heures</div></div>
-          <span class="cd-sep">:</span>
           <div class="cd-card"><div class="cd-num" id="cd-m">—</div><div class="cd-lbl">min</div></div>
-          <span class="cd-sep">:</span>
           <div class="cd-card"><div class="cd-num" id="cd-s">—</div><div class="cd-lbl">sec</div></div>
         </div>
       </div>
@@ -771,7 +838,7 @@ a{color:inherit}
   </div>
 </div>
 
-<div class="page opt-glass" id="page-brevet">
+<div class="page opt-glass ex-centre" id="page-brevet">
   <div class="bp-top">
     <button class="bp-quit" onclick="quitterBrevet()">← quitter</button>
     <span class="bp-sujet" id="sujetLabel"></span>
@@ -784,7 +851,6 @@ a{color:inherit}
     <div class="main">
       <div class="sidebar">
         <div class="ex-list-wrap"><div class="sidebar-label">exercices</div><div class="ex-list" id="exList"></div></div>
-        <div class="sidebar-revo"><svg viewBox="0 0 110 120" xmlns="http://www.w3.org/2000/svg"><path d="M55 28 C55 17 60 11 69 10" fill="none" stroke="#4D7C0F" stroke-width="3" stroke-linecap="round"/><path d="M69 10 C79 6 86 13 81 22 C73 26 64 20 69 10 Z" fill="#84CC16" stroke="#181B22" stroke-width="1.5"/><rect x="14" y="26" width="82" height="82" rx="32" fill="#16A34A" stroke="#181B22" stroke-width="2"/><ellipse cx="42" cy="62" rx="8.5" ry="10" fill="#fff" stroke="#181B22" stroke-width="1.6"/><ellipse cx="68" cy="62" rx="8.5" ry="10" fill="#fff" stroke="#181B22" stroke-width="1.6"/><circle cx="44" cy="64" r="3.6" fill="#181B22"/><circle cx="70" cy="64" r="3.6" fill="#181B22"/><path d="M44 82 Q55 92 66 82" fill="none" stroke="#181B22" stroke-width="2.2" stroke-linecap="round"/></svg><div class="sidebar-revo-txt"><span>révo</span>garde le rythme, tu gères !</div></div>
         <div class="sidebar-progress"><div class="prog-label"><span id="progText">0 / 0</span><span id="progPct">0%</span></div><div class="prog-bar"><div class="prog-fill" id="progFill" style="width:0%"></div></div></div>
       </div>
       <div class="content" id="examArea"></div>
@@ -1261,9 +1327,9 @@ a{color:inherit}
           <div class="pc-tag pc-tag-warn">à retravailler</div>
         </div>
         <div class="pc-card">
-          <div class="pc-kicker">objectif à atteindre</div>
-          <div class="pc-bignum pc-bignum-ink">14<span>/20</span></div>
-          <div class="pc-track"><div class="pc-track-fill" style="width:70%"></div><div class="pc-track-dot" style="left:70%"></div></div>
+          <div class="pc-kicker">objectif à atteindre <span class="pc-kicker-r">glisse pour ajuster</span></div>
+          <div class="pc-bignum pc-bignum-ink" id="objNum">14<span>/20</span></div>
+          <div class="pc-track" id="objTrack"><div class="pc-track-fill" id="objFill" style="width:70%"></div><div class="pc-track-dot" id="objDot" style="left:70%"></div></div>
         </div>
         <div class="pc-card">
           <div class="pc-kicker">progression</div>
@@ -1275,9 +1341,9 @@ a{color:inherit}
         <div class="pc-card">
           <div class="pc-kicker">trophées <span class="pc-kicker-r">3/6 débloqués</span></div>
           <div class="pc-trophies">
-            <div class="pc-trophy"><div class="pc-trophy-ic">✦</div><div><div class="pc-trophy-name">premier pas</div><div class="pc-trophy-desc">premier brevet saisi</div></div></div>
-            <div class="pc-trophy"><div class="pc-trophy-ic">▲</div><div><div class="pc-trophy-name">trio</div><div class="pc-trophy-desc">3 brevets réalisés</div></div></div>
-            <div class="pc-trophy"><div class="pc-trophy-ic">★</div><div><div class="pc-trophy-name">mention bien</div><div class="pc-trophy-desc">note ≥ 14/20</div></div></div>
+            <div class="pc-trophy" onclick="pcTrophy(this)"><div class="pc-trophy-ic">✦</div><div><div class="pc-trophy-name">premier pas</div><div class="pc-trophy-desc">premier brevet saisi</div></div></div>
+            <div class="pc-trophy" onclick="pcTrophy(this)"><div class="pc-trophy-ic">▲</div><div><div class="pc-trophy-name">trio</div><div class="pc-trophy-desc">3 brevets réalisés</div></div></div>
+            <div class="pc-trophy" onclick="pcTrophy(this)"><div class="pc-trophy-ic">★</div><div><div class="pc-trophy-name">mention bien</div><div class="pc-trophy-desc">note ≥ 14/20</div></div></div>
             <div class="pc-trophy locked"><div class="pc-trophy-ic">★</div><div><div class="pc-trophy-name">très bien</div><div class="pc-trophy-desc">note ≥ 16/20</div></div></div>
           </div>
         </div>
@@ -1295,13 +1361,13 @@ a{color:inherit}
         <div class="pc-card">
           <div class="pc-section-head">
             <div><div class="pc-kicker">section 01</div><div class="pc-section-title">historique des brevets</div></div>
-            <div class="pc-filters"><button class="pc-pill active">tous</button><button class="pc-pill">≥ 14</button><button class="pc-pill">&lt; 10</button><button class="pc-pill pc-pill-add">+ ajouter</button></div>
+            <div class="pc-filters"><button class="pc-pill active" onclick="pcFilter(this,'tous')">tous</button><button class="pc-pill" onclick="pcFilter(this,'lt10')">&lt; 10</button><button class="pc-pill pc-pill-add" onclick="goTo('generer')">+ ajouter</button></div>
           </div>
           <div class="pc-history">
-            <div class="pc-hrow"><div><div class="pc-hmeta">brevet 04 · 4 mai 2026</div><div class="pc-hname">brevet généré</div></div><div class="pc-hright"><div class="pc-hnote">0<span>/20</span></div><div class="pc-htag pc-tag-bad">à retravailler</div></div></div>
-            <div class="pc-hrow"><div><div class="pc-hmeta">brevet 03 · 14 mars 2025</div><div class="pc-hname">géométrie, pythagore</div></div><div class="pc-hright"><div class="pc-hnote">15,5<span>/20</span></div><div class="pc-htag pc-tag-good">bien</div></div></div>
-            <div class="pc-hrow"><div><div class="pc-hmeta">brevet 02 · 28 fév. 2025</div><div class="pc-hname">algèbre, fonctions</div></div><div class="pc-hright"><div class="pc-hnote">13<span>/20</span></div><div class="pc-htag pc-tag-mid">assez bien</div></div></div>
-            <div class="pc-hrow"><div><div class="pc-hmeta">brevet 01 · 10 fév. 2025</div><div class="pc-hname">statistiques, probabilités</div></div><div class="pc-hright"><div class="pc-hnote">10,5<span>/20</span></div><div class="pc-htag pc-tag-neutral">admis</div></div></div>
+            <div class="pc-hitem"><div class="pc-hrow" onclick="pcToggle(this)"><div><div class="pc-hmeta">brevet 04 · 4 mai 2026</div><div class="pc-hname">brevet généré</div></div><div class="pc-hright"><div class="pc-hnote">0<span>/20</span></div><div class="pc-htag pc-tag-bad">à retravailler</div></div></div><div class="pc-hcomment"><div class="pc-hcomment-lbl">commentaire pour l'élève et les parents</div>Ce brevet n'a pas encore été composé sérieusement (note de 0). Pas de panique : reprends au calme, commence par les automatismes puis une notion à la fois.</div></div>
+            <div class="pc-hitem"><div class="pc-hrow" onclick="pcToggle(this)"><div><div class="pc-hmeta">brevet 03 · 14 mars 2025</div><div class="pc-hname">géométrie, pythagore</div></div><div class="pc-hright"><div class="pc-hnote">15,5<span>/20</span></div><div class="pc-htag pc-tag-good">bien</div></div></div><div class="pc-hcomment"><div class="pc-hcomment-lbl">commentaire pour l'élève et les parents</div>Très bon travail en géométrie ! Le théorème de Pythagore et sa réciproque sont bien maîtrisés. Pour viser la mention, soigne la rédaction et les justifications.</div></div>
+            <div class="pc-hitem"><div class="pc-hrow" onclick="pcToggle(this)"><div><div class="pc-hmeta">brevet 02 · 28 fév. 2025</div><div class="pc-hname">algèbre, fonctions</div></div><div class="pc-hright"><div class="pc-hnote">13<span>/20</span></div><div class="pc-htag pc-tag-mid">assez bien</div></div></div><div class="pc-hcomment"><div class="pc-hcomment-lbl">commentaire pour l'élève et les parents</div>Bon niveau en algèbre et sur les fonctions. Il reste quelques erreurs de calcul littéral : revoir le développement et la factorisation.</div></div>
+            <div class="pc-hitem"><div class="pc-hrow" onclick="pcToggle(this)"><div><div class="pc-hmeta">brevet 01 · 10 fév. 2025</div><div class="pc-hname">statistiques, probabilités</div></div><div class="pc-hright"><div class="pc-hnote">10,5<span>/20</span></div><div class="pc-htag pc-tag-neutral">admis</div></div></div><div class="pc-hcomment"><div class="pc-hcomment-lbl">commentaire pour l'élève et les parents</div>Résultat juste au-dessus de la moyenne. Les statistiques (moyenne, médiane) et surtout les probabilités sont à consolider avec des exercices simples.</div></div>
           </div>
         </div>
       </div>
@@ -1327,12 +1393,12 @@ a{color:inherit}
         <div class="pc-card">
           <div class="pc-kicker">points forts · faibles</div>
           <div class="pc-bars">
-            <div class="pc-bar-row"><div class="pc-bar-lbl">statistiques</div><div class="pc-bar-track"><div class="pc-bar-fill" style="width:71%"></div></div><div class="pc-bar-pct">~71%</div></div>
-            <div class="pc-bar-row"><div class="pc-bar-lbl">géométrie</div><div class="pc-bar-track"><div class="pc-bar-fill" style="width:69%"></div></div><div class="pc-bar-pct">~69%</div></div>
-            <div class="pc-bar-row"><div class="pc-bar-lbl">fonctions</div><div class="pc-bar-track"><div class="pc-bar-fill" style="width:63%"></div></div><div class="pc-bar-pct">~63%</div></div>
-            <div class="pc-bar-row"><div class="pc-bar-lbl">algèbre</div><div class="pc-bar-track"><div class="pc-bar-fill" style="width:60%"></div></div><div class="pc-bar-pct">~60%</div></div>
-            <div class="pc-bar-row"><div class="pc-bar-lbl">fractions</div><div class="pc-bar-track"><div class="pc-bar-fill" style="width:50%"></div></div><div class="pc-bar-pct">~50%</div></div>
-            <div class="pc-bar-row"><div class="pc-bar-lbl">probabilités</div><div class="pc-bar-track"><div class="pc-bar-fill" style="width:50%"></div></div><div class="pc-bar-pct">~50%</div></div>
+            <div class="pc-bar-row" onclick="pcReviser('statistiques')"><div class="pc-bar-lbl">statistiques</div><div class="pc-bar-track"><div class="pc-bar-fill" style="width:71%"></div></div><div class="pc-bar-pct">~71%</div></div>
+            <div class="pc-bar-row" onclick="pcReviser('géométrie')"><div class="pc-bar-lbl">géométrie</div><div class="pc-bar-track"><div class="pc-bar-fill" style="width:69%"></div></div><div class="pc-bar-pct">~69%</div></div>
+            <div class="pc-bar-row" onclick="pcReviser('fonctions')"><div class="pc-bar-lbl">fonctions</div><div class="pc-bar-track"><div class="pc-bar-fill" style="width:63%"></div></div><div class="pc-bar-pct">~63%</div></div>
+            <div class="pc-bar-row" onclick="pcReviser('algèbre')"><div class="pc-bar-lbl">algèbre</div><div class="pc-bar-track"><div class="pc-bar-fill" style="width:60%"></div></div><div class="pc-bar-pct">~60%</div></div>
+            <div class="pc-bar-row" onclick="pcReviser('fractions')"><div class="pc-bar-lbl">fractions</div><div class="pc-bar-track"><div class="pc-bar-fill" style="width:50%"></div></div><div class="pc-bar-pct">~50%</div></div>
+            <div class="pc-bar-row" onclick="pcReviser('probabilités')"><div class="pc-bar-lbl">probabilités</div><div class="pc-bar-track"><div class="pc-bar-fill" style="width:50%"></div></div><div class="pc-bar-pct">~50%</div></div>
           </div>
         </div>
         <div class="pc-card">
@@ -1360,9 +1426,9 @@ a{color:inherit}
         <button class="pn-today" onclick="planToday()">aujourd'hui</button>
       </div>
       <div class="plan-stats">
-        <div class="plan-stat"><div class="ps-num">0</div><div class="ps-lbl">faites</div></div>
-        <div class="plan-stat"><div class="ps-num">0</div><div class="ps-lbl">planifiées</div></div>
-        <div class="plan-stat"><div class="ps-num">0%</div><div class="ps-lbl">complétion</div></div>
+        <div class="plan-stat"><div class="ps-num" id="psDone">0</div><div class="ps-lbl">faites</div></div>
+        <div class="plan-stat"><div class="ps-num" id="psPlanned">0</div><div class="ps-lbl">planifiées</div></div>
+        <div class="plan-stat"><div class="ps-num" id="psPct">0%</div><div class="ps-lbl">complétion</div></div>
         <button class="plan-ia" onclick="showToast('plan IA bientôt dispo')">✦ plan IA</button>
       </div>
     </div>
@@ -1372,6 +1438,16 @@ a{color:inherit}
     </div>
     <div class="plan-grid-head"><div>lu</div><div>ma</div><div>me</div><div>je</div><div>ve</div><div>sa</div><div>di</div></div>
     <div class="plan-grid" id="planGrid"></div>
+  </div>
+  <div class="plan-modal" id="planModal" onclick="if(event.target===this)closePlanAdd()">
+    <div class="plan-modal-card">
+      <div class="pm-head"><div><div class="pm-kicker">ajouter une révision</div><div class="pm-date" id="pmDate">—</div></div><button class="pm-x" onclick="closePlanAdd()">✕</button></div>
+      <div class="pm-lbl">matière à réviser</div>
+      <div class="pm-mats" id="pmMats"></div>
+      <div class="pm-lbl">créneau <span style="font-weight:400;text-transform:none;letter-spacing:0">(optionnel)</span></div>
+      <div class="pm-times" id="pmTimes"></div>
+      <div class="pm-actions"><button class="pm-cancel" onclick="closePlanAdd()">annuler</button><button class="pm-add" onclick="confirmPlanAdd()">ajouter au planning →</button></div>
+    </div>
   </div>
 </div>
 
@@ -1561,6 +1637,43 @@ function buildGenRecap(){
     '<div class="recap-row"><span class="recap-k">notions</span><span class="recap-v">'+notions+'</span></div>'+
     '<div class="recap-row"><span class="recap-k">correction</span><span class="recap-v">'+corrTxt+'</span></div>';
 }
+function pcFilter(btn,kind){
+  document.querySelectorAll('.pc-filters .pc-pill').forEach(function(b){if(!b.classList.contains('pc-pill-add'))b.classList.remove('active');});
+  if(btn)btn.classList.add('active');
+  document.querySelectorAll('.pc-history .pc-hrow').forEach(function(r){
+    var t=r.querySelector('.pc-hnote');var n=t?parseFloat((t.textContent||'').replace(',','.')):NaN;
+    var show=(kind==='tous')||(kind==='lt10'&&n<10);
+    r.style.display=show?'':'none';
+  });
+}
+function pcRevoir(){ if(typeof lancerBrevet==='function')lancerBrevet(); }
+function pcReviser(notion){ if(typeof showToast==='function')showToast('révise : '+notion); goTo('fiches'); }
+function pcTrophy(el){ var n=el.querySelector('.pc-trophy-name');if(typeof showToast==='function')showToast('trophée : '+(n?n.textContent:'')); }
+function pcToggle(row){
+  var it=row.closest('.pc-hitem');if(!it)return;
+  var open=it.classList.contains('open');
+  if(it.parentNode)it.parentNode.querySelectorAll('.pc-hitem.open').forEach(function(x){if(x!==it)x.classList.remove('open');});
+  it.classList.toggle('open',!open);
+}
+(function(){
+  function initObj(){
+    var track=document.getElementById('objTrack');if(!track)return;
+    var fill=document.getElementById('objFill'),dot=document.getElementById('objDot'),num=document.getElementById('objNum'),drag=false;
+    function setFromX(x){
+      var r=track.getBoundingClientRect();
+      var ratio=Math.min(1,Math.max(0,(x-r.left)/r.width));
+      var val=Math.round(ratio*40)/2; // pas de 0,5
+      var pct=val/20*100;
+      fill.style.width=pct+'%';dot.style.left=pct+'%';
+      if(num)num.firstChild.nodeValue=(''+val).replace('.',',');
+    }
+    track.addEventListener('pointerdown',function(e){drag=true;try{track.setPointerCapture(e.pointerId);}catch(_){}setFromX(e.clientX);e.preventDefault();});
+    track.addEventListener('pointermove',function(e){if(drag)setFromX(e.clientX);});
+    window.addEventListener('pointerup',function(){drag=false;});
+    track.addEventListener('pointercancel',function(){drag=false;});
+  }
+  if(document.getElementById('objTrack'))initObj();else document.addEventListener('DOMContentLoaded',initObj);
+})();
 function flagLine(l){var box=l.closest('.err-exo');if(box&&box.classList.contains('checked'))return;l.classList.toggle('flagged');}
 function checkErrors(btn){
   var box=btn.closest('.err-exo');if(!box)return;box.classList.add('checked');
@@ -1800,7 +1913,7 @@ function buildQuestion(){
   var hasEnonce=!!(figHTML||ex.stimulus);
   var stim=ex.stimulus?'<div class="stim-box">'+ex.stimulus+'</div>':"";
   var fig=figHTML?'<div class="fig-frame">'+figHTML+'</div>':"";
-  var enonceCard=hasEnonce?'<div class="enonce-card"><div class="enonce-lbl">énoncé</div>'+stim+fig+'<div class="enonce-foot" id="enonceFoot"></div></div>':"";
+  var enonceCard=hasEnonce?'<div class="enonce-card"><div class="enonce-body"><div class="enonce-lbl">énoncé</div>'+stim+fig+'</div><div class="enonce-foot" id="enonceFoot"></div></div>':"";
   var ctx=q.context?'<div class="ctx-box">'+q.context+'</div>':'';
   var questionCard='<div class="question-card">'
     +'<div class="card-header"><span class="q-tag">ex.'+ex.id+' — '+ex.name+'</span><span class="q-breadcrumb">question <strong>'+(curQ+1)+'</strong> / '+ex.questions.length+'</span></div>'
@@ -1814,11 +1927,11 @@ function buildQuestion(){
 }
 function renderNav(forwardHTML){
   var isFirst=curEx===playerExercises[0].id&&curQ===0;
-  var prevBtn=(!isFirst)?'<button class="btn btn-ghost" onclick="goPrev()">← précédent</button>':'';
+  var prevBtn=isFirst?'<button class="btn btn-ghost" disabled style="opacity:.4;cursor:default">← précédent</button>':'<button class="btn btn-ghost" onclick="goPrev()">← précédent</button>';
   var stepInfo='<div class="step-info">question '+(getGI()+1)+' / '+totalQ()+'</div>';
   var ef=document.getElementById("enonceFoot"),nav=document.getElementById("footerNav");
   if(ef){ef.innerHTML=prevBtn;if(nav)nav.innerHTML=stepInfo+forwardHTML;}
-  else if(nav){nav.innerHTML=(prevBtn||'<div></div>')+stepInfo+forwardHTML;}
+  else if(nav){nav.innerHTML=prevBtn+stepInfo+forwardHTML;}
 }
 function buildFooter(ex){
   if(!document.getElementById("footerNav"))return;
@@ -1885,9 +1998,28 @@ function lancerEntrainement(exId){
 
 // ── PLANNING (calendrier) ──
 var planRef=new Date();
+var planMode='mois';
 var planMonths=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
-function buildPlanning(){
+var planJours=['lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche'];
+var planMatieres=[{name:'Brevet blanc',hex:'#181B22'},{name:'Pythagore',hex:'#4F46E5'},{name:'Thalès',hex:'#16A34A'},{name:'Trigonométrie',hex:'#F59E0B'},{name:'Calcul littéral',hex:'#E2483D'},{name:'Fonctions',hex:'#4F46E5'},{name:'Statistiques',hex:'#16A34A'},{name:'Probabilités',hex:'#F59E0B'},{name:'Proportionnalité',hex:'#E2483D'},{name:'Géométrie',hex:'#4F46E5'},{name:'Aires & volumes',hex:'#16A34A'}];
+var planTimes=['matin','midi','aprèm','soir','6h','7h','8h','9h','10h','11h','12h','13h','14h','15h','16h','17h','18h','19h','20h','21h'];
+var planEvents={};
+var planTargetKey=null,planSelMat=null,planSelTime=null;
+function planStartOfWeek(dt){var x=new Date(dt.getFullYear(),dt.getMonth(),dt.getDate());var dow=(x.getDay()+6)%7;x.setDate(x.getDate()-dow);return x;}
+function planKey(dt){return dt.getFullYear()+'-'+dt.getMonth()+'-'+dt.getDate();}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/'/g,'&#39;').replace(/</g,'&lt;');}
+function renderEvents(key){
+  var evs=planEvents[key]||[];if(!evs.length)return'';
+  var out='<div class="pe-list">';
+  for(var i=0;i<evs.length;i++){var e=evs[i];
+    out+='<div class="pe-chip" style="--c:'+e.hex+'" onclick="planRemove(&#39;'+key+'&#39;,'+i+',event)" title="cliquer pour retirer"><span class="pe-dot"></span><span class="pe-name">'+esc(e.mat)+'</span>'+(e.time?'<span class="pe-time">'+esc(e.time)+'</span>':'')+'</div>';
+  }
+  return out+'</div>';
+}
+function buildPlanning(){if(planMode==='semaine')buildWeek();else buildMonth();}
+function buildMonth(){
   var grid=document.getElementById('planGrid');if(!grid)return;
+  grid.classList.remove('is-week');
   var y=planRef.getFullYear(),m=planRef.getMonth();
   var lbl=document.getElementById('planMonth');if(lbl)lbl.textContent=planMonths[m]+' '+y;
   var startDow=(new Date(y,m,1).getDay()+6)%7;
@@ -1896,15 +2028,56 @@ function buildPlanning(){
   var cells=[];
   for(var i=0;i<startDow;i++)cells.push('<div class="plan-cell empty"></div>');
   for(var d=1;d<=nb;d++){
-    var now=cur&&d===td;
-    cells.push('<div class="plan-cell'+(now?' today':'')+'"><div class="pc-daynum'+(now?' now':'')+'">'+d+'</div><button class="pc-add" onclick="showToast(&#39;créneau de révision bientôt&#39;)">+</button></div>');
+    var now=cur&&d===td,key=y+'-'+m+'-'+d;
+    cells.push('<div class="plan-cell'+(now?' today':'')+'"><div class="pc-daynum'+(now?' now':'')+'">'+d+'</div>'+renderEvents(key)+'<button class="pc-add" onclick="openPlanAdd(&#39;'+key+'&#39;)">+</button></div>');
   }
   while(cells.length%7!==0)cells.push('<div class="plan-cell empty"></div>');
   grid.innerHTML=cells.join('');
 }
-function planNav(d){planRef=new Date(planRef.getFullYear(),planRef.getMonth()+d,1);buildPlanning();}
+function buildWeek(){
+  var grid=document.getElementById('planGrid');if(!grid)return;
+  grid.classList.add('is-week');
+  var ws=planStartOfWeek(planRef);
+  var we=new Date(ws.getFullYear(),ws.getMonth(),ws.getDate()+6);
+  var lbl=document.getElementById('planMonth');
+  if(lbl){
+    if(ws.getMonth()===we.getMonth())lbl.textContent=ws.getDate()+' – '+we.getDate()+' '+planMonths[we.getMonth()]+' '+we.getFullYear();
+    else lbl.textContent=ws.getDate()+' '+planMonths[ws.getMonth()].slice(0,4)+' – '+we.getDate()+' '+planMonths[we.getMonth()].slice(0,4)+' '+we.getFullYear();
+  }
+  var tk=planKey(new Date());
+  var cells=[];
+  for(var i=0;i<7;i++){
+    var dt=new Date(ws.getFullYear(),ws.getMonth(),ws.getDate()+i),key=planKey(dt),now=key===tk;
+    var evs=planEvents[key]||[];
+    var body=evs.length?renderEvents(key):'<div class="pc-slot-hint">aucune révision</div>';
+    cells.push('<div class="plan-cell'+(now?' today':'')+'"><div class="pc-daynum'+(now?' now':'')+'">'+dt.getDate()+'</div>'+body+'<button class="pc-add" onclick="openPlanAdd(&#39;'+key+'&#39;)">+ ajouter</button></div>');
+  }
+  grid.innerHTML=cells.join('');
+}
+function planNav(d){if(planMode==='semaine')planRef=new Date(planRef.getFullYear(),planRef.getMonth(),planRef.getDate()+7*d);else planRef=new Date(planRef.getFullYear(),planRef.getMonth()+d,1);buildPlanning();}
 function planToday(){planRef=new Date();buildPlanning();}
-function planView(v){var s=document.getElementById('pt-sem'),mo=document.getElementById('pt-mois');if(s)s.classList.toggle('active',v==='semaine');if(mo)mo.classList.toggle('active',v==='mois');if(v==='semaine')showToast('vue semaine bientôt dispo');}
+function planView(v){planMode=v;var s=document.getElementById('pt-sem'),mo=document.getElementById('pt-mois');if(s)s.classList.toggle('active',v==='semaine');if(mo)mo.classList.toggle('active',v==='mois');buildPlanning();}
+function openPlanAdd(key){
+  planTargetKey=key;planSelMat=null;planSelTime=null;
+  var p=key.split('-'),dt=new Date(+p[0],+p[1],+p[2]);
+  var dd=document.getElementById('pmDate');if(dd)dd.textContent=planJours[(dt.getDay()+6)%7]+' '+dt.getDate()+' '+planMonths[dt.getMonth()];
+  var mw=document.getElementById('pmMats');
+  if(mw){var h='';for(var i=0;i<planMatieres.length;i++){h+='<button class="pm-opt" data-m="'+i+'" onclick="pmPickMat('+i+',this)"><span class="pe-dot" style="background:'+planMatieres[i].hex+'"></span>'+planMatieres[i].name+'</button>';}mw.innerHTML=h;}
+  var tw=document.getElementById('pmTimes');
+  if(tw){var h2='';for(var j=0;j<planTimes.length;j++){h2+='<button class="pm-opt" onclick="pmPickTime(&#39;'+planTimes[j]+'&#39;,this)">'+planTimes[j]+'</button>';}tw.innerHTML=h2;}
+  var mod=document.getElementById('planModal');if(mod)mod.classList.add('open');
+}
+function closePlanAdd(){var mod=document.getElementById('planModal');if(mod)mod.classList.remove('open');}
+function pmPickMat(i,btn){planSelMat=planMatieres[i];var all=btn.parentNode.querySelectorAll('.pm-opt');for(var k=0;k<all.length;k++)all[k].classList.remove('sel');btn.classList.add('sel');}
+function pmPickTime(t,btn){if(planSelTime===t){planSelTime=null;btn.classList.remove('sel');return;}planSelTime=t;var all=btn.parentNode.querySelectorAll('.pm-opt');for(var k=0;k<all.length;k++)all[k].classList.remove('sel');btn.classList.add('sel');}
+function confirmPlanAdd(){
+  if(!planSelMat){showToast('choisis une matière');return;}
+  if(!planEvents[planTargetKey])planEvents[planTargetKey]=[];
+  planEvents[planTargetKey].push({mat:planSelMat.name,hex:planSelMat.hex,time:planSelTime});
+  closePlanAdd();buildPlanning();updatePlanStats();showToast('révision ajoutée ✦');
+}
+function planRemove(key,idx,ev){if(ev)ev.stopPropagation();if(planEvents[key]){planEvents[key].splice(idx,1);if(!planEvents[key].length)delete planEvents[key];}buildPlanning();updatePlanStats();}
+function updatePlanStats(){var n=0;for(var k in planEvents)n+=planEvents[k].length;var pl=document.getElementById('psPlanned');if(pl)pl.textContent=n;var pc=document.getElementById('psPct');if(pc)pc.textContent=(n?Math.round(0/n*100):0)+'%';}
 
 
 buildEntrainement();
