@@ -185,6 +185,59 @@ a{color:inherit}
 .st-lvl:hover{color:var(--ink);border-color:var(--ink)}
 .st-lvl.active{background:var(--cobalt);color:#fff;border-color:var(--cobalt)}
 .st-stim{font-size:15px;line-height:1.7;margin:14px 0 4px}
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 3px;line-height:1.05}
+.fr .frn{padding:0 5px 1px}
+.fr .frd{padding:1px 5px 0;border-top:2px solid currentColor}
+.fr-eq{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;margin:18px 0 6px;font-family:var(--grot);font-weight:700;font-size:24px}
+.fr-builder{display:inline-flex;flex-direction:column;align-items:center;gap:5px;vertical-align:middle}
+.fr-bar{width:56px;height:3px;background:var(--ink);border-radius:2px}
+.fr-builder .dnd-slot{min-width:48px;height:36px;border-radius:8px}
+.dnd-eq{font-family:var(--grot);font-weight:700;font-size:18px;display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:14px 0 4px}
+.dnd-lit{padding:0 2px}
+.dnd-slot{min-width:60px;height:42px;border:2px dashed var(--line);border-radius:10px;display:inline-flex;align-items:center;justify-content:center;background:var(--paper);padding:0 6px}
+.dnd-slot.over{border-color:var(--cobalt);background:var(--pop-soft)}
+.dnd-slot.filled{border-style:solid;border-color:var(--ink)}
+.dnd-hint{font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:10px 0 6px}
+.dnd-bank{display:flex;flex-wrap:wrap;gap:10px;min-height:46px;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--paper)}
+.dnd-tile{font-family:var(--grot);font-weight:700;font-size:16px;padding:9px 14px;background:var(--paper-2);border:1.5px solid var(--ink);border-radius:10px;cursor:grab;box-shadow:0 2px 0 -1px rgba(24,27,34,.15);touch-action:none;-webkit-user-select:none;user-select:none}
+.dnd-tile.dragging{opacity:.92;cursor:grabbing}
+.dnd-slot .dnd-tile{box-shadow:none}
+.dnd-eq.shapes{font-size:20px}
+.dnd-eq.shapes .dnd-slot{min-width:58px;height:52px}
+.dnd-tile.dnd-shape{padding:5px 9px}
+.dnd-tile.dnd-shape svg{display:block}
+.dnd-op{font-family:var(--grot);font-weight:700;font-size:22px;color:var(--ink);line-height:1}
+.pick-grid{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 8px;justify-content:center}
+.pick-chip{font-family:var(--grot);font-weight:700;font-size:18px;min-width:50px;text-align:center;padding:11px 15px;border:1.5px solid var(--ink);border-radius:12px;background:var(--paper-2);cursor:pointer;box-shadow:0 2px 0 -1px rgba(24,27,34,.15);user-select:none;-webkit-user-select:none}
+.pick-chip.sel{background:var(--cobalt);color:#fff;border-color:var(--cobalt)}
+.pick-chip.correct{background:var(--lcd);border-color:var(--green-deep);color:var(--green-deep)}
+.pick-chip.pgcd{background:var(--green);color:#fff;border-color:var(--green-deep);box-shadow:0 0 0 3px var(--pop-soft)}
+.pick-wrap.locked{pointer-events:none}
+.gt-table{border-collapse:collapse;margin:16px auto 4px}
+.gt-table td{border:1.5px solid var(--line);padding:9px 18px;text-align:center;font-family:var(--grot);font-weight:700;font-size:19px;min-width:56px;background:var(--paper-2)}
+.gt-table td.gt-div{border:none;font-family:var(--mono);font-size:13px;color:var(--cobalt);font-weight:700;min-width:42px;background:transparent}
+.gt-table td.gt-n.cur{background:var(--lcd);color:var(--green-deep)}
+.gt-primes{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin:6px 0}
+.gt-prime{font-family:var(--grot);font-weight:700;font-size:17px;min-width:46px;text-align:center;padding:10px 14px;border:1.5px solid var(--ink);border-radius:11px;background:var(--paper-2);cursor:pointer;box-shadow:0 2px 0 -1px rgba(24,27,34,.15);user-select:none;-webkit-user-select:none}
+.gt-wrap.locked{pointer-events:none}
+.qcm-opts{display:flex;flex-direction:column;gap:10px;margin:16px auto 4px;max-width:360px}
+.qcm-opt{font-family:var(--grot);font-weight:700;font-size:17px;padding:14px 18px;border:1.5px solid var(--ink);border-radius:12px;background:var(--paper-2);cursor:pointer;text-align:left;box-shadow:0 2px 0 -1px rgba(24,27,34,.15);transition:transform .05s}
+.qcm-opt:active{transform:translateY(1px)}
+.qcm-opt.ok{background:var(--lcd);border-color:var(--green-deep);color:var(--green-deep)}
+.qcm-opt.ko{background:var(--ko-soft);border-color:var(--clay);color:var(--clay)}
+.qcm-wrap.locked{pointer-events:none}
+.pyth-line{display:flex;flex-wrap:wrap;align-items:center;gap:8px;justify-content:center;font-family:var(--grot);font-weight:700;font-size:21px;margin:12px 0}
+.pyth-lit{color:var(--ink)}
+.pyth-step{font-family:var(--mono);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:3px 9px;margin-right:4px}
+.pyth-line .dnd-slot{min-width:56px;height:44px}
+#dndWrap.locked{pointer-events:none;opacity:.9}
+.dnd-grid{border-collapse:separate;border-spacing:7px;margin:12px 0 4px}
+.dnd-grid td{text-align:center;vertical-align:middle}
+.dg-head{font-family:var(--grot);font-weight:700;font-size:17px;color:var(--cobalt);padding:2px 10px}
+.dg-corner{font-family:var(--grot);font-weight:700;font-size:16px;color:var(--muted)}
+.draw-grid{width:440px;max-width:100%;height:auto;margin-top:12px;border-radius:14px;border:1px solid var(--line);touch-action:none;cursor:crosshair;display:block}
+.draw-wrap.locked{pointer-events:none;opacity:.95}
+.draw-hint{font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin:10px 0 2px}
 .sb-prog{display:flex;flex-direction:column;gap:2px;align-items:flex-start;text-align:left;font-family:'Helvetica Neue',Arial,sans-serif;margin:12px 0 2px}
 .sb{position:relative;color:#fff;font-size:13px;font-weight:600;line-height:1.15;border-radius:5px;padding:7px 11px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;box-shadow:0 1px 1px rgba(0,0,0,.16);width:fit-content;max-width:100%}
 .sb-hat{border-top-left-radius:16px;border-top-right-radius:16px;padding-top:9px}
@@ -654,6 +707,38 @@ a{color:inherit}
   .main{grid-template-columns:1fr}
   .sidebar{display:none}
 }
+@media(max-width:600px){
+  .nav{padding:12px 16px}
+  .nav-r{flex-wrap:wrap;overflow-x:visible;gap:10px;justify-content:flex-start}
+  .nav-links{gap:12px;font-size:14px;flex-wrap:wrap;width:100%}
+  .cta{width:100%;justify-content:center}
+  .hero{padding:30px 16px 36px}
+  .sec{padding:40px 16px}
+  .simple-page{padding:36px 16px}
+  .train-grid{grid-template-columns:1fr;gap:12px;margin-top:22px}
+  .train-card{padding:18px 16px}
+  .st-card{padding:20px 15px}
+  .st-head{margin:4px 0 12px}
+  .final{padding:42px 20px;margin:0 16px 48px}
+  .footer-top{grid-template-columns:1fr;padding:30px 18px;gap:24px}
+  .fr-eq{font-size:19px;gap:8px}
+  .pyth-line{font-size:18px;gap:6px}
+  .qcm-opts{max-width:100%}
+  .dnd-eq{font-size:16px}
+  .dnd-tile{padding:8px 12px;font-size:15px}
+  .draw-grid{width:100%}
+  .content{flex-direction:column;gap:0;overflow-y:auto;background:var(--paper-2);border:1.5px solid var(--ink);border-radius:16px;box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
+  .enonce-card,.question-card{flex:none;border:none;border-radius:0;box-shadow:none;background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none}
+  .question-card{border-top:1.5px solid var(--line)}
+}
+svg{max-width:100%}
+table{max-width:100%}
+body{overflow-x:hidden}
+@media(min-width:601px) and (max-width:1024px){
+  .sidebar{display:none}
+  .main{grid-template-columns:1fr}
+  .content{flex-direction:row;overflow-y:auto}
+}
 </style>
 </head>
 <body>
@@ -926,17 +1011,39 @@ a{color:inherit}
     <h1 class="simple-h1" style="margin-top:12px">mode <span>entraînement.</span></h1>
     <p class="simple-lead">choisis une notion et travaille un exercice à la fois, avec la correction après chaque réponse. pas de stress, juste de l'entraînement.</p>
     <div class="train-grid">
-      <div class="train-card"><span class="train-card-tag">nombres & calcul</span><div class="train-card-name">fractions</div><div class="train-card-meta">additionner · multiplier · simplifier</div><button class="train-card-btn" onclick="showToast('exercices bientôt disponibles')">bientôt →</button></div>
+      <div class="train-card"><span class="train-card-tag">nombres & calcul</span><div class="train-card-name">nombres relatifs</div><div class="train-card-meta">additionner · soustraire · multiplier</div><button class="train-card-btn" onclick="lancerRelatifs(1)">s&#39;entraîner →</button></div>
+      <div class="train-card"><span class="train-card-tag">nombres & calcul</span><div class="train-card-name">fractions</div><div class="train-card-meta">additionner · multiplier · simplifier</div><button class="train-card-btn" onclick="lancerFractions(1)">s&#39;entraîner →</button></div>
+      <div class="train-card"><span class="train-card-tag">nombres & calcul</span><div class="train-card-name">PGCD</div><div class="train-card-meta">Euclide · premiers entre eux</div><button class="train-card-btn" onclick="lancerPgcd(1)">s&#39;entraîner →</button></div>
       <div class="train-card"><span class="train-card-tag">nombres & calcul</span><div class="train-card-name">équations</div><div class="train-card-meta">résoudre une équation du 1ᵉʳ degré</div><button class="train-card-btn" onclick="lancerEquations(1)">s&#39;entraîner →</button></div>
       <div class="train-card"><span class="train-card-tag">nombres & calcul</span><div class="train-card-name">calcul littéral</div><div class="train-card-meta">développer · factoriser · réduire</div><button class="train-card-btn" onclick="lancerLitteral(1)">s&#39;entraîner →</button></div>
       <div class="train-card"><span class="train-card-tag">fonctions</span><div class="train-card-name">fonctions</div><div class="train-card-meta">image · antécédent · lecture</div><button class="train-card-btn" onclick="lancerFonctions(1)">s&#39;entraîner →</button></div>
       <div class="train-card"><span class="train-card-tag">données</span><div class="train-card-name">statistiques</div><div class="train-card-meta">moyenne · médiane · étendue</div><button class="train-card-btn" onclick="lancerStats()">s&#39;entraîner →</button></div>
       <div class="train-card"><span class="train-card-tag">géométrie</span><div class="train-card-name">thalès</div><div class="train-card-meta">longueurs · droites parallèles</div><button class="train-card-btn" onclick="showToast('exercices bientôt disponibles')">bientôt →</button></div>
-      <div class="train-card"><span class="train-card-tag">géométrie</span><div class="train-card-name">pythagore</div><div class="train-card-meta">triangle rectangle · longueurs</div><button class="train-card-btn" onclick="showToast('exercices bientôt disponibles')">bientôt →</button></div>
       <div class="train-card"><span class="train-card-tag">géométrie</span><div class="train-card-name">trigonométrie</div><div class="train-card-meta">cos · sin · tan · angles</div><button class="train-card-btn" onclick="showToast('exercices bientôt disponibles')">bientôt →</button></div>
-      <div class="train-card"><span class="train-card-tag">géométrie</span><div class="train-card-name">transformations</div><div class="train-card-meta">translation · rotation · symétrie</div><button class="train-card-btn" onclick="lancerTransformations(1)">s&#39;entraîner →</button></div>
+      <div class="train-card"><span class="train-card-tag">géométrie</span><div class="train-card-name">Pythagore</div><div class="train-card-meta">hypoténuse · côté · réciproque</div><button class="train-card-btn" onclick="lancerPythagore(1)">s&#39;entraîner →</button></div>
+      <div class="train-card"><span class="train-card-tag">géométrie</span><div class="train-card-name">transformations</div><div class="train-card-meta">translation · rotation · symétrie</div><button class="train-card-btn" onclick="goTo('transfo-revision')">choisir →</button></div>
+      <div class="train-card"><span class="train-card-tag">grandeurs & mesures</span><div class="train-card-name">périmètre</div><div class="train-card-meta">carré · rectangle · triangle · cercle</div><button class="train-card-btn" onclick="lancerPerimetre(1)">s&#39;entraîner →</button></div>
+      <div class="train-card"><span class="train-card-tag">grandeurs & mesures</span><div class="train-card-name">aire</div><div class="train-card-meta">carré · rectangle · triangle · disque</div><button class="train-card-btn" onclick="lancerAire(1)">s&#39;entraîner →</button></div>
+      <div class="train-card"><span class="train-card-tag">grandeurs & mesures</span><div class="train-card-name">volume</div><div class="train-card-meta">cube · pavé · cylindre · pyramide</div><button class="train-card-btn" onclick="lancerVolume(1)">s&#39;entraîner →</button></div>
       <div class="train-card"><span class="train-card-tag">algorithmique</span><div class="train-card-name">scratch</div><div class="train-card-meta">lire & exécuter un programme</div><button class="train-card-btn" onclick="lancerScratch(1)">s&#39;entraîner →</button></div>
       <div class="train-card"><span class="train-card-tag">données</span><div class="train-card-name">probabilités</div><div class="train-card-meta">calculer une probabilité simple</div><button class="train-card-btn" onclick="showToast('exercices bientôt disponibles')">bientôt →</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="page-transfo-revision">
+  <div class="simple-page">
+    <button class="back-btn" onclick="goTo('entrainement')">← retour aux notions</button>
+    <span class="eyebrow">géométrie · programme de 3ᵉ</span>
+    <h1 class="simple-h1" style="margin-top:12px">réviser par <span>transformation.</span></h1>
+    <p class="simple-lead">les cinq transformations du programme de 3ᵉ, une par une — ou toutes mélangées comme au brevet.</p>
+    <div class="train-grid">
+      <div class="train-card"><span class="train-card-tag">transformation</span><div class="train-card-name">translation</div><div class="train-card-meta">image d\'un point · déplacement</div><button class="train-card-btn" onclick="lancerTransfo('translation')">s&#39;entraîner →</button></div>
+      <div class="train-card"><span class="train-card-tag">transformation</span><div class="train-card-name">symétrie axiale</div><div class="train-card-meta">par rapport à un axe (Ox), (Oy)</div><button class="train-card-btn" onclick="lancerTransfo('symaxiale')">s&#39;entraîner →</button></div>
+      <div class="train-card"><span class="train-card-tag">transformation</span><div class="train-card-name">symétrie centrale</div><div class="train-card-meta">par rapport à un centre O</div><button class="train-card-btn" onclick="lancerTransfo('symcentrale')">s&#39;entraîner →</button></div>
+      <div class="train-card"><span class="train-card-tag">transformation</span><div class="train-card-name">rotation</div><div class="train-card-meta">centre O · angle 90° / 180° / 270°</div><button class="train-card-btn" onclick="lancerTransfo('rotation')">s&#39;entraîner →</button></div>
+      <div class="train-card"><span class="train-card-tag">transformation</span><div class="train-card-name">homothétie</div><div class="train-card-meta">centre O · rapport k (agrandir / réduire)</div><button class="train-card-btn" onclick="lancerTransfo('homothetie')">s&#39;entraîner →</button></div>
+      <div class="train-card"><span class="train-card-tag">comme au brevet</span><div class="train-card-name">tout mélanger</div><div class="train-card-meta">les cinq transformations au hasard</div><button class="train-card-btn" onclick="lancerTransfo('tout')">s&#39;entraîner →</button></div>
     </div>
   </div>
 </div>
@@ -961,7 +1068,12 @@ a{color:inherit}
       <div class="train-card"><span class="train-card-tag">juin 2024</span><div class="train-card-name">DNB 2024 · métropole</div><div class="train-card-meta">2h · 4 exercices · /20</div><button class="train-card-btn" onclick="lancerBrevet()">s&#39;entraîner →</button></div>
       <div class="train-card"><span class="train-card-tag">sept. 2024</span><div class="train-card-name">DNB 2024 · rattrapage</div><div class="train-card-meta">2h · 4 exercices · /20</div><button class="train-card-btn" onclick="lancerBrevet()">s&#39;entraîner →</button></div>
       <div class="train-card"><span class="train-card-tag">juin 2023</span><div class="train-card-name">DNB 2023 · métropole</div><div class="train-card-meta">2h · 4 exercices · /20</div><button class="train-card-btn" onclick="lancerBrevet()">s&#39;entraîner →</button></div>
-      <div class="train-card"><span class="train-card-tag">officiel 2026</span><div class="train-card-name">sujet 0 · DNB 2026</div><div class="train-card-meta">2h · 4 exercices · /20</div><button class="train-card-btn" onclick="lancerBrevet()">s&#39;entraîner →</button></div>
+      <div class="train-card"><span class="train-card-tag">officiel 2026</span><div class="train-card-name">sujet 0A · DNB 2026</div><div class="train-card-meta">2h · 4 exercices · /20</div><button class="train-card-btn" onclick="lancerBrevet()">s&#39;entraîner →</button></div>
+      <div class="train-card"><span class="train-card-tag">officiel 2026</span><div class="train-card-name">sujet 0B · DNB 2026</div><div class="train-card-meta">2h · 4 exercices · /20</div><button class="train-card-btn" onclick="lancerBrevet()">s&#39;entraîner →</button></div>
+      <div class="train-card"><span class="train-card-tag">juin 2026</span><div class="train-card-name">DNB 2026 · Amérique du Nord</div><div class="train-card-meta">2h · 4 exercices · /20</div><button class="train-card-btn" onclick="lancerBrevet()">s&#39;entraîner →</button></div>
+      <div class="train-card"><span class="train-card-tag">juin 2026</span><div class="train-card-name">DNB 2026 · centres étrangers</div><div class="train-card-meta">2h · 4 exercices · /20</div><button class="train-card-btn" onclick="lancerBrevet()">s&#39;entraîner →</button></div>
+      <div class="train-card"><span class="train-card-tag">juin 2026</span><div class="train-card-name">DNB 2026 · Asie</div><div class="train-card-meta">2h · 4 exercices · /20</div><button class="train-card-btn" onclick="lancerBrevet()">s&#39;entraîner →</button></div>
+      <div class="train-card"><span class="train-card-tag">juin 2026</span><div class="train-card-name">DNB 2026 · métropole</div><div class="train-card-meta">2h · 4 exercices · /20</div><button class="train-card-btn" onclick="lancerBrevet()">s&#39;entraîner →</button></div>
       <div class="train-card"><span class="train-card-tag">juin 2022</span><div class="train-card-name">DNB 2022 · métropole</div><div class="train-card-meta">2h · 4 exercices · /20</div><button class="train-card-btn" onclick="lancerBrevet()">s&#39;entraîner →</button></div>
     </div>
   </div>
@@ -1887,7 +1999,7 @@ function goTo(page){
   if(page==='parcours'||page==='planning'||page==='generer'||page==='entrainement'||page==='train-stats'){t.style.display='flex';t.style.flexDirection='column';t.style.height='calc(100vh - 79px)';t.style.overflow='hidden';}
   else if(page==='brevet'){t.style.display='block';t.style.height='100vh';t.style.overflow='hidden';}
   else{t.style.display='block';}
-  document.body.style.overflow=(page==='accueil'||page==='checkout'||page==='annales'||page==='fiches'||page==='fiche-pythagore'||page==='fiche-trigo'||page==='fiche-perimetre'||page==='fiche-aire'||page==='fiche-volume'||page==='fiche-statistiques'||page==='entrainement')?'auto':'hidden';
+  document.body.style.overflow=(page==='accueil'||page==='checkout'||page==='annales'||page==='fiches'||page==='fiche-pythagore'||page==='fiche-trigo'||page==='fiche-perimetre'||page==='fiche-aire'||page==='fiche-volume'||page==='fiche-statistiques'||page==='entrainement'||page==='transfo-revision')?'auto':'hidden';
   document.querySelectorAll('.nav-links li').forEach(li=>{li.classList.remove('on','on-orange');if(li.dataset.page==='checkout')li.classList.add('on-orange');else if(li.dataset.page===page)li.classList.add('on');});
   var nav=document.querySelector('body > nav.nav');
   var hide=(page==='brevet');
@@ -2445,7 +2557,7 @@ function trGrid(r,items){
   var size=224,pad=16,plot=size-2*pad,unit=plot/(2*r),cx=pad+r*unit,cy=pad+r*unit;
   function PX(x){return Math.round((cx+x*unit)*10)/10;}
   function PY(y){return Math.round((cy-y*unit)*10)/10;}
-  var s='<svg viewBox="0 0 '+size+' '+size+'" width="270" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;margin-top:12px">';
+  var s='<svg viewBox="0 0 '+size+' '+size+'" width="320" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;margin-top:12px">';
   s+='<g stroke="#E5E7EB" stroke-width="1">';
   for(var i=-r;i<=r;i++){s+='<line x1="'+PX(i)+'" y1="'+PY(-r)+'" x2="'+PX(i)+'" y2="'+PY(r)+'"/><line x1="'+PX(-r)+'" y1="'+PY(i)+'" x2="'+PX(r)+'" y2="'+PY(i)+'"/>';}
   s+='</g>';
@@ -2475,17 +2587,17 @@ function tSymO(p){return p.map(function(q){return [-q[0],-q[1]];});}
 function tRot(p,d,c){c=c||[0,0];var a=d*Math.PI/180,co=Math.round(Math.cos(a)),si=Math.round(Math.sin(a));return p.map(function(q){var x=q[0]-c[0],y=q[1]-c[1];return [c[0]+x*co-y*si,c[1]+x*si+y*co];});}
 function tHom(p,k,c){c=c||[0,0];return p.map(function(q){return [c[0]+k*(q[0]-c[0]),c[1]+k*(q[1]-c[1])];});}
 var trTrain1=[
- {tag:'translation',coord:true,answer:'(3 ; 4)',stim:'Voici le triangle ABC. On lui applique la translation qui déplace de 2 unités vers la droite et 3 unités vers le haut.<br>Donne les coordonnées de l\'image de A.'+trGrid(6,[{poly:[[1,1],[4,1],[1,3]],vlabels:['A','B','C']},{vec:[2,3],from:[-5,-5],label:'translation'}]),sol:'A(1 ; 1) → on se déplace de +2 vers la droite et +3 vers le haut.<br>image de A = (1 + 2 ; 1 + 3) = <strong>(3 ; 4)</strong>'},
- {tag:'symétrie axiale',coord:true,answer:'(2 ; −3)',stim:'Voici le triangle ABC. On lui applique la symétrie d\'axe (Ox).<br>Donne les coordonnées de l\'image de C.'+trGrid(6,[{axis:'x'},{poly:[[2,1],[5,1],[2,3]],vlabels:['A','B','C']}]),sol:'La symétrie d\'axe (Ox) change le signe de l\'ordonnée.<br>C(2 ; 3) → image = <strong>(2 ; −3)</strong>'},
- {tag:'symétrie centrale',coord:true,answer:'(−3 ; −2)',stim:'Voici le triangle ABC. On lui applique la symétrie de centre O.<br>Donne les coordonnées de l\'image de B.'+trGrid(6,[{center:[0,0],clabel:'O'},{poly:[[1,2],[3,2],[1,4]],vlabels:['A','B','C']}]),sol:'La symétrie de centre O change les deux signes.<br>B(3 ; 2) → image = <strong>(−3 ; −2)</strong>'},
+ {tag:'translation',draw:{fig:[[1,1],[4,1],[1,3]],exp:[[3,4]],indicator:{vec:[2,3]},mark:0,plabels:['A\u2032']},stim:'Place l\'image du point A par la translation qui déplace de 2 unités vers la droite et 3 unités vers le haut.',sol:'A(1 ; 1) → on se déplace de +2 vers la droite et +3 vers le haut.<br>image de A = (1 + 2 ; 1 + 3) = <strong>(3 ; 4)</strong>'},
+ {tag:'symétrie axiale',draw:{fig:[[2,1],[5,1],[2,3]],exp:[[2,-3]],indicator:{axis:'x'},mark:2,plabels:['C\u2032']},stim:'Place l\'image du point C par la symétrie d\'axe (Ox).',sol:'La symétrie d\'axe (Ox) change le signe de l\'ordonnée.<br>C(2 ; 3) → image = <strong>(2 ; −3)</strong>'},
+ {tag:'symétrie centrale',draw:{fig:[[1,2],[3,2],[1,4]],exp:[[-3,-2]],indicator:{center:true},mark:1,plabels:['B\u2032']},stim:'Place l\'image du point B par la symétrie de centre O.',sol:'La symétrie de centre O change les deux signes.<br>B(3 ; 2) → image = <strong>(−3 ; −2)</strong>'},
  {tag:'reconnaître',answer:'translation',accept:['une translation'],stim:'La figure F2 (rouge) est l\'image de la figure F1 (bleue).<br>Par quelle transformation passe-t-on de F1 à F2 ?'+trGrid(6,(function(){var f=[[1,1],[3,1],[1,2]];return [{poly:f,name:'F1'},{poly:tPoly(f,2,2),name:'F2',color:'#E2483D',fill:'rgba(226,72,61,.12)'}];})()),sol:'La figure a seulement été déplacée, sans tourner ni se retourner → <strong>translation</strong>.'},
  {tag:'reconnaître',answer:'symétrie axiale',accept:['axiale','symetrie d\'axe'],stim:'La figure F2 (rouge) est l\'image de la figure F1 (bleue).<br>Par quelle transformation passe-t-on de F1 à F2 ?'+trGrid(6,(function(){var f=[[1,1],[4,1],[1,3]];return [{axis:'x'},{poly:f,name:'F1'},{poly:tSymX(f),name:'F2',color:'#E2483D',fill:'rgba(226,72,61,.12)'}];})()),sol:'Les deux figures se correspondent par pliage le long de l\'axe (Ox) → <strong>symétrie axiale</strong>.'},
  {tag:'translation',coord:true,answer:'(2 ; 3)',stim:'La figure F2 est l\'image de F1 par une translation.<br>Donne le déplacement de cette translation, sous la forme (horizontal ; vertical).'+trGrid(6,(function(){var f=[[1,1],[3,1],[1,2]];return [{poly:f,name:'F1'},{poly:tPoly(f,2,3),name:'F2',color:'#E2483D',fill:'rgba(226,72,61,.12)'}];})()),sol:'Le sommet (1 ; 1) de F1 a pour image (3 ; 4).<br>déplacement = (3 − 1 ; 4 − 1) = <strong>(2 ; 3)</strong> : 2 vers la droite, 3 vers le haut.'}
 ];
 var trTrain2=[
  {tag:'rotation',answer:90,stim:'La figure F2 est l\'image de F1 par une rotation de centre O, dans le sens direct (anti-horaire).<br>Quel est l\'angle de cette rotation, en degrés ?'+trGrid(6,(function(){var f=[[1,1],[3,1],[3,2]];return [{center:[0,0],clabel:'O'},{poly:f,name:'F1'},{poly:tRot(f,90),name:'F2',color:'#E2483D',fill:'rgba(226,72,61,.12)'}];})()),sol:'F1 a tourné d\'un quart de tour autour de O.<br>angle = <strong>90°</strong>'},
- {tag:'symétrie centrale',coord:true,answer:'(−2 ; −3)',stim:'Voici le triangle ABC. On lui applique la symétrie de centre O.<br>Donne les coordonnées de l\'image de A.'+trGrid(6,[{center:[0,0],clabel:'O'},{poly:[[2,3],[4,3],[2,5]],vlabels:['A','B','C']}]),sol:'A(2 ; 3) → on change les deux signes.<br>image = <strong>(−2 ; −3)</strong>'},
- {tag:'homothétie',coord:true,answer:'(2 ; 4)',stim:'Voici le triangle ABC. On lui applique l\'homothétie de centre O et de rapport 2.<br>Donne les coordonnées de l\'image de C.'+trGrid(6,[{center:[0,0],clabel:'O'},{poly:[[1,1],[2,1],[1,2]],vlabels:['A','B','C']}]),sol:'C(1 ; 2) → on multiplie les coordonnées par 2.<br>image = (1 × 2 ; 2 × 2) = <strong>(2 ; 4)</strong>'},
+ {tag:'symétrie centrale',draw:{fig:[[2,3],[4,3],[2,5]],exp:[[-2,-3]],indicator:{center:true},mark:0,plabels:['A\u2032']},stim:'Place l\'image du point A par la symétrie de centre O.',sol:'A(2 ; 3) → on change les deux signes.<br>image = <strong>(−2 ; −3)</strong>'},
+ {tag:'homothétie',draw:{fig:[[1,1],[2,1],[1,2]],exp:[[2,4]],indicator:{center:true},mark:2,plabels:['C\u2032']},stim:'Place l\'image du point C par l\'homothétie de centre O et de rapport 2.',sol:'C(1 ; 2) → on multiplie les coordonnées par 2.<br>image = (1 × 2 ; 2 × 2) = <strong>(2 ; 4)</strong>'},
  {tag:'reconnaître',answer:'symétrie centrale',accept:['centrale','symetrie de centre o'],stim:'La figure F2 est l\'image de F1.<br>Par quelle transformation (de centre O) passe-t-on de F1 à F2 ?'+trGrid(6,(function(){var f=[[1,1],[3,1],[1,2]];return [{center:[0,0],clabel:'O'},{poly:f,name:'F1'},{poly:tSymO(f),name:'F2',color:'#E2483D',fill:'rgba(226,72,61,.12)'}];})()),sol:'Chaque point et son image sont symétriques par rapport à O → <strong>symétrie centrale</strong>.'},
  {tag:'translation',coord:true,answer:'(−4 ; 1)',stim:'La figure F2 est l\'image de F1 par une translation.<br>Donne le déplacement de cette translation, sous la forme (horizontal ; vertical).'+trGrid(6,(function(){var f=[[2,2],[4,2],[2,3]];return [{poly:f,name:'F1'},{poly:tPoly(f,-4,1),name:'F2',color:'#E2483D',fill:'rgba(226,72,61,.12)'}];})()),sol:'Le sommet (2 ; 2) a pour image (−2 ; 3).<br>déplacement = (−2 − 2 ; 3 − 2) = <strong>(−4 ; 1)</strong> : 4 vers la gauche, 1 vers le haut.'},
  {tag:'homothétie',answer:'homothétie',accept:['une homothetie','agrandissement'],stim:'Le quadrilatère A\'B\'C\'D\' est l\'image de ABCD.<br>De quelle transformation s\'agit-il ?'+trGrid(7,(function(){var q=[[1,1],[3,1],[2,3],[1,2]];return [{center:[0,0],clabel:'O'},{poly:q,vlabels:['A','B','C','D'],color:'#D9822B',fill:'rgba(217,130,43,.18)'},{poly:tHom(q,2),vlabels:['A\'','B\'','C\'','D\''],color:'#C026D3',fill:'rgba(192,38,211,.15)'}];})()),sol:'Même forme, l\'une agrandie par rapport à l\'autre, et O, A, A\' alignés → <strong>homothétie</strong>.'}
@@ -2493,9 +2605,9 @@ var trTrain2=[
 var trTrain3=[
  {tag:'rotation',answer:'symétrie centrale',accept:['centrale','symetrie de centre o'],stim:'F2 est l\'image de F1 par une rotation de centre O et d\'angle 180°.<br>Quelle autre transformation donne exactement le même résultat ?'+trGrid(6,(function(){var f=[[1,1],[3,1],[1,2]];return [{center:[0,0],clabel:'O'},{poly:f,name:'F1'},{poly:tRot(f,180),name:'F2',color:'#E2483D',fill:'rgba(226,72,61,.12)'}];})()),sol:'Une rotation de 180° autour de O équivaut à la <strong>symétrie centrale</strong> de centre O.'},
  {tag:'homothétie',answer:2,stim:'F2 est l\'image de F1 par une homothétie de centre O.<br>Quel est son rapport k ?'+trGrid(6,(function(){var f=[[1,1],[2,1],[1,2]];return [{center:[0,0],clabel:'O'},{poly:f,name:'F1'},{poly:tHom(f,2),name:'F2',color:'#E2483D',fill:'rgba(226,72,61,.12)'}];})()),sol:'Chaque longueur est multipliée par 2 et O, F1, F2 sont alignés.<br>k = <strong>2</strong>'},
- {tag:'composition',coord:true,answer:'(3 ; −1)',stim:'Voici le triangle ABC. On applique la symétrie d\'axe (Ox), puis la translation qui déplace de 1 unité vers la droite.<br>Donne les coordonnées de l\'image finale de A.'+trGrid(6,[{axis:'x'},{vec:[1,0],from:[-5,-5],label:'translation'},{poly:[[2,1],[4,1],[2,2]],vlabels:['A','B','C']}]),sol:'A(2 ; 1) → symétrie (Ox) → (2 ; −1)<br>→ déplacement de +1 vers la droite → (2 + 1 ; −1) = <strong>(3 ; −1)</strong>'},
- {tag:'homothétie',coord:true,answer:'(4 ; 4)',stim:'Voici le triangle ABC. On lui applique l\'homothétie de centre O et de rapport 2.<br>Donne les coordonnées de l\'image de A.'+trGrid(6,[{center:[0,0],clabel:'O'},{poly:[[2,2],[4,2],[2,3]],vlabels:['A','B','C']}]),sol:'A(2 ; 2) → on multiplie par 2.<br>image = <strong>(4 ; 4)</strong>'},
- {tag:'rotation',coord:true,answer:'(−1 ; 2)',stim:'Voici le triangle ABC. On lui applique la rotation de centre O et d\'angle 90° (sens direct).<br>Donne les coordonnées de l\'image de A.'+trGrid(6,[{center:[0,0],clabel:'O'},{poly:[[2,1],[4,1],[2,3]],vlabels:['A','B','C']}]),sol:'Rotation de 90° autour de O : (x ; y) → (−y ; x).<br>A(2 ; 1) → image = <strong>(−1 ; 2)</strong>'},
+ {tag:'composition',draw:{fig:[[2,1],[4,1],[2,2]],exp:[[3,-1]],indicator:{axis:'x',vec:[1,0]},mark:0,plabels:['A\u2032']},stim:'Place l\'image finale du point A : d\'abord la symétrie d\'axe (Ox), puis la translation de 1 unité vers la droite.',sol:'A(2 ; 1) → symétrie (Ox) → (2 ; −1)<br>→ déplacement de +1 vers la droite → (2 + 1 ; −1) = <strong>(3 ; −1)</strong>'},
+ {tag:'homothétie',draw:{fig:[[2,2],[4,2],[2,3]],exp:[[4,4]],indicator:{center:true},mark:0,plabels:['A\u2032']},stim:'Place l\'image du point A par l\'homothétie de centre O et de rapport 2.',sol:'A(2 ; 2) → on multiplie par 2.<br>image = <strong>(4 ; 4)</strong>'},
+ {tag:'rotation',draw:{fig:[[2,1],[4,1],[2,3]],exp:[[-1,2]],indicator:{center:true},mark:0,plabels:['A\u2032']},stim:'Place l\'image du point A par la rotation de centre O et d\'angle 90° (sens direct).',sol:'Rotation de 90° autour de O : (x ; y) → (−y ; x).<br>A(2 ; 1) → image = <strong>(−1 ; 2)</strong>'},
  {tag:'homothétie',answer:2,stim:'Le quadrilatère A\'B\'C\'D\' est l\'image de ABCD par une homothétie de centre O.<br>Quel est le rapport k ?'+trGrid(7,(function(){var q=[[1,1],[3,1],[2,3],[1,2]];return [{center:[0,0],clabel:'O'},{poly:q,vlabels:['A','B','C','D'],color:'#D9822B',fill:'rgba(217,130,43,.18)'},{poly:tHom(q,2),vlabels:['A\'','B\'','C\'','D\''],color:'#C026D3',fill:'rgba(192,38,211,.15)'}];})()),sol:'OA\' = 2 × OA : l\'image est deux fois plus grande, du même côté de O.<br>k = <strong>2</strong>'},
  {tag:'homothétie',answer:-2,stim:'Le quadrilatère A\'B\'C\'D\' est l\'image de ABCD par une homothétie de centre O.<br>Quel est le rapport k ?'+trGrid(7,(function(){var q=[[1,1],[3,1],[2,3],[1,2]];return [{center:[0,0],clabel:'O'},{poly:q,vlabels:['A','B','C','D'],color:'#D9822B',fill:'rgba(217,130,43,.18)'},{poly:tHom(q,-2),vlabels:['A\'','B\'','C\'','D\''],color:'#C026D3',fill:'rgba(192,38,211,.15)'}];})()),sol:'L\'image est deux fois plus grande et de l\'autre côté de O (figure retournée) : le rapport est négatif.<br>k = <strong>−2</strong>'},
  {tag:'rotation',answer:90,stim:'La figure F2 est l\'image de F1 par une rotation de centre O (sens direct).<br>Quel est l\'angle de cette rotation, en degrés ?'+trGrid(6,(function(){var f=[[1,1],[3,1],[3,3],[2,4],[1,3]];return [{center:[0,0],clabel:'O'},{poly:f,name:'F1'},{poly:tRot(f,90),name:'F2',color:'#E2483D',fill:'rgba(226,72,61,.12)'}];})()),sol:'La figure a tourné d\'un quart de tour autour de O.<br>angle = <strong>90°</strong>'},
@@ -2503,25 +2615,314 @@ var trTrain3=[
  {tag:'reconnaître',answer:'rotation',accept:['une rotation'],stim:'La figure F2 est l\'image de F1.<br>Par quelle transformation passe-t-on de F1 à F2 ?'+trGrid(6,(function(){var f=[[1,1],[3,1],[3,2]];return [{center:[0,0],clabel:'O'},{poly:f,name:'F1'},{poly:tRot(f,90),name:'F2',color:'#E2483D',fill:'rgba(226,72,61,.12)'}];})()),sol:'La figure a tourné autour de O sans être retournée ni seulement déplacée → <strong>rotation</strong>.'},
  {tag:'translation',coord:true,answer:'(3 ; −2)',stim:'La figure F2 est l\'image de F1 par une translation.<br>Donne le déplacement de cette translation, sous la forme (horizontal ; vertical).'+trGrid(7,(function(){var f=[[-3,2],[-1,2],[-1,4],[-2,5],[-3,4]];return [{poly:f,name:'F1'},{poly:tPoly(f,3,-2),name:'F2',color:'#E2483D',fill:'rgba(226,72,61,.12)'}];})()),sol:'Le sommet (−3 ; 2) a pour image (0 ; 0).<br>déplacement = (0 − (−3) ; 0 − 2) = <strong>(3 ; −2)</strong> : 3 vers la droite, 2 vers le bas.'}
 ];
+var frTrain1=[
+ {tag:'addition',frac:true,answer:'5/6',stim:'Calcule et donne le résultat sous forme de fraction simplifiée :<br>2/3 + 1/6',sol:'On réduit au même dénominateur (6) :<br>4/6 + 1/6 = <strong>5/6</strong>'},
+ {tag:'multiplication',frac:true,answer:'3/10',stim:'Calcule :<br>3/4 × 2/5',sol:'On multiplie les numérateurs entre eux et les dénominateurs entre eux :<br>(3 × 2) / (4 × 5) = 6/20 = <strong>3/10</strong>'},
+ {tag:'soustraction',frac:true,answer:'1/2',stim:'Calcule et simplifie :<br>5/8 − 1/8',sol:'Même dénominateur : (5 − 1)/8 = 4/8 = <strong>1/2</strong>'},
+ {tag:'simplifier',frac:true,answer:'2/3',stim:'Simplifie la fraction :<br>12/18',sol:'On divise en haut et en bas par 6 :<br>12/18 = <strong>2/3</strong>'},
+ {tag:'addition',frac:true,answer:'1',stim:'Calcule :<br>2/3 + 1/3',sol:'Même dénominateur : (2 + 1)/3 = 3/3 = <strong>1</strong>'},
+ {tag:'multiplication',frac:true,answer:'2/3',stim:'Calcule et simplifie :<br>1/2 × 4/3',sol:'(1 × 4) / (2 × 3) = 4/6 = <strong>2/3</strong>'}
+];
+var frTrain2=[
+ {tag:'addition',frac:true,answer:'5/6',stim:'Calcule :<br>1/2 + 1/3',sol:'Dénominateur commun 6 :<br>3/6 + 2/6 = <strong>5/6</strong>'},
+ {tag:'soustraction',frac:true,answer:'7/12',stim:'Calcule :<br>3/4 − 1/6',sol:'Dénominateur commun 12 :<br>9/12 − 2/12 = <strong>7/12</strong>'},
+ {tag:'division',frac:true,answer:'5/6',stim:'Calcule :<br>2/3 ÷ 4/5',sol:'Diviser, c\'est multiplier par l\'inverse :<br>2/3 × 5/4 = 10/12 = <strong>5/6</strong>'},
+ {tag:'fraction d\'une quantité',answer:12,stim:'Calcule les 3/5 de 20.',sol:'3/5 × 20 = (3 × 20) / 5 = 60/5 = <strong>12</strong>'},
+ {tag:'multiplication',frac:true,answer:'1/4',stim:'Calcule et simplifie :<br>5/6 × 3/10',sol:'(5 × 3) / (6 × 10) = 15/60 = <strong>1/4</strong>'},
+ {tag:'soustraction',frac:true,answer:'3/10',stim:'Calcule :<br>7/10 − 2/5',sol:'Dénominateur commun 10 :<br>7/10 − 4/10 = <strong>3/10</strong>'}
+];
+var frTrain3=[
+ {tag:'calcul',frac:true,answer:'5/12',stim:'Calcule :<br>2/3 + 1/4 − 1/2',sol:'Dénominateur commun 12 :<br>8/12 + 3/12 − 6/12 = <strong>5/12</strong>'},
+ {tag:'division',frac:true,answer:'2/3',stim:'Calcule et simplifie :<br>3/4 ÷ 9/8',sol:'3/4 × 8/9 = 24/36 = <strong>2/3</strong>'},
+ {tag:'fraction d\'une quantité',answer:20,stim:'Dans une classe de 30 élèves, les 2/3 font de l\'allemand.<br>Combien d\'élèves font de l\'allemand ?',sol:'2/3 × 30 = (2 × 30) / 3 = 60/3 = <strong>20</strong> élèves'},
+ {tag:'soustraction',frac:true,answer:'5/8',stim:'Calcule :<br>1 − 3/8',sol:'1 = 8/8, donc 8/8 − 3/8 = <strong>5/8</strong>'},
+ {tag:'multiplication',frac:true,answer:'3/2',stim:'Calcule et simplifie :<br>2/5 × 15/4',sol:'(2 × 15) / (5 × 4) = 30/20 = <strong>3/2</strong>'},
+ {tag:'soustraction',frac:true,answer:'7/12',stim:'Calcule :<br>5/6 − 1/4',sol:'Dénominateur commun 12 :<br>10/12 − 3/12 = <strong>7/12</strong>'}
+];
+var clTrainDnD=[
+ {tag:'développer',stim:'Développe l\'expression en glissant les bons termes :',dnd:{lead:'2(x + 4) = ',tpl:'{0} + {1}',answer:['2x','8'],groups:[[0,1]],tiles:['2x','8','x+4','6','2x+4','16'],label:'2x + 8'},sol:'On multiplie 2 par chaque terme :<br>2 × x = 2x et 2 × 4 = 8 → <strong>2x + 8</strong>'},
+ {tag:'développer',stim:'Développe l\'expression en glissant les bons termes :',dnd:{lead:'5(2x + 3) = ',tpl:'{0} + {1}',answer:['10x','15'],groups:[[0,1]],tiles:['10x','15','7x','10x+3','35','2x+3'],label:'10x + 15'},sol:'5 × 2x = 10x et 5 × 3 = 15 → <strong>10x + 15</strong>'},
+ {tag:'développer',stim:'Développe l\'expression en glissant les bons termes :',dnd:{lead:'x(x + 7) = ',tpl:'{0} + {1}',answer:['x^2','7x'],groups:[[0,1]],tiles:['x^2','7x','x+7','7','8x','7x^2'],label:'x² + 7x'},sol:'x × x = x² et x × 7 = 7x → <strong>x² + 7x</strong>'},
+ {tag:'développer',stim:'Double distributivité : glisse les 4 produits.',dnd:{lead:'(x + 3)(x + 2) = ',tpl:'{0} + {1} + {2} + {3}',answer:['x^2','2x','3x','6'],groups:[[0,1,2,3]],tiles:['x^2','2x','3x','6','5x','x','9','6x'],label:'x² + 2x + 3x + 6'},sol:'Chaque terme du 1er facteur multiplie chaque terme du 2nd :<br>x·x + x·2 + 3·x + 3·2 = x² + 2x + 3x + 6.<br>Après réduction : x² + 5x + 6.'},
+ {tag:'factoriser',stim:'Factorise en glissant les bons termes :',dnd:{lead:'3x + 12 = ',tpl:'{0}({1} + {2})',answer:['3','x','4'],groups:[[1,2]],tiles:['3','x','4','12','3x','2'],label:'3(x + 4)'},sol:'Le facteur commun est 3 :<br>3x + 12 = 3 × x + 3 × 4 = <strong>3(x + 4)</strong>'},
+ {tag:'factoriser',stim:'Factorise en glissant les bons termes :',dnd:{lead:'6x + 9 = ',tpl:'{0}({1} + {2})',answer:['3','2x','3'],groups:[[1,2]],tiles:['3','3','2x','6','9','x'],label:'3(2x + 3)'},sol:'Le facteur commun est 3 :<br>6x + 9 = 3 × 2x + 3 × 3 = <strong>3(2x + 3)</strong>'},
+ {tag:'factoriser',stim:'Factorise en glissant les bons termes :',dnd:{lead:'x² + 5x = ',tpl:'{0}({1} + {2})',answer:['x','x','5'],groups:[[1,2]],tiles:['x','x','5','x^2','5x','2x'],label:'x(x + 5)'},sol:'Le facteur commun est x :<br>x² + 5x = x × x + x × 5 = <strong>x(x + 5)</strong>'}
+];
+var clTrainRed=[
+ {tag:'réduire',stim:'Réduis l\'expression en glissant les bons termes :',dnd:{lead:'3x + 5 + 2x = ',tpl:'{0} + {1}',answer:['5x','5'],groups:[[0,1]],tiles:['5x','5','6x','10x','3x','8'],label:'5x + 5'},sol:'On regroupe les termes semblables :<br>(3x + 2x) + 5 = <strong>5x + 5</strong>'},
+ {tag:'réduire',stim:'Réduis l\'expression en glissant les bons termes :',dnd:{lead:'7x − 2x + 4 = ',tpl:'{0} + {1}',answer:['5x','4'],groups:[[0,1]],tiles:['5x','4','9x','5x+4','3x','x'],label:'5x + 4'},sol:'On regroupe les x : 7x − 2x = 5x.<br>Résultat : <strong>5x + 4</strong>'},
+ {tag:'réduire',stim:'Réduis l\'expression en glissant les bons termes :',dnd:{lead:'4x + 3 + x − 1 = ',tpl:'{0} + {1}',answer:['5x','2'],groups:[[0,1]],tiles:['5x','2','5x+2','4x','x','3'],label:'5x + 2'},sol:'4x + x = 5x et 3 − 1 = 2.<br>Résultat : <strong>5x + 2</strong>'},
+ {tag:'réduire',stim:'Réduis l\'expression en glissant les bons termes :',dnd:{lead:'6x − 4 − 2x + 7 = ',tpl:'{0} + {1}',answer:['4x','3'],groups:[[0,1]],tiles:['4x','3','8x','4x+3','2x','11'],label:'4x + 3'},sol:'6x − 2x = 4x et −4 + 7 = 3.<br>Résultat : <strong>4x + 3</strong>'},
+ {tag:'réduire',stim:'Réduis l\'expression en glissant les bons termes :',dnd:{lead:'x² + 3x + 2x = ',tpl:'{0} + {1}',answer:['x^2','5x'],groups:[[0,1]],tiles:['x^2','5x','x^2+5x','6x','5x^2','x'],label:'x² + 5x'},sol:'Le terme x² est seul ; 3x + 2x = 5x.<br>Résultat : <strong>x² + 5x</strong>'},
+ {tag:'réduire',stim:'Réduis l\'expression en glissant les bons termes :',dnd:{lead:'2x² + 3x + x² + x = ',tpl:'{0} + {1}',answer:['3x^2','4x'],groups:[[0,1]],tiles:['3x^2','4x','3x^2+4x','x^2','7x','6x'],label:'3x² + 4x'},sol:'2x² + x² = 3x² et 3x + x = 4x.<br>Résultat : <strong>3x² + 4x</strong>'}
+];
+var clTrainIR=[
+ {tag:'identité (a+b)²',stim:'Développe l\'identité remarquable en glissant les 3 termes :',dnd:{lead:'(x + 5)² = ',tpl:'{0} + {1} + {2}',answer:['x^2','10x','25'],groups:[[0,1,2]],tiles:['x^2','10x','25','5x','50','x','x^2+25'],label:'x² + 10x + 25'},sol:'(a + b)² = a² + 2ab + b² :<br>x² + 2×x×5 + 5² = <strong>x² + 10x + 25</strong>'},
+ {tag:'identité (a−b)²',stim:'Développe l\'identité remarquable en glissant les 3 termes :',dnd:{lead:'(x − 4)² = ',tpl:'{0} + {1} + {2}',answer:['x^2','-8x','16'],groups:[[0,1,2]],tiles:['x^2','-8x','16','8x','-16','x','x^2-16'],label:'x² − 8x + 16'},sol:'(a − b)² = a² − 2ab + b² :<br>x² − 2×x×4 + 4² = <strong>x² − 8x + 16</strong>'},
+ {tag:'identité (a+b)(a−b)',stim:'Développe l\'identité remarquable en glissant les termes :',dnd:{lead:'(x + 3)(x − 3) = ',tpl:'{0} + {1}',answer:['x^2','-9'],groups:[[0,1]],tiles:['x^2','-9','9','6x','-6x','x^2-9'],label:'x² − 9'},sol:'(a + b)(a − b) = a² − b² :<br>x² − 3² = <strong>x² − 9</strong>'},
+ {tag:'factoriser a²−b²',stim:'Factorise en glissant les nombres :',dnd:{lead:'x² − 9 = ',tpl:'(x − {0})(x + {1})',answer:['3','3'],tiles:['3','3','9','6','x'],label:'(x − 3)(x + 3)'},sol:'a² − b² = (a − b)(a + b), avec b² = 9 donc b = 3 :<br><strong>(x − 3)(x + 3)</strong>'},
+ {tag:'développer (signe −)',stim:'Développe en faisant attention au signe :',dnd:{lead:'−2(x − 3) = ',tpl:'{0} + {1}',answer:['-2x','6'],groups:[[0,1]],tiles:['-2x','6','-6','2x','-2x-6','-2x+3'],label:'−2x + 6'},sol:'−2 × x = −2x et −2 × (−3) = +6 :<br><strong>−2x + 6</strong>'},
+ {tag:'développer (signe −)',stim:'Développe la double distributivité (attention aux signes) :',dnd:{lead:'(x − 4)(x + 2) = ',tpl:'{0} + {1} + {2} + {3}',answer:['x^2','2x','-4x','-8'],groups:[[0,1,2,3]],tiles:['x^2','2x','-4x','-8','4x','8','-2x','x'],label:'x² + 2x − 4x − 8'},sol:'x·x + x·2 − 4·x − 4·2 = x² + 2x − 4x − 8.<br>Après réduction : x² − 2x − 8.'},
+ {tag:'soustraire une parenthèse',stim:'Réduis en distribuant le signe « − » :',dnd:{lead:'5x − (2x − 3) = ',tpl:'{0} + {1}',answer:['3x','3'],groups:[[0,1]],tiles:['3x','3','7x','-3','3x-3','x'],label:'3x + 3'},sol:'− (2x − 3) = −2x + 3, donc 5x − 2x + 3 = <strong>3x + 3</strong>'}
+];
+var clTrainGrid=[
+ {tag:'tableau d\'aire',stim:'Complète le tableau d\'aire (chaque case = ligne × colonne) :',dnd:{grid:{cols:['x','+2'],rows:['x','+3'],answer:['x^2','2x','3x','6'],tiles:['x^2','2x','3x','6','5x','x','5','6x'],label:'x² + 5x + 6'}},sol:'Les cases donnent x², 2x, 3x et 6.<br>En additionnant : x² + 2x + 3x + 6 = <strong>x² + 5x + 6</strong>'},
+ {tag:'tableau d\'aire',stim:'Complète le tableau d\'aire (chaque case = ligne × colonne) :',dnd:{grid:{cols:['x','+4'],rows:['x','+1'],answer:['x^2','4x','x','4'],tiles:['x^2','4x','x','4','5x','x^2+4','8x','5'],label:'x² + 5x + 4'}},sol:'Les cases donnent x², 4x, x et 4.<br>En additionnant : x² + 4x + x + 4 = <strong>x² + 5x + 4</strong>'}
+];
+function rnd(a,b){return a+Math.floor(Math.random()*(b-a+1));}
+var clTrainParen=[
+ {tag:'enlever les parenthèses',stim:'Enlève les parenthèses en glissant les bons termes :',dnd:{lead:'+(x + 5) = ',tpl:'{0} + {1}',answer:['x','5'],groups:[[0,1]],tiles:['x','5','-x','-5','x+5','10'],label:'x + 5'},sol:'Un « + » devant la parenthèse ne change aucun signe :<br>+(x + 5) = <strong>x + 5</strong>'},
+ {tag:'enlever les parenthèses',stim:'Enlève les parenthèses en glissant les bons termes :',dnd:{lead:'−(x + 5) = ',tpl:'{0} + {1}',answer:['-x','-5'],groups:[[0,1]],tiles:['-x','-5','x','5','-x-5','-5x'],label:'−x − 5'},sol:'Un « − » devant la parenthèse change tous les signes :<br>−(x + 5) = <strong>−x − 5</strong>'},
+ {tag:'enlever les parenthèses',stim:'Enlève les parenthèses en glissant les bons termes :',dnd:{lead:'−(x − 3) = ',tpl:'{0} + {1}',answer:['-x','3'],groups:[[0,1]],tiles:['-x','3','x','-3','-x+3','-x-3'],label:'−x + 3'},sol:'Le « − » change tous les signes : −x devient le contraire de x, et −(−3) = +3.<br>Résultat : <strong>−x + 3</strong>'},
+ {tag:'enlever les parenthèses',stim:'Enlève les parenthèses en glissant les bons termes :',dnd:{lead:'+(2x − 4) = ',tpl:'{0} + {1}',answer:['2x','-4'],groups:[[0,1]],tiles:['2x','-4','-2x','4','2x-4'],label:'2x − 4'},sol:'Le « + » ne change rien : <strong>2x − 4</strong>'},
+ {tag:'enlever les parenthèses',stim:'Enlève les parenthèses en glissant les bons termes :',dnd:{lead:'−(2x − 4) = ',tpl:'{0} + {1}',answer:['-2x','4'],groups:[[0,1]],tiles:['-2x','4','2x','-4','-2x+4','-2x-4'],label:'−2x + 4'},sol:'Le « − » change tous les signes :<br>−(2x − 4) = <strong>−2x + 4</strong>'},
+ {tag:'enlever les parenthèses',stim:'Enlève les parenthèses en glissant les bons termes :',dnd:{lead:'−(3x + 2) = ',tpl:'{0} + {1}',answer:['-3x','-2'],groups:[[0,1]],tiles:['-3x','-2','3x','2','-3x-2','-6x'],label:'−3x − 2'},sol:'Le « − » change tous les signes :<br>−(3x + 2) = <strong>−3x − 2</strong>'}
+];
+function genDevSingle(){var k=rnd(2,6),a=rnd(1,4),b=rnd(2,9);var inside=(a===1?'x':a+'x')+' + '+b;return {tag:'développer',alg:true,prompt:'Développe et réduis : '+k+'('+inside+')',answer:(k*a)+'x+'+(k*b),sol:k+' × '+(a===1?'x':a+'x')+' = '+(k*a)+'x et '+k+' × '+b+' = '+(k*b)+'.<br>Résultat : <strong>'+(k*a)+'x + '+(k*b)+'</strong>'};}
+function genDevDouble(){var a=rnd(1,6),b=rnd(1,6);return {tag:'développer',alg:true,prompt:'Développe et réduis : (x + '+a+')(x + '+b+')',answer:'x²+'+(a+b)+'x+'+(a*b),sol:'(x + '+a+')(x + '+b+') = x² + '+a+'x + '+b+'x + '+(a*b)+'.<br>Après réduction : <strong>x² + '+(a+b)+'x + '+(a*b)+'</strong>'};}
+function genSubst(){var a=rnd(2,5),b=rnd(1,9),x0=rnd(2,5);return {tag:'substitution',answer:a*x0+b,prompt:'Pour x = '+x0+', calcule la valeur de '+a+'x + '+b+'.',sol:a+'x + '+b+' = '+a+'×'+x0+' + '+b+' = '+(a*x0)+' + '+b+' = <strong>'+(a*x0+b)+'</strong>'};}
+function genSubst2(){var b=rnd(1,5),x0=rnd(2,4);return {tag:'substitution',answer:x0*x0+b*x0,prompt:'Pour x = '+x0+', calcule x² + '+b+'x.',sol:'x² + '+b+'x = '+x0+'² + '+b+'×'+x0+' = '+(x0*x0)+' + '+(b*x0)+' = <strong>'+(x0*x0+b*x0)+'</strong>'};}
+function genMulMono(){var pat=rnd(1,4),disp,ans;
+  if(pat===1){var b=rnd(2,6);disp='x × '+b+'x';ans=b+'x²';}
+  else if(pat===2){var a=rnd(2,5),b=rnd(2,5);disp=a+'x × '+b+'x';ans=(a*b)+'x²';}
+  else if(pat===3){var a=rnd(2,6),b=rnd(2,6);disp=a+'x × '+b;ans=(a*b)+'x';}
+  else {var a=rnd(2,6),b=rnd(2,6);disp=a+' × '+b+'x';ans=(a*b)+'x';}
+  return {tag:'multiplier',alg:true,prompt:'Calcule et réduis : '+disp,answer:ans,sol:disp+' : on multiplie les nombres entre eux et les x entre eux.<br>Résultat : <strong>'+ans+'</strong>'};}
+function genMulSigned(){
+  var pat=rnd(1,6),a,b,c,f1,f2,ans;
+  function ng(){return Math.random()<0.5?-1:1;}
+  function num(n){return n<0?'−'+(-n):''+n;}
+  function pnum(n){return n<0?'(−'+(-n)+')':''+n;}
+  function pmono(n){return n<0?'(−'+(-n)+'x)':n+'x';}
+  if(pat===1){f1='x';f2='x';ans='x²';}
+  else if(pat===2){a=rnd(2,6)*ng();b=rnd(2,6)*ng();c=a*b;f1=num(a)+'x';f2=pnum(b);ans=(c<0?'-':'')+Math.abs(c)+'x';}
+  else if(pat===3){a=rnd(2,5)*ng();b=rnd(2,5)*ng();c=a*b;f1=num(a)+'x';f2=pmono(b);ans=(c<0?'-':'')+Math.abs(c)+'x²';}
+  else if(pat===4){a=rnd(2,6)*ng();b=rnd(2,6)*ng();c=a*b;f1=num(a);f2=pmono(b);ans=(c<0?'-':'')+Math.abs(c)+'x';}
+  else if(pat===5){b=rnd(2,6)*ng();c=b;f1='x';f2=pmono(b);ans=(c<0?'-':'')+Math.abs(c)+'x²';}
+  else{a=rnd(2,9)*ng();b=rnd(2,9)*ng();c=a*b;f1=num(a);f2=pnum(b);return {tag:'multiplier (relatifs)',answer:c,prompt:'Calcule : '+f1+' × '+f2,sol:f1+' × '+f2+' = <strong>'+num(c)+'</strong><br>(− × − = + ; − × + = −)'};}
+  return {tag:'multiplier',alg:true,prompt:'Calcule et réduis : '+f1+' × '+f2,answer:ans,sol:f1+' × '+f2+' = <strong>'+ans.replace('-','−')+'</strong><br>On multiplie les nombres (signes compris) et les x entre eux.'};
+}
+var clTrainGen=[genDevSingle,genDevSingle,genDevDouble,genDevDouble,genSubst,genSubst2,genMulMono,genMulSigned,genMulSigned];
+function fmtSigned(n){return n<0?'−'+(-n):''+n;}
+function relT(n){return n<0?'(−'+(-n)+')':(''+n);}
+function genRelSub(){var a=rnd(1,12),b=rnd(2,15);return {tag:'relatifs',answer:a-b,prompt:'Calcule : '+a+' − '+b,sol:a+' − '+b+' = <strong>'+fmtSigned(a-b)+'</strong>'};}
+function genRelAdd(){var a=rnd(1,12),b=rnd(1,12);return {tag:'relatifs',answer:-a+b,prompt:'Calcule : −'+a+' + '+b,sol:'−'+a+' + '+b+' = <strong>'+fmtSigned(-a+b)+'</strong>'};}
+function genRelSub2(){var a=rnd(1,10),b=rnd(1,10);return {tag:'relatifs',answer:-a-b,prompt:'Calcule : −'+a+' − '+b,sol:'−'+a+' − '+b+' = <strong>'+fmtSigned(-a-b)+'</strong>'};}
+function genRelMul(){var a=rnd(2,9)*(Math.random()<0.5?-1:1),b=rnd(2,9)*(Math.random()<0.5?-1:1);var d=(a<0?'−'+(-a):''+a)+' × '+relT(b);return {tag:'relatifs',answer:a*b,prompt:'Calcule : '+d,sol:d+' = <strong>'+fmtSigned(a*b)+'</strong><br>(− × − = + ; − × + = −)'};}
+function monoAns(s){return s===1?'x':s===-1?'-x':s+'x';}
+function genRelX(){var c1,c2,sum;do{c1=rnd(2,9)*(Math.random()<0.5?-1:1);c2=rnd(2,9)*(Math.random()<0.5?-1:1);sum=c1+c2;}while(sum===0);
+  var disp=(c1<0?'−'+(-c1):''+c1)+'x'+(c2<0?' − ':' + ')+Math.abs(c2)+'x';
+  var ans=monoAns(sum);
+  return {tag:'relatifs (avec x)',alg:true,prompt:'Réduis : '+disp,answer:ans,accept:[(sum<0?'-':'')+Math.abs(sum)+'x'],sol:disp+' : on ajoute les coefficients '+(c1<0?'(−'+(-c1)+')':c1)+(c2<0?' + (−'+(-c2)+')':' + '+c2)+' = '+sum+'.<br>Résultat : <strong>'+ans.replace('-','−')+'</strong>'};}
+function genRelX3(){var a,b,c,sum;do{a=rnd(1,6)*(Math.random()<0.5?-1:1);b=rnd(1,6)*(Math.random()<0.5?-1:1);c=rnd(1,6)*(Math.random()<0.5?-1:1);sum=a+b+c;}while(sum===0);
+  function term(n,first){var mag=Math.abs(n),coef=(mag===1?'':mag)+'x';if(first)return (n<0?'−':'')+coef;return (n<0?' − ':' + ')+coef;}
+  var disp=term(a,true)+term(b,false)+term(c,false);
+  var ans=monoAns(sum);
+  return {tag:'relatifs (avec x)',alg:true,prompt:'Réduis : '+disp,answer:ans,accept:[(sum<0?'-':'')+Math.abs(sum)+'x'],sol:disp+' : on additionne les coefficients '+a+' + ('+b+') + ('+c+') = '+sum+'.<br>Résultat : <strong>'+ans.replace('-','−')+'</strong>'};}
+var clRelGen=[genRelSub,genRelAdd,genRelSub2,genRelMul,genRelMul,genRelX,genRelX,genRelX3];
+function trCoord(p){return '('+(p[0]<0?'−'+(-p[0]):p[0])+' ; '+(p[1]<0?'−'+(-p[1]):p[1])+')';}
+function trRandTri(){var sh=[[[0,0],[2,0],[0,2]],[[0,0],[2,0],[2,2]],[[0,0],[3,0],[0,2]],[[0,0],[2,0],[1,2]]][rnd(0,3)];var ox=rnd(-3,2),oy=rnd(-3,2);return sh.map(function(q){return [q[0]+ox,q[1]+oy];});}
+function trRandTriSmall(){var sh=[[[0,0],[1,0],[0,1]],[[0,0],[2,0],[0,1]],[[0,0],[1,0],[1,1]]][rnd(0,2)];var ox=rnd(-1,1),oy=rnd(-1,1);return sh.map(function(q){return [q[0]+ox,q[1]+oy];});}
+var TRN=['A','B','C'];
+function genTrTranslation(){var dx=rnd(1,4),dy=rnd(1,3),r=genFitTri(function(t){return tPoly(t,dx,dy);}),i=rnd(0,2),A=r.fig[i],img=r.img[i],L=TRN[i];
+  return {tag:'translation',draw:{fig:r.fig,exp:[img],indicator:{vec:[dx,dy]},mark:i,plabels:[L+'\u2032']},stim:'Place l\'image du point '+L+' par la translation qui déplace de '+dx+' vers la droite et '+dy+' vers le haut.',sol:L+trCoord(A)+' : on ajoute (+'+dx+' ; +'+dy+').<br>Image = <strong>'+trCoord(img)+'</strong>'};}
+function genTrSymAx(){var ax=Math.random()<0.5?'x':'y',r=genFitTri(function(t){return ax==='x'?tSymX(t):tSymY(t);}),i=rnd(0,2),A=r.fig[i],img=r.img[i],L=TRN[i];
+  return {tag:'symétrie axiale',draw:{fig:r.fig,exp:[img],indicator:{axis:ax},mark:i,plabels:[L+'\u2032']},stim:'Place l\'image du point '+L+' par la symétrie d\'axe (O'+ax+').',sol:'La symétrie d\'axe (O'+ax+') change le signe de '+(ax==='x'?'l\'ordonnée (y)':'l\'abscisse (x)')+'.<br>'+L+trCoord(A)+' → <strong>'+trCoord(img)+'</strong>'};}
+function genTrSymO(){var r=genFitTri(function(t){return tSymO(t);}),i=rnd(0,2),A=r.fig[i],img=r.img[i],L=TRN[i];
+  return {tag:'symétrie centrale',draw:{fig:r.fig,exp:[img],indicator:{center:true},mark:i,plabels:[L+'\u2032']},stim:'Place l\'image du point '+L+' par la symétrie de centre O.',sol:'La symétrie de centre O change les deux signes.<br>'+L+trCoord(A)+' → <strong>'+trCoord(img)+'</strong>'};}
+function genTrRot(){var ang=[90,180,270][rnd(0,2)],r=genFitTri(function(t){return tRot(t,ang);}),i=rnd(0,2),A=r.fig[i],img=r.img[i],L=TRN[i];
+  return {tag:'rotation',draw:{fig:r.fig,exp:[img],indicator:{center:true},mark:i,plabels:[L+'\u2032']},stim:'Place l\'image du point '+L+' par la rotation de centre O et d\'angle '+ang+'° (sens direct).',sol:'Rotation de '+ang+'° autour de O.<br>'+L+trCoord(A)+' → <strong>'+trCoord(img)+'</strong>'};}
+function genTrHom(){var k=[2,-1,-2][rnd(0,2)],r=genFitTri(function(t){return tHom(t,k);}),i=rnd(0,2),A=r.fig[i],img=r.img[i],L=TRN[i];
+  return {tag:'homothétie',draw:{fig:r.fig,exp:[img],indicator:{center:true},mark:i,plabels:[L+'\u2032']},stim:'Place l\'image du point '+L+' par l\'homothétie de centre O et de rapport '+(k<0?'−'+(-k):k)+'.',sol:'On multiplie les coordonnées par '+(k<0?'−'+(-k):k)+'.<br>'+L+trCoord(A)+' → <strong>'+trCoord(img)+'</strong>'};}
+var trGenBank=[genTrTranslation,genTrTranslation,genTrTranslation,genTrSymAx,genTrSymAx,genTrSymAx,genTrSymO,genTrSymO,genTrSymO,genTrRot,genTrRot,genTrRot,genTrHom,genTrHom,genTrHom];
+function genFitTri(tf){for(var k=0;k<140;k++){var sh=[[[0,0],[3,0],[0,3]],[[0,0],[3,0],[3,2]],[[0,0],[3,0],[1,3]],[[0,0],[2,0],[0,3]]][rnd(0,3)];var ox=rnd(-5,5),oy=rnd(-5,5);var t=sh.map(function(q){return [q[0]+ox,q[1]+oy];});var img=tf(t);var ok=t.concat(img).every(function(p){return p[0]>=-6&&p[0]<=6&&p[1]>=-6&&p[1]<=6;});if(ok)return {fig:t,img:img};}var t=[[1,1],[3,1],[1,2]];return {fig:t,img:tf(t)};}
+function drawTranslation(){var dx=rnd(1,4),dy=rnd(1,3),r=genFitTri(function(t){return tPoly(t,dx,dy);});return {tag:'translation',draw:{fig:r.fig,exp:r.img,indicator:{vec:[dx,dy]}},stim:'Trace l\'image du triangle ABC par la translation qui déplace de '+dx+' vers la droite et '+dy+' vers le haut.',sol:'Chaque sommet se déplace de (+'+dx+' ; +'+dy+').'};}
+function drawSymAx(){var ax=Math.random()<0.5?'x':'y',r=genFitTri(function(t){return ax==='x'?tSymX(t):tSymY(t);});return {tag:'symétrie axiale',draw:{fig:r.fig,exp:r.img,indicator:{axis:ax}},stim:'Trace l\'image du triangle ABC par la symétrie d\'axe (O'+ax+').',sol:'On reflète chaque sommet de l\'autre côté de l\'axe (O'+ax+').'};}
+function drawSymO(){var r=genFitTri(function(t){return tSymO(t);});return {tag:'symétrie centrale',draw:{fig:r.fig,exp:r.img,indicator:{center:true}},stim:'Trace l\'image du triangle ABC par la symétrie de centre O.',sol:'Chaque sommet a son symétrique par rapport à O (les deux coordonnées changent de signe).'};}
+function drawRot(){var ang=[90,180,270][rnd(0,2)],r=genFitTri(function(t){return tRot(t,ang);});return {tag:'rotation',draw:{fig:r.fig,exp:r.img,indicator:{center:true}},stim:'Trace l\'image du triangle ABC par la rotation de centre O et d\'angle '+ang+'° (sens direct).',sol:'On fait tourner chaque sommet de '+ang+'° autour de O.'};}
+function drawHom(){var k=[2,-1,-2][rnd(0,2)],r=genFitTri(function(t){return tHom(t,k);});return {tag:'homothétie',draw:{fig:r.fig,exp:r.img,indicator:{center:true}},stim:'Trace l\'image du triangle ABC par l\'homothétie de centre O et de rapport '+(k<0?'−'+(-k):k)+'.',sol:'On multiplie les coordonnées de chaque sommet par '+(k<0?'−'+(-k):k)+' (à partir de O).'};}
+var trDrawBank=[drawTranslation,drawTranslation,drawSymAx,drawSymAx,drawSymO,drawSymO,drawRot,drawRot,drawHom,drawHom];
+function geomFig(kind,p,plain){
+  var s='<svg viewBox="0 0 220 150" width="220" style="max-width:100%;height:auto;margin-top:10px">';
+  var cob=plain?'#181B22':'#4F46E5',fil=plain?'none':'rgba(79,70,229,.10)';
+  function L(x,y,t,a){return '<text x="'+x+'" y="'+y+'" font-family="\'Space Mono\',monospace" font-size="12" font-weight="700" fill="#181B22" text-anchor="'+(a||'middle')+'">'+t+'</text>';}
+  if(kind==='carre'){s+='<rect x="70" y="28" width="80" height="80" fill="'+fil+'" stroke="'+cob+'" stroke-width="2"/>'+L(110,126,p.c+' cm');}
+  else if(kind==='rect'){s+='<rect x="45" y="38" width="120" height="68" fill="'+fil+'" stroke="'+cob+'" stroke-width="2"/>'+L(105,124,p.L+' cm')+L(36,76,p.l+' cm','end');}
+  else if(kind==='tri'){s+='<polygon points="40,118 175,118 80,38" fill="'+fil+'" stroke="'+cob+'" stroke-width="2"/>'+'<line x1="80" y1="38" x2="80" y2="118" stroke="#6B7280" stroke-width="1.5" stroke-dasharray="4 3"/>'+L(107,134,p.b+' cm')+L(70,80,p.h+' cm','end');}
+  else if(kind==='cercle'){s+='<circle cx="110" cy="72" r="50" fill="'+fil+'" stroke="'+cob+'" stroke-width="2"/>'+'<line x1="110" y1="72" x2="160" y2="72" stroke="#181B22" stroke-width="1.5"/>'+'<circle cx="110" cy="72" r="2.5" fill="#181B22"/>'+L(135,66,p.r+' cm');}
+  else if(kind==='cube'){var a=70,x=45,y=45;s+='<rect x="'+x+'" y="'+y+'" width="'+a+'" height="'+a+'" fill="'+fil+'" stroke="'+cob+'" stroke-width="2"/>';s+='<polyline points="'+x+','+y+' '+(x+26)+','+(y-26)+' '+(x+a+26)+','+(y-26)+' '+(x+a)+','+y+'" fill="none" stroke="'+cob+'" stroke-width="2"/>';s+='<line x1="'+(x+a)+'" y1="'+y+'" x2="'+(x+a+26)+'" y2="'+(y-26)+'" stroke="'+cob+'" stroke-width="2"/>';s+='<line x1="'+(x+a+26)+'" y1="'+(y-26)+'" x2="'+(x+a+26)+'" y2="'+(y+a-26)+'" stroke="'+cob+'" stroke-width="2" stroke-dasharray="4 3"/>';s+='<line x1="'+(x+a)+'" y1="'+(y+a)+'" x2="'+(x+a+26)+'" y2="'+(y+a-26)+'" stroke="'+cob+'" stroke-width="2" stroke-dasharray="4 3"/>';s+=L(x+a/2,y+a+20,p.a+' cm');}
+  else if(kind==='pave'){var w=110,h=56,x=40,y=50,d=24;s+='<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" fill="'+fil+'" stroke="'+cob+'" stroke-width="2"/>';s+='<polyline points="'+x+','+y+' '+(x+d)+','+(y-d)+' '+(x+w+d)+','+(y-d)+' '+(x+w)+','+y+'" fill="none" stroke="'+cob+'" stroke-width="2"/>';s+='<line x1="'+(x+w)+'" y1="'+y+'" x2="'+(x+w+d)+'" y2="'+(y-d)+'" stroke="'+cob+'" stroke-width="2"/>';s+='<line x1="'+(x+w+d)+'" y1="'+(y-d)+'" x2="'+(x+w+d)+'" y2="'+(y+h-d)+'" stroke="'+cob+'" stroke-width="2" stroke-dasharray="4 3"/>';s+='<line x1="'+(x+w)+'" y1="'+(y+h)+'" x2="'+(x+w+d)+'" y2="'+(y+h-d)+'" stroke="'+cob+'" stroke-width="2" stroke-dasharray="4 3"/>';s+=L(x+w/2,y+h+20,p.L+' cm')+L(x-8,y+h/2+4,p.l+' cm','end')+L(x+w+d+8,y-d/2+4,p.h+' cm','start');}
+  else if(kind==='cylindre'){var cx=110,top=34,bot=116,rx=42,ry=12;s+='<ellipse cx="'+cx+'" cy="'+bot+'" rx="'+rx+'" ry="'+ry+'" fill="'+fil+'" stroke="'+cob+'" stroke-width="2"/>';s+='<line x1="'+(cx-rx)+'" y1="'+top+'" x2="'+(cx-rx)+'" y2="'+bot+'" stroke="'+cob+'" stroke-width="2"/>';s+='<line x1="'+(cx+rx)+'" y1="'+top+'" x2="'+(cx+rx)+'" y2="'+bot+'" stroke="'+cob+'" stroke-width="2"/>';s+='<ellipse cx="'+cx+'" cy="'+top+'" rx="'+rx+'" ry="'+ry+'" fill="'+fil+'" stroke="'+cob+'" stroke-width="2"/>';s+='<line x1="'+cx+'" y1="'+top+'" x2="'+(cx+rx)+'" y2="'+top+'" stroke="#181B22" stroke-width="1.5"/>';s+=L(cx+rx/2,top-5,p.r+' cm')+L(cx+rx+10,(top+bot)/2,p.h+' cm','start');}
+  return s+'</svg>';
+}
+function genPerimCarre(){var c=rnd(3,15);return {tag:'périmètre',answer:4*c,prompt:'Quel est le périmètre de ce carré (en cm) ?',stim:geomFig('carre',{c:c},true),sol:'P = 4 × côté = 4 × '+c+' = <strong>'+(4*c)+' cm</strong>'};}
+function genPerimRect(){var Lg=rnd(5,15),lg=rnd(2,Lg-1);return {tag:'périmètre',answer:2*(Lg+lg),prompt:'Quel est le périmètre de ce rectangle (en cm) ?',stim:geomFig('rect',{L:Lg,l:lg},true),sol:'P = 2 × (L + l) = 2 × ('+Lg+' + '+lg+') = <strong>'+(2*(Lg+lg))+' cm</strong>'};}
+function genPerimTri(){var a=rnd(3,12),b=rnd(3,12),c=rnd(3,12);return {tag:'périmètre',answer:a+b+c,prompt:'Un triangle a pour côtés '+a+' cm, '+b+' cm et '+c+' cm.<br>Quel est son périmètre (en cm) ?',sol:'P = '+a+' + '+b+' + '+c+' = <strong>'+(a+b+c)+' cm</strong>'};}
+function genCirconf(){var r=rnd(2,10);return {tag:'périmètre',answer:2*r,prompt:'Ce cercle a pour rayon '+r+' cm. Sa circonférence vaut k × π.<br>Donne la valeur de k.',stim:geomFig('cercle',{r:r},true),sol:'Circonférence = 2 × π × r = 2 × π × '+r+' = '+(2*r)+'π → k = <strong>'+(2*r)+'</strong>'};}
+function genAireCarre(){var c=rnd(3,15);return {tag:'aire',answer:c*c,prompt:'Quelle est l\'aire de ce carré (en cm²) ?',stim:geomFig('carre',{c:c}),sol:'A = côté² = '+c+'² = <strong>'+(c*c)+' cm²</strong>'};}
+function genAireRect(){var Lg=rnd(4,15),lg=rnd(2,Lg-1);return {tag:'aire',answer:Lg*lg,prompt:'Quelle est l\'aire de ce rectangle (en cm²) ?',stim:geomFig('rect',{L:Lg,l:lg}),sol:'A = L × l = '+Lg+' × '+lg+' = <strong>'+(Lg*lg)+' cm²</strong>'};}
+function genAireTri(){var b=rnd(3,14),h=[2,4,6,8,10][rnd(0,4)];return {tag:'aire',answer:b*h/2,prompt:'Quelle est l\'aire de ce triangle (en cm²) ?',stim:geomFig('tri',{b:b,h:h}),sol:'A = (base × hauteur) ÷ 2 = ('+b+' × '+h+') ÷ 2 = <strong>'+(b*h/2)+' cm²</strong>'};}
+function genAireDisque(){var r=rnd(2,10);return {tag:'aire',answer:r*r,prompt:'Ce disque a pour rayon '+r+' cm. Son aire vaut k × π.<br>Donne la valeur de k.',stim:geomFig('cercle',{r:r}),sol:'A = π × r² = π × '+r+'² = '+(r*r)+'π → k = <strong>'+(r*r)+'</strong>'};}
+function genVolCube(){var a=rnd(2,9);return {tag:'volume',answer:a*a*a,prompt:'Quel est le volume de ce cube (en cm³) ?',stim:geomFig('cube',{a:a}),sol:'V = côté³ = '+a+'³ = <strong>'+(a*a*a)+' cm³</strong>'};}
+function genVolPave(){var Lg=rnd(3,10),lg=rnd(2,8),h=rnd(2,8);return {tag:'volume',answer:Lg*lg*h,prompt:'Quel est le volume de ce pavé droit (en cm³) ?',stim:geomFig('pave',{L:Lg,l:lg,h:h}),sol:'V = L × l × h = '+Lg+' × '+lg+' × '+h+' = <strong>'+(Lg*lg*h)+' cm³</strong>'};}
+function genVolCyl(){var r=rnd(2,7),h=rnd(2,10);return {tag:'volume',answer:r*r*h,prompt:'Ce cylindre a un rayon de '+r+' cm et une hauteur de '+h+' cm.<br>Son volume vaut k × π. Donne la valeur de k.',stim:geomFig('cylindre',{r:r,h:h}),sol:'V = π × r² × h = π × '+r+'² × '+h+' = '+(r*r*h)+'π → k = <strong>'+(r*r*h)+'</strong>'};}
+function genVolPyr(){var Lg=rnd(3,9),lg=rnd(2,8),h=[3,6,9][rnd(0,2)],B=Lg*lg;return {tag:'volume',answer:B*h/3,prompt:'Une pyramide a pour base un rectangle '+Lg+' cm × '+lg+' cm et une hauteur de '+h+' cm.<br>Quel est son volume (en cm³) ?',sol:'V = (aire de base × hauteur) ÷ 3 = ('+B+' × '+h+') ÷ 3 = <strong>'+(B*h/3)+' cm³</strong>'};}
+var perimGen=[genPerimCarre,genPerimRect,genPerimRect,genPerimTri,genCirconf,genCirconf];
+var aireGen=[genAireCarre,genAireRect,genAireRect,genAireTri,genAireTri,genAireDisque];
+var volGen=[genVolCube,genVolPave,genVolPave,genVolCyl,genVolCyl,genVolPyr];
+function shapeIcon(k){
+  var c='#4F46E5',f='rgba(79,70,229,.14)',s='<svg viewBox="0 0 46 38" width="42" height="34">';
+  if(k==='carre')s+='<rect x="11" y="6" width="26" height="26" rx="2" fill="'+f+'" stroke="'+c+'" stroke-width="2"/>';
+  else if(k==='rectangle')s+='<rect x="5" y="10" width="36" height="20" rx="2" fill="'+f+'" stroke="'+c+'" stroke-width="2"/>';
+  else if(k==='triangle')s+='<polygon points="23,5 41,33 5,33" fill="'+f+'" stroke="'+c+'" stroke-width="2" stroke-linejoin="round"/>';
+  else if(k==='disque')s+='<circle cx="23" cy="19" r="15" fill="'+f+'" stroke="'+c+'" stroke-width="2"/>';
+  return s+'</svg>';
+}
+function compSVG(spec){
+  var k=18,pad=26,W=spec.w*k+2*pad,Hh=spec.h*k+2*pad;
+  function X(x){return pad+x*k;}function Y(y){return pad+y*k;}
+  var s='<svg viewBox="0 0 '+W+' '+Hh+'" width="'+Math.min(W,290)+'" style="max-width:100%;height:auto;margin-top:10px">';
+  if(spec.dashPoly)s+='<polygon points="'+spec.dashPoly.map(function(p){return X(p[0])+','+Y(p[1]);}).join(' ')+'" fill="none" stroke="#9CA3AF" stroke-width="1.4" stroke-dasharray="5 3"/>';
+  s+='<polygon points="'+spec.poly.map(function(p){return X(p[0])+','+Y(p[1]);}).join(' ')+'" fill="rgba(79,70,229,.10)" stroke="#4F46E5" stroke-width="2" stroke-linejoin="round"/>';
+  (spec.lines||[]).forEach(function(L){s+='<line x1="'+X(L[0][0])+'" y1="'+Y(L[0][1])+'" x2="'+X(L[1][0])+'" y2="'+Y(L[1][1])+'" stroke="#6B7280" stroke-width="1.5" stroke-dasharray="5 3"/>';});
+  if(spec.dashCircle){var dc=spec.dashCircle;s+='<circle cx="'+X(dc.cx)+'" cy="'+Y(dc.cy)+'" r="'+(dc.r*k)+'" fill="#FFFFFF" stroke="#9CA3AF" stroke-width="1.6" stroke-dasharray="5 3"/>';s+='<line x1="'+X(dc.cx)+'" y1="'+Y(dc.cy)+'" x2="'+X(dc.cx+dc.r)+'" y2="'+Y(dc.cy)+'" stroke="#6B7280" stroke-width="1.4"/>';s+='<circle cx="'+X(dc.cx)+'" cy="'+Y(dc.cy)+'" r="2.2" fill="#6B7280"/>';}
+  (spec.labels||[]).forEach(function(l){s+='<text x="'+X(l.x)+'" y="'+Y(l.y)+'" font-family="\'Space Mono\',monospace" font-size="12" font-weight="700" fill="#181B22" text-anchor="middle">'+l.t+'</text>';});
+  return s+'</svg>';
+}
+var aireComp=[
+ {tag:'aire (forme composée)',stim:'Cette figure se découpe en deux formes simples. Glisse les formes et l\'opérateur pour écrire la décomposition.'+compSVG({w:6,h:5,poly:[[0,0],[2,0],[2,3],[6,3],[6,5],[0,5]],lines:[[[2,3],[2,5]]],labels:[{x:1,y:-0.35,t:'2 cm'},{x:-0.6,y:2.8,t:'5 cm'},{x:3,y:5.6,t:'6 cm'},{x:6.7,y:4.2,t:'2 cm'},{x:4,y:2.65,t:'4 cm'}]}),dnd:{shapes:true,lead:'aire = ',tpl:'{0} {1} {2}',answer:['rectangle','+','rectangle'],tiles:['rectangle','rectangle','triangle','carre','+','−'],label:'un rectangle + un rectangle'},sol:'On la coupe en deux rectangles : 2 × 5 = 10 cm² et 4 × 2 = 8 cm².<br>Aire = 10 + 8 = <strong>18 cm²</strong>'},
+ {tag:'aire (forme composée)',stim:'Cette « maison » se découpe en deux formes simples. Glisse les formes et l\'opérateur.'+compSVG({w:6,h:7,poly:[[0,3],[3,0],[6,3],[6,7],[0,7]],lines:[[[0,3],[6,3]],[[3,0],[3,3]]],labels:[{x:3,y:7.6,t:'6 cm'},{x:6.8,y:5.2,t:'4 cm'},{x:3.5,y:1.7,t:'3 cm'}]}),dnd:{shapes:true,lead:'aire = ',tpl:'{0} {1} {2}',answer:['rectangle','+','triangle'],tiles:['rectangle','triangle','carre','disque','+','−'],label:'un rectangle + un triangle'},sol:'On la coupe en un rectangle et un triangle : 6 × 4 = 24 cm² et (6 × 3) ÷ 2 = 9 cm².<br>Aire = 24 + 9 = <strong>33 cm²</strong>'},
+ {tag:'aire (forme composée)',stim:'Cette figure se découpe en un carré et un rectangle. Glisse les formes et l\'opérateur.'+compSVG({w:7,h:4,poly:[[0,0],[4,0],[4,2],[7,2],[7,4],[0,4]],lines:[[[4,2],[4,4]]],labels:[{x:2,y:-0.35,t:'4 cm'},{x:-0.6,y:2.2,t:'4 cm'},{x:5.5,y:1.7,t:'3 cm'},{x:7.8,y:3.3,t:'2 cm'}]}),dnd:{shapes:true,lead:'aire = ',tpl:'{0} {1} {2}',answer:['carre','+','rectangle'],tiles:['carre','rectangle','triangle','disque','+','−'],label:'un carré + un rectangle'},sol:'On la coupe en un carré (4 × 4 = 16 cm²) et un rectangle (3 × 2 = 6 cm²).<br>Aire = 16 + 6 = <strong>22 cm²</strong>'},
+ {tag:'aire (par soustraction)',stim:'On a retiré un carré (pointillés) à un grand rectangle. Glisse les formes et l\'opérateur.'+compSVG({w:6,h:5,poly:[[0,0],[4,0],[4,2],[6,2],[6,5],[0,5]],dashPoly:[[0,0],[6,0],[6,5],[0,5]],labels:[{x:3,y:5.6,t:'6 cm'},{x:-0.6,y:2.8,t:'5 cm'},{x:5,y:-0.35,t:'2 cm'},{x:6.8,y:1.2,t:'2 cm'}]}),dnd:{shapes:true,lead:'aire = ',tpl:'{0} {1} {2}',answer:['rectangle','−','carre'],tiles:['rectangle','carre','triangle','disque','+','−'],label:'un rectangle − un carré'},sol:'Grand rectangle : 6 × 5 = 30 cm². Carré enlevé : 2 × 2 = 4 cm².<br>Aire = 30 − 4 = <strong>26 cm²</strong>'},
+ {tag:'aire (par soustraction)',stim:'On a percé un disque (pointillés) dans une plaque rectangulaire. Glisse les formes et l\'opérateur.'+compSVG({w:8,h:6,poly:[[0,0],[8,0],[8,6],[0,6]],dashCircle:{cx:4,cy:3,r:2},labels:[{x:4,y:6.6,t:'8 cm'},{x:-0.7,y:3.3,t:'6 cm'},{x:5.1,y:2.55,t:'r = 2 cm'}]}),dnd:{shapes:true,lead:'aire = ',tpl:'{0} {1} {2}',answer:['rectangle','−','disque'],tiles:['rectangle','disque','carre','triangle','+','−'],label:'un rectangle − un disque'},sol:'Rectangle : 8 × 6 = 48 cm². Disque : π × 2² = 4π cm².<br>Aire = 48 − 4π ≈ <strong>35,4 cm²</strong>'}
+];
+function fracTiles(n,d){var set=[n,d],pool=[n+1,n-1,d+1,d-1,n+2,d+2,2,3,5,7];for(var i=0;i<pool.length&&set.length<6;i++){if(pool[i]>0&&set.indexOf(pool[i])===-1)set.push(pool[i]);}return set;}
+function genFracAddSame(){var d=[3,4,5,6,7,8][rnd(0,5)],a=rnd(1,d-2),b=rnd(1,d-a-1),n=a+b;return {tag:'fractions · addition',fracdnd:{expr:a+'/'+d+' + '+b+'/'+d,num:n,den:d,tiles:fracTiles(n,d),label:n+'/'+d},sol:'Même dénominateur : on additionne les numérateurs.<br>'+a+'/'+d+' + '+b+'/'+d+' = <strong>'+n+'/'+d+'</strong>'};}
+function genFracSubSame(){var d=[4,5,6,7,8,9][rnd(0,5)],a=rnd(2,d-1),b=rnd(1,a-1),n=a-b;return {tag:'fractions · soustraction',fracdnd:{expr:a+'/'+d+' − '+b+'/'+d,num:n,den:d,tiles:fracTiles(n,d),label:n+'/'+d},sol:'Même dénominateur : on soustrait les numérateurs.<br>'+a+'/'+d+' − '+b+'/'+d+' = <strong>'+n+'/'+d+'</strong>'};}
+function genFracAddDiff(){var s=rnd(2,4),big=s*2,a=1,c=rnd(1,big-3),n=2*a+c;return {tag:'fractions · même dénominateur',fracdnd:{expr:a+'/'+s+' + '+c+'/'+big,num:n,den:big,tiles:fracTiles(n,big),label:n+'/'+big},sol:'On met au même dénominateur ('+big+') : '+a+'/'+s+' = '+(2*a)+'/'+big+'.<br>'+(2*a)+'/'+big+' + '+c+'/'+big+' = <strong>'+n+'/'+big+'</strong>'};}
+function genFracMul(){var b=rnd(2,5),d=rnd(2,5),a=rnd(1,b-1),c=rnd(1,d-1),n=a*c,den=b*d;return {tag:'fractions · multiplication',fracdnd:{expr:a+'/'+b+' × '+c+'/'+d,num:n,den:den,tiles:fracTiles(n,den),label:n+'/'+den},sol:'On multiplie les numérateurs entre eux et les dénominateurs entre eux :<br>('+a+' × '+c+') / ('+b+' × '+d+') = <strong>'+n+'/'+den+'</strong>'};}
+function genFracSimplify(){var pairs=[[1,2],[1,3],[2,3],[1,4],[3,4],[2,5],[3,5],[1,6],[5,6],[3,8]],pr=pairs[rnd(0,pairs.length-1)],p=pr[0],q=pr[1],k=rnd(2,3),N=p*k,D=q*k;return {tag:'fractions · simplifier',fracdnd:{expr:N+'/'+D,num:p,den:q,tiles:fracTiles(p,q),label:p+'/'+q},sol:'On divise le numérateur et le dénominateur par '+k+' :<br>'+N+'/'+D+' = <strong>'+p+'/'+q+'</strong>'};}
+function genFracQty(){var d=[2,3,4,5][rnd(0,3)],a=rnd(1,d-1),mult=rnd(2,9),tot=d*mult,ans=a*mult;return {tag:'fraction d\'une quantité',answer:ans,stim:'Calcule '+a+'/'+d+' de '+tot+'.',sol:a+'/'+d+' de '+tot+' = ('+tot+' ÷ '+d+') × '+a+' = '+mult+' × '+a+' = <strong>'+ans+'</strong>'};}
+var frDnDGen=[genFracAddSame,genFracAddSame,genFracSubSame,genFracSubSame,genFracAddDiff,genFracMul,genFracMul,genFracSimplify,genFracSimplify,genFracQty,genFracQty];
+function gcdInt(a,b){a=Math.abs(a);b=Math.abs(b);while(b){var t=b;b=a%b;a=t;}return a;}
+function euclide(a,b){var A=Math.max(a,b),B=Math.min(a,b),steps=[];while(B!==0){var q=Math.floor(A/B),r=A%B;steps.push(A+' = '+q+' × '+B+' + '+r);A=B;B=r;}return {g:A,steps:steps};}
+function genPgcd(){var k=rnd(3,12),x=rnd(2,9),y=rnd(2,9);while(y===x)y=rnd(2,9);var a=k*x,b=k*y,e=euclide(a,b);return {tag:'PGCD',answer:e.g,prompt:'Quel est le PGCD de '+a+' et '+b+' ?',sol:'Algorithme d\'Euclide :<br>'+e.steps.join('<br>')+'<br>Le PGCD est le dernier diviseur, donc PGCD('+a+' ; '+b+') = <strong>'+e.g+'</strong>'};}
+function genPgcdPremiers(){var pr=[[8,9],[9,16],[14,15],[15,8],[7,12],[25,9],[11,8],[21,10]],c=pr[rnd(0,pr.length-1)],a=c[0],b=c[1],e=euclide(a,b);return {tag:'PGCD · premiers entre eux',answer:1,prompt:'Quel est le PGCD de '+a+' et '+b+' ?',sol:'Algorithme d\'Euclide :<br>'+e.steps.join('<br>')+'<br>PGCD = <strong>1</strong> : '+a+' et '+b+' sont <strong>premiers entre eux</strong>.'};}
+function genPgcdFrac(){var g=rnd(2,9),x=rnd(2,7),y=rnd(2,7);while(gcdInt(x,y)!==1)y=rnd(2,7);var n=g*x,d=g*y;return {tag:'PGCD · fraction irréductible',answer:g,prompt:'Pour rendre la fraction '+n+'/'+d+' irréductible, par quel nombre faut-il diviser le numérateur et le dénominateur ?',sol:'On divise par le PGCD du numérateur et du dénominateur.<br>PGCD('+n+' ; '+d+') = <strong>'+g+'</strong> → '+n+'/'+d+' = '+(n/g)+'/'+(d/g)};}
+function divisorsOf(n){var d=[];for(var i=1;i<=n;i++)if(n%i===0)d.push(i);return d;}
+function genPgcdPick(){var g=rnd(2,6),x=rnd(2,5),y=rnd(2,5);while(gcdInt(x,y)!==1)y=rnd(2,5);var a=g*x,b=g*y;
+  var da=divisorsOf(a),db=divisorsOf(b);
+  var union=da.concat(db.filter(function(v){return da.indexOf(v)===-1;})).filter(function(v){return v!==1;}).sort(function(p,q){return p-q;});
+  var common=divisorsOf(g).filter(function(v){return v!==1;});
+  return {tag:'PGCD · diviseurs communs',pick:{a:a,b:b,nums:union,correct:common,pgcd:g},sol:'Les diviseurs communs de '+a+' et '+b+' (autres que 1) sont : '+common.join(', ')+'.<br>Le plus grand est le PGCD : <strong>'+g+'</strong>.'};}
+function genPgcdTable(){var p=[2,3][rnd(0,1)],q2=[2,3,5][rnd(0,2)],g=p*q2,x=rnd(2,5),y=rnd(2,5);while(gcdInt(x,y)!==1){x=rnd(2,5);y=rnd(2,5);}var a=g*x,b=g*y,gg=gcdInt(a,b);return {tag:'PGCD · tableau',gcdtable:{a:a,b:b,pgcd:gg},sol:'On divise les deux nombres par un diviseur commun, encore et encore, jusqu\'à ce qu\'ils soient premiers entre eux.<br>Le PGCD est le <strong>produit des diviseurs</strong> utilisés, soit <strong>'+gg+'</strong>.'};}
+var pgcdGen=[genPgcd,genPgcdTable,genPgcdTable,genPgcdPick,genPgcdPremiers,genPgcdFrac];
+function pythFig(hLab,vLab,hypLab){
+  var s='<svg viewBox="0 0 220 160" width="220" style="max-width:100%;height:auto;margin-top:10px">';
+  var cob='#4F46E5',fil='rgba(79,70,229,.10)',A=[40,125],B=[190,125],C=[40,28];
+  s+='<polygon points="'+A[0]+','+A[1]+' '+B[0]+','+B[1]+' '+C[0]+','+C[1]+'" fill="'+fil+'" stroke="'+cob+'" stroke-width="2" stroke-linejoin="round"/>';
+  s+='<path d="M'+(A[0]+14)+','+A[1]+' L'+(A[0]+14)+','+(A[1]-14)+' L'+A[0]+','+(A[1]-14)+'" fill="none" stroke="'+cob+'" stroke-width="1.5"/>';
+  function L(x,y,t){return '<text x="'+x+'" y="'+y+'" font-family="\'Space Mono\',monospace" font-size="12" font-weight="700" fill="#181B22" text-anchor="middle">'+t+'</text>';}
+  s+=L((A[0]+B[0])/2,A[1]+18,hLab)+L(A[0]-16,(A[1]+C[1])/2,vLab)+L((B[0]+C[0])/2+16,(B[1]+C[1])/2-4,hypLab);
+  return s+'</svg>';
+}
+function pythT(){var pr=[[3,4,5],[5,12,13],[8,15,17],[7,24,25],[6,8,10]][rnd(0,4)],k=rnd(1,3);return [pr[0]*k,pr[1]*k,pr[2]*k];}
+function pythFigV(raName,nB,nC,lens){var s='<svg viewBox="0 0 230 160" width="220" style="max-width:100%;height:auto;margin-top:10px">',cob='#4F46E5',fil='rgba(79,70,229,.10)',A=[46,125],B=[196,125],C=[46,28];s+='<polygon points="'+A[0]+','+A[1]+' '+B[0]+','+B[1]+' '+C[0]+','+C[1]+'" fill="'+fil+'" stroke="'+cob+'" stroke-width="2" stroke-linejoin="round"/>';s+='<path d="M'+(A[0]+14)+','+A[1]+' L'+(A[0]+14)+','+(A[1]-14)+' L'+A[0]+','+(A[1]-14)+'" fill="none" stroke="'+cob+'" stroke-width="1.5"/>';function T(x,y,t){return '<text x="'+x+'" y="'+y+'" font-family="\'Space Grotesk\',sans-serif" font-size="14" font-weight="700" fill="'+cob+'" text-anchor="middle">'+t+'</text>';}function M(x,y,t){return '<text x="'+x+'" y="'+y+'" font-family="\'Space Mono\',monospace" font-size="12" font-weight="700" fill="#181B22" text-anchor="middle">'+t+'</text>';}s+=T(A[0]-12,A[1]+15,raName)+T(B[0]+13,B[1]+15,nB)+T(C[0]-12,C[1]-2,nC);if(lens){if(lens.h)s+=M((A[0]+B[0])/2,A[1]+20,lens.h);if(lens.v)s+=M(A[0]-20,(A[1]+C[1])/2,lens.v);if(lens.hyp)s+=M((B[0]+C[0])/2+16,(B[1]+C[1])/2-4,lens.hyp);}return s+'</svg>';}
+function genPythEq(){var V=['A','B','C'],ra=rnd(0,2),raN=V[ra],o=V.filter(function(v,i){return i!==ra;});function srt(x){return x.split('').sort().join('');}var hyp=srt(o[0]+o[1]),l1=srt(raN+o[0]),l2=srt(raN+o[1]);return {tag:'Pythagore · l\'égalité',stim:'Le triangle ABC est rectangle en '+raN+'. Glisse les côtés pour écrire l\'égalité de Pythagore.'+pythFigV(raN,o[0],o[1],null),dnd:{lead:'',tpl:'{0}² = {1}² + {2}²',answer:[hyp,l1,l2],groups:[[1,2]],tiles:[hyp,l1,l2],label:hyp+'² = '+l1+'² + '+l2+'²'},sol:'L\'angle droit est en '+raN+', donc l\'hypoténuse (le côté opposé à l\'angle droit) est <strong>'+hyp+'</strong>.<br>Égalité de Pythagore : <strong>'+hyp+'² = '+l1+'² + '+l2+'²</strong>.'};}
+function genPythNum(){var t=pythT(),a=t[0],b=t[1],c=t[2];return {tag:'Pythagore · calcul',stim:'Le triangle ABC est rectangle en A, avec AB = '+a+' cm et AC = '+b+' cm. On cherche BC. Glisse les bonnes valeurs.'+pythFigV('A','B','C',{h:a+' cm',v:b+' cm',hyp:'?'}),dnd:{lead:'BC² = ',tpl:'{0}² + {1}²',answer:[String(a),String(b)],groups:[[0,1]],tiles:[String(a),String(b),String(c),String(a+b)],label:'BC² = '+a+'² + '+b+'²'},sol:'BC² = AB² + AC² = '+a+'² + '+b+'² = '+(a*a)+' + '+(b*b)+' = '+(a*a+b*b)+'.<br>BC = √'+(a*a+b*b)+' = <strong>'+c+' cm</strong>'};}
+function genPythHypG(){var V=['A','B','C'],ra=rnd(0,2),raN=V[ra],o=V.filter(function(v,i){return i!==ra;});function srt(x){return x.split('').sort().join('');}var legH=srt(raN+o[0]),legV=srt(raN+o[1]),hyp=srt(o[0]+o[1]),t=pythT(),a=t[0],b=t[1],c=t[2];
+  var lines=[[{step:1,lit:'théorème'},{lit:hyp+'² ='},{slot:0},{lit:'+'},{slot:1}],[{step:1,lit:'je remplace'},{lit:hyp+'² ='},{slot:2},{lit:'² +'},{slot:3},{lit:'²'}],[{step:1,lit:'je conclus'},{lit:hyp+' ='},{slot:4},{lit:'cm'}]];
+  return {tag:'Pythagore · hypoténuse',pyth:{stim:'Le triangle ABC est rectangle en '+raN+', avec '+legH+' = '+a+' cm et '+legV+' = '+b+' cm. Complète le calcul de '+hyp+'.'+pythFigV(raN,o[0],o[1],{h:a+' cm',v:b+' cm',hyp:'?'}),lines:lines,answer:[legH+'²',legV+'²',String(a),String(b),String(c)],groups:[[0,1],[2,3]],tiles:[legH+'²',legV+'²',hyp+'²',String(a),String(b),String(c),String(a+b)]},sol:hyp+'² = '+legH+'² + '+legV+'² = '+a+'² + '+b+'² = '+(a*a)+' + '+(b*b)+' = '+(a*a+b*b)+'.<br>'+hyp+' = √'+(a*a+b*b)+' = <strong>'+c+' cm</strong>'};}
+function genPythLegG(){var t=pythT(),a=t[0],b=t[1],c=t[2];
+  var lines=[[{step:1,lit:'théorème'},{lit:'BC² = AB² + AC²'}],[{step:1,lit:'j\'isole'},{lit:'AC² ='},{slot:0},{lit:'−'},{slot:1}],[{step:1,lit:'je remplace'},{lit:'AC² ='},{slot:2},{lit:'² −'},{slot:3},{lit:'²'}],[{step:1,lit:'je conclus'},{lit:'AC ='},{slot:4},{lit:'cm'}]];
+  return {tag:'Pythagore · côté',pyth:{stim:'Le triangle ABC est rectangle en A. On connaît l\'hypoténuse BC = '+c+' cm et le côté AB = '+a+' cm. Complète le calcul de AC.'+pythFigV('A','B','C',{h:a+' cm',v:'?',hyp:c+' cm'}),lines:lines,answer:['BC²','AB²',String(c),String(a),String(b)],groups:[],tiles:['BC²','AB²','AC²',String(c),String(a),String(b),String(a+b)]},sol:'BC² = AB² + AC², donc AC² = BC² − AB² = '+c+'² − '+a+'² = '+(c*c)+' − '+(a*a)+' = '+(b*b)+'.<br>AC = √'+(b*b)+' = <strong>'+b+' cm</strong>'};}
+function genPythRelation(){var V=['A','B','C'],ra=rnd(0,2),raN=V[ra],o=V.filter(function(v,i){return i!==ra;});function srt(x){return x.split('').sort().join('');}var legH=srt(raN+o[0]),legV=srt(raN+o[1]),hyp=srt(o[0]+o[1]);
+  var lines=[[{lit:hyp+'² ='},{slot:0},{lit:'+'},{slot:1}]];
+  return {tag:'Pythagore · l\'égalité',pyth:{stim:'Le triangle ABC est rectangle en '+raN+'. Glisse les côtés pour écrire l\'égalité de Pythagore.'+pythFigV(raN,o[0],o[1],null),lines:lines,answer:[legH+'²',legV+'²'],groups:[[0,1]],tiles:[legH+'²',legV+'²',hyp+'²']},sol:'L\'hypoténuse (le côté opposé à l\'angle droit en '+raN+') est '+hyp+'.<br>Égalité : <strong>'+hyp+'² = '+legH+'² + '+legV+'²</strong>.'};}
+function genPythChoix(){
+  var L=stShuffle(['A','B','C','D','E','F','G','H','M','N','P','R','S','T','X','Y','Z']),v=[L[0],L[1],L[2]],name=v[0]+v[1]+v[2];
+  function seg(i,j){return [v[i],v[j]].sort().join('');}
+  var isP=Math.random()<0.5,t;
+  if(isP){
+    var pv=['Le triangle '+name+' est rectangle en '+v[0]+'. On connaît '+seg(0,1)+' et '+seg(0,2)+', et on cherche '+seg(1,2)+'.',
+      'Le triangle '+name+' est rectangle en '+v[0]+'. On connaît l\'hypoténuse '+seg(1,2)+' et le côté '+seg(0,1)+'. On cherche '+seg(0,2)+'.',
+      'Le triangle '+name+' est rectangle en '+v[0]+'. On veut calculer la longueur '+seg(1,2)+'.',
+      'Dans un triangle rectangle, je connais deux côtés et je cherche la longueur du troisième.',
+      'Le triangle '+name+' est rectangle en '+v[0]+'. Calcule '+seg(0,2)+' sachant que tu connais les deux autres côtés.'];
+    t=pv[rnd(0,pv.length-1)];
+  }else{
+    var a=rnd(4,12),b=rnd(5,13),c=rnd(9,18);
+    var rv=['Un triangle a pour côtés '+a+' cm, '+b+' cm et '+c+' cm. Est-il rectangle ?',
+      'On connaît les trois côtés du triangle '+name+'. On veut savoir s\'il est rectangle.',
+      'On me donne '+seg(0,1)+', '+seg(1,2)+' et '+seg(0,2)+', et on demande si l\'angle en '+v[1]+' est droit.',
+      'Je veux démontrer que le triangle '+name+' possède un angle droit, en connaissant ses trois côtés.',
+      'Le triangle '+name+' a pour côtés '+a+' cm, '+b+' cm et '+c+' cm. Montre qu\'il est rectangle.'];
+    t=rv[rnd(0,rv.length-1)];
+  }
+  var opts=[{t:'le théorème de Pythagore',ok:isP},{t:'la réciproque de Pythagore',ok:!isP}];
+  if(Math.random()<0.4)opts.push({t:'le théorème de Thalès',ok:false});
+  return {tag:'Pythagore · quel outil ?',qcm:stShuffle(opts),prompt:t+'<br><strong>Quel outil dois-je utiliser ?</strong>',sol:(isP?'On cherche une <strong>longueur</strong> dans un triangle dont on sait déjà qu\'il est rectangle → on utilise le <strong>théorème de Pythagore</strong>.':'On connaît les <strong>trois côtés</strong> et on veut savoir si le triangle est rectangle → on utilise la <strong>réciproque de Pythagore</strong>.')};}
+function genPythHypId(){var V=['A','B','C'],ra=rnd(0,2),raN=V[ra],o=V.filter(function(v,i){return i!==ra;});function srt(x){return x.split('').sort().join('');}var hyp=srt(o[0]+o[1]),l1=srt(raN+o[0]),l2=srt(raN+o[1]);return {tag:'Pythagore · l\'hypoténuse',qcm:stShuffle([{t:hyp,ok:true},{t:l1,ok:false},{t:l2,ok:false}]),prompt:'Le triangle ABC est rectangle en '+raN+'.<br><strong>Quel côté est l\'hypoténuse ?</strong>',stim:pythFigV(raN,o[0],o[1],null),sol:'L\'hypoténuse est le côté <strong>opposé à l\'angle droit</strong> (en '+raN+') : c\'est <strong>'+hyp+'</strong> — et c\'est aussi le côté le plus long.'};}
+function genPythRecip(){var t=pythT(),a=t[0],b=t[1],c=t[2],right=Math.random()<0.5,cc=right?c:c+(Math.random()<0.5?1:-1);
+  var s=[a,b,cc].sort(function(x,y){return x-y;}),s1=s[0],s2=s[1],h=s[2],C=h*h,S=s1*s1+s2*s2,isR=(C===S);
+  var nums=[String(C),String(S)];[2*h,s1*s2,(s1+s2)*(s1+s2)].forEach(function(x){var v=String(x);if(nums.indexOf(v)===-1&&nums.length<4)nums.push(v);});
+  var lines=[[{step:1,lit:'le plus grand côté'},{lit:h+'² ='},{slot:0}],[{step:1,lit:'les deux autres'},{lit:s1+'² + '+s2+'² ='},{slot:1}],[{step:1,lit:'je compare'},{lit:'les deux résultats sont'},{slot:2},{lit:', le triangle est rectangle :'},{slot:3}]];
+  return {tag:'Pythagore · réciproque',pyth:{stim:'Le triangle a pour côtés '+a+' cm, '+b+' cm et '+cc+' cm. Est-il rectangle ? Complète en glissant les étiquettes.',lines:lines,answer:[String(C),String(S),(isR?'égaux':'différents'),(isR?'oui':'non')],groups:[],tiles:stShuffle(nums.concat(['égaux','différents','oui','non']))},sol:'On compare le carré du plus grand côté ('+h+'² = '+C+') et la somme des carrés des deux autres ('+s1+'² + '+s2+'² = '+S+').<br>'+(isR?(C+' = '+S+' : d\'après la <strong>réciproque de Pythagore</strong>, le triangle <strong>est rectangle</strong>.'):(C+' ≠ '+S+' : le triangle <strong>n\'est pas rectangle</strong>.'))};}
+function genPythFindErr(){var t=pythT(),a=t[0],b=t[1],c=t[2],a2=a*a,b2=b*b,sum=a2+b2;
+  var correct=['BC² = AB² + AC²','BC² = '+a+'² + '+b+'²','BC² = '+a2+' + '+b2,'BC² = '+sum,'BC = √'+sum+' = '+c+' cm'];
+  var errs=[
+    {i:0,line:'BC² = AB + AC',why:'Il faut élever les côtés au carré : BC² = AB² + AC².'},
+    {i:1,line:'BC² = '+a+' + '+b,why:'On a oublié les carrés : c\'est '+a+'² + '+b+'².'},
+    {i:2,line:'BC² = '+(a2+2)+' + '+b2,why:''+a+'² = '+a2+', et non '+(a2+2)+'.'},
+    {i:3,line:'BC² = '+(sum+(rnd(0,1)?4:-4)),why:'La somme '+a2+' + '+b2+' fait '+sum+'.'},
+    {i:4,line:'BC = '+sum+' cm',why:'On a oublié la racine carrée : BC = √'+sum+' = '+c+' cm.'}
+  ];
+  var e=errs[rnd(0,errs.length-1)],lines=correct.slice();lines[e.i]=e.line;
+  return {tag:'Pythagore · trouve l\'erreur',qcm:lines.map(function(l,idx){return {t:l,ok:idx===e.i};}),prompt:'Le triangle ABC est rectangle en A (AB = '+a+' cm, AC = '+b+' cm). Une erreur s\'est glissée dans ce calcul.<br><strong>Clique sur la ligne fausse.</strong>',sol:'La ligne fausse est « '+e.line+' ».<br>'+e.why};}
+function genPythMatch(){var V=['A','B','C'],ra=rnd(0,2),raN=V[ra],o=V.filter(function(v,i){return i!==ra;});function srt(x){return x.split('').sort().join('');}var hyp=srt(o[0]+o[1]),l1=srt(raN+o[0]),l2=srt(raN+o[1]),correct=hyp+'² = '+l1+'² + '+l2+'²';
+  return {tag:'Pythagore · relier',qcm:stShuffle([{t:correct,ok:true},{t:l1+'² = '+hyp+'² + '+l2+'²',ok:false},{t:l2+'² = '+l1+'² + '+hyp+'²',ok:false}]),prompt:'Le triangle ABC est rectangle en '+raN+'.<br><strong>Quelle égalité de Pythagore correspond à cette situation ?</strong>',stim:pythFigV(raN,o[0],o[1],null),sol:'L\'angle droit est en '+raN+', donc l\'hypoténuse est '+hyp+' : <strong>'+correct+'</strong>.'};}
+var pythGen=[genPythChoix,genPythMatch,genPythHypId,genPythFindErr,genPythHypG,genPythLegG,genPythRecip,genPythRelation];
 var trainTopics={
   stats:{name:'statistiques',lead:'une notion à la fois, correction immédiate. moyenne, médiane, étendue — la base avant le brevet.',banks:[statTrain,statTrain2,statTrain3]},
   fonctions:{name:'fonctions',lead:'une notion à la fois, correction immédiate. image, antécédent, fonctions affines et lecture graphique.',banks:[fnTrain1,fnTrain2,fnTrain3]},
   equations:{name:'équations',lead:'une notion à la fois, correction immédiate. du 1er degré aux équations produit.',banks:[eqTrain1,eqTrain2,eqTrain3]},
   scratch:{name:'scratch',lead:'lis le programme et prédis le résultat. variables, boucles, déplacements et figures.',banks:[scratchTrain1,scratchTrain2,scratchTrain3]},
-  litteral:{name:'calcul littéral',lead:'réduire, développer, factoriser. tape ta réponse comme 2x + 6 ou x² + 5x + 6.',banks:[clTrain1,clTrain2,clTrain3]},
-  transformations:{name:'transformations',lead:'translation, symétries, rotation, homothétie. coordonnées d\'images et angles.',banks:[trTrain1,trTrain2,trTrain3]}
+  litteral:{name:'calcul littéral',lead:'réduire, développer, factoriser. tape ta réponse comme 2x + 6 ou x² + 5x + 6.',banks:[clTrain1,clTrain2,clTrain3,clTrainDnD,clTrainRed,clTrainIR,clTrainParen,clTrainGrid,clTrainGen]},
+  transformations:{name:'transformations',lead:'translation, symétries, rotation, homothétie. coordonnées d\'images et angles.',banks:[trTrain1,trTrain2,trTrain3,trGenBank,trDrawBank]},
+  fractions:{name:'fractions',lead:'additionner, soustraire, multiplier et simplifier — glisse les nombres pour construire la fraction résultat.',banks:[frDnDGen]},
+  relatifs:{name:'nombres relatifs',lead:'additionner, soustraire et multiplier des nombres positifs et négatifs, et réduire des termes en x.',banks:[clRelGen]},
+  pgcd:{name:'PGCD',lead:'plus grand commun diviseur : algorithme d\'Euclide et nombres premiers entre eux.',banks:[pgcdGen]},
+  pythagore:{name:'Pythagore',lead:'calculer une longueur dans un triangle rectangle, et reconnaître un triangle rectangle (réciproque).',banks:[pythGen]},
+  perimetre:{name:'périmètre',lead:'carré, rectangle, triangle et cercle. donne la valeur numérique.',banks:[perimGen]},
+  aire:{name:'aire',lead:'carré, rectangle, triangle, disque, et formes composées (à glisser).',banks:[aireGen,aireComp]},
+  volume:{name:'volume',lead:'cube, pavé droit, cylindre et pyramide. donne la valeur numérique.',banks:[volGen]}
 };
 var curTopic='stats';
 var stIdx=0, stScore=0, stAnswered=false, statBank=statTrain;
 function stShuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
-function lancerTrain(topic,level){
+function lancerTrain(topic,level,filter,label){
   if(!trainTopics[topic])topic='stats';
   curTopic=topic;
-  var T=trainTopics[topic];statBank=stShuffle([].concat.apply([],T.banks));
+  var T=trainTopics[topic];
+  var raw=[].concat.apply([],T.banks).map(function(q){return typeof q==='function'?q():q;});
+  if(filter&&filter.length)raw=raw.filter(function(q){return filter.indexOf(q.tag)!==-1;});
+  statBank=stShuffle(raw);
   stIdx=0;stScore=0;
-  var h=document.getElementById('stTitle');if(h)h.innerHTML=T.name+' <span>· entraînement.</span>';
+  var h=document.getElementById('stTitle');if(h)h.innerHTML=(label||T.name)+' <span>· entraînement.</span>';
   var s=document.getElementById('stSub');if(s)s.textContent=T.lead;
   goTo('train-stats');renderStat();
+}
+function lancerTransfo(key){
+  var map={
+    translation:{f:['translation'],l:'translation'},
+    symaxiale:{f:['symétrie axiale'],l:'symétrie axiale'},
+    symcentrale:{f:['symétrie centrale'],l:'symétrie centrale'},
+    rotation:{f:['rotation'],l:'rotation'},
+    homothetie:{f:['homothétie'],l:'homothétie'},
+    tout:{f:null,l:'transformations'}
+  };
+  var m=map[key]||map.tout;
+  lancerTrain('transformations',1,m.f,m.l);
 }
 function lancerStats(level){lancerTrain('stats',level);}
 function lancerFonctions(level){lancerTrain('fonctions',level);}
@@ -2529,6 +2930,13 @@ function lancerEquations(level){lancerTrain('equations',level);}
 function lancerScratch(level){lancerTrain('scratch',level);}
 function lancerLitteral(level){lancerTrain('litteral',level);}
 function lancerTransformations(level){lancerTrain('transformations',level);}
+function lancerFractions(level){lancerTrain('fractions',level);}
+function lancerRelatifs(level){lancerTrain('relatifs',level);}
+function lancerPgcd(level){lancerTrain('pgcd',level);}
+function lancerPythagore(level){lancerTrain('pythagore',level);}
+function lancerPerimetre(level){lancerTrain('perimetre',level);}
+function lancerAire(level){lancerTrain('aire',level);}
+function lancerVolume(level){lancerTrain('volume',level);}
 function stNorm(s){return parseFloat(String(s).replace(',','.').replace(/\u2212/g,'-').replace(/\s/g,''));}
 function stNormTxt(s){return String(s).toLowerCase().trim().replace(/[éèêë]/g,'e').replace(/[àâä]/g,'a').replace(/[îï]/g,'i').replace(/[ôö]/g,'o').replace(/[ûü]/g,'u').replace(/ç/g,'c').replace(/\s+/g,' ');}
 function normAlg(s){
@@ -2541,6 +2949,22 @@ function normAlg(s){
   return terms.join('+');
 }
 function normCoord(s){return String(s).toLowerCase().replace(/\s+/g,'').replace(/[()\[\]]/g,'').replace(/−/g,'-').replace(/,/g,';');}
+function fracHTML(s){return String(s).replace(/(\d+)\s*\/\s*(\d+)/g,function(m,n,d){return '<span class="fr"><span class="frn">'+n+'</span><span class="frd">'+d+'</span></span>';});}
+function dispAlg(s){return String(s).replace(/\^2/g,'²').replace(/\^3/g,'³');}
+function frGcd(a,b){a=Math.abs(a);b=Math.abs(b);while(b){var t=b;b=a%b;a=t;}return a||1;}
+function normFrac(s){
+  s=String(s).toLowerCase().replace(/\s+/g,'').replace(/−/g,'-').replace(/÷/g,'/');
+  if(s==='')return '';
+  if(s.indexOf('/')!==-1){
+    var p=s.split('/'),n=parseInt(p[0],10),d=parseInt(p[1],10);
+    if(isNaN(n)||isNaN(d)||d===0)return s;
+    var g=frGcd(n,d);n/=g;d/=g;if(d<0){n=-n;d=-d;}
+    return d===1?String(n):n+'/'+d;
+  }
+  var v=parseFloat(s.replace(',','.'));
+  if(isNaN(v))return s;
+  return Number.isInteger(v)?String(v):String(v);
+}
 function renderStat(){
   var area=document.getElementById('stArea');if(!area)return;
   if(stIdx>=statBank.length){
@@ -2574,11 +2998,112 @@ function renderStat(){
     stMakeSortable(document.getElementById('stSort'));
     return;
   }
-  var stim=q.stim?('<div class="st-stim">'+q.stim+'</div>'):'';
+  if(q.dnd){
+    var dstim=q.stim?('<div class="st-stim">'+q.stim+'</div>'):'';
+    var eq='';
+    if(q.dnd.grid){
+      var g=q.dnd.grid,gi=0;
+      eq='<table class="dnd-grid"><tr><td class="dg-corner">×</td>';
+      g.cols.forEach(function(c){eq+='<td class="dg-head">'+dispAlg(c)+'</td>';});
+      eq+='</tr>';
+      g.rows.forEach(function(r){eq+='<tr><td class="dg-head">'+dispAlg(r)+'</td>';g.cols.forEach(function(){eq+='<td><span class="dnd-slot" data-slot="'+gi+'"></span></td>';gi++;});eq+='</tr>';});
+      eq+='</table>';
+    }else{
+      var parts=q.dnd.tpl.split(/(\{\d+\})/);
+      parts.forEach(function(p){var m=p.match(/^\{(\d+)\}$/);if(m)eq+='<span class="dnd-slot" data-slot="'+m[1]+'"></span>';else if(p!=='')eq+='<span class="dnd-lit">'+dispAlg(p)+'</span>';});
+      eq='<div class="dnd-eq'+(q.dnd.shapes?' shapes':'')+'">'+(q.dnd.lead?'<span class="dnd-lit">'+dispAlg(q.dnd.lead)+'</span>':'')+eq+'</div>';
+    }
+    var tilesSrc=q.dnd.grid?q.dnd.grid.tiles:q.dnd.tiles;
+    var bankTiles=stShuffle(tilesSrc.slice()).map(function(t){
+      if(q.dnd.shapes){var inner=(t==='+'||t==='−'||t==='×'||/^\d+$/.test(t))?'<span class="dnd-op">'+t+'</span>':shapeIcon(t);return '<span class="dnd-tile dnd-shape" data-v="'+t+'">'+inner+'</span>';}
+      return '<span class="dnd-tile" data-v="'+t+'">'+dispAlg(t)+'</span>';
+    }).join('');
+    area.innerHTML=head+
+      '<div class="st-card"><span class="st-tag">'+q.tag+'</span>'+dstim+
+      '<div id="dndWrap">'+eq+
+      '<div class="dnd-hint">glisse les étiquettes dans les cases</div>'+
+      '<div id="dndBank" class="dnd-bank">'+bankTiles+'</div>'+
+      '<div class="st-inrow" style="margin-top:16px"><button class="btn btn-cobalt" onclick="stDnDCheck()">vérifier</button></div></div>'+
+      '<div id="stFb"></div></div>';
+    stDnDInit();
+    return;
+  }
+  if(q.draw){
+    var dhint=q.draw.exp.length===1?'clique sur le quadrillage pour placer le point image (reclique pour le déplacer)':'clique sur le quadrillage pour placer A\u2032, B\u2032, C\u2032 (reclique sur un point pour le retirer)';
+    area.innerHTML=head+'<div class="st-card"><span class="st-tag">'+q.tag+'</span>'+
+      '<div class="st-stim">'+q.stim+'</div>'+
+      '<div id="drawWrap" class="draw-wrap"><div class="draw-hint">'+dhint+'</div>'+
+      '<svg id="drawSvg" viewBox="0 0 '+DSIZE+' '+DSIZE+'" class="draw-grid"></svg>'+
+      '<div class="st-inrow" style="margin-top:14px"><button class="btn btn-cobalt" onclick="stDrawCheck()">vérifier</button></div></div>'+
+      '<div id="stFb"></div></div>';
+    stDrawInit();
+    return;
+  }
+  if(q.fracdnd){
+    var f=q.fracdnd;
+    var fracSlot='<span class="fr-builder"><span class="dnd-slot" data-slot="0"></span><span class="fr-bar"></span><span class="dnd-slot" data-slot="1"></span></span>';
+    var feq='<div class="fr-eq">'+fracHTML(f.expr)+'<span>=</span>'+fracSlot+'</div>';
+    var fbank=stShuffle(f.tiles.slice()).map(function(t){return '<span class="dnd-tile" data-v="'+t+'">'+t+'</span>';}).join('');
+    area.innerHTML=head+'<div class="st-card"><span class="st-tag">'+q.tag+'</span>'+
+      '<div id="dndWrap">'+feq+
+      '<div class="dnd-hint">glisse un nombre au numérateur (haut) et un au dénominateur (bas)</div>'+
+      '<div id="dndBank" class="dnd-bank">'+fbank+'</div>'+
+      '<div class="st-inrow" style="margin-top:16px"><button class="btn btn-cobalt" onclick="stFracDnDCheck()">vérifier</button></div></div>'+
+      '<div id="stFb"></div></div>';
+    stDnDInit();
+    return;
+  }
+  if(q.pick){
+    var pk=q.pick;
+    var chips=pk.nums.map(function(n){return '<span class="pick-chip" data-v="'+n+'" onclick="stPickToggle(this)">'+n+'</span>';}).join('');
+    area.innerHTML=head+'<div class="st-card"><span class="st-tag">'+q.tag+'</span>'+
+      '<div class="st-stim">Clique sur tous les <strong>diviseurs communs</strong> à <strong>'+pk.a+'</strong> et <strong>'+pk.b+'</strong> (autres que 1). Le plus grand sera le PGCD.</div>'+
+      '<div id="pickWrap" class="pick-wrap"><div class="pick-grid">'+chips+'</div>'+
+      '<div class="st-inrow" style="margin-top:8px"><button class="btn btn-cobalt" onclick="stPickCheck()">vérifier</button></div></div>'+
+      '<div id="stFb"></div></div>';
+    return;
+  }
+  if(q.gcdtable){
+    var gt=q.gcdtable;
+    var primes=[2,3,5,7,11,13].map(function(p){return '<span class="gt-prime" onclick="gtApply('+p+')">'+p+'</span>';}).join('');
+    area.innerHTML=head+'<div class="st-card"><span class="st-tag">'+q.tag+'</span>'+
+      '<div class="st-stim">Divise <strong>'+gt.a+'</strong> et <strong>'+gt.b+'</strong> par un <strong>diviseur commun</strong>, en cliquant sur un nombre ci-dessous. Recommence jusqu\'à ce qu\'ils n\'aient plus de diviseur commun, puis valide.</div>'+
+      '<div id="gtWrap" class="gt-wrap"><div id="gtTable"></div>'+
+      '<div class="draw-hint" style="text-align:center">divise les deux nombres par :</div>'+
+      '<div class="gt-primes">'+primes+'</div>'+
+      '<div class="st-inrow" style="margin-top:6px;justify-content:center;gap:10px"><button class="btn btn-ghost" onclick="gtUndo()">↶ annuler</button><button class="btn btn-cobalt" onclick="stGtCheck()">vérifier</button></div></div>'+
+      '<div id="stFb"></div></div>';
+    stGtInit();
+    return;
+  }
+  if(q.qcm){
+    var opts=q.qcm.map(function(o,idx){return '<button class="qcm-opt" data-i="'+idx+'" onclick="stQcmPick(this,'+idx+')">'+o.t+'</button>';}).join('');
+    area.innerHTML=head+'<div class="st-card"><span class="st-tag">'+q.tag+'</span>'+
+      (q.prompt?'<div class="st-q">'+q.prompt+'</div>':'')+
+      (q.stim?'<div class="st-stim">'+q.stim+'</div>':'')+
+      '<div id="qcmWrap" class="qcm-wrap"><div class="qcm-opts">'+opts+'</div></div>'+
+      '<div id="stFb"></div></div>';
+    return;
+  }
+  if(q.pyth){
+    var P=q.pyth;
+    var plines=P.lines.map(function(line){var inner=line.map(function(tk){if(tk.slot!==undefined)return '<span class="dnd-slot" data-slot="'+tk.slot+'"></span>';if(tk.step)return '<span class="pyth-step">'+tk.lit+'</span>';return '<span class="pyth-lit">'+tk.lit+'</span>';}).join('');return '<div class="pyth-line">'+inner+'</div>';}).join('');
+    var ptiles=stShuffle(P.tiles.slice()).map(function(t){return '<span class="dnd-tile" data-v="'+t+'">'+t+'</span>';}).join('');
+    area.innerHTML=head+'<div class="st-card"><span class="st-tag">'+q.tag+'</span>'+
+      '<div class="st-stim">'+P.stim+'</div>'+
+      '<div id="dndWrap">'+plines+
+      '<div class="dnd-hint">glisse les étiquettes dans les cases</div>'+
+      '<div id="dndBank" class="dnd-bank">'+ptiles+'</div>'+
+      '<div class="st-inrow" style="margin-top:14px"><button class="btn btn-cobalt" onclick="stPythCheck()">vérifier</button></div></div>'+
+      '<div id="stFb"></div></div>';
+    stDnDInit();
+    return;
+  }
+  var stim=q.stim?('<div class="st-stim">'+(curTopic==='fractions'?fracHTML(q.stim):q.stim)+'</div>'):'';
   var series=q.series?('<div class="st-series">'+q.series.map(function(v){return '<span class="st-val">'+v+'</span>';}).join('')+'</div>'):'';
   var isTxt=(typeof q.answer!=='number');
   var im=isTxt?'text':'decimal';
-  var ph=!isTxt?'ta réponse':(q.alg?'ex : 2x + 6':q.coord?'ex : (6 ; 3)':'ta réponse (en toutes lettres)');
+  var ph=!isTxt?'ta réponse':(q.alg?'ex : 2x + 6':q.coord?'ex : (6 ; 3)':q.frac?'ex : 5/6':'ta réponse (en toutes lettres)');
   area.innerHTML=head+
     '<div class="st-card">'+
       '<span class="st-tag">'+q.tag+'</span>'+
@@ -2654,8 +3179,8 @@ function stCheck(){
     ok=Math.abs(val-q.answer)<1e-9;
     correctLabel=String(q.answer).replace('.',',');
   }else{
-    var norm=q.alg?normAlg:q.coord?normCoord:stNormTxt;
-    var exact=q.alg||q.coord;
+    var norm=q.alg?normAlg:q.coord?normCoord:q.frac?normFrac:stNormTxt;
+    var exact=q.alg||q.coord||q.frac;
     var t=norm(raw);
     if(!t){showToast('écris ta réponse');return;}
     var accepts=[q.answer].concat(q.accept||[]);
@@ -2668,12 +3193,240 @@ function stCheck(){
   if(typeof sfx==='function'){try{sfx(ok);}catch(e){}}
   var last=(stIdx+1>=statBank.length);
   var fb=document.getElementById('stFb');
+  var isFr=(curTopic==='fractions');
+  var corrHTML=q.frac?fracHTML(correctLabel):correctLabel;
+  var solHTML=isFr?fracHTML(q.sol):q.sol;
   fb.innerHTML='<div class="st-fb '+(ok?'ok':'ko')+'"><div class="st-fb-t">'+(ok?'✓ bonne réponse':'✗ pas tout à fait')+'</div>'+
-    (ok?'':'la bonne réponse est <strong>'+correctLabel+'</strong>.<br>')+q.sol+'</div>'+
+    (ok?'':'la bonne réponse est <strong>'+corrHTML+'</strong>.<br>')+solHTML+'</div>'+
     '<button class="btn btn-amber" style="margin-top:16px" onclick="stNext()">'+(last?'voir mon score →':'question suivante →')+'</button>';
   var sc=document.querySelector('#page-train-stats .st-score');if(sc)sc.textContent='score '+stScore+' / '+statBank.length;
 }
 function stNext(){stIdx++;renderStat();}
+function stDnDInit(){
+  var tiles=[].slice.call(document.querySelectorAll('.dnd-tile'));
+  tiles.forEach(function(tile){
+    tile.addEventListener('pointerdown',function(e){
+      var wrap=document.getElementById('dndWrap');if(wrap&&wrap.classList.contains('locked'))return;
+      e.preventDefault();
+      var rect=tile.getBoundingClientRect();
+      var offX=e.clientX-rect.left, offY=e.clientY-rect.top;
+      try{tile.setPointerCapture(e.pointerId);}catch(err){}
+      tile.classList.add('dragging');
+      tile.style.position='fixed';tile.style.zIndex='999';tile.style.width=rect.width+'px';
+      tile.style.left=(e.clientX-offX)+'px';tile.style.top=(e.clientY-offY)+'px';
+      function slotUnder(x,y){
+        var slots=[].slice.call(document.querySelectorAll('.dnd-slot'));
+        for(var i=0;i<slots.length;i++){var r=slots[i].getBoundingClientRect();if(x>=r.left&&x<=r.right&&y>=r.top&&y<=r.bottom)return slots[i];}
+        return null;
+      }
+      function move(ev){
+        tile.style.left=(ev.clientX-offX)+'px';tile.style.top=(ev.clientY-offY)+'px';
+        document.querySelectorAll('.dnd-slot').forEach(function(s){s.classList.remove('over');});
+        var sl=slotUnder(ev.clientX,ev.clientY);if(sl)sl.classList.add('over');
+      }
+      function up(ev){
+        tile.classList.remove('dragging');
+        tile.style.position='';tile.style.left='';tile.style.top='';tile.style.zIndex='';tile.style.width='';
+        document.querySelectorAll('.dnd-slot').forEach(function(s){s.classList.remove('over');});
+        var sl=slotUnder(ev.clientX,ev.clientY),bank=document.getElementById('dndBank');
+        if(sl){var cur=sl.querySelector('.dnd-tile');if(cur&&cur!==tile)bank.appendChild(cur);sl.appendChild(tile);}
+        else bank.appendChild(tile);
+        document.querySelectorAll('.dnd-slot').forEach(function(s){s.classList.toggle('filled',!!s.querySelector('.dnd-tile'));});
+        tile.removeEventListener('pointermove',move);
+        tile.removeEventListener('pointerup',up);
+        tile.removeEventListener('pointercancel',up);
+      }
+      tile.addEventListener('pointermove',move);
+      tile.addEventListener('pointerup',up);
+      tile.addEventListener('pointercancel',up);
+    });
+  });
+}
+function stDnDCheck(){
+  var q=statBank[stIdx],slots=[].slice.call(document.querySelectorAll('.dnd-slot'));
+  var placed={},allFilled=true;
+  slots.forEach(function(s){var t=s.querySelector('.dnd-tile'),idx=+s.dataset.slot;if(t)placed[idx]=t.dataset.v;else allFilled=false;});
+  if(!allFilled){showToast('place toutes les étiquettes');return;}
+  var spec=q.dnd.grid||q.dnd,ans=spec.answer,groups=spec.groups||[],inG={};
+  if(spec.shapes){
+    var p0=placed[0],p1=placed[1],p2=placed[2],op=ans[1];
+    var oks=(op==='+'||op==='×')?(p1===op&&((p0===ans[0]&&p2===ans[2])||(p0===ans[2]&&p2===ans[0]))):(p0===ans[0]&&p1===ans[1]&&p2===ans[2]);
+    stDnDFinish(oks);return;
+  }
+  groups.forEach(function(g){g.forEach(function(i){inG[i]=1;});});
+  var ok=true;
+  for(var i=0;i<ans.length;i++){if(!inG[i]&&normAlg(placed[i])!==normAlg(ans[i]))ok=false;}
+  groups.forEach(function(g){
+    var got=g.map(function(i){return normAlg(placed[i]);}).sort();
+    var exp=g.map(function(i){return normAlg(ans[i]);}).sort();
+    if(got.join('|')!==exp.join('|'))ok=false;
+  });
+  stDnDFinish(ok);
+}
+function stDnDFinish(ok){
+  var q=statBank[stIdx];stAnswered=true;if(ok)stScore++;
+  var w=document.getElementById('dndWrap');if(w)w.classList.add('locked');
+  if(typeof sfx==='function'){try{sfx(ok);}catch(e){}}
+  var last=(stIdx+1>=statBank.length),fb=document.getElementById('stFb');
+  var lbl=(q.dnd.grid||q.dnd).label;
+  fb.innerHTML='<div class="st-fb '+(ok?'ok':'ko')+'"><div class="st-fb-t">'+(ok?'✓ bonne réponse':'✗ pas tout à fait')+'</div>'+
+    (ok?'':'la bonne réponse est <strong>'+dispAlg(lbl)+'</strong>.<br>')+q.sol+'</div>'+
+    '<button class="btn btn-amber" style="margin-top:16px" onclick="stNext()">'+(last?'voir mon score →':'question suivante →')+'</button>';
+  var sc=document.querySelector('#page-train-stats .st-score');if(sc)sc.textContent='score '+stScore+' / '+statBank.length;
+}
+var DSIZE=240,DPAD=18,DR=6,DUNIT=17,stDrawPts=[],stDrawReveal=false;
+function dPX(x){return DPAD+(x+DR)*DUNIT;}
+function dPY(y){return DPAD+(DR-y)*DUNIT;}
+function stDrawInner(){
+  var q=statBank[stIdx],d=q.draw,s='';
+  s+='<rect x="0" y="0" width="'+DSIZE+'" height="'+DSIZE+'" fill="#FFFFFF"/>';
+  var i;
+  for(i=-DR;i<=DR;i++){s+='<line x1="'+dPX(i)+'" y1="'+dPY(-DR)+'" x2="'+dPX(i)+'" y2="'+dPY(DR)+'" stroke="#EEF0F3" stroke-width="1"/>';s+='<line x1="'+dPX(-DR)+'" y1="'+dPY(i)+'" x2="'+dPX(DR)+'" y2="'+dPY(i)+'" stroke="#EEF0F3" stroke-width="1"/>';}
+  s+='<line x1="'+dPX(-DR)+'" y1="'+dPY(0)+'" x2="'+dPX(DR)+'" y2="'+dPY(0)+'" stroke="#C7CCD4" stroke-width="1.5"/>';
+  s+='<line x1="'+dPX(0)+'" y1="'+dPY(-DR)+'" x2="'+dPX(0)+'" y2="'+dPY(DR)+'" stroke="#C7CCD4" stroke-width="1.5"/>';
+  if(d.indicator){
+    if(d.indicator.axis){var ax=d.indicator.axis;if(ax==='x')s+='<line x1="'+dPX(-DR)+'" y1="'+dPY(0)+'" x2="'+dPX(DR)+'" y2="'+dPY(0)+'" stroke="#E2483D" stroke-width="2.6"/>';else s+='<line x1="'+dPX(0)+'" y1="'+dPY(-DR)+'" x2="'+dPX(0)+'" y2="'+dPY(DR)+'" stroke="#E2483D" stroke-width="2.6"/>';}
+    if(d.indicator.center)s+='<circle cx="'+dPX(0)+'" cy="'+dPY(0)+'" r="4" fill="#181B22"/><text x="'+(dPX(0)+7)+'" y="'+(dPY(0)-6)+'" font-family="\'Space Mono\',monospace" font-size="11" font-weight="700">O</text>';
+    if(d.indicator.vec){var fx=-5,fy=-5,vx=d.indicator.vec[0],vy=d.indicator.vec[1];s+='<line x1="'+dPX(fx)+'" y1="'+dPY(fy)+'" x2="'+dPX(fx+vx)+'" y2="'+dPY(fy+vy)+'" stroke="#4F46E5" stroke-width="2.4" marker-end="url(#dArr)"/>';}
+  }
+  var fp=d.fig.map(function(p){return dPX(p[0])+','+dPY(p[1]);}).join(' ');
+  s+='<polygon points="'+fp+'" fill="rgba(79,70,229,.12)" stroke="#4F46E5" stroke-width="2" stroke-linejoin="round"/>';
+  d.fig.forEach(function(p,idx){var rr=(d.mark===idx)?5:3.2,col=(d.mark===idx)?'#15803D':'#4F46E5';if(d.mark===idx)s+='<circle cx="'+dPX(p[0])+'" cy="'+dPY(p[1])+'" r="8" fill="none" stroke="#15803D" stroke-width="1.5" opacity=".5"/>';s+='<circle cx="'+dPX(p[0])+'" cy="'+dPY(p[1])+'" r="'+rr+'" fill="'+col+'"/><text x="'+(dPX(p[0])+6)+'" y="'+(dPY(p[1])-5)+'" font-family="\'Space Mono\',monospace" font-size="11" font-weight="700" fill="'+col+'">'+['A','B','C','D'][idx]+'</text>';});
+  if(stDrawPts.length){
+    var plabs=d.plabels||['A\u2032','B\u2032','C\u2032','D\u2032'];
+    if(stDrawPts.length>=2){var pp=stDrawPts.map(function(p){return dPX(p[0])+','+dPY(p[1]);}).join(' ');s+='<polygon points="'+pp+'" fill="rgba(226,72,61,.12)" stroke="#E2483D" stroke-width="2" stroke-linejoin="round"/>';}
+    stDrawPts.forEach(function(p,idx){s+='<circle cx="'+dPX(p[0])+'" cy="'+dPY(p[1])+'" r="4.5" fill="#E2483D"/><text x="'+(dPX(p[0])+6)+'" y="'+(dPY(p[1])-5)+'" font-family="\'Space Mono\',monospace" font-size="11" font-weight="700" fill="#E2483D">'+(plabs[idx]||'')+'</text>';});
+  }
+  if(stDrawReveal){
+    var ex=d.exp,elabs=d.plabels||['A\u2032','B\u2032','C\u2032','D\u2032'];
+    if(ex.length>=2){var ep=ex.map(function(p){return dPX(p[0])+','+dPY(p[1]);}).join(' ');s+='<polygon points="'+ep+'" fill="rgba(22,163,74,.14)" stroke="#15803D" stroke-width="2.4" stroke-linejoin="round"/>';}
+    ex.forEach(function(p,idx){s+='<circle cx="'+dPX(p[0])+'" cy="'+dPY(p[1])+'" r="5" fill="#15803D"/><text x="'+(dPX(p[0])+6)+'" y="'+(dPY(p[1])+16)+'" font-family="\'Space Mono\',monospace" font-size="11" font-weight="700" fill="#15803D">'+(elabs[idx]||'')+'</text>';});
+  }
+  s='<defs><marker id="dArr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#4F46E5"/></marker></defs>'+s;
+  return s;
+}
+function stDrawRender(){var svg=document.getElementById('drawSvg');if(svg)svg.innerHTML=stDrawInner();}
+function stDrawInit(){stDrawPts=[];stDrawReveal=false;var svg=document.getElementById('drawSvg');if(svg)svg.addEventListener('pointerdown',stDrawClick);stDrawRender();}
+function stDrawClick(e){
+  var q=statBank[stIdx],n=q.draw.exp.length,svg=document.getElementById('drawSvg');if(!svg)return;
+  var rect=svg.getBoundingClientRect();
+  var vx=(e.clientX-rect.left)*(DSIZE/rect.width),vy=(e.clientY-rect.top)*(DSIZE/rect.height);
+  var x=Math.round((vx-DPAD)/DUNIT-DR),y=Math.round(DR-(vy-DPAD)/DUNIT);
+  if(x<-DR||x>DR||y<-DR||y>DR)return;
+  var hit=-1;for(var i=0;i<stDrawPts.length;i++){if(stDrawPts[i][0]===x&&stDrawPts[i][1]===y){hit=i;break;}}
+  if(hit>=0)stDrawPts.splice(hit,1);
+  else if(stDrawPts.length<n)stDrawPts.push([x,y]);
+  else if(n===1)stDrawPts=[[x,y]];
+  stDrawRender();
+}
+function stDrawCheck(){
+  var q=statBank[stIdx],exp=q.draw.exp,n=exp.length;
+  if(stDrawPts.length<n){showToast('place les '+n+' sommets');return;}
+  function key(p){return p[0]+','+p[1];}
+  var gp=stDrawPts.map(key).sort().join('|'),ep=exp.map(key).sort().join('|');
+  stDrawFinish(gp===ep);
+}
+function stDrawFinish(ok){
+  var q=statBank[stIdx];stAnswered=true;if(ok)stScore++;
+  if(!ok){stDrawReveal=true;stDrawRender();}
+  var w=document.getElementById('drawWrap');if(w)w.classList.add('locked');
+  if(typeof sfx==='function'){try{sfx(ok);}catch(e){}}
+  var last=(stIdx+1>=statBank.length),fb=document.getElementById('stFb');
+  var lbl=q.draw.exp.map(trCoord).join(' , ');
+  var miss=q.draw.exp.length===1?('le point image est <strong>'+lbl+'</strong> (en vert sur le repère).<br>'):('l\'image a pour sommets <strong>'+lbl+'</strong> (en vert sur le repère).<br>');
+  fb.innerHTML='<div class="st-fb '+(ok?'ok':'ko')+'"><div class="st-fb-t">'+(ok?'✓ bien placé':'✗ pas tout à fait')+'</div>'+
+    (ok?'':miss)+q.sol+'</div>'+
+    '<button class="btn btn-amber" style="margin-top:16px" onclick="stNext()">'+(last?'voir mon score →':'question suivante →')+'</button>';
+  var sc=document.querySelector('#page-train-stats .st-score');if(sc)sc.textContent='score '+stScore+' / '+statBank.length;
+}
+var gtRows=[],gtDivs=[];
+function stGtInner(){
+  var s='<table class="gt-table">';
+  s+='<tr><td class="gt-div"></td><td class="gt-n">'+gtRows[0][0]+'</td><td class="gt-n">'+gtRows[0][1]+'</td></tr>';
+  for(var i=1;i<gtRows.length;i++){var cur=(i===gtRows.length-1)?' cur':'';s+='<tr><td class="gt-div">÷ '+gtDivs[i-1]+'</td><td class="gt-n'+cur+'">'+gtRows[i][0]+'</td><td class="gt-n'+cur+'">'+gtRows[i][1]+'</td></tr>';}
+  return s+'</table>';
+}
+function stGtRender(){var el=document.getElementById('gtTable');if(el)el.innerHTML=stGtInner();}
+function stGtInit(){var gt=statBank[stIdx].gcdtable;gtRows=[[gt.a,gt.b]];gtDivs=[];stGtRender();}
+function gtApply(p){if(stAnswered)return;var cur=gtRows[gtRows.length-1];if(cur[0]%p===0&&cur[1]%p===0){gtRows.push([cur[0]/p,cur[1]/p]);gtDivs.push(p);stGtRender();}else{showToast(p+' ne divise pas les deux nombres');}}
+function gtUndo(){if(stAnswered)return;if(gtRows.length>1){gtRows.pop();gtDivs.pop();stGtRender();}}
+function stGtCheck(){
+  var q=statBank[stIdx],gt=q.gcdtable,cur=gtRows[gtRows.length-1];
+  if(gtDivs.length===0){showToast('clique sur un diviseur commun pour commencer');return;}
+  if(gcdInt(cur[0],cur[1])!==1){showToast('il reste un diviseur commun — continue');return;}
+  var prod=gtDivs.reduce(function(a,b){return a*b;},1);
+  stGtFinish(prod===gt.pgcd);
+}
+function stGtFinish(ok){
+  var q=statBank[stIdx],gt=q.gcdtable;stAnswered=true;if(ok)stScore++;
+  var w=document.getElementById('gtWrap');if(w)w.classList.add('locked');
+  if(typeof sfx==='function'){try{sfx(ok);}catch(e){}}
+  var last=(stIdx+1>=statBank.length),fb=document.getElementById('stFb');
+  var calc=gtDivs.join(' × ')+' = '+gtDivs.reduce(function(a,b){return a*b;},1);
+  fb.innerHTML='<div class="st-fb '+(ok?'ok':'ko')+'"><div class="st-fb-t">'+(ok?'✓ bonne réponse':'✗ pas tout à fait')+'</div>'+(ok?('PGCD = produit des diviseurs = '+calc+' = <strong>'+gt.pgcd+'</strong>.<br>'):('le PGCD est <strong>'+gt.pgcd+'</strong>.<br>'))+q.sol+'</div>'+'<button class="btn btn-amber" style="margin-top:16px" onclick="stNext()">'+(last?'voir mon score →':'question suivante →')+'</button>';
+  var sc=document.querySelector('#page-train-stats .st-score');if(sc)sc.textContent='score '+stScore+' / '+statBank.length;
+}
+function stPythCheck(){
+  var q=statBank[stIdx],P=q.pyth,ans=P.answer,groups=P.groups||[],n=ans.length;
+  function norm(s){return String(s).toLowerCase().replace(/\s/g,'').replace(/²/g,'^2');}
+  var placed=[];for(var i=0;i<n;i++){var s=document.querySelector('.dnd-slot[data-slot="'+i+'"] .dnd-tile');placed.push(s?s.dataset.v:null);}
+  if(placed.some(function(x){return x===null;})){showToast('remplis toutes les cases');return;}
+  var ok=true,inG={};
+  groups.forEach(function(g){var want=g.map(function(i){return norm(ans[i]);}).sort();var got=g.map(function(i){return norm(placed[i]);}).sort();if(want.join('|')!==got.join('|'))ok=false;g.forEach(function(i){inG[i]=1;});});
+  for(var i=0;i<n;i++){if(!inG[i]&&norm(placed[i])!==norm(ans[i]))ok=false;}
+  stPythFinish(ok);
+}
+function stPythFinish(ok){
+  var q=statBank[stIdx];stAnswered=true;if(ok)stScore++;
+  var w=document.getElementById('dndWrap');if(w)w.classList.add('locked');
+  if(typeof sfx==='function'){try{sfx(ok);}catch(e){}}
+  var last=(stIdx+1>=statBank.length),fb=document.getElementById('stFb');
+  fb.innerHTML='<div class="st-fb '+(ok?'ok':'ko')+'"><div class="st-fb-t">'+(ok?'✓ bonne réponse':'✗ pas tout à fait')+'</div>'+q.sol+'</div>'+'<button class="btn btn-amber" style="margin-top:16px" onclick="stNext()">'+(last?'voir mon score →':'question suivante →')+'</button>';
+  var sc=document.querySelector('#page-train-stats .st-score');if(sc)sc.textContent='score '+stScore+' / '+statBank.length;
+}
+function stQcmPick(btn,idx){
+  if(stAnswered)return;
+  var q=statBank[stIdx],opts=q.qcm,ok=opts[idx].ok;stAnswered=true;if(ok)stScore++;
+  var w=document.getElementById('qcmWrap');if(w)w.classList.add('locked');
+  [].slice.call(document.querySelectorAll('.qcm-opt')).forEach(function(b){if(opts[+b.dataset.i].ok)b.classList.add('ok');});
+  if(!ok)btn.classList.add('ko');
+  if(typeof sfx==='function'){try{sfx(ok);}catch(e){}}
+  var last=(stIdx+1>=statBank.length),fb=document.getElementById('stFb');
+  fb.innerHTML='<div class="st-fb '+(ok?'ok':'ko')+'"><div class="st-fb-t">'+(ok?'✓ bonne réponse':'✗ pas tout à fait')+'</div>'+q.sol+'</div>'+'<button class="btn btn-amber" style="margin-top:16px" onclick="stNext()">'+(last?'voir mon score →':'question suivante →')+'</button>';
+  var sc=document.querySelector('#page-train-stats .st-score');if(sc)sc.textContent='score '+stScore+' / '+statBank.length;
+}
+function stPickToggle(el){if(!stAnswered)el.classList.toggle('sel');}
+function stPickCheck(){
+  var q=statBank[stIdx],pk=q.pick;
+  var sel=[].slice.call(document.querySelectorAll('.pick-chip.sel')).map(function(c){return +c.dataset.v;});
+  if(!sel.length){showToast('clique sur au moins un diviseur');return;}
+  var ok=sel.length===pk.correct.length&&pk.correct.every(function(v){return sel.indexOf(v)!==-1;});
+  stPickFinish(ok);
+}
+function stPickFinish(ok){
+  var q=statBank[stIdx],pk=q.pick;stAnswered=true;if(ok)stScore++;
+  var w=document.getElementById('pickWrap');if(w)w.classList.add('locked');
+  [].slice.call(document.querySelectorAll('.pick-chip')).forEach(function(c){var v=+c.dataset.v;c.classList.remove('sel');if(pk.correct.indexOf(v)!==-1)c.classList.add('correct');if(v===pk.pgcd)c.classList.add('pgcd');});
+  if(typeof sfx==='function'){try{sfx(ok);}catch(e){}}
+  var last=(stIdx+1>=statBank.length),fb=document.getElementById('stFb');
+  fb.innerHTML='<div class="st-fb '+(ok?'ok':'ko')+'"><div class="st-fb-t">'+(ok?'✓ bonne réponse':'✗ pas tout à fait')+'</div>'+(ok?'le PGCD est <strong>'+pk.pgcd+'</strong>.<br>':'le PGCD (en vert) est <strong>'+pk.pgcd+'</strong>.<br>')+q.sol+'</div>'+'<button class="btn btn-amber" style="margin-top:16px" onclick="stNext()">'+(last?'voir mon score →':'question suivante →')+'</button>';
+  var sc=document.querySelector('#page-train-stats .st-score');if(sc)sc.textContent='score '+stScore+' / '+statBank.length;
+}
+function stFracDnDCheck(){
+  var q=statBank[stIdx],f=q.fracdnd,slots=[].slice.call(document.querySelectorAll('.dnd-slot')),num=null,den=null;
+  slots.forEach(function(s){var t=s.querySelector('.dnd-tile'),idx=+s.dataset.slot;if(t){if(idx===0)num=+t.dataset.v;else den=+t.dataset.v;}});
+  if(num===null||den===null){showToast('place le numérateur et le dénominateur');return;}
+  var ok=(den!==0)&&(num*f.den===f.num*den);
+  stFracFinish(ok);
+}
+function stFracFinish(ok){
+  var q=statBank[stIdx],f=q.fracdnd;stAnswered=true;if(ok)stScore++;
+  var w=document.getElementById('dndWrap');if(w)w.classList.add('locked');
+  if(typeof sfx==='function'){try{sfx(ok);}catch(e){}}
+  var last=(stIdx+1>=statBank.length),fb=document.getElementById('stFb');
+  fb.innerHTML='<div class="st-fb '+(ok?'ok':'ko')+'"><div class="st-fb-t">'+(ok?'✓ bonne réponse':'✗ pas tout à fait')+'</div>'+(ok?'':'la bonne réponse est '+fracHTML(f.label)+'.<br>')+fracHTML(q.sol)+'</div>'+'<button class="btn btn-amber" style="margin-top:16px" onclick="stNext()">'+(last?'voir mon score →':'question suivante →')+'</button>';
+  var sc=document.querySelector('#page-train-stats .st-score');if(sc)sc.textContent='score '+stScore+' / '+statBank.length;
+}
 function buildEntrainement(){
   var el=document.getElementById('trainList');if(!el||typeof exercises==='undefined')return;
   el.innerHTML=exercises.map(function(ex){
