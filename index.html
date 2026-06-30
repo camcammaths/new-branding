@@ -686,6 +686,13 @@ a{color:inherit}
 .pack-btn{font-family:var(--grot);font-size:12px;font-weight:700;border:1.5px solid var(--ink);border-radius:999px;padding:9px;cursor:pointer;text-transform:lowercase;background:var(--amber);color:var(--ink);box-shadow:0 6px 18px -6px rgba(24,27,34,.26);margin-top:auto}
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:12px;font-weight:700;padding:11px 22px;border:1.5px solid var(--ink);border-radius:999px;box-shadow:0 6px 18px -6px rgba(79,70,229,.30);z-index:600;transition:transform .3s;white-space:nowrap;pointer-events:none}
 .toast.show{transform:translateX(-50%) translateY(0)}
+.mtabbar{display:none;position:fixed;left:0;right:0;bottom:0;height:62px;padding-bottom:env(safe-area-inset-bottom);background:var(--paper-2);border-top:1.5px solid var(--ink);z-index:30;box-shadow:0 -8px 22px -14px rgba(24,27,34,.35)}
+.mtab{flex:1;background:none;border:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--muted);cursor:pointer;position:relative;padding-top:2px}
+.mtab svg{width:21px;height:21px;display:block}
+.mtab span{font-family:var(--mono);font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:.02em}
+.mtab.mtab-accent{color:var(--clay)}
+.mtab.on{color:var(--cobalt)}
+.mtab.on::before{content:"";position:absolute;top:0;width:32px;height:3px;background:var(--cobalt);border-radius:0 0 3px 3px}
 @media (prefers-reduced-motion:reduce){.wheel-spin,.roulette-ball,.timer-dot,.exo-confetti{animation:none !important}}
 @media(max-width:920px){
   .hero{grid-template-columns:1fr;gap:32px;padding:40px 22px 44px}
@@ -709,9 +716,7 @@ a{color:inherit}
 }
 @media(max-width:600px){
   .nav{padding:12px 16px}
-  .nav-r{flex-wrap:wrap;overflow-x:visible;gap:10px;justify-content:flex-start}
-  .nav-links{gap:12px;font-size:14px;flex-wrap:wrap;width:100%}
-  .cta{width:100%;justify-content:center}
+  .nav-r{display:none}
   .hero{padding:30px 16px 36px}
   .sec{padding:40px 16px}
   .simple-page{padding:36px 16px}
@@ -730,7 +735,36 @@ a{color:inherit}
   .content{flex-direction:column;gap:0;overflow-y:auto;background:var(--paper-2);border:1.5px solid var(--ink);border-radius:16px;box-shadow:0 6px 18px -6px rgba(24,27,34,.26)}
   .enonce-card,.question-card{flex:none;border:none;border-radius:0;box-shadow:none;background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none}
   .question-card{border-top:1.5px solid var(--line)}
+  #genSteps{display:none}
+  #page-brevet .bp-sujet,#page-brevet .opt-toggle,#page-brevet .pts-pill{display:none}
+  body[data-page="generer"] .nav-r{display:none}
+  #page-parcours .pc-left,#page-parcours .pc-right{display:none}
+  #page-planning .plan-stats,#page-planning .plan-claude{display:none}
+  #page-planning .plan-toolbar,#page-planning .plan-grid,#page-planning .plan-grid-head{display:none}
+  #page-planning .plan-agenda{display:flex}
+  .mtabbar{display:flex}
+  body[data-page="brevet"] .mtabbar{display:none}
+  body{padding-bottom:70px}
+  .simple-page,.gen-layout,.plan-wrap{padding-bottom:86px}
+  .parcours-wrap,.train-stats-wrap{overflow-y:auto;padding-bottom:86px}
 }
+.plan-agenda{display:none;flex-direction:column;gap:10px;margin-top:6px}
+.ag-day{display:flex;gap:12px;background:var(--paper-2);border:1.5px solid var(--ink);border-radius:14px;padding:12px;box-shadow:0 6px 18px -12px rgba(24,27,34,.3)}
+.ag-day.is-today{border-color:var(--cobalt);box-shadow:0 8px 20px -10px rgba(79,70,229,.4)}
+.ag-date{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:52px;border-right:1.5px solid var(--line);padding-right:12px}
+.ag-dow{font-family:var(--mono);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.ag-dnum{font-family:var(--grot);font-weight:700;font-size:24px;line-height:1.05;color:var(--ink)}
+.ag-day.is-today .ag-dnum{color:var(--cobalt)}
+.ag-mon{font-family:var(--mono);font-size:9px;text-transform:uppercase;color:var(--muted)}
+.ag-body{flex:1;display:flex;flex-direction:column;gap:8px;min-width:0}
+.ag-chips{display:flex;flex-direction:column;gap:6px}
+.ag-chip{display:flex;align-items:center;gap:8px;background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--c);border-radius:10px;padding:7px 10px;font-family:var(--grot);font-weight:600;font-size:14px;color:var(--ink);cursor:pointer}
+.ag-chip .pe-dot{width:8px;height:8px;border-radius:50%;background:var(--c);flex-shrink:0}
+.ag-chip-name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ag-chip-time{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.ag-chip-x{font-size:10px;color:var(--muted);flex-shrink:0}
+.ag-empty{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.ag-add{align-self:flex-start;font-family:var(--mono);font-size:12px;font-weight:700;color:var(--cobalt);background:none;border:1px dashed var(--line);border-radius:999px;padding:6px 12px;cursor:pointer}
 svg{max-width:100%}
 table{max-width:100%}
 body{overflow-x:hidden}
@@ -759,6 +793,14 @@ body{overflow-x:hidden}
     </ul>
     <button class="cta" onclick="goTo('generer')" data-page="generer">générer un brevet →</button>
   </div>
+</nav>
+
+<nav class="mtabbar" aria-label="navigation mobile">
+  <button class="mtab" data-page="entrainement" onclick="goTo('entrainement')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5l8 3 8-3v14l-8 3-8-3z"/><path d="M12 8v14"/></svg><span>entraîn.</span></button>
+  <button class="mtab" data-page="annales" onclick="goTo('annales')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h11l3 3v13H5z"/><path d="M9 9h6M9 13h6"/></svg><span>annales</span></button>
+  <button class="mtab" data-page="planning" onclick="goTo('planning')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg><span>planning</span></button>
+  <button class="mtab" data-page="parcours" onclick="goTo('parcours')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19l5-6 4 3 5-7"/></svg><span>parcours</span></button>
+  <button class="mtab mtab-accent" data-page="checkout" onclick="goTo('checkout')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-6 8-6s8 2 8 6"/></svg><span>s'inscrire</span></button>
 </nav>
 
 <div class="page active" id="page-accueil">
@@ -1703,6 +1745,7 @@ body{overflow-x:hidden}
     </div>
     <div class="plan-grid-head"><div>lu</div><div>ma</div><div>me</div><div>je</div><div>ve</div><div>sa</div><div>di</div></div>
     <div class="plan-grid" id="planGrid"></div>
+    <div class="plan-agenda" id="planAgenda"></div>
   </div>
   <div class="plan-modal" id="planModal" onclick="if(event.target===this)closePlanAdd()">
     <div class="plan-modal-card">
@@ -2001,9 +2044,11 @@ function goTo(page){
   else{t.style.display='block';}
   document.body.style.overflow=(page==='accueil'||page==='checkout'||page==='annales'||page==='fiches'||page==='fiche-pythagore'||page==='fiche-trigo'||page==='fiche-perimetre'||page==='fiche-aire'||page==='fiche-volume'||page==='fiche-statistiques'||page==='entrainement'||page==='transfo-revision')?'auto':'hidden';
   document.querySelectorAll('.nav-links li').forEach(li=>{li.classList.remove('on','on-orange');if(li.dataset.page==='checkout')li.classList.add('on-orange');else if(li.dataset.page===page)li.classList.add('on');});
+  document.querySelectorAll('.mtab').forEach(t=>t.classList.toggle('on',t.dataset.page===page));
   var nav=document.querySelector('body > nav.nav');
   var hide=(page==='brevet');
   if(nav)nav.style.display=hide?'none':'';
+  document.body.setAttribute('data-page',page);
   window.scrollTo(0,0);
 }
 function showToast(msg){var t=document.getElementById('toast');if(!t)return;t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2600);}
@@ -3470,7 +3515,24 @@ function renderEvents(key){
   }
   return out+'</div>';
 }
-function buildPlanning(){if(planMode==='semaine')buildWeek();else buildMonth();}
+function buildPlanning(){if(planMode==='semaine')buildWeek();else buildMonth();buildAgenda();}
+var planAgendaDays=21;
+function buildAgenda(){
+  var ag=document.getElementById('planAgenda');if(!ag)return;
+  var t=new Date(),today=new Date(t.getFullYear(),t.getMonth(),t.getDate()),out='';
+  for(var i=0;i<planAgendaDays;i++){
+    var dt=new Date(today.getFullYear(),today.getMonth(),today.getDate()+i),key=planKey(dt),dow=(dt.getDay()+6)%7;
+    var label=i===0?"aujourd'hui":(i===1?'demain':planJours[dow]);
+    var evs=planEvents[key]||[],body='';
+    if(evs.length){
+      body='<div class="ag-chips">';
+      for(var j=0;j<evs.length;j++){var e=evs[j];body+='<div class="ag-chip" style="--c:'+e.hex+'" onclick="planRemove(&#39;'+key+'&#39;,'+j+',event)"><span class="pe-dot"></span><span class="ag-chip-name">'+esc(e.mat)+'</span>'+(e.time?'<span class="ag-chip-time">'+esc(e.time)+'</span>':'')+'<span class="ag-chip-x">✕</span></div>';}
+      body+='</div>';
+    }else{body='<div class="ag-empty">aucune révision</div>';}
+    out+='<div class="ag-day'+(i===0?' is-today':'')+'"><div class="ag-date"><span class="ag-dow">'+label+'</span><span class="ag-dnum">'+dt.getDate()+'</span><span class="ag-mon">'+planMonths[dt.getMonth()].slice(0,4)+'</span></div><div class="ag-body">'+body+'<button class="ag-add" onclick="openPlanAdd(&#39;'+key+'&#39;)">+ ajouter une révision</button></div></div>';
+  }
+  ag.innerHTML=out;
+}
 function buildMonth(){
   var grid=document.getElementById('planGrid');if(!grid)return;
   grid.classList.remove('is-week');
