@@ -502,6 +502,84 @@ a{color:inherit}
 .cm-chk{width:22px;height:22px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
 .cm-big{font-family:var(--grot);font-weight:700;font-size:15px;line-height:1.25;color:var(--ink)}
 .cm-pap{font-size:11.5px;color:var(--muted);margin-top:3px}
+/* ===== page inscription ===== */
+#page-inscription .simple-page{max-width:960px;margin:0 auto;padding:40px 24px 80px}
+.ins-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;align-items:start}
+.ins-tile{border:1.5px solid var(--ink);border-radius:16px;background:var(--paper-2);padding:24px;box-shadow:0 10px 26px -16px rgba(24,27,34,.4)}
+.ins-side{display:flex;flex-direction:column;gap:16px}
+.ins-ey{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--green)}
+.ins-ttl{font-family:var(--grot);font-weight:700;font-size:26px;text-transform:uppercase;line-height:1;margin:8px 0 14px}
+.ins-ttl span{color:var(--cobalt)}
+.ins-ben-m{display:none;margin-bottom:14px}
+.ins-brow{display:flex;align-items:center;gap:10px;padding:6px 0;font-weight:700;font-size:14px}
+.ins-bchk{width:22px;height:22px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0}
+.ins-plan{display:flex;gap:10px;margin-bottom:14px}
+.ins-p{flex:1;border:1.5px solid var(--ink);border-radius:12px;background:var(--paper-2);padding:11px 10px;text-align:center;cursor:pointer}
+.ins-pn{font-weight:700;font-size:14px}
+.ins-pp{font-family:var(--mono);font-size:9px;color:var(--muted)}
+.ins-p.on{background:var(--cobalt);color:#fff;border-color:var(--cobalt)}
+.ins-p.on .ins-pp{color:#dfe0ff}
+.ins-lbl{display:block;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.ins-inp{width:100%;border:1.5px solid var(--ink);border-radius:12px;background:var(--paper-2);padding:12px 14px;font-family:var(--grot);font-size:15px;margin-bottom:12px}
+.ins-inp::placeholder{color:#9aa0ab}
+.ins-cta{width:100%;border:1.5px solid var(--ink);border-radius:13px;background:var(--cobalt);color:#fff;font-family:var(--grot);font-weight:700;font-size:15px;padding:14px 0;box-shadow:0 4px 0 #3730b8;cursor:pointer;margin-top:4px}
+.ins-fine{font-family:var(--mono);font-size:9px;color:var(--muted);text-align:center;margin-top:12px;line-height:1.5}
+.ins-alt{text-align:center;font-size:13px;color:var(--muted);margin-top:14px}
+.ins-alt a{color:var(--cobalt);font-weight:700;cursor:pointer}
+.ins-k{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.ins-cd{background:var(--lcd)}
+.ins-cd-big{font-family:var(--anton);font-size:50px;color:var(--cobalt);line-height:.9}
+.ins-cd-sm{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:6px}
+/* ===== onboarding ===== */
+#page-onboarding{min-height:100vh}
+.onb-page{min-height:100vh;display:flex;flex-direction:column;background:var(--paper)}
+.onb-head{display:flex;align-items:center;justify-content:space-between;padding:18px 26px;gap:12px}
+.onb-mark{font-family:var(--grot);font-weight:700;font-size:18px;flex:1}.onb-mark b{color:var(--cobalt)}
+.onb-prog{display:flex;gap:6px;flex:1;justify-content:center;max-width:280px}
+.onb-pseg{height:5px;width:34px;border-radius:999px;background:var(--line)}
+.onb-pseg.on{background:var(--cobalt)}
+.onb-cd{flex:1;text-align:right;font-family:var(--mono);font-size:10px;font-weight:700;color:var(--muted);white-space:nowrap}
+.onb-cd b{color:var(--cobalt)}
+.onb-stage{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px 24px 48px}
+.onb-pane{display:none;flex-direction:column;align-items:center;width:100%;max-width:600px}
+.onb-pane.on{display:flex}
+.onb-k{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--green)}
+.onb-ttl{font-family:var(--grot);font-weight:700;font-size:34px;line-height:1.02;margin:12px 0 8px;text-transform:uppercase}
+.onb-ttl span{color:var(--cobalt)}
+.onb-sub{color:var(--muted);font-size:15px;line-height:1.5;margin-bottom:26px;max-width:44ch}
+.onb-cta{border:1.5px solid var(--ink);border-radius:13px;background:var(--cobalt);color:#fff;font-family:var(--grot);font-weight:700;font-size:15px;padding:14px 34px;box-shadow:0 4px 0 #3730b8;cursor:pointer}
+.onb-cta.big{font-size:16px;padding:16px 36px}
+.onb-back{display:block;font-family:var(--grot);font-weight:700;font-size:13px;color:var(--muted);background:none;border:none;cursor:pointer;margin-top:16px}
+.onb-footc{margin-top:30px;display:flex;flex-direction:column;align-items:center}
+.onb-badge{font-family:var(--mono);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;background:var(--lcd);border:1.5px solid var(--ink);border-radius:999px;padding:6px 13px;margin-bottom:18px}
+.onb-wttl{font-family:var(--grot);font-weight:700;font-size:40px;line-height:1;text-transform:uppercase}
+.onb-wttl span{color:var(--cobalt)}
+.onb-wsub{color:var(--muted);font-size:16px;line-height:1.55;margin:14px 0 0;max-width:40ch}
+.onb-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:540px}
+.onb-chip{border:1.5px solid var(--ink);border-radius:999px;padding:10px 16px;font-weight:700;font-size:14px;background:var(--paper-2);cursor:pointer;user-select:none}
+.onb-chip.on{background:var(--cobalt);color:#fff}
+.onb-chip.on::before{content:"✓ "}
+.onb-objbig{font-family:var(--grot);font-weight:700;font-size:66px;line-height:1}
+.onb-objbig i{font-style:normal;font-size:24px;color:var(--muted)}
+.onb-objtag{font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;color:var(--cobalt);margin:4px 0 22px}
+.onb-rng{width:100%;max-width:460px;accent-color:var(--cobalt);height:6px}
+.onb-scale{display:flex;justify-content:space-between;width:100%;max-width:460px;font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:8px}
+.onb-date{margin-top:22px;font-family:var(--mono);font-size:11px;color:var(--muted)}.onb-date b{color:var(--cobalt)}
+.onb-opts{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;max-width:520px}
+.onb-opt{border:1.5px solid var(--ink);border-radius:13px;background:var(--paper-2);padding:15px 16px;cursor:pointer;text-align:left;display:flex;align-items:center;justify-content:space-between}
+.onb-opt .n{font-weight:700;font-size:15px}
+.onb-opt .d{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:3px}
+.onb-opt .rad{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--ink);flex-shrink:0}
+.onb-opt.on{background:var(--cobalt);color:#fff}
+.onb-opt.on .d{color:#dfe0ff}
+.onb-opt.on .rad{background:#fff;border-color:#fff;box-shadow:inset 0 0 0 4px var(--cobalt)}
+.onb-doneic{width:60px;height:60px;border-radius:50%;background:var(--lcd);border:1.5px solid var(--green-deep);color:var(--green-deep);display:flex;align-items:center;justify-content:center;font-size:30px;margin-bottom:12px}
+.onb-recap{border:1.5px solid var(--ink);border-radius:14px;background:var(--paper-2);overflow:hidden;width:100%;max-width:460px;text-align:left;box-shadow:0 8px 20px -12px rgba(24,27,34,.3)}
+.onb-recap .rr{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;font-size:14px}
+.onb-recap .rr+.rr{border-top:1.5px solid var(--line)}
+.onb-recap .rk{font-family:var(--mono);font-size:9px;font-weight:700;text-transform:uppercase;color:var(--muted)}
+.onb-recap .rv{font-weight:700}
+.onb-donelink{font-size:13px;color:var(--muted);font-weight:700;margin-top:14px;background:none;border:none;cursor:pointer}
 .compare .yes{color:var(--green-deep);font-weight:700}
 .compare .no{color:var(--muted)}
 .faq{max-width:860px;margin:36px auto 0}
@@ -720,6 +798,17 @@ a{color:inherit}
   .compare-head{display:none}
   .compare{display:none}
   .compare-mobile{display:flex}
+  .ins-grid{grid-template-columns:1fr}
+  .ins-side{display:none}
+  .ins-ben-m{display:block}
+  .onb-ttl{font-size:26px}
+  .onb-wttl{font-size:30px}
+  .onb-opts{grid-template-columns:1fr}
+  .onb-head{padding:14px 16px}
+  .onb-cd{font-size:9px}
+  .onb-stage{padding:16px 18px 40px}
+  body[data-page="onboarding"] .mtabbar{display:none}
+  #page-inscription .simple-page{padding:26px 16px 100px}
   .footer-top{grid-template-columns:1fr 1fr;padding:36px 22px}
   .final{margin:0 22px 64px;padding:48px 26px}
   #page-generer.active{height:auto;overflow:visible}
@@ -849,7 +938,7 @@ body{overflow-x:hidden}
       <li data-page="fiches" onclick="goTo('fiches')">fiches</li>
       <li data-page="parcours" onclick="goTo('parcours')">parcours</li>
       <li data-page="planning" onclick="goTo('planning')">planning</li>
-      <li data-page="checkout" class="on-orange" onclick="goTo('checkout')">s'inscrire ✦</li>
+      <li data-page="inscription" class="on-orange" onclick="goTo('inscription')">s'inscrire ✦</li>
     </ul>
     <button class="cta" onclick="goTo('generer')" data-page="generer">générer un brevet →</button>
   </div>
@@ -860,7 +949,7 @@ body{overflow-x:hidden}
   <button class="mtab" data-page="fiches" onclick="goTo('fiches')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="13" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/></svg><span>fiches</span></button>
   <button class="mtab" data-page="planning" onclick="goTo('planning')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg><span>planning</span></button>
   <button class="mtab" data-page="parcours" onclick="goTo('parcours')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19l5-6 4 3 5-7"/></svg><span>parcours</span></button>
-  <button class="mtab mtab-accent" data-page="checkout" onclick="goTo('checkout')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-6 8-6s8 2 8 6"/></svg><span>s'inscrire</span></button>
+  <button class="mtab mtab-accent" data-page="inscription" onclick="goTo('inscription')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-6 8-6s8 2 8 6"/></svg><span>s'inscrire</span></button>
 </nav>
 
 <div class="page active" id="page-accueil">
@@ -983,7 +1072,7 @@ body{overflow-x:hidden}
     <span class="eyebrow">tarifs</span>
     <h2 class="sec-h2">choisis <span class="accent">ta formule.</span></h2>
     <div class="pack-grid">
-      <div class="pack" onclick="goTo('checkout')">
+      <div class="pack" onclick="chooseOffer('mensuel')">
         <div class="pack-tier">sans engagement</div>
         <div class="pack-name">mensuel</div>
         <div class="pack-price">19,99€</div>
@@ -994,9 +1083,9 @@ body{overflow-x:hidden}
           <div class="pack-feat">✓ toutes les fiches & annales</div>
           <div class="pack-feat">✓ parcours & suivi de progression</div>
         </div>
-        <button class="pack-btn" onclick="event.stopPropagation();goTo('checkout')">choisir →</button>
+        <button class="pack-btn" onclick="event.stopPropagation();chooseOffer('mensuel')">choisir →</button>
       </div>
-      <div class="pack feat" onclick="goTo('checkout')">
+      <div class="pack feat" onclick="chooseOffer('annee')">
         <div class="pack-tier">★ le plus choisi · 2 mois offerts</div>
         <div class="pack-name">pass année</div>
         <div class="pack-price">149€</div>
@@ -1006,7 +1095,7 @@ body{overflow-x:hidden}
           <div class="pack-feat">✓ accès de la rentrée au brevet</div>
           <div class="pack-feat">✓ ~50 € d'économie vs le mensuel</div>
         </div>
-        <button class="pack-btn" onclick="event.stopPropagation();goTo('checkout')">choisir →</button>
+        <button class="pack-btn" onclick="event.stopPropagation();chooseOffer('annee')">choisir →</button>
       </div>
       <div class="pack dark" onclick="goTo('checkout')">
         <div class="pack-tier">professeurs · collèges</div>
@@ -1821,7 +1910,7 @@ body{overflow-x:hidden}
     <h1 class="simple-h1" style="margin-top:12px">choisis ton <span>offre.</span></h1>
     <p class="simple-lead">accès immédiat. 149 €, c'est moins qu'une heure de cours particulier.</p>
     <div class="pack-grid">
-      <div class="pack" onclick="showToast('paiement indispo en local')">
+      <div class="pack" onclick="chooseOffer('mensuel')">
         <div class="pack-tier">sans engagement</div>
         <div class="pack-name">mensuel</div>
         <div class="pack-price">19,99€</div>
@@ -1834,7 +1923,7 @@ body{overflow-x:hidden}
         </div>
         <button class="pack-btn">choisir →</button>
       </div>
-      <div class="pack feat" onclick="showToast('paiement indispo en local')">
+      <div class="pack feat" onclick="chooseOffer('annee')">
         <div class="pack-tier">★ le plus choisi · 2 mois offerts</div>
         <div class="pack-name">pass année</div>
         <div class="pack-price">149€</div>
@@ -1857,6 +1946,112 @@ body{overflow-x:hidden}
           <div class="pack-feat">✓ facturation établissement</div>
         </div>
         <button class="pack-btn">demander un devis →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="page-inscription">
+  <div class="simple-page">
+    <div class="ins-grid">
+      <div class="ins-tile ins-form">
+        <span class="ins-ey">inscription · sans engagement</span>
+        <h1 class="ins-ttl">crée ton <span>compte.</span></h1>
+        <div class="ins-ben-m">
+          <div class="ins-brow"><span class="ins-bchk">✓</span>brevets blancs illimités &amp; inédits</div>
+          <div class="ins-brow"><span class="ins-bchk">✓</span>correction étape par étape</div>
+          <div class="ins-brow"><span class="ins-bchk">✓</span>suivi de progression</div>
+        </div>
+        <div class="ins-plan">
+          <div class="ins-p on" data-plan="annee" onclick="insPick(this)"><div class="ins-pn">pass année</div><div class="ins-pp">149€ · 2 mois offerts</div></div>
+          <div class="ins-p" data-plan="mensuel" onclick="insPick(this)"><div class="ins-pn">mensuel</div><div class="ins-pp">19,99€/mois</div></div>
+        </div>
+        <label class="ins-lbl">prénom</label><input class="ins-inp" placeholder="Léa">
+        <label class="ins-lbl">email</label><input class="ins-inp" type="email" placeholder="lea@email.com">
+        <label class="ins-lbl">mot de passe</label><input class="ins-inp" type="password" placeholder="••••••••">
+        <button class="ins-cta" onclick="createAccount()">créer mon compte →</button>
+        <div class="ins-fine">paiement sécurisé · résiliable en 1 clic · satisfait ou remboursé 14 j</div>
+        <div class="ins-alt">déjà inscrit·e ? <a onclick="showToast('connexion bientôt disponible')">se connecter</a></div>
+        <div class="ins-alt" style="margin-top:6px">offre classe ou collège ? <a onclick="goTo('checkout')">voir toutes les offres →</a></div>
+      </div>
+      <div class="ins-side">
+        <div class="ins-tile ins-ben">
+          <div class="ins-k">ce que tu obtiens</div>
+          <div class="ins-brow"><span class="ins-bchk">✓</span>brevets illimités &amp; inédits</div>
+          <div class="ins-brow"><span class="ins-bchk">✓</span>correction pas à pas</div>
+          <div class="ins-brow"><span class="ins-bchk">✓</span>suivi de progression</div>
+          <div class="ins-brow"><span class="ins-bchk">✓</span>conforme au programme 2026</div>
+        </div>
+        <div class="ins-tile ins-cd">
+          <div class="ins-k">épreuve de maths dans</div>
+          <div class="ins-cd-big" id="insCdDays">—</div>
+          <div class="ins-cd-sm">jours · chaque jour compte</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="page-onboarding">
+  <div class="onb-page">
+    <div class="onb-head">
+      <div class="onb-mark">bré<b>vise</b></div>
+      <div class="onb-prog" id="onbProg"><span class="onb-pseg"></span><span class="onb-pseg"></span><span class="onb-pseg"></span><span class="onb-pseg"></span></div>
+      <div class="onb-cd">⏱ j-<span id="onbCdDays">—</span></div>
+    </div>
+    <div class="onb-stage">
+      <div class="onb-pane on" id="onb0">
+        <div class="onb-badge">on te prépare un parcours sur mesure</div>
+        <div class="onb-wttl">bienvenue.<br>prêt·e à <span>t'y mettre ?</span></div>
+        <div class="onb-wsub">3 questions rapides, et on cale tes brevets blancs et ton planning pour toi.</div>
+        <div class="onb-footc"><button class="onb-cta big" onclick="onbGo(1)">c'est parti →</button></div>
+      </div>
+      <div class="onb-pane" id="onb1">
+        <div class="onb-k">étape 1 · ton niveau</div>
+        <div class="onb-ttl">où te sens-tu le <span>moins à l'aise ?</span></div>
+        <div class="onb-sub">choisis-en autant que tu veux — on insistera dessus.</div>
+        <div class="onb-chips" id="onbChips">
+          <span class="onb-chip on">géométrie</span><span class="onb-chip">pythagore</span><span class="onb-chip">thalès</span>
+          <span class="onb-chip">trigonométrie</span><span class="onb-chip">fonctions</span><span class="onb-chip on">statistiques</span>
+          <span class="onb-chip">probabilités</span><span class="onb-chip">calcul littéral</span><span class="onb-chip">équations</span>
+          <span class="onb-chip">fractions</span><span class="onb-chip">puissances</span><span class="onb-chip">proportionnalité</span>
+        </div>
+        <div class="onb-footc"><button class="onb-cta" onclick="onbGo(2)">continuer →</button><button class="onb-back" onclick="onbGo(0)">‹ retour</button></div>
+      </div>
+      <div class="onb-pane" id="onb2">
+        <div class="onb-k">étape 2 · ton objectif</div>
+        <div class="onb-ttl">quelle note tu <span>vises ?</span></div>
+        <div class="onb-sub">on garde le cap dessus tout au long.</div>
+        <div class="onb-objbig" id="onbObjBig">14<i>/20</i></div>
+        <div class="onb-objtag" id="onbObjTag">bien · mention en vue</div>
+        <input class="onb-rng" type="range" min="8" max="20" step="1" value="14" oninput="onbObj(this.value)">
+        <div class="onb-scale"><span>8</span><span>12</span><span>16</span><span>20</span></div>
+        <div class="onb-date" id="onbObjDate">épreuve de maths · dans <b>—</b> jours</div>
+        <div class="onb-footc"><button class="onb-cta" onclick="onbGo(3)">continuer →</button><button class="onb-back" onclick="onbGo(1)">‹ retour</button></div>
+      </div>
+      <div class="onb-pane" id="onb3">
+        <div class="onb-k">étape 3 · ton rythme</div>
+        <div class="onb-ttl">combien de temps par <span>semaine ?</span></div>
+        <div class="onb-sub">on répartira ça dans ton planning.</div>
+        <div class="onb-opts" id="onbOpts">
+          <div class="onb-opt"><div><div class="n">tranquille</div><div class="d">~30 min / sem.</div></div><div class="rad"></div></div>
+          <div class="onb-opt on"><div><div class="n">régulier</div><div class="d">~1 h / sem.</div></div><div class="rad"></div></div>
+          <div class="onb-opt"><div><div class="n">motivé·e</div><div class="d">~2 h / sem.</div></div><div class="rad"></div></div>
+          <div class="onb-opt"><div><div class="n">à fond</div><div class="d">3 h et + / sem.</div></div><div class="rad"></div></div>
+        </div>
+        <div class="onb-footc"><button class="onb-cta" onclick="onbGo(4)">continuer →</button><button class="onb-back" onclick="onbGo(2)">‹ retour</button></div>
+      </div>
+      <div class="onb-pane" id="onb4">
+        <div class="onb-doneic">✓</div>
+        <div class="onb-k" style="color:var(--green-deep)">c'est prêt !</div>
+        <div class="onb-ttl">ton parcours est <span>prêt.</span></div>
+        <div class="onb-recap" style="margin-top:10px">
+          <div class="rr"><span class="rk">objectif</span><span class="rv" id="onbRcObj">14 / 20</span></div>
+          <div class="rr"><span class="rk">à travailler</span><span class="rv" id="onbRcMat">géométrie · statistiques</span></div>
+          <div class="rr"><span class="rk">rythme</span><span class="rv" id="onbRcRyt">~1 h / semaine</span></div>
+          <div class="rr"><span class="rk">échéance</span><span class="rv" id="onbRcEch">30 juin</span></div>
+        </div>
+        <div class="onb-footc"><button class="onb-cta big" onclick="goTo('generer')">lancer mon 1er brevet blanc →</button><button class="onb-donelink" onclick="goTo('parcours')">plus tard — voir mon parcours</button></div>
       </div>
     </div>
   </div>
@@ -2095,20 +2290,44 @@ function goTo(page){
   t.classList.add('active');
   if(page==='generer'&&typeof showGenStep==='function')showGenStep(1);
   if(page==='parcours'&&typeof renderParcours==='function')renderParcours();
+  if(page==='onboarding'&&typeof onbGo==='function')onbGo(0);
   if(page==='parcours'||page==='planning'||page==='generer'||page==='entrainement'||page==='train-stats'){t.style.display='flex';t.style.flexDirection='column';t.style.height='calc(100vh - 79px)';t.style.overflow='hidden';}
   else if(page==='brevet'){t.style.display='block';t.style.height='100vh';t.style.overflow='hidden';}
   else{t.style.display='block';}
-  document.body.style.overflow=(page==='accueil'||page==='checkout'||page==='annales'||page==='fiches'||page==='fiche-pythagore'||page==='fiche-trigo'||page==='fiche-perimetre'||page==='fiche-aire'||page==='fiche-volume'||page==='fiche-statistiques'||page==='entrainement'||page==='transfo-revision')?'auto':'hidden';
-  document.querySelectorAll('.nav-links li').forEach(li=>{li.classList.remove('on','on-orange');if(li.dataset.page==='checkout')li.classList.add('on-orange');else if(li.dataset.page===page)li.classList.add('on');});
+  document.body.style.overflow=(page==='accueil'||page==='checkout'||page==='inscription'||page==='onboarding'||page==='annales'||page==='fiches'||page==='fiche-pythagore'||page==='fiche-trigo'||page==='fiche-perimetre'||page==='fiche-aire'||page==='fiche-volume'||page==='fiche-statistiques'||page==='entrainement'||page==='transfo-revision')?'auto':'hidden';
+  document.querySelectorAll('.nav-links li').forEach(li=>{li.classList.remove('on','on-orange');if(li.dataset.page==='inscription')li.classList.add('on-orange');else if(li.dataset.page===page)li.classList.add('on');});
   document.querySelectorAll('.mtab').forEach(t=>t.classList.toggle('on',t.dataset.page===page));
   var nav=document.querySelector('body > nav.nav');
-  var hide=(page==='brevet');
+  var hide=(page==='brevet'||page==='onboarding');
   if(nav)nav.style.display=hide?'none':'';
   document.body.setAttribute('data-page',page);
   document.querySelectorAll('.mtabbar').forEach(function(b){b.classList.remove('mt-hidden');});
   window.scrollTo(0,0);
 }
 function showToast(msg){var t=document.getElementById('toast');if(!t)return;t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2600);}
+function createAccount(){goTo('onboarding');}
+var ONB_LABELS=['bienvenue','étape 1/4','étape 2/4','étape 3/4','terminé'];
+function onbGo(n){
+  ['onb0','onb1','onb2','onb3','onb4'].forEach(function(id,i){var e=document.getElementById(id);if(e)e.classList.toggle('on',i===n);});
+  document.querySelectorAll('#onbProg .onb-pseg').forEach(function(s,i){s.classList.toggle('on',i<n);});
+  if(n===4)onbRecap();
+  var st=document.querySelector('#page-onboarding .onb-stage');if(st)st.scrollTop=0;
+}
+function onbObj(v){v=+v;var b=document.getElementById('onbObjBig');if(b)b.innerHTML=v+'<i>/20</i>';
+  var t=v>=16?'très bien · viser haut':v>=14?'bien · mention en vue':v>=12?'assez bien · solide':v>=10?'objectif : décrocher le brevet':'on part de là, on progresse';
+  var tg=document.getElementById('onbObjTag');if(tg)tg.textContent=t;}
+function onbRecap(){
+  var chosen=[].slice.call(document.querySelectorAll('#onbChips .onb-chip.on')).map(function(c){return c.textContent;});
+  var obj=(document.getElementById('onbObjBig')||{}).textContent||'14/20';
+  var opt=document.querySelector('#onbOpts .onb-opt.on');
+  var ryt=opt?opt.querySelector('.d').textContent:'~1 h / sem.';
+  var so=document.getElementById('onbRcObj');if(so)so.textContent=obj.replace('/',' / ');
+  var sm=document.getElementById('onbRcMat');if(sm)sm.textContent=chosen.length?chosen.join(' · '):'programme complet';
+  var sr=document.getElementById('onbRcRyt');if(sr)sr.textContent=ryt;
+}
+function insPick(el){el.parentNode.querySelectorAll('.ins-p').forEach(function(p){p.classList.remove('on');});el.classList.add('on');}
+function chooseOffer(plan){goTo('inscription');document.querySelectorAll('#page-inscription .ins-p').forEach(function(p){p.classList.toggle('on',p.dataset.plan===plan);});}
+function onbChipsInit(){}
 // ── BRUITAGES bon / faux (Web Audio, sans fichier externe) ──
 var sfxCtx=null;
 function _sfxCtx(){
@@ -2166,6 +2385,17 @@ function nextBrevetMaths(){
   return d;
 }
 var examDate=nextBrevetMaths();
+(function(){var days=Math.max(0,Math.ceil((examDate-new Date())/86400000));
+  var d=document.getElementById('insCdDays');if(d)d.textContent=days;
+  var o=document.getElementById('onbCdDays');if(o)o.textContent=days;
+  var od=document.getElementById('onbObjDate');if(od)od.innerHTML='épreuve de maths · dans <b>'+days+'</b> jours';
+})();
+document.addEventListener('click',function(e){
+  var chip=e.target.closest&&e.target.closest('#onbChips .onb-chip');
+  if(chip){chip.classList.toggle('on');return;}
+  var opt=e.target.closest&&e.target.closest('#onbOpts .onb-opt');
+  if(opt){document.querySelectorAll('#onbOpts .onb-opt').forEach(function(x){x.classList.remove('on');});opt.classList.add('on');}
+});
 (function(){
   var lab=document.querySelector('.cd-label');
   if(lab){var mois=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
@@ -2368,11 +2598,67 @@ function buildFooter(ex){
   renderNav(isLastQ&&isLastEx?'<button class="btn btn-amber" onclick="handleSubmit()">terminer →</button>':'<button class="btn btn-cobalt" onclick="goNext()">valider →</button>');
 }
 function saveAnswer(){var ta=document.getElementById("answerTA");if(ta)playerAnswers[key(curEx,curQ)]=ta.value;}
+/* ===== Vérification robuste des réponses (brevet) =====
+   - tolère virgule/point, espaces, unités (cm, cm², °…), ² → ^2, ×/÷, signes moins unicode
+   - compare numériquement avec une tolérance (gère les arrondis : 7,81 vs 7,8)
+   - prend le membre de droite après le dernier "=" (ex. "AC = 10 cm" → 10)
+   - gère les fractions a/b
+   - accepte plusieurs formulations via q.accept (tableau) et une tolérance sur mesure via q.tol
+   - réponses textuelles : synonymes oui/vrai, non/faux, inclusion de la formule clé            */
+function normAnsStr(s){
+  return String(s==null?'':s)
+    .toLowerCase()
+    .replace(/[’'`]/g,'')
+    .replace(/\u00b2/g,'^2').replace(/\u00b3/g,'^3')
+    .replace(/√/g,'sqrt').replace(/×/g,'*').replace(/÷/g,'/')
+    .replace(/[−–—]/g,'-')
+    .replace(/\s+/g,'');
+}
+function ansToNumber(raw){
+  var s=String(raw==null?'':raw).replace(/\s+/g,'').replace(/[−–—]/g,'-');
+  var eq=s.lastIndexOf('=');if(eq!==-1)s=s.slice(eq+1);
+  s=s.replace(/,/g,'.');
+  var f=s.match(/(-?\d+(?:\.\d+)?)\/(-?\d+(?:\.\d+)?)/);
+  if(f){var d=parseFloat(f[2]);if(d)return parseFloat(f[1])/d;}
+  var m=s.match(/-?\d+(?:\.\d+)?/);
+  return m?parseFloat(m[0]):NaN;
+}
+function autoTol(v){var a=Math.abs(v);if(!a)return 1e-6;return Math.max(0.05,a*0.01);}
+function textEqAns(u,e){
+  if(u===e)return true;
+  var yes=['oui','vrai'],no=['non','faux'];
+  var eYes=yes.some(function(w){return e.indexOf(w)===0;});
+  var eNo=no.some(function(w){return e.indexOf(w)===0;});
+  var uYes=(yes.indexOf(u)!==-1)||u==='v';
+  var uNo=(no.indexOf(u)!==-1)||u==='f';
+  if(eYes&&uYes)return true;
+  if(eNo&&uNo)return true;
+  if(e.length>=4&&u.indexOf(e)!==-1)return true;
+  return false;
+}
+function checkAnswer(userRaw,q){
+  var uN=normAnsStr(userRaw);
+  if(!uN)return 'INCORRECT';
+  var variants=[q.answer].concat(q.accept||[]);
+  for(var i=0;i<variants.length;i++){
+    var eRaw=variants[i];if(eRaw==null||eRaw==='')continue;
+    var eN=normAnsStr(eRaw);
+    if(uN===eN)return 'CORRECT';
+    var eNum=(typeof eRaw==='number')?eRaw:ansToNumber(eRaw);
+    if(!isNaN(eNum)){
+      var uNum=ansToNumber(userRaw);
+      if(!isNaN(uNum)){
+        var tol=(q.tol!=null)?q.tol:autoTol(eNum);
+        if(Math.abs(uNum-eNum)<=tol)return 'CORRECT';
+      }
+    }else if(textEqAns(uN,eN)){return 'CORRECT';}
+  }
+  return 'INCORRECT';
+}
 function localCorrection(ex,q){
   showingCorrection=true;var ta=document.getElementById("answerTA");if(ta){ta.disabled=true;ta.style.opacity='.6';}
-  var user=(playerAnswers[key(curEx,curQ)]||'').trim().toLowerCase().replace(/\s/g,''),ans=(q.answer||'').toLowerCase().replace(/\s/g,'');
-  var ok=user&&(ans.indexOf(user)!==-1||user.indexOf(ans.slice(0,3))!==-1);
-  playerVerdicts[key(curEx,curQ)]=ok?'CORRECT':'INCORRECT';doneSet.add(key(curEx,curQ));updatePts();sfx(ok);
+  var verdict=checkAnswer(playerAnswers[key(curEx,curQ)],q);var ok=(verdict==='CORRECT');
+  playerVerdicts[key(curEx,curQ)]=verdict;doneSet.add(key(curEx,curQ));updatePts();sfx(ok);
   var color=ok?'var(--green)':'var(--clay)',bg=ok?'var(--lcd)':'var(--ko-soft)',icon=ok?'✓':'✗',label=ok?'bravo':'à revoir';
   var block=document.createElement('div');block.id='corrBlock';
   block.innerHTML='<div class="corr-verdict" style="background:'+bg+'"><div class="corr-vicon" style="background:'+color+'">'+icon+'</div><div><div class="corr-vlabel" style="color:'+color+'">'+label+'</div><div style="font-size:15px;margin-top:3px">réponse attendue : <strong>'+q.answer+'</strong></div></div></div>'
@@ -2389,7 +2675,7 @@ function advance(ex){if(curQ<ex.questions.length-1){curQ++;}else{var idx=playerE
 function goPrev(){saveAnswer();if(curQ>0){curQ--;}else{var idx=playerExercises.findIndex(e=>e.id===curEx);if(idx>0){curEx=playerExercises[idx-1].id;curQ=playerExercises[idx-1].questions.length-1;}}buildSidebar();buildQuestion();}
 function jumpTo(exId,qIdx){saveAnswer();curEx=exId;curQ=qIdx;buildSidebar();buildQuestion();}
 function handleSubmit(){saveAnswer();doneSet.add(key(curEx,curQ));gradeAll();buildSidebar();clearInterval(playerTimerInt);showEnd();}
-function gradeAll(){playerExercises.forEach(function(ex){ex.questions.forEach(function(q,i){var k=key(ex.id,i);if(playerVerdicts[k])return;var ua=(playerAnswers[k]||'').trim().toLowerCase().replace(/\s/g,'');if(!ua)return;var ans=(q.answer||'').toLowerCase().replace(/\s/g,'');var ok=ans.indexOf(ua)!==-1||ua.indexOf(ans.slice(0,3))!==-1;playerVerdicts[k]=ok?'CORRECT':'INCORRECT';});});}
+function gradeAll(){playerExercises.forEach(function(ex){ex.questions.forEach(function(q,i){var k=key(ex.id,i);if(playerVerdicts[k])return;if(!(playerAnswers[k]||'').trim())return;playerVerdicts[k]=checkAnswer(playerAnswers[k],q);});});}
 function computeScore(){var earned=0,total=0,vc=0,ans=0,tot=0;playerExercises.forEach(ex=>{ex.questions.forEach((q,i)=>{tot++;var pts=+q.pts||0;total+=pts;if((playerAnswers[key(ex.id,i)]||'').trim()){ans++;var v=playerVerdicts[key(ex.id,i)]||'';if(v){vc++;if(v.indexOf('INCORRECT')===-1&&v.indexOf('PARTIEL')===-1&&v.indexOf('CORRECT')!==-1)earned+=pts;else if(v.indexOf('PARTIEL')!==-1)earned+=pts*0.5;}}});});var has=vc>0,s20=has?Math.min(20,Math.round((earned/total)*20*2)/2):null;return{answered:ans,total:tot,earned:Math.round(earned*10)/10,ptsTotal:Math.round(total*10)/10,score20:s20,has:has};}
 function updatePts(){var sc=computeScore(),pill=document.getElementById('ptsPill');if(!pill)return;var f=function(n){return String(n).replace('.',',');};if(sc.has&&sc.score20!==null){pill.innerHTML=f(sc.score20)+'/20';}else{pill.textContent='—/20';}}
 function showEnd(){
@@ -3697,7 +3983,7 @@ goTo('accueil');
 
 <script>
 (function(){
-  var HIDE={accueil:1,annales:1,fiches:1,parcours:1,checkout:1,'transfo-revision':1};
+  var HIDE={accueil:1,annales:1,fiches:1,parcours:1,checkout:1,inscription:1,'transfo-revision':1};
   var lastY=0,ticking=false;
   function page(){return document.body.getAttribute('data-page')||'accueil';}
   function isHide(p){return HIDE[p]||/^fiche/.test(p);}
